@@ -1,0 +1,185 @@
+================================================================================
+SUBJECT: math
+TOTAL PAGES: 4
+EXTRACTED ON: 2026-03-07 16:17:41
+================================================================================
+
+
+================================================================================
+PAGE 1 - page_0001.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+دولة ليبيا
+وزارة التربية والتعليم
+مركز المناهج التعليمية والبحوث التربوية
+
+الرياضيات
+
+للسنة الثالثة من مرحلة التعليم الثانوي
+القسم العلمي
+
+2024-2025 م
+1445-1446 هـ
+
+------------PAGE TALK ABOUT------------
+This is the cover page of a mathematics textbook for Libyan secondary education. The page features:
+
+1. **Header**: The Libyan flag (red, black, and green horizontal stripes with a white crescent and star) appears at the top, followed by official government text in Arabic identifying this as a publication from the State of Libya, Ministry of Education and Training, and the Center for Educational Curricula and Educational Research.
+
+2. **Main Title**: The word "الرياضيات" (Mathematics) is prominently displayed in large, bold Arabic text in the center of the page.
+
+3. **Subtitle**: Below the main title, there is text indicating this textbook is "للسنة الثالثة من مرحلة التعليم الثانوي" (For the third year of secondary education stage) and "القسم العلمي" (Scientific Section/Stream).
+
+4. **Date**: At the bottom of the page, the academic year is listed in both Gregorian (2024-2025) and Hijri (1445-1446) calendars.
+
+The page has a clean, formal design typical of official educational materials, with all text in Arabic and centered alignment throughout.
+
+
+================================================================================
+PAGE 2 - page_0002.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+جميع الحقوق محفوظة: لايجوز نشر أي جزء من هذا الكتاب، أوتخزينه،
+أوتسجيله، أوتصويره بأيت وسيلت داخل ليبيا دون موافقت خطيت من
+إدارة المناهج بمركز المناهج التعليميت والبحوث التربويت بليبيا.
+
+------------PAGE TALK ABOUT------------
+This page contains a copyright notice written in Arabic. The text is centered on a white background and appears to be a standard copyright protection statement.
+
+The notice states that all rights are reserved and prohibits:
+- Publishing any part of this book
+- Storing it
+- Recording it
+- Photographing it by any means within Libya
+
+All such actions are forbidden without written permission from the Curriculum Management at the Center for Educational Curricula and Educational Research in Libya.
+
+This is a typical copyright page that would appear at the beginning of an educational textbook or publication from Libya, protecting the intellectual property rights of the material contained within.
+
+
+================================================================================
+PAGE 3 - page_0003.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+مُقَدِّمَة
+
+تركز سلسلة رياضيات التعليم الأساسي والثانوي على دمج مهارات التفكير، وتناقش المعلومات والتربية الوطنية ضمن تعليم وتعلّم الرياضيات. وتتكون السلسلة من ثلاثة كُتُب للشق الثاني من مرحلة التعليم الأساسي، وثلاثة كُتُب للصفوف الثلاثة من مرحلة التعليم الثانوي. وقد رُتِّبت المادة ترتيباً تربوياً سليماً يدعم فيه التفكير المجرد بأمثلة ملموسة، تساعد الطلبة على فهم الحلول التي تم التوصل إليها جزئياً بشكل أفضل.
+
+وقد روعي تقديم المفاهيم الواحد تلو الآخر لكي يستوعبها الطلبة بسهولة، وعُزِّز فهم المفاهيم بالاستخدام الحكيم للأمثلة المحلولة والتدريبات متدرجة الصعوبة. تُركِّز كُتُب مرحلة التعليم الأساسي على إتقان وتطبيق المهارات الأساسية بحيث، يَكُون أساس سليم للدراسات التالية. وتتضمن المهارات الأساسية التقدير، والحسابات الذهنية، ومعالجة البيانات. وتُستخدم في كُلِّ جزء من السلسلة أنشطة لإرشاد الطلبة في كيفية استخدام مهارات التفكير مثل الاستقراء، ولاكتشاف القوانين والنظريات الرياضية بأنفسهم. وليتعرفوا كذلك على كيفية استخدام برامج الحاسوب في عدد من الأنشطة.
+
+ويتم حث الطلبة من خلال نشاطات وأمثلة محلولة مناسبة على استخدام استراتيجيات حل المشكلات، وتشجيع التعلم الذاتي مثل التقدير، وبناء النموذج، وإنشاء الجدول، وإعداد القائمة التنظيمية، والعمل إلى الخلف، واستخدام المعادلات، وتبسيط المشكلة، وتُستخدم حيثما أمكن الأشكال البيانية لتذليل صعوبة المشكلات اللفظية ولجعلها أكثر طواعية للحل.
+
+ولجعل الطلبة بالفون الكتب قبل استخدامها، نورد فيما يلي الملامح المميزة لهذه السلسلة.
+✤ يبدأ كُلّ فصل بـ"مُقَدِّمة" قصيرة عن الموضوع، تتلوها قائمة بنواتج التعلم يمكن للطلبة استخدامها في تأكيد ما تعلموه بنهاية كُلّ فصل من الكتاب.
+ونأمل أن تُساعد المادة المُقَدَّمة في السلسلة الطلبة على تقدير أهمية وقدرة الرياضيات في نشاطاتهم اليومية، وربما في مهنتهم المستقبلية، وأن يستمتعوا باستخدام سلسلة الرياضيات التعليم الأساسي والثانوي.
+✤ يُقَدَّم للطلبة "أمثلة محلولة" لتعزيز فهم المفاهيم ولتعريفهم بأنواع عديدة من المسائل، بما فيها التي تُساعدهم على مراقبة تفكيرهم الذاتي.
+
+تتضمن "التمرينات متدرجة الصعوبة" أسئلة مناسبة لمدى واسع من القدرات، وصُمِّمت الأسئلة بشكل يجعل الطلبة يستخدمون التفكير بالمنطق الاستدلالي والاستقرائي لحل المشكلات الرياضية. (ويمكن أن يختار المعلمون مسائل مختلفة للطلبة من ذوي القدرات المختلفة).
+
+------------PAGE TALK ABOUT------------
+This page is an introduction (مُقَدِّمَة - "Muqaddimah") to a mathematics textbook series for basic and secondary education. The text is written entirely in Arabic and describes the pedagogical approach and structure of the mathematics curriculum.
+
+**Main Content:**
+
+The introduction explains that the mathematics series focuses on:
+- Integrating thinking skills
+- Discussing information and national education within mathematics teaching and learning
+- The series consists of three books for the second part of basic education and three books for the three grades of secondary education
+- Material is arranged in a sound educational sequence that supports abstract thinking with concrete examples
+
+**Key Features Described:**
+
+1. **Conceptual Presentation:** Concepts are introduced one at a time for easier student comprehension, reinforced with solved examples and graduated difficulty exercises.
+
+2. **Skills Development:** Basic education books focus on mastering fundamental skills including estimation, mental calculations, and data processing.
+
+3. **Problem-Solving Strategies:** Students are encouraged to use various strategies such as estimation, model building, creating tables, organizing lists, working backwards, using equations, and simplifying problems.
+
+4. **Book Structure:** Each chapter begins with a brief introduction about the topic, followed by a list of learning outcomes that students can use to confirm what they have learned.
+
+5. **Differentiation:** Exercises include questions suitable for a wide range of abilities, designed to make students use deductive and inductive reasoning to solve mathematical problems.
+
+The page has a clean, professional layout with Arabic text formatted in a clear, readable font. There are no images, diagrams, or charts on this page—it is purely textual content serving as a preface to the mathematics textbook series.
+
+
+================================================================================
+PAGE 4 - page_0004.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+
+الرموز الرياضيّة
+
+نظام الوحدات العالميّة Si Units
+
+يستخدم نظام الوحدات العالميّة سبع وحدات أساسيّة وتشتقّ جميع الوحدات الأخرى من هذه الوحدات
+الأساسيّة بضرب أوقسمة وحدة بـ وحدة أخرى.
+
+| رمز الوحدة | اسم الوحدة الأساسيّة | الكميّة الفيزيائيّة |
+|------------|---------------------|---------------------|
+| م | متر | الطول |
+| كجم | كيلوجرام | الكتلة |
+| ث | الثانية | الزمن |
+| ام | امبير | التيار الكهربائي |
+| ك | كيلفن | درجات حرارة الترمومتر |
+| شمّ | شمعة | شدة الإضاءة |
+| مل | مول | كميّة المادة |
+
+بعض جداول التحويل Some Conversion Tables
+
+الطول:
+10 مليمتر(مم) = 1 سم
+10 سنتيمتر(سم) = 1 ديسيمتر(دس)
+10 ديسيمتر(دس) = 1 متر(م)
+10 متر(دس) = 1 ديكامتر(دام)
+10 ديكامتر(دام) = 1 هيكتومتر(هكم)
+10 هيكتومتر(هكم) = 1 كيلومتر(كم)
+
+المساحة:
+1 هكتار = 10000 م²
+100 هكتار = 1 كم²
+
+الحجم والسعة:
+1000 مل = 1 لتر
+1 مل = 1 سم³
+
+الزمن:
+الدقيقة(ق) = 60 ثانية(ث)
+الساعة = 60 دقيقة(ق)
+1 يوم = 24 ساعة
+1 عام = 365 يوم
+1 سنة كبيسة = 366 يوم
+
+الكتلة:
+10 مليجرام(مج) = 1 سنتيجرام(سنجم)
+10 سنتيجرام(سنجم) = 1 ديسيجرام(دس)
+10 ديسيجرام = 1 جرام
+10 جرام = 1 ديكاجرام
+10 ديكاجرام = 1 هيكتوجرام
+10 هيكتوجرام = 1 كيلوجرام
+1000 كيلوجرام = 1 طن
+
+------------PAGE TALK ABOUT------------
+
+This page is an educational reference sheet about mathematical symbols and measurement units in Arabic. It contains two main sections:
+
+**Section 1: SI Units (International System of Units)**
+The page presents a table showing the seven base SI units with three columns:
+- Unit symbol (in Arabic letters: م, كجم, ث, ام, ك, شمّ, مل)
+- Base unit name in Arabic (متر, كيلوجرام, الثانية, امبير, كيلفن, شمعة, مول)
+- Physical quantity measured (length, mass, time, electric current, thermometer temperature, luminous intensity, amount of substance)
+
+**Section 2: Conversion Tables**
+The page provides comprehensive conversion tables for various measurement categories:
+
+1. **Length (الطول)**: Conversions from millimeters to kilometers using metric prefixes
+2. **Area (المساحة)**: Hectare and square kilometer conversions
+3. **Volume and Capacity (الحجم والسعة)**: Milliliter to liter conversions and cubic centimeter equivalents
+4. **Time (الزمن)**: Conversions between seconds, minutes, hours, days, years, and leap years
+5. **Mass (الكتلة)**: Conversions from milligrams to tons using metric prefixes
+
+The layout is clean and organized, with clear headers in both Arabic and English, making it a useful quick-reference guide for students studying measurements and unit conversions.
+
