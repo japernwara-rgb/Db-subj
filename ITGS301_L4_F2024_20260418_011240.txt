@@ -1,0 +1,420 @@
+================================================================================
+SUBJECT: ITGS301_L4_F2024_20260418_011240
+TOTAL PAGES: 12
+EXTRACTED ON: 2026-04-18 00:22:51
+================================================================================
+
+
+================================================================================
+PAGE 1 - page_0001.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+جامعة طرابلس - كلية تقنية المعلومات
+
+Design and Analysis Algorithms  
+تصميم وتحليل خوارزميات
+
+ITGS301
+
+Lecture 4 :المحاضرة الرابعة
+
+خريف 2024
+
+The Problem Of Sorting
+
+1
+
+------------PAGE TALK ABOUT------------
+الصفحة تعرض غلاف محاضرة من مقرر تصميم وتحليل الخوارزميات ITGS301 بجامعة طرابلس - كلية تقنية المعلومات، وهي المحاضرة الرابعة لفصل خريف 2024.  
+كما يظهر عنوان بداية الموضوع الرئيسي للمحاضرة وهو: The Problem Of Sorting، أي مشكلة الترتيب أو الفرز.  
+تتضمن الصفحة عناصر تصميمية مثل شعاري الجامعة/الكلية، شريطًا أخضر أعلى الشرائح، إطارًا رماديًا عريضًا، ووجهاً مبتسماً صغيراً في الشريحة الأولى.
+
+
+================================================================================
+PAGE 2 - page_0002.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+Sorting
+
+• Sorting is one of the most common data processing applications ,
+  the through which data are arranged according to their values.
+
+• If data were not ordered , we would spend hours trying to find a
+  single piece of information.
+
+• Data may be sorted in either ascending sequence or
+  descending sequence . and if the order of the sort is
+  not specified its assumed to be ascending..
+
+2
+
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن مفهوم **الفرز (Sorting)** في معالجة البيانات، وأنه من أكثر العمليات شيوعًا لتنظيم البيانات حسب قيمها.  
+توضح أيضًا أهمية ترتيب البيانات لتسهيل الوصول السريع إلى المعلومات بدلًا من إضاعة الوقت في البحث.  
+كما تشرح أن الفرز يكون إما **تصاعديًا** أو **تنازليًا**، وإذا لم يُذكر نوع الترتيب فغالبًا يُفترض أنه تصاعدي.  
+بصريًا، الصفحة تحتوي على شريحتين عرض بعنوان أخضر، مع إطار رمادي سميك ورقم الصفحة **2** أسفل اليمين.
+
+
+================================================================================
+PAGE 3 - page_0003.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+Example: Sorting Playing Cards
+
+Let us start with a playing card example.
+Imagine being handed one card at a time. You take the first card in your hand. Then you sort the second card to the left or right of it. The third card is placed to the left, in between or to the right, depending on its size. And also, all the following cards are placed in the right position.
+
+Insertion Sort
+
+• In the insertion sort , the list is divided in two parts : sorted and unsorted.
+
+• In each pass the first element of the unsorted sub list is transferred to the sorted sub list by inserting it at appropriate place.
+
+• If we have a list of n elements , it will take at most n-1 passes to sort the data.
+
+3
+
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن خوارزمية **Insertion Sort** باستخدام مثال ترتيب أوراق اللعب لتوضيح الفكرة.  
+تشرح أن العناصر تُقسم إلى جزأين: جزء مرتب وآخر غير مرتب، وفي كل خطوة يتم أخذ أول عنصر من الجزء غير المرتب وإدخاله في مكانه الصحيح داخل الجزء المرتب.  
+كما تذكر أن قائمة من **n** عناصر تحتاج بحد أقصى إلى **n-1** تمريرات لإتمام الترتيب.  
+يوجد رسم توضيحي ليد تمسك عدة أوراق لعب مع ورقة منفصلة، لشرح كيفية إدراج كل ورقة في موضعها المناسب أثناء الترتيب.
+
+
+================================================================================
+PAGE 4 - page_0004.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+Insertion Sort Algorithm
+
+Let's move from the card example to the computer algorithm. Let us assume
+we have an array with the elements [6, 2, 4, 9, 3, 7]. This array should be
+sorted with Insertion Sort in ascending order.
+Step 1
+
+First, we divide the array into a
+left, sorted part, and a right,
+unsorted part. The sorted part
+already contains the first element
+at the beginning, because an
+array with a single element can
+always be considered sorted.
+
+6 2 4 9 3 7
+
+6 2 4 9 3 7
+Sorted
+Unsorted
+
+Step 2
+
+Then we look at the first element of the unsorted area and check where, in the
+sorted area, it needs to be inserted by comparing it with its left neighbor.
+In the example, the 2 is smaller than the 6, so it belongs to its left. In order to
+make room, we move the 6 one position to the right and then place the 2 on
+the empty field. Then we move the border between sorted and unsorted area
+one step to the right:
+
+6 2 4 9 3 7
+
+2 6 4 9 3 7
+
+4
+
+------------PAGE TALK ABOUT------------
+تشرح الصفحة خوارزمية الترتيب بالإدراج (Insertion Sort) باستخدام المثال [6, 2, 4, 9, 3, 7] للترتيب التصاعدي.  
+في الخطوة 1 يتم تقسيم المصفوفة إلى جزء مرتب على اليسار وجزء غير مرتب على اليمين، مع اعتبار أول عنصر (6) مرتبًا مبدئيًا.  
+في الخطوة 2 يتم أخذ أول عنصر من الجزء غير المرتب وهو 2، ثم مقارنته مع 6 وإدراجه قبله بعد تحريك 6 إلى اليمين.  
+تتضمن الصفحة رسومات أعمدة تمثل القيم، مع خط فاصل بين الجزء المرتب وغير المرتب وأسهم توضح عملية النقل والإدراج.
+
+
+================================================================================
+PAGE 5 - page_0005.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+Step 3
+
+We look again at the first element of the unsorted area, the 4. It is smaller than the 6, but not smaller than the 2 and, therefore, belongs between the 2 and the 6. So we move the 6 again one position to the right and place the 4 on the vacant field:
+
+2 6 4 9 3 7
+
+2 4 6 9 3 7
+
+Step 4
+
+The next element to be sorted is the 9, which is larger than its left neighbor 6, and thus larger than all elements in the sorted area. Therefore, it is already in the correct position, so we do not need to shift any element in this step:
+
+2 4 6 9 3 7
+
+2 4 6 9 3 7
+
+✓
+
+5
+
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن شرح خوارزمية الترتيب بالإدراج (Insertion Sort) من خلال الخطوتين 3 و4.  
+في الخطوة 3 يتم إدراج العدد 4 في مكانه الصحيح بين 2 و6 بعد تحريك 6 إلى اليمين، لتصبح السلسلة: 2 4 6 9 3 7.  
+في الخطوة 4 يتم فحص العدد 9، وبما أنه أكبر من 6 فهو بالفعل في موضعه الصحيح ولا يحدث أي تحريك.  
+تتضمن الصفحة رسومات أعمدة ملوّنة مع أسهم وخط فاصل منقط يوضح الجزء المرتب والجزء غير المرتب من القائمة، بالإضافة إلى علامة صح في الخطوة 4.
+
+
+================================================================================
+PAGE 6 - page_0006.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+Step 5
+
+The next element is the 3, which is smaller than the 9, the 6 and the 4, but greater than the 2. So we move the 9, 6 and 4 one position to the right and then put the 3 wh
+
+2 4 6 9 3 7
+
+2 3 4 6 9 7
+
+Step 6
+
+That leaves the 7 – it is smaller than the 9, but larger than the 6, so we move the 9 one field to the right and place the 7 on the vacant position:
+
+2 3 4 6 9 7
+
+2 3 4 6 7 9
+
+6
+
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن خطوات من خوارزمية الترتيب بالإدراج (Insertion Sort)، وتحديدًا الخطوتين 5 و6 لإكمال ترتيب الأرقام تصاعديًا.  
+في الخطوة 5 يتم إدراج الرقم 3 في مكانه الصحيح بين 2 و4 بعد إزاحة 4 و6 و9 إلى اليمين.  
+في الخطوة 6 يتم إدراج الرقم 7 بين 6 و9 بعد تحريك 9 خانة واحدة إلى اليمين.  
+تتضمن الصفحة رسومات أعمدة وأسهم توضح حركة العناصر قبل وبعد الإدراج، مع خط متقطع يحدد موضع الإدراج.
+
+
+================================================================================
+PAGE 7 - page_0007.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+InsertionSort(A, n) {
+    for i = 2 to n {
+        key = A[i]
+        j = i - 1;
+        while (j > 0) and (A[j] > key) {
+            A[j+1] = A[j]
+            j = j - 1
+        }
+        A[j+1] = key
+
+    }
+}
+
+InsertionSort( A, n)
+{
+For i = 2 to n {
+
+Key = A[i]
+j= i - 1
+
+While ( j > 0) and (A[i] > key)
+{
+A[j+1] = A[j]
+j = j - 1
+}
+
+A [ j+1] = key
+}
+
+8   2   4   1   3
+
+7
+
+------------PAGE TALK ABOUT------------
+الصفحة تشرح خوارزمية **Insertion Sort** من خلال عرض شبه كود مرتب في الأعلى ثم نسخة ملوّنة ومشروحة في الأسفل.  
+توضح الخطوات الأساسية: اختيار العنصر الحالي `key`، ثم مقارنة العناصر السابقة وتحريك الأكبر منها إلى اليمين، وأخيرًا إدراج `key` في مكانه الصحيح.  
+يوجد أيضًا شكل بصري لمصفوفة تحتوي القيم **8, 2, 4, 1, 3** مع خط عمودي يبيّن موضع الفصل أو العنصر الجاري معالجته.  
+التصميم يبدو كشرائح عرض تعليمية، مع أشرطة ملوّنة أعلى كل شريحة وإطار رمادي حول المحتوى.
+
+
+================================================================================
+PAGE 8 - page_0008.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+Example 1 :
+
+8  2  4  1  3
+
+8  2  4  1  3
+key=2
+
+8  8  4  1  3
+key=2
+
+2  8  4  1  3
+Sorted
+UnSorted
+
+2  8  4  1  3
+
+2  8  8  1  3
+
+2  4  8  1  3
+key=1
+
+8
+
+------------PAGE TALK ABOUT------------
+توضح الصفحة مثالًا عمليًا لخطوات خوارزمية الترتيب بالإدراج (Insertion Sort) على المصفوفة: 8، 2، 4، 1، 3.  
+تُظهر الرسومات كيف يتم اختيار المفتاح key ثم إزاحة العناصر الأكبر منه إلى اليمين لإدخاله في مكانه الصحيح.  
+في الجزء الأول يتم إدراج 2 قبل 8، ثم في الجزء الثاني يتم التعامل مع 4 ليصبح الجزء المرتب مرتبًا: 2، 4، 8.  
+توجد مخططات صناديق متتالية تميز الجزء المرتب والجزء غير المرتب مع خطوط سفلية وعناصر مظللة لتوضيح الحركة.
+
+
+================================================================================
+PAGE 9 - page_0009.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+key=1
+
+key=1
+
+key=3
+
+Sorted
+
+9
+
+------------PAGE TALK ABOUT------------
+الصفحة تشرح خطوات فرز مصفوفة أرقام بشكل تدريجي حتى الوصول إلى الترتيب النهائي.  
+تظهر عدة صفوف من المربعات تحتوي القيم: 2، 4، 8، 8، 3 ثم تتحول عبر خطوات وسيطة مثل 2 4 4 8 3 و 1 2 4 8 3.  
+في الجزء السفلي تظهر المصفوفة تقترب من الشكل النهائي: 1 2 4 8 8 ثم 1 2 4 4 8 وأخيرًا 1 2 3 4 8 مع كلمة Sorted.  
+هناك تمييز لعنصر محدد بخط أسفل بعض الخانات، مع وجود شريط أخضر أعلى الشكل وإطار رمادي يحيط بالمحتوى.
+
+
+================================================================================
+PAGE 10 - page_0010.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+Time Complexity
+
+For i=2 to n {                              n  
+    Key= A [i]                              n-1  
+    j=i-1                                   n-1  
+    While (j>0 & A [j] > key) {             ∑ᶰᵢ₌₂ tᵢ  
+        A [j+1] = A [j]                     ∑ᶰᵢ₌₂ (tᵢ − 1)  
+        j=j-1                               ∑ᶰᵢ₌₂ (tᵢ − 1)  
+    }  
+    A [j+1] = key                           n-1  
+}
+
+where t is the number of while tests
+
+Number of times inner-loop is executed depends on the input
+
+The worst case scenario for Insertion Sort is if the array is already sorted, but with the highest values first. That is because in such a scenario, every new value must "move through" the whole sorted part of the array.
+
+These are the operations that are done by the Insertion Sort algorithm for the first elements:
+
+•The 1st value is already in the correct position.  
+•The 2nd value must be compared and moved past the 1st value.  
+•The 3rd value must be compared and moved past two values.  
+•The 3rd value must be compared and moved past three values.  
+•And so on..
+
+If we continue this pattern, we get the total number of operations for n values:
+
+1+2+3+...+(n-1)
+
+∑ⁿₖ₌₁ k = 1+2+...+n = n(n+1)/2
+
+10
+
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن تحليل التعقيد الزمني لخوارزمية Insertion Sort، مع عرض شبه الكود وعدد مرات تنفيذ كل سطر.  
+توضح أن عدد مرات تنفيذ الحلقة الداخلية يعتمد على ترتيب عناصر الإدخال، لذلك الأداء يتغير حسب الحالة.  
+كما تشرح أسوأ حالة عندما تكون المصفوفة مرتبة ترتيبًا عكسيًا، حيث يتحرك كل عنصر عبر الجزء المرتب سابقًا.  
+يوجد عرض بصري على شكل شريحتين: الأولى فيها الكود مع صيغ الجمع، والثانية فيها شرح نصي وتسلسل 1+2+3+... مع معادلة المجموع التي تقود إلى التعقيد التربيعي O(n²).
+
+
+================================================================================
+PAGE 11 - page_0011.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+Time Complexity
+
+| Statement | Time | Best case | Worst case |
+|---|---|---|---|
+| For i = 2 to n { | n | n | n |
+| Key = A[i] | n-1 | n-1 | n-1 |
+| j = i - 1 | n-1 | n-1 | n-1 |
+| While ( j > 0 ) and (A[j] > key) | \(\sum_{i=2}^{n} (ti)\) | n-1 | \(n(n+1)/2 - 1\) |
+| A[j+1] = A[j] | \(\sum_{i=2}^{n} (ti - 1)\) | \(\sum_{i=2}^{n} (1 - 1) = 0\) | \(n(n-1)/2\) |
+| j = j - 1 | \(\sum_{i=2}^{n} (ti - 1)\) | \(\sum_{i=2}^{n} (1 - 1) = 0\) | \(n(n-1)/2\) |
+| A[ j+1] = key | n-1 | n-1 | n-1 |
+
+\(\sum_{i=2}^{n} ti = n - 1\)
+
+\(\sum_{i=2}^{n} (ti - 1) = 0\)
+
+Best case running time:
+
+T(n) = n + (n-1) + (n-1) + (n-1) + 0 + 0 + (n-1)  
+  = 5n - 4
+
+T(n) = O (n)
+
+Worst case running time:
+
+T(n) = n + (n-1) + (n-1) + ((n(n+1)/2) - 1) + n(n-1)/n + n(n-1)/2 + (n-1)
+
+T(n) = O (n²)
+
+\(\sum_{j=2}^{n} j = \dfrac{n(n+1)}{2} - 1\)
+
+and
+
+\(\sum_{j=2}^{n} (j - 1) = \dfrac{n(n-1)}{2}\)
+
+\(\sum_{i=2}^{n} ti = n(n+1)/2\)
+
+\(\sum_{i=2}^{n} (ti - 1) = n(n-1)/2\)
+
+11
+
+------------PAGE TALK ABOUT------------
+الصفحة تشرح تحليل التعقيد الزمني لخوارزمية **Insertion Sort** من خلال جدول يبين عدد مرات تنفيذ كل تعليمة في الحالة المثلى والأسوأ.  
+توضح أن أفضل حالة تحدث عندما تكون المصفوفة مرتبة مسبقًا، فيكون الزمن \(O(n)\)، بينما أسوأ حالة عندما تكون مرتبة عكسيًا ويصبح الزمن \(O(n^2)\).  
+يوجد جدول منظم بأعمدة: Statement وTime وBest case وWorst case، ثم في الجزء السفلي اشتقاق رياضي باستخدام المجاميع \(\Sigma\) لحساب عدد التكرارات.  
+العناصر البصرية عبارة عن شريحتين عرض تعليمي بإطار رمادي وعناوين خضراء، مع معادلات باللون الأزرق ونتائج التعقيد باللون الأحمر.
+
+
+================================================================================
+PAGE 12 - page_0012.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+Summary
+
+Insertion Sort is an easy-to-implement, stable sorting algorithm with time
+complexity of O(n²) in the average and worst case, and O(n) in the best case.
+•It could be used in sorting small lists.
+•It could be used in sorting "almost sorted" lists.
+•It could be used to sort smaller sub problem in Quick Sort.
+
+The End .
+
+12
+
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن ملخص لخوارزمية Insertion Sort، موضحة أنها خوارزمية مستقرة وسهلة التنفيذ.  
+تذكر تعقيدها الزمني: O(n²) في الحالة المتوسطة والأسوأ، و O(n) في أفضل حالة.  
+كما توضّح استخداماتها مثل فرز القوائم الصغيرة، والقوائم شبه المرتبة، والمسائل الفرعية الصغيرة داخل Quick Sort.  
+بصريًا، تحتوي الصفحة على شريحتين: الأولى بعنوان "Summary"، والثانية ختامية مكتوب فيها "The End ." مع وجه مبتسم.
+
