@@ -1,0 +1,812 @@
+================================================================================
+SUBJECT: Lecture1_20260417_202347
+TOTAL PAGES: 24
+EXTRACTED ON: 2026-04-17 19:28:58
+================================================================================
+
+
+================================================================================
+PAGE 1 - page_0001.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+C & Data Structures
+
+Chapter 1: Address, Pointers, Arrays, and Structures
+
+Dr. Amna Ali A Mohamed
+
+Faculty of information technology
+
+------------PAGE TALK ABOUT------------
+هذه الصفحة هي غلاف أو مقدمة لمادة **C & Data Structures**، وتحديدًا **الفصل الأول** الذي يتناول: العناوين في الذاكرة، المؤشرات، المصفوفات، والتراكيب في لغة C.  
+كما يظهر اسم الدكتورة **Amna Ali A Mohamed** وانتماؤها إلى **Faculty of information technology**.  
+يوجد على يمين الصفحة رسم لشجرة بيانات (Tree) بعُقد مرقمة مثل 60 و53 و3 وغيرها، مع أسهم توضح العلاقات بين العقد، بالإضافة إلى شكل صغير يشير إلى مفهوم المؤشر أو العنوان.
+
+
+================================================================================
+PAGE 2 - page_0002.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+Introduction
+
+What Do We Mean by Data?
+
+Data in programming functions like nouns, which are objects that store and represent information.
+
+These objects could be numbers, text, or complex structures like lists and databases.
+
+Actions on data are the verbs, representing operations that manipulate the data. These include actions like:
+
+• Adding new data (inserting elements into a list or database).
+• Deleting unnecessary or outdated data.
+• Reading data from a file or database.
+• Writing data to a file or memory.
+
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن مقدمة لمفهوم البيانات في البرمجة، وتوضح أن البيانات تشبه الأسماء لأنها تمثل أشياء تخزن المعلومات.  
+كما تشرح أن البيانات قد تكون أرقامًا أو نصوصًا أو تراكيب معقدة مثل القوائم وقواعد البيانات.  
+وتعرض أيضًا أن العمليات على البيانات تشبه الأفعال، مثل الإضافة والحذف والقراءة والكتابة.  
+العنصر البصري عبارة عن شريحة نصية تعليمية بسيطة بخلفية بيضاء وعناوين بارزة بالخط العريض دون صور أو مخططات.
+
+
+================================================================================
+PAGE 3 - page_0003.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+Introduction (Cont.)
+
+Understanding Data Representation
+
+Computers store data as sequences of bits (0s and 1s), but human-
+readable formats are more abstract.
+
+For instance:
+
+• A single integer is stored as binary but is represented in decimal for
+  human understanding.
+
+• A character is stored using encoding schemes like ASCII or Unicode
+  but appears as a readable letter.
+
+• A list (array) is stored in contiguous memory locations but is
+  displayed as a structured collection of values.
+
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن تمثيل البيانات داخل الحاسوب وكيف تُخزن فعليًا على شكل بتات 0 و1، بينما تظهر للمستخدم بصيغ أسهل للفهم.  
+توضح أمثلة على ذلك: الأعداد الصحيحة تُخزن ثنائيًا وتُعرض عشريًا، والحروف تُخزن بترميزات مثل ASCII وUnicode.  
+كما تشرح أن القوائم أو المصفوفات تُخزن في مواقع متجاورة في الذاكرة لكنها تُعرض كمجموعة منظمة من القيم.  
+العنصر البصري عبارة عن شريحة نصية تعليمية فقط، بدون صور أو مخططات، مع عنوان كبير ونقاط تعداد.
+
+
+================================================================================
+PAGE 4 - page_0004.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+1. Data Abstraction
+
+Data abstraction is the process of separating the physical storage of data from how it is used in a program.
+
+It allows programmers to work with high-level data structures (such as arrays, linked lists, and trees) without needing to understand the underlying memory details.
+
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن مفهوم **تجريد البيانات** في البرمجة، وهو فصل طريقة تخزين البيانات فعليًا عن طريقة استخدامها داخل البرنامج.  
+توضح أن هذا المفهوم يساعد المبرمجين على التعامل مع هياكل بيانات عالية المستوى مثل المصفوفات والقوائم المرتبطة والأشجار بسهولة.  
+كما تشير إلى أن المبرمج لا يحتاج لمعرفة تفاصيل الذاكرة الداخلية عند استخدام هذه الهياكل.  
+العنصر البصري في الصفحة عبارة عن شريحة بسيطة بخلفية بيضاء ونص أسود كبير مع عنوان رئيسي واضح في الأعلى.
+
+
+================================================================================
+PAGE 5 - page_0005.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+1. Data Abstraction (Cont.)
+
+Key Benefit of Data Abstraction
+
+• Simplifies programming by allowing a focus on logic rather than implementation details.
+
+• Enables the design of scalable and modular programs.
+
+• Supports the creation of reusable components that can work across different hardware and software platforms.
+
+Data Abstraction: Data abstraction hides the physical representation of data and only exposes logical operations.
+
+• Example: An integer is represented differently across computers, yet operations remain the same.
+
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن مفهوم **تجريد البيانات** وفوائده في البرمجة.  
+توضح أنه يساعد المبرمج على التركيز على منطق البرنامج بدل تفاصيل التنفيذ الداخلية.  
+كما تشير إلى أنه يدعم بناء برامج **قابلة للتوسع** و**مقسمة إلى وحدات** مع مكونات قابلة لإعادة الاستخدام.  
+يوجد مثال يبين أن تمثيل العدد الصحيح قد يختلف بين الأجهزة، لكن العمليات عليه تبقى نفسها.
+
+
+================================================================================
+PAGE 6 - page_0006.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+2. Data Structures
+
+Definition: A structured way to store and organize data efficiently.
+
+Example:
+
+A library organizes books logically for easy access.
+
+Difference between Abstract Data Type (ADT) and Data Structure:
+○ ADT defines the logical view.
+○ Data Structure provides an actual implementation.
+
+[Top-right image]
+Leaves of Grass
+Software Engineering in ADA
+Programming in c++
+Biology Today
+C++ Plus
+INTRODUCTION TO CALCULUS
+Gone with the Wind
+HUMAN ANATOMY
+Programming Proverbs
+Adventures in Algebra
+SIMPLY STATISTICS
+Relational Databases
+Romeo and Juliet
+All over the place (Unordered)
+
+[Middle-right image]
+Adventures in Algebra
+Biology Today
+Gone with the Wind
+HUMAN ANATOMY
+INTRODUCTION TO CALCULUS
+Leaves of Grass
+Programming Proverbs
+Programming in c++
+Relational Databases
+Romeo and Juliet
+SIMPLY STATISTICS
+Software Engineering in ADA
+Alphabetical order by title
+
+[Bottom-right image]
+C++ Plus
+Programming in c++
+Relational Databases
+Software Engineering in ADA
+Programming Proverbs
+SIMPLY STATISTICS
+INTRODUCTION TO CALCULUS
+Adventures in Algebra
+Biology Today
+HUMAN ANATOMY
+Romeo and Juliet
+Leaves of Grass
+Gone with the Wind
+Computer Science
+Math
+Biology
+Literature
+Ordered by subject
+
+------------PAGE TALK ABOUT------------
+الصفحة تشرح مفهوم هياكل البيانات بأنها طريقة منظمة لتخزين البيانات وترتيبها بكفاءة، مع مثال تشبيه المكتبة التي ترتب الكتب لتسهيل الوصول إليها.  
+كما توضح الفرق بين ADT و Data Structure، حيث إن ADT يمثل الوصف أو المنظور المنطقي، بينما Data Structure هو التطبيق الفعلي لهذا الوصف.  
+الرسومات على اليمين تعرض كتبًا مرتبة بثلاث حالات: غير مرتبة، مرتبة أبجديًا حسب العنوان، ومرتبة حسب الموضوع.  
+الهدف من الصور هو توضيح كيف أن التنظيم الجيد يجعل الوصول إلى البيانات أسهل وأوضح.
+
+
+================================================================================
+PAGE 7 - page_0007.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+3. Overview of Data Structures
+
+| Data Structure | Strengths | Weaknesses |
+|---|---|---|
+| Arrays | Fast access | Fixed size |
+| Linked Lists | Dynamic size | Slower access |
+| Stacks | Easy LIFO operations | Limited access |
+| Queues | FIFO processing | Limited access |
+| Trees | Hierarchical organization | Complex implementation |
+| Hash Tables | Fast lookups | Potential collisions |
+
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن نظرة عامة على هياكل البيانات الأساسية ومقارنة سريعة بينها.  
+يوجد جدول بثلاثة أعمدة: اسم هيكل البيانات، نقاط القوة، ونقاط الضعف.  
+يعرض أمثلة مثل Arrays وLinked Lists وStacks وQueues وTrees وHash Tables مع ميزة وعيب لكل نوع.  
+التصميم بصريًا عبارة عن شريحة تعليمية بسيطة تحتوي عنوانًا كبيرًا في الأعلى وجدولًا منظمًا في المنتصف بخلفيات رمادية متناوبة.
+
+
+================================================================================
+PAGE 8 - page_0008.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+C Language
+
+1. Address & Memory Allocation  
+Each variable has:  
+• Value (data stored in memory).  
+• Address (location in memory).
+
+```c
+#include <stdio.h>
+int main() {
+    int i = 10;
+    printf("Address of i: %p\n", &i);
+    return 0;
+}
+```
+
+Explanation  
+Memory allocations to the variables can be explained using the following variables:  
+1. 100,i 10  
+2. 200, j 20  
+3. 300,k 30
+
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن مفهوم العنوان والذاكرة في لغة C، وأن كل متغير يملك قيمة مخزنة داخل الذاكرة وعنوانًا يحدد مكانه.  
+يوجد مثال برمجي يعرّف المتغير `i` بقيمة 10 ثم يطبع عنوانه باستخدام `&i` و`printf`.  
+كما تعرض الصفحة شرحًا مبسطًا لتخصيص الذاكرة عبر أمثلة لمتغيرات مثل `i` و`j` و`k` مع عناوين وقيم افتراضية.  
+بصريًا، تحتوي الصفحة على عنوان كبير "C Language"، ونقاط تعداد، وصورة لكود C، ونص شرح على الجهة اليمنى.
+
+
+================================================================================
+PAGE 9 - page_0009.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+1. Address & Memory Allocation
+
+Explanation  
+Memory allocations to the variables can be explained using the following  
+variables:  
+1. 100,i 10  
+2. 200, j 20  
+3. 300,k 30
+
+Points to Remember  
+• Each variable has two attributes: address and value.  
+• The address is the location in memory where the value of the variable is stored.  
+• During the lifetime of the variable, the address is not changed but the value may change.
+
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن مفهوم العنوان في الذاكرة وتخصيص الذاكرة للمتغيرات في البرمجة.  
+توضح أن كل متغير له خاصيتان أساسيتان: عنوان في الذاكرة وقيمة مخزنة داخله.  
+تعرض أمثلة لمتغيرات مثل i و j و k مع عناوين وقيم مختلفة لتوضيح الفكرة.  
+كما تؤكد أن عنوان المتغير يبقى ثابتًا أثناء حياته، بينما يمكن أن تتغير قيمته.
+
+
+================================================================================
+PAGE 10 - page_0010.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+2. Pointers
+
+• A pointer is a variable whose value is also an address. As described earlier, each variable has two attributes: address and value.
+
+• A variable can take any value specified by its data type.
+
+• For example, if the variable i is of the integer type, it can take any value permitted in the range specified by the integer data type.
+
+• A pointer to an integer is a variable that can store the address of that integer.
+
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن مفهوم المؤشرات (Pointers) في البرمجة، وأن المؤشر هو متغير يخزن عنوانًا في الذاكرة بدلًا من قيمة عادية فقط.  
+كما توضح أن كل متغير له خاصيتان: العنوان والقيمة، وأن نوع البيانات يحدد القيم الممكنة للمتغير.  
+وتعرض مثالًا على المتغير الصحيح integer، ثم تشرح أن مؤشر العدد الصحيح يمكنه تخزين عنوان هذا المتغير.  
+العنصر البصري الوحيد هو تنسيق شريحة عرض بعنوان كبير ونقاط تعداد، ولا توجد صور أو مخططات.
+
+
+================================================================================
+PAGE 11 - page_0011.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+2. Pointers (cont.)
+
+• A pointer stores the address of another variable.
+
+• Allows indirect access to a variable's value.
+
+```c
+#include <stdio.h>
+
+int main() {
+    int i = 10; // Declare integer variable
+
+    int *ia; // Declare pointer to integer I
+
+    ia = &i; // Assign address of i to ia
+
+    printf("The address of i is %p\n", ia); // Print address of Ia
+
+    printf("The value at that location is %d\n", *ia); // Print value using pointer
+
+    *ia = 50; // Modify value using pointer
+
+    printf("The value of i is %d\n", i); // Print updated value of i
+
+    return 0;
+}
+```
+
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن مفهوم المؤشرات (Pointers) في لغة C، وأنها تخزن عنوان متغير آخر وتسمح بالوصول غير المباشر إلى قيمته.  
+يوجد مثال برمجي يعرّف متغيرًا صحيحًا `i` ومؤشرًا `ia` يشير إليه باستخدام العامل `&`.  
+ثم يوضح كيفية طباعة العنوان باستخدام `%p`، وقراءة القيمة عبر فك الإشارة `*ia`، ثم تعديل قيمة `i` من خلال المؤشر إلى `50`.  
+العنصر البصري الأساسي هو صندوق كود برمجي داخل شريحة عرض تعليمية بعنوان كبير ونقطتين توضيحيتين أعلى المثال.
+
+
+================================================================================
+PAGE 12 - page_0012.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+2. Pointers (cont.)
+
+Syntax:
+
+Declare: int *ptr.
+
+Assign address: ptr = &var.
+
+Access value: *ptr (dereferencing).
+
+```c
+#include <stdio.h>
+
+int main() {
+    int i = 10; // Declare integer variable
+    int *ia; // Declare pointer to integer I
+    a = &i; // Assign address of i to ia
+
+    printf("The address of i is %p\n", ia); // Print address of I
+    printf("The value at that location is %d\n", *ia); // Print value using pointer
+
+    *ia = 50; // Modify value using pointer
+
+    printf("The value of i is %d\n", i); // Print updated value of i
+
+    return 0;
+}
+```
+
+------------PAGE TALK ABOUT------------
+تشرح الصفحة مفهوم المؤشرات (Pointers) في لغة C بشكل مبسط.  
+توضح الصياغة الأساسية: تعريف مؤشر، إسناد عنوان متغير له باستخدام `&`، ثم الوصول إلى القيمة باستخدام `*` (فك الإشارة).  
+يوجد مثال برمجي يبيّن إنشاء متغير صحيح `i`، ثم مؤشر يشير إليه، وطباعة العنوان والقيمة، وبعدها تعديل قيمة `i` عبر المؤشر.  
+العنصر البصري الأساسي هو شريحة تعليمية تحتوي عنوانًا كبيرًا في الأعلى، ونصًا توضيحيًا على اليمين، ومربعًا رماديًا في الأسفل بداخله كود ملوّن.
+
+
+================================================================================
+PAGE 13 - page_0013.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+3. Arrays
+
+• An array stores multiple values of the same type.
+
+• Elements are accessed using an index (starting from 0).
+
+• Array name is a pointer constant pointing to the first element.
+
+```c
+#include <stdio.h>
+
+int main() {
+    int a[5]; // Declare an array of size 5
+
+    for(int i = 0; i < 5; i++) {
+        a[i] = i; // Assign values to array elements
+    }
+
+    for(int i = 0; i < 5; i++) {
+        printf("value in array %d\n", a[i]); // Print array elements
+    }
+
+    return 0;
+}
+```
+
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن المصفوفات في لغة C، وأنها تُستخدم لتخزين عدة قيم من نفس النوع.
+توضح أن الوصول إلى عناصر المصفوفة يتم باستخدام الفهرس ويبدأ من 0.
+كما تشرح أن اسم المصفوفة يشير إلى أول عنصر فيها كمؤشر ثابت.
+يوجد أيضًا مثال برمجي يعرّف مصفوفة من 5 عناصر، ثم يملؤها ويطبع قيمها باستخدام حلقتي for.
+
+
+================================================================================
+PAGE 14 - page_0014.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+3. Arrays
+
+Points to Remember
+
+1. An array is a composite data structure in which you can store multiple
+   values. Array elements are accessed using subscript.
+
+2. The subscript operator has the highest precedence. Thus if you write
+   a[2]++,it increments the value at location 2 in the array.
+
+3. The valid range of subscript is 0 to size −1.
+
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن المصفوفات (Arrays) وأهم النقاط الأساسية المتعلقة بها في البرمجة.  
+توضح أن المصفوفة هي بنية بيانات مركبة تُستخدم لتخزين عدة قيم، ويتم الوصول إلى عناصرها باستخدام الفهرس (subscript).  
+كما تشرح أن معامل الفهرسة له أولوية عالية، لذلك التعبير a[2]++ يزيد قيمة العنصر الموجود في الموقع 2.  
+وتذكر أيضًا أن المجال الصحيح للفهارس يبدأ من 0 وينتهي عند size − 1.  
+العنصر البصري الوحيد هو تنسيق نصي تعليمي بعنوان كبير وقائمة مرقمة بدون صور أو مخططات.
+
+
+================================================================================
+PAGE 15 - page_0015.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+Address of Array Elements
+
+• Each array element has a memory address.
+
+• Elements are stored in consecutive memory locations.
+
+#include <stdio.h>
+int main() {
+    int a[5];
+    for(int i = 0; i < 5; i++) {
+        a[i] = i; // Assign values to array
+    }
+    for(int i = 0; i < 5; i++) {
+        printf("value in array %d and address is %p\n", a[i], &a[i]);
+    }
+    return 0;
+}
+
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن عناوين عناصر المصفوفة في لغة C، وأن كل عنصر داخل المصفوفة له عنوان في الذاكرة.
+كما توضّح أن عناصر المصفوفة تُخزَّن في مواقع متتالية داخل الذاكرة.
+يوجد مثال برمجي يعرّف مصفوفة من 5 عناصر، ثم يملؤها بقيم، وبعد ذلك يطبع قيمة كل عنصر مع عنوانه باستخدام printf.
+التصميم عبارة عن شريحة تعليمية تحتوي على عنوان كبير ونقطتين رئيسيتين مع صندوق كود برمجي في الأسفل.
+
+
+================================================================================
+PAGE 16 - page_0016.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+Accessing Arrays Using Pointers
+
+• Arrays can be accessed using pointers.
+• Pointer arithmetic moves the pointer to the next element.
+
+#include <stdio.h>
+
+int main() {
+    int a[5] = {10, 20, 30, 40, 50};
+
+    int *ptr = a;   // Assign base address of array to pointer
+
+    for(int i = 0; i < 5; i++) {
+        printf("value in array %d and address is %p\n", *ptr, ptr);
+
+        ptr=ptr+1;   // Move pointer to next element
+    }
+}
+
+return 0;
+
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن كيفية الوصول إلى عناصر المصفوفة باستخدام المؤشرات في لغة C.  
+توضح أن اسم المصفوفة يمكن إسناده إلى مؤشر ليشير إلى أول عنصر فيها، ثم يمكن التنقل بين العناصر باستخدام العمليات الحسابية على المؤشر.  
+يوجد مثال برمجي يعرّف مصفوفة من 5 أعداد، ثم يستخدم مؤشرًا لطباعة قيمة كل عنصر وعنوانه في الذاكرة.  
+التصميم عبارة عن شريحة تعليمية بعنوان كبير مع نقطتين توضيحيتين، وأسفلها صندوق يحتوي على كود برمجي ملوّن.
+
+
+================================================================================
+PAGE 17 - page_0017.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+Accessing Arrays Using Pointers
+
+Points to Remember
+
+1.  Array elements can be accessed using pointers.
+
+2.  The array name is the pointer constant which can be assigned to any pointer variable.
+
+#include <stdio.h>
+
+int main() {
+
+    int a[5] = {10, 20, 30, 40, 50};
+
+    int *ptr = a;   // Assign base address of array to pointer
+
+    for(int i = 0; i < 5; i++) {
+
+        printf("value in array %d and address is %p\n", *ptr, ptr);
+
+        ptr=ptr+1;   // Move pointer to next element
+
+    }
+
+    return 0;
+
+}
+
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن كيفية الوصول إلى عناصر المصفوفة باستخدام المؤشرات في لغة C.  
+توضح أن اسم المصفوفة يمثل عنوان البداية ويمكن إسناده إلى متغير مؤشر.  
+يوجد مثال برمجي يعرّف مصفوفة من 5 عناصر، ثم يستخدم مؤشرًا لطباعة قيمة كل عنصر وعنوانه.  
+كما يبيّن المثال تحريك المؤشر إلى العنصر التالي باستخدام `ptr = ptr + 1`.
+
+
+================================================================================
+PAGE 18 - page_0018.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+Manipulating arrays using pointers
+
+• Pointers can be used to manipulate arrays by incrementing or decrementing the pointer.
+• Pointer arithmetic automatically adjusts the pointer based on the data type size.
+
+```c
+#include <stdio.h>
+int main() {
+    int a[5] = {10, 20, 30, 40, 50};
+
+    int *ptr = a;   // Assign base address of array to pointer
+    for(int i = 0; i < 5; i++) {
+        printf("value in array %d and address is %p\n", *ptr, ptr);
+
+        ptr++;      // Move pointer to next element
+    }
+
+    return 0;
+}
+```
+
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن كيفية التعامل مع المصفوفات باستخدام المؤشرات في لغة C، من خلال تحريك المؤشر بين عناصر المصفوفة.  
+توضح أن العمليات الحسابية على المؤشر مثل `ptr++` تنقله تلقائيًا حسب حجم نوع البيانات، وليس بمقدار بايت واحد فقط.  
+يوجد مثال برمجي يعرّف مصفوفة أعداد صحيحة، ثم يربط مؤشرًا بأول عنصر فيها ويطبع القيمة والعنوان لكل عنصر داخل حلقة.  
+العنصر البصري الأساسي هو عنوان كبير في الأعلى مع نقطتين توضيحيتين، وأسفلها صندوق رمادي يحتوي على الكود مع تلوين نحوي وتعليق أحمر يشرح انتقال المؤشر للعنصر التالي.
+
+
+================================================================================
+PAGE 19 - page_0019.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+Manipulating arrays using pointers
+
+Explanation:
+
+• ptr++ moves the pointer to the next element in the array.
+• The pointer is incremented by the size of the data type (e.g., 2 bytes for int).
+
+```c
+#include <stdio.h>
+
+int main() {
+    int a[5] = {10, 20, 30, 40, 50};
+    int *ptr = a;   // Assign base address of array to pointer
+    for(int i = 0; i < 5; i++) {
+        printf("value in array %d and address is %p\n", *ptr, ptr);
+        ptr++;      // Move pointer to next element
+    }
+
+    return 0;
+}
+```
+
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن كيفية التعامل مع المصفوفات باستخدام المؤشرات في لغة C.  
+توضح أن التعليمة `ptr++` تنقل المؤشر إلى العنصر التالي في المصفوفة، وأن الزيادة تتم حسب حجم نوع البيانات.  
+يوجد مثال برمجي يعرّف مصفوفة من 5 عناصر، ثم يستخدم مؤشرًا للتنقل بينها وطباعة القيمة والعنوان لكل عنصر.  
+العنصر البصري الأساسي هو صندوق يحتوي على كود ملوّن مع تعليق يشرح حركة المؤشر إلى العنصر التالي.
+
+
+================================================================================
+PAGE 20 - page_0020.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+Two-Dimensional Arrays
+
+• A two-dimensional array is an array of arrays.
+
+• It is stored in row-major order (all elements of a row are stored consecutively).
+
+• Elements are accessed using two indices: array[row][column].
+
+```c
+#include <stdio.h>
+int main() {
+    int a[3][2] = {{1, 2}, {3, 4}, {5, 6}}; // Declare and initialize 2D array
+        for(int i = 0; i < 3; i++) {
+            for(int j = 0; j < 2; j++) {
+                printf("a[%d][%d] = %d, Address = %p\n", i, j, a[i][j], &a[i][j]);
+            }
+        }
+    return 0;
+}
+```
+
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن المصفوفات ثنائية الأبعاد في لغة البرمجة C، وتوضح أنها عبارة عن مصفوفة من المصفوفات.  
+كما تشرح أن تخزين العناصر يتم بطريقة row-major order، أي تُخزن عناصر كل صف بشكل متتالٍ في الذاكرة.  
+وتوضح أيضًا طريقة الوصول إلى العناصر باستخدام فهرسين بالشكل array[row][column].  
+يوجد في الأسفل مثال برمجي يعرّف مصفوفة 3×2، ثم يستخدم حلقتين متداخلتين لطباعة قيم العناصر وعناوينها في الذاكرة.
+
+
+================================================================================
+PAGE 21 - page_0021.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+Two-Dimensional Arrays
+
+Explanation:
+
+• The array a has 3 rows and 2 columns.
+
+• Elements are accessed using a[i][j], where i is the row index and j is the column index.
+
+• The addresses of elements are printed to show the memory layout (row-major order).
+
+#include <stdio.h>
+
+int main() {
+
+    int a[3][2] = {{1, 2}, {3, 4}, {5, 6}}; // Declare and initialize 2D array
+
+    for(int i = 0; i < 3; i++) {
+
+        for(int j = 0; j < 2; j++) {
+
+            printf("a[%d][%d] = %d, Address = %p\n", i, j, a[i][j], &a[i][j]);
+
+        }
+
+    }
+
+    return 0;
+}
+
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن المصفوفات ثنائية الأبعاد في لغة C، وكيفية تعريف مصفوفة باسم a تحتوي على 3 صفوف و2 أعمدة.  
+توضح أن الوصول إلى العناصر يتم باستخدام الصيغة a[i][j] حيث i تمثل الصف وj تمثل العمود.  
+كما تعرض مثالًا برمجيًا يطبع قيمة كل عنصر وعنوانه في الذاكرة لشرح ترتيب التخزين row-major order.  
+يوجد تصميم تعليمي بسيط يتضمن عنوانًا كبيرًا، نقاط شرح، ومربعًا يحتوي على كود برمجي منسق بألوان مختلفة.
+
+
+================================================================================
+PAGE 22 - page_0022.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+Two-Dimensional Arrays
+
+Explanation:
+
+• The array a has 3 rows and 2 columns.
+
+• Elements are accessed using a[i][j], where i is the row index and j is the column index.
+
+• The addresses of elements are printed to show the memory layout (row-major order).
+
+#include <stdio.h>
+
+int main() {
+
+    int a[3][2] = {{1, 2}, {3, 4}, {5, 6}}; // Declare and initialize 2D array
+
+    for(int i = 0; i < 3; i++) {
+
+        for(int j = 0; j < 2; j++) {
+
+            printf("a[%d][%d] = %d, Address = %p\n", i, j, a[i][j], &a[i][j]);
+
+        }
+
+    }
+
+    return 0;
+}
+
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن المصفوفات ثنائية الأبعاد في لغة C، وكيفية تعريف مصفوفة باسم a تحتوي على 3 صفوف و2 أعمدة.  
+توضح أن الوصول إلى العناصر يتم باستخدام الصيغة a[i][j] حيث i تمثل الصف وj تمثل العمود.  
+كما تعرض مثالًا برمجيًا يطبع قيمة كل عنصر مع عنوانه في الذاكرة لشرح ترتيب التخزين row-major order.  
+يوجد عنوان كبير في الأعلى ونقاط شرح، وأسفلها صندوق يحتوي على كود برمجي منسق بألوان مختلفة.
+
+
+================================================================================
+PAGE 23 - page_0023.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+Multiple Choice Questions
+
+1. What is the output of the following code?
+
+```c
+#include <stdio.h>
+int main() {
+    int x = 10;
+    printf("Address of x: %p", &x);
+    return 0;
+}
+```
+
+a) 10  
+b) Address of x  
+c) Compilation error  
+d) Runtime error
+
+2. What should be filled in the blank to correctly assign the address of x to the pointer ptr?
+
+```c
+#include <stdio.h>
+int main() {
+    int x = 10;
+    int *ptr; ptr = _____; // Missing part
+    printf("Value of x: %d", *ptr);
+    return 0;
+}
+```
+
+a) x  
+b) &x  
+c) *x  
+d) %x
+
+------------PAGE TALK ABOUT------------
+الصفحة تعرض أسئلة اختيار من متعدد في لغة C حول المؤشرات والعناوين في الذاكرة.  
+السؤال الأول يختبر فهم استخدام العامل `&` مع `printf` والصيغة `%p` لطباعة عنوان المتغير `x`.  
+السؤال الثاني يختبر كيفية إسناد عنوان المتغير إلى مؤشر `ptr` ثم فك الإشارة إليه باستخدام `*ptr`.  
+يوجد تنسيق بصري تعليمي واضح: عنوان كبير أعلى الصفحة، ومربعات كود بخلفية فاتحة، مع خيارات الإجابة مصطفّة بجانب كل سؤال.
+
+
+================================================================================
+PAGE 24 - page_0024.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+Multiple Choice Questions
+
+3. What is the output of the following code?
+
+```c
+#include <stdio.h>
+int main() {
+int a[3] = {10, 20, 30};
+int *ptr = a;
+printf("%d", *(++ptr));
+return 0; }
+```
+
+a) 10  
+b) 20  
+c) 30  
+d) Compilation error
+
+------------PAGE TALK ABOUT------------
+الصفحة تعرض سؤال اختيار من متعدد في لغة C حول ناتج تنفيذ كود يستخدم المصفوفات والمؤشرات.  
+الكود يعرّف مصفوفة تحتوي على 10 و20 و30 ثم يحرّك المؤشر إلى العنصر التالي باستخدام `++ptr` قبل الطباعة.  
+يوجد على اليمين أربع اختيارات للإجابة: 10، 20، 30، أو خطأ في الترجمة.  
+التصميم بسيط، مع عنوان كبير أعلى الصفحة وصندوق رمادي يحتوي على الكود الملوّن بصيغة برمجية.
+
