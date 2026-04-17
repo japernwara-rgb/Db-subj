@@ -1,0 +1,624 @@
+================================================================================
+SUBJECT: Lecture2_20260417_203147
+TOTAL PAGES: 17
+EXTRACTED ON: 2026-04-17 19:44:28
+================================================================================
+
+
+================================================================================
+PAGE 1 - page_0001.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+C & Data Structures
+
+Chapter 1: Address, Pointers, Arrays, and Structures
+
+Dr. Amna Ali A Mohamed
+
+Faculty of Information Technology
+
+60
+53
+3
+49
+46
+1
+2
+48
+16
+25
+40
+
+------------PAGE TALK ABOUT------------
+هذه الصفحة هي غلاف أو مقدمة لمحاضرة في مادة **C & Data Structures**، وتحديدًا **الفصل الأول** الذي يتناول: العناوين (Address)، المؤشرات (Pointers)، المصفوفات (Arrays)، والهياكل (Structures).  
+تظهر أيضًا بيانات المحاضِرة: **Dr. Amna Ali A Mohamed** من **Faculty of Information Technology**.  
+يوجد على يمين الصفحة رسمٌ لشجرة بيانات (Tree) بعُقد مرقمة مثل 60 و53 و3 وغيرها، مع أسهم توضّح العلاقات بين العقد، كما يظهر مستطيل صغير يشير إلى العقدة 60 لتمثيل فكرة المؤشر أو المرجع.
+
+
+================================================================================
+PAGE 2 - page_0002.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+Introduction to Structures
+
+•What is a Structure?
+
+• A structure is a user-defined data type in C that allows grouping variables of different
+
+data types under a single name.
+
+• Useful for representing real-world entities (e.g., student, employee, book).
+
+•Why Use Structures?
+
+• Organize related data into a single unit.
+
+• Simplify complex data handling.
+
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن مقدمة لهياكل البيانات (Structures) في لغة C.  
+توضح أن الـ Structure هو نوع بيانات يعرّفه المستخدم لتجميع متغيرات من أنواع مختلفة تحت اسم واحد.  
+كما تشرح فائدته في تمثيل كيانات من العالم الحقيقي مثل الطالب أو الموظف أو الكتاب.  
+وتعرض أسباب استخدامه، مثل تنظيم البيانات المرتبطة في وحدة واحدة وتبسيط التعامل مع البيانات المعقدة.
+
+
+================================================================================
+PAGE 3 - page_0003.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+Defining a Structure
+
+Syntax:
+
+struct structure_name {
+        data_type member1;
+        data_type member2;
+        // ...
+};
+
+struct student {
+char name[30];      // Member 1: Name of the student
+float marks;        // Member 2: Marks of the student
+};
+
+Example:
+
+struct Student {
+    char name[50];
+    int rollNo;
+    float marks;
+};
+
+• Explanation:
+    • struct Student defines a structure with three members: name, rollNo, and marks.
+
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن كيفية تعريف Structure في لغة C/C++ باستخدام الكلمة المفتاحية `struct`.
+توضح أولاً الصيغة العامة لتعريف الهيكل، ثم تعرض مثالًا بسيطًا لهيكل `student` يحتوي على الاسم والدرجات.
+بعد ذلك تقدم مثالًا أشمل لهيكل `Student` يضم `name` و`rollNo` و`marks`.
+العناصر البصرية عبارة عن مربعات رمادية تحتوي على أكواد برمجية مع تلوين نحوي لتمييز الكلمات والأنواع والأقواس.
+
+
+================================================================================
+PAGE 4 - page_0004.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+Declaring Structure Variables
+
+Two Ways to Declare:
+
+1. During Definition:
+
+struct student {
+    char name[30];
+    float marks;
+} student1, student2;      // Declares variables student1 and student2
+
+2. After Definition:
+
+struct student {
+    char name[30];
+    float marks;
+};
+
+struct student student3; // Declares a variable student3
+
+------------PAGE TALK ABOUT------------
+تشرح الصفحة طريقتين لتعريف متغيرات من نوع structure في لغة C.  
+الطريقة الأولى تكون أثناء تعريف الـ struct نفسه، حيث يتم إنشاء student1 و student2 مباشرة.  
+الطريقة الثانية تكون بعد الانتهاء من تعريف الـ struct، ثم إعلان متغير جديد مثل student3 بشكل منفصل.  
+يوجد تنسيق بصري بسيط على شكل عنوان كبير وصندوقين رماديين يحتويان على أمثلة الكود البرمجي.
+
+
+================================================================================
+PAGE 5 - page_0005.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+Accessing Structure Members
+
+Dot Operator (.):
+•Used to access members of a structure variable.
+
+•Example:
+
+struct student student1;
+strcpy(student1.name, " Ali Mohamed ");
+student1.marks = 95.5;
+
+Example Program:
+
+#include <stdio.h>
+#include <string.h>
+
+struct student {
+    char name[30];
+    float marks;
+};
+
+int main() {
+    struct student student1;
+    strcpy(student1.name, " Ali Mohamed ");
+    student1.marks = 95.5;
+    printf("Name: %s\n", student1.name);
+    printf("Marks: %.2f\n", student1.marks);
+    return 0;
+}
+
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن كيفية الوصول إلى أعضاء الـ structure في لغة C باستخدام عامل النقطة (.).
+توضح أن هذا العامل يُستخدم للوصول إلى المتغيرات الداخلية داخل هيكل البيانات مثل name و marks.
+يوجد مثال برمجي يعرّف struct باسم student ثم يُنشئ متغيرًا student1 ويُسند له الاسم والدرجات.
+كما يعرض البرنامج طباعة الاسم والدرجة، مع وجود تنسيق بصري يشمل عنوان كبير وصندوقين يحتويان على أمثلة كود.
+
+
+================================================================================
+PAGE 6 - page_0006.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+Pointers to Structures
+
+•What is a Structure Pointer?
+    • A pointer that stores the address of a structure variable.
+    • Used to access structure members dynamically.
+
+• Syntax:
+    struct structure_name *pointer_name;
+
+• Example:
+    struct student *ptr;
+
+#include <stdio.h>
+#include <string.h>
+
+struct student {
+    char name[30];
+    float marks;
+};
+
+int main() {
+    struct student student1;
+    struct student *ptr;
+
+    return 0;
+}
+
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن المؤشرات إلى الهياكل (Pointers to Structures) في لغة C، وتوضح أنها متغيرات تخزن عنوان متغير من نوع struct.  
+تشرح الصيغة العامة لتعريف مؤشر إلى هيكل مثل: `struct structure_name *pointer_name;` مع مثال على `struct student *ptr;`.  
+يوجد أيضًا مثال برمجي يعرّف هيكل `student` يحتوي على `name` و`marks`، ثم يعرّف متغيرًا من هذا النوع ومؤشرًا إليه داخل `main`.  
+العناصر البصرية عبارة عن شريحة تعليمية بتنسيق عرض تقديمي، فيها عنوان كبير ونصوص نقطية ومربعات رمادية تحتوي على أمثلة الكود.
+
+
+================================================================================
+PAGE 7 - page_0007.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+Accessing Members Using Structure Pointers
+
+Arrow Operator (->):
+
+• Used to access members of a structure using a pointer.
+
+• Example:
+
+ptr->name = " Ali Mohamed ";
+ptr->marks = 88.5;
+
+Example Program:
+
+#include <stdio.h>
+#include <string.h>
+
+struct student {
+    char name[30];
+    float marks;
+};
+
+int main() {
+    struct student student1;
+    struct student *ptr;
+
+    ptr = &student1; // Point to the structure variable
+    strcpy(ptr->name, “Ali Mohamed”);
+    ptr->marks = 88.5;
+
+    printf("Name: %s\n", ptr->name);
+    printf("Marks: %.2f\n", ptr->marks);
+
+    return 0;
+}
+
+------------PAGE TALK ABOUT------------
+الصفحة تشرح كيفية الوصول إلى أعضاء الـ structure في لغة C باستخدام المؤشر عبر العامل السهمي (->).
+توضح أن هذا العامل يُستخدم بدل النقطة (.) عندما نتعامل مع مؤشر يشير إلى struct.
+يوجد مثال بسيط يعيّن الاسم والدرجات للطالب باستخدام ptr->name و ptr->marks.
+كما تعرض برنامجًا كاملًا يعرّف struct student ثم يربط مؤشرًا به ويطبع القيم.
+بصريًا، الصفحة تحتوي عنوانًا كبيرًا، نقاطًا توضيحية على اليسار، ومربع كود برمجي منسق على اليمين.
+
+
+================================================================================
+PAGE 8 - page_0008.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+Dynamic Memory Allocation for Structures
+
+•Why Use Dynamic Memory?
+    • Allocate memory at runtime for structures.
+    • Useful when the number of structures is not known in advance.
+
+• Using malloc():
+
+struct student *ptr;
+ptr = (struct student *)malloc(sizeof(struct student));
+
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن التخصيص الديناميكي للذاكرة للهياكل (Structures) في لغة C.  
+توضح أن استخدام الذاكرة الديناميكية مفيد عند الحاجة إلى حجز الذاكرة أثناء التشغيل، خاصة إذا كان عدد العناصر غير معروف مسبقًا.  
+كما تعرض مثالًا باستخدام الدالة malloc() لإنشاء مؤشر إلى struct student وحجز مساحة مناسبة له.  
+يوجد عنصر بصري بسيط عبارة عن مربع/خلفية فاتحة لتمييز مقطع الكود عن باقي النص.
+
+
+================================================================================
+PAGE 9 - page_0009.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+Dynamic Memory Allocation for Structure's example
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+struct student {
+    char name[30];
+    float marks;
+};
+
+int main() {
+    struct student *ptr;
+
+    ptr = (struct student *)malloc(sizeof(struct student));
+    if (ptr == NULL) {
+        printf("Memory allocation failed!\n");
+        return 1;
+    }
+
+    strcpy(ptr->name, "Amna Ali");
+    ptr->marks = 92.0;
+    printf("Name: %s\n", ptr->name);
+    printf("Marks: %.2f\n", ptr->marks);
+    free(ptr); // Free allocated memory
+
+    return 0;
+}
+```
+
+------------PAGE TALK ABOUT------------
+تشرح الصفحة مثالًا في لغة C عن التخصيص الديناميكي للذاكرة باستخدام `malloc` مع هيكل `struct student`.
+يتم إنشاء مؤشر إلى الهيكل، ثم حجز ذاكرة له، والتحقق من نجاح الحجز باستخدام `NULL`.
+بعد ذلك يتم تخزين الاسم والدرجات داخل الهيكل باستخدام العامل `->` ثم طباعتها.
+في النهاية يتم تحرير الذاكرة باستخدام `free`، ويظهر المحتوى داخل صندوقين نصيين منسقين لعرض الكود.
+
+
+================================================================================
+PAGE 10 - page_0010.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+Passing Structures to Functions
+
+1. Pass by Value:
+•A copy of the structure is passed to the function.
+•Example:
+
+void printStudent(struct student s) {
+    printf("Name: %s\n", s.name);
+    printf("Marks: %.2f\n", s.marks);
+}
+
+2. Pass by Reference (Using Pointers):
+•The address of the structure is passed to the function.
+•Example:
+
+void printStudent(struct student *s) {
+    printf("Name: %s\n", s->name);
+    printf("Marks: %.2f\n", s->marks);
+}
+
+Key Points to Remember
+
+1. Structures group variables of different data types.
+
+2. Use the dot operator (.) to access members of a structure variable.
+
+3. Use the arrow operator (->) to access members of a structure using a pointer.
+
+4. Dynamic memory allocation allows creating structures at runtime.
+
+5. Structures can be passed to functions by value or by reference.
+
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن كيفية تمرير الـ structures إلى الدوال في لغة C بطريقتين: بالنسخ المباشر (Pass by Value) أو باستخدام المؤشرات (Pass by Reference).  
+توضح أن التمرير بالقيمة يرسل نسخة من الـ structure، بينما التمرير بالمرجع يرسل عنوانه في الذاكرة.  
+كما تعرض أمثلة برمجية تبين استخدام العامل (.) للوصول إلى الأعضاء مباشرة، والعامل (->) عند استخدام المؤشرات.  
+يوجد تنسيق تعليمي بسيط مع عنوان كبير، قسمين للمقارنة، ومربعات رمادية تحتوي على أمثلة الكود.
+
+
+================================================================================
+PAGE 11 - page_0011.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+Array of Structures
+
+• What is an Array of Structures?
+
+  • An array of structures is a collection of multiple structure variables stored in contiguous memory
+    locations.
+  • Useful for managing multiple records of the same type (e.g., students, employees, books).
+
+• Why Use an Array of Structures?
+
+  • Simplifies handling of multiple entities with the same attributes.
+  • Enables efficient storage and retrieval of structured data.
+
+• Declaring an Array of Structures
+
+Syntax: struct structure_name array_name[size];
+
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن مفهوم Array of Structures في البرمجة، وهو استخدام مصفوفة لتخزين عدة متغيرات من نوع struct بشكل متجاور في الذاكرة.  
+توضح فائدته في إدارة سجلات متعددة من نفس النوع مثل الطلاب أو الموظفين، مع تسهيل التعامل مع البيانات المنظمة.  
+كما تعرض سبب استخدامه من حيث الكفاءة في التخزين والاسترجاع، وتقدم صيغة التصريح الأساسية: `struct structure_name array_name[size];`  
+العنصر البصري الأساسي هو شريحة تعليمية نصية تحتوي على عنوان كبير ونقاط تعداد، مع صندوق سفلي مميز لعرض صيغة الـ Syntax.
+
+
+================================================================================
+PAGE 12 - page_0012.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+Array of Structures
+
+• Example:
+
+struct Student {
+    char name[50];
+    int rollNo;
+    float marks;
+};
+struct Student students[10]; // Array of 10 students
+
+• Accessing Elements in an Array of Structures
+
+    Dot Operator (.):
+    • Used to access members of a structure in the array.
+
+• Example:
+
+students[0].rollNo = 101; // Access the first student's roll number
+
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن مفهوم **مصفوفة من الهياكل (Array of Structures)** في لغة C.  
+توضح مثالًا على هيكل باسم **Student** يحتوي على الاسم ورقم الجلوس والدرجات، ثم إنشاء مصفوفة من 10 طلاب.  
+كما تشرح كيفية الوصول إلى عناصر المصفوفة باستخدام **المعامل النقطي (.)** للوصول إلى أعضاء كل هيكل.  
+يوجد تنسيق بصري على شكل شريحة تعليمية مع مربعات رمادية لعرض أمثلة الشيفرة البرمجية.
+
+
+================================================================================
+PAGE 13 - page_0013.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+#include <stdio.h>
+#include <string.h>
+
+struct Student {
+    char name[50];
+    int rollNo;
+    float marks;
+};
+
+int main() {
+    struct Student students[3]; // Array of 3 students
+
+    // Input student details
+    for (int i = 0; i < 3; i++) {
+        printf("Enter details for student %d:\n", i + 1);
+        printf("Name: ");
+        scanf("%s", students[i].name);
+        printf("Roll No: ");
+        scanf("%d", &students[i].rollNo);
+        printf("Marks: ");
+        scanf("%f", &students[i].marks);
+    }
+
+    // Display student details
+    printf("\nStudent Details:\n");
+
+    for (int i = 0; i < 3; i++) {
+        printf("\nStudent %d:\n", i + 1);
+        printf("Name: %s\n", students[i].name);
+        printf("Roll No: %d\n", students[i].rollNo);
+        printf("Marks: %.2f\n", students[i].marks);
+    }
+
+    return 0;
+}
+
+------------PAGE TALK ABOUT------------
+الصفحة تعرض مثالًا بلغة C لاستخدام `struct` لتعريف بيانات الطالب مثل الاسم ورقم الجلوس والدرجات.  
+كما توضح إنشاء مصفوفة من 3 طلاب ثم استخدام حلقة `for` لإدخال البيانات لكل طالب عبر `scanf`.  
+بعد ذلك يتم عرض بيانات الطلاب باستخدام `printf` داخل حلقة أخرى.  
+العنصر البصري الأساسي هو كود برمجي منسق بالألوان ومقسوم إلى جزأين داخل الصفحة.
+
+
+================================================================================
+PAGE 14 - page_0014.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+Dynamic Memory Allocation for an Array of Structures
+
+• Why Use Dynamic Memory?
+
+    • Allocate memory at runtime for an array of structures.
+
+    • Useful when the number of structures is not known at compile time.
+
+• Using malloc():
+
+    struct Student *students;
+    students = (struct Student *)malloc(n * sizeof(struct Student));
+
+• Example Program:
+
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن التخصيص الديناميكي للذاكرة لمصفوفة من الهياكل (Structures) في لغة C.  
+توضح لماذا نستخدم الذاكرة الديناميكية، خاصة عندما يكون عدد العناصر غير معروف أثناء الترجمة.  
+كما تعرض مثالًا باستخدام الدالة malloc() لحجز مساحة لعدد n من العناصر من النوع Student.  
+يوجد عنصر بصري عبارة عن مربع رمادي يحتوي على مقطع الكود البرمجي لتوضيح طريقة الحجز.
+
+
+================================================================================
+PAGE 15 - page_0015.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+struct Student {
+    char name[50];
+    int rollNo;
+    float marks;
+};
+int main() {
+    int n;
+    struct Student *students;
+
+    // Input the number of students
+    printf("Enter the number of students: ");
+    scanf("%d", &n);
+
+    // Dynamically allocate memory for an array of structures
+    students = (struct Student *)malloc(n * sizeof(struct Student));
+    if (students == NULL) {
+        printf("Memory allocation failed!\n");
+        return 1;
+    }
+
+// Input student details
+for (int i = 0; i < n; i++) {
+    printf("\nEnter details for student %d:\n", i + 1);
+    printf("Name: ");
+    scanf("%s", students[i].name);
+    printf("Roll No: ");
+    scanf("%d", &students[i].rollNo);
+    printf("Marks: ");
+    scanf("%f", &students[i].marks);
+}
+
+// Display student details
+printf("\nStudent Details:\n");
+for (int i = 0; i < n; i++) {
+    printf("\nStudent %d:\n", i + 1);
+    printf("Name: %s\n", students[i].name);
+    printf("Roll No: %d\n", students[i].rollNo);
+    printf("Marks: %.2f\n", students[i].marks);
+}
+
+// Free allocated memory
+free(students);
+return 0;
+}
+
+------------PAGE TALK ABOUT------------
+الصفحة تعرض مثالًا برمجيًا بلغة C يشرح استخدام `struct` لتخزين بيانات الطلاب مثل الاسم ورقم الجلوس والدرجات.  
+كما توضح كيفية حجز الذاكرة ديناميكيًا باستخدام `malloc` لمصفوفة من الهياكل حسب عدد الطلاب الذي يدخله المستخدم.  
+البرنامج يقرأ بيانات كل طالب باستخدام `scanf` ثم يطبعها باستخدام `printf` داخل حلقات `for`.  
+وفي النهاية يحرر الذاكرة المحجوزة باستخدام `free`.  
+العنصر البصري الوحيد هو تنسيق الكود بألوان مختلفة لتمييز الكلمات المفتاحية والدوال والمتغيرات.
+
+
+================================================================================
+PAGE 16 - page_0016.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+Key Points to Remember
+
+1. Structures group variables of different data types.
+
+2. Use the dot operator (.) to access members of a structure variable.
+
+3. Use the arrow operator (->) to access members of a structure using a pointer.
+
+4. Dynamic memory allocation allows creating structures at runtime.
+
+5. Structures can be passed to functions by value or by reference.
+
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن أهم النقاط الأساسية المتعلقة بـ Structures في البرمجة.
+توضح أن الـ structure تُستخدم لتجميع متغيرات من أنواع بيانات مختلفة داخل كيان واحد.
+كما تشرح طريقتين للوصول إلى الأعضاء: باستخدام النقطة (.) أو السهم (->) عند التعامل مع المؤشرات.
+وتشير أيضًا إلى إمكانية إنشاء structures ديناميكيًا وقت التشغيل وتمريرها إلى الدوال بالقيمة أو بالمرجع.
+تحتوي الصفحة على تصميم بسيط جدًا عبارة عن عنوان كبير وقائمة مرقمة بدون صور أو مخططات.
+
+
+================================================================================
+PAGE 17 - page_0017.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+Practice Questions
+
+Question 1: Define a Structure Employee
+
+Problem Statement:
+Define a structure Employee with members id, name, and salary. Write a program to input and display employee details.
+
+Question 2: Use a Structure Pointer
+
+Problem Statement:
+Modify the above program to use a structure pointer.
+
+Question 3: Dynamically Allocate Memory for an Array of Structures
+Problem Statement:
+Write a program to dynamically allocate memory for an array of structures and store student details.
+
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن أسئلة تدريبية في لغة البرمجة C حول استخدام الـ Structures.
+تتضمن تعريف هيكل Employee، ثم تعديل البرنامج لاستخدام مؤشر إلى الهيكل.
+كما تعرض سؤالًا عن الحجز الديناميكي للذاكرة لمصفوفة من الهياكل لتخزين بيانات الطلاب.
+التصميم بسيط جدًا: خلفية بيضاء ونصوص كبيرة داكنة بدون صور أو مخططات أو رسوم بيانية.
+
