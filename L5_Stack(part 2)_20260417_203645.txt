@@ -1,0 +1,1369 @@
+================================================================================
+SUBJECT: L5_Stack(part 2)_20260417_203645
+TOTAL PAGES: 21
+EXTRACTED ON: 2026-04-17 19:55:32
+================================================================================
+
+
+================================================================================
+PAGE 1 - page_0001.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+ITGS 220  
+Dr. Amna Ali A Mohamed                                                         Fall 2025
+
+Stack
+
+**1.3     Algebraic Expressions:**
+
+An algebraic expression is a legal combination of operators and operands. Operand is the quantity on which a mathematical operation is performed. Operand may be a variable like x, y, z or a constant like 5, 4, 6 etc. Operator is a symbol which signifies a mathematical or logical operation between the operands. Examples of familiar operators include +, -, * , / , ^ etc.
+
+An algebraic expression can be represented using three different notations. They are infix, postfix and prefix notations:
+
+**Infix:**  
+It is the form of an arithmetic expression in which we fix (place) the arithmetic operator in between the two operands.
+
+Example: (A + B) * (C - D)
+
+**Prefix:**  
+It is the form of an arithmetic notation in which we fix (place) the arithmetic operator before (pre) its two operands. The prefix notation is called aspolish notation (due to the polish mathematician Jan Lukasiewicz in the year 1920).
+
+Example: * + A B - C D
+
+**Postfix:**  
+It is the form of an arithmetic expression in which we fix (place) the arithmetic operator after (post) its two operands. The postfix notation is called as suffix notation and is also referred to reverse polish notation.
+
+Example: A B + C D - *
+
+The three important features of postfix expression are:
+
+1. The operands maintain the same order as in the equivalent infix expression.
+
+2. The parentheses are not needed to designate the expression un-ambiguously.
+
+3. While evaluating the postfix expression the priority of the operators is no longer relevant.
+
+We consider five binary operations: +, -, *, / and $ or ^ (exponentiation). For these binary operations, the following in the order of precedence (highest to lowest):
+
+| OPERATOR | PRECEDENCE | VALUE |
+|----------|------------|-------|
+| Exponentiation ($ or ↑ or ^) | Highest | 3 |
+| *, / | Next highest | 2 |
+| +, - | Lowest | 1 |
+
+**1.4     Converting expressions using Stack:**
+
+1
+
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن التعابير الجبرية وعناصرها الأساسية: المعاملات (operands) والعوامل/العمليات (operators).  
+كما تشرح طرق كتابة التعبير الجبري الثلاث: Infix وPrefix وPostfix مع أمثلة لكل نوع.  
+توضح أيضًا مميزات صيغة Postfix مثل عدم الحاجة إلى الأقواس وعدم أهمية أولوية العمليات أثناء التقييم.  
+يوجد جدول يبين أولوية العمليات الحسابية: الأس أعلى أولوية، ثم الضرب والقسمة، ثم الجمع والطرح.  
+الصفحة عبارة عن ملاحظات دراسية بعنوان "Stack" مع تنسيق أكاديمي وجدول بسيط في الأسفل.
+
+
+================================================================================
+PAGE 2 - page_0002.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+ITGS 220  
+Dr. Amna Ali A Mohamed                                                         Fall 2025
+
+Let us convert the expressions from one type to another. These can be done as follows:
+
+1.  Infix to postfix
+2.  Infix to prefix
+3.  Postfix to infix
+4.  Postfix to prefix
+5.  Prefix to infix
+6.  Prefix to postfix
+
+**1.4.1  Conversion from infix to postfix:**
+
+Procedure to convert from infix expression to postfix expression is as follows:
+
+1.  Scan the infix expression from left to right.
+
+    a)   If the scanned symbol is left parenthesis, push it onto the stack.
+
+    b)   If the scanned symbol is an operand, then place directly in the postfix
+         expression (output).
+
+    c)   If the symbol scanned is a right parenthesis, then go on popping all the
+         items from the stack and place them in the postfix expression till we get
+         the matching left parenthesis.
+
+    d)   If the scanned symbol is an operator, then go on removing all the
+         operators from the stack and place them in the postfix expression, if and
+         only if the precedence of the operator which is on the top of the stack is
+         greater than (or greater than or equal to) the precedence of the scanned
+         operator and push the scanned operator onto the stack otherwise, push
+         the scanned operator onto the stack.
+
+2
+
+------------PAGE TALK ABOUT------------
+الصفحة تشرح موضوع تحويل الصيغ التعبيرية بين الأنواع المختلفة مثل infix و postfix و prefix.  
+تركّز بشكل خاص على طريقة التحويل من infix إلى postfix باستخدام المكدس (stack).  
+توضح خطوات المسح من اليسار إلى اليمين وكيفية التعامل مع الأقواس، المعاملات، والعوامل حسب الأولوية.  
+لا توجد صور أو مخططات، فقط نص منسق أكاديمي مع عنوان المقرر واسم الدكتورة ورقم الصفحة.
+
+
+================================================================================
+PAGE 3 - page_0003.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+ITGS 220  
+Dr. Amna Ali A Mohamed                                                         Fall 2025
+
+Example 1:
+
+Convert ((A – (B + C)) * D) ↑ (E + F) infix expression to postfix form:
+
+| SYMBOL | POSTFIX STRING | STACK | REMARKS |
+|---|---|---|---|
+| ( |  | ( |  |
+| ( |  | ( ( |  |
+| A | A | ( ( |  |
+| - | A | ( ( - |  |
+| ( | A | ( ( - ( |  |
+| B | A B | ( ( - ( |  |
+| + | A B | ( ( - ( + |  |
+| C | A B C | ( ( - ( + |  |
+| ) | A B C + | ( ( - |  |
+| ) | A B C + - | ( |  |
+| * | A B C + - | ( * |  |
+| D | A B C + - D | ( * |  |
+| ) | A B C + - D * |  |  |
+| ↑ | A B C + - D * | ↑ |  |
+| ( | A B C + - D * | ↑ ( |  |
+| E | A B C + - D * E | ↑ ( |  |
+| + | A B C + - D * E | ↑ ( + |  |
+| F | A B C + - D * E F | ↑ ( + |  |
+| ) | A B C + - D * E F + | ↑ |  |
+| End of string | A B C + - D * E F + ↑ |  | The input is now empty. Pop the output symbols from the stack until it is empty. |
+
+Example 2:
+
+Convert a + b * c + (d * e + f) * g the infix expression into postfix form.
+
+| SYMBOL | POSTFIX STRING | STACK | REMARKS |
+|---|---|---|---|
+| A | A |  |  |
+| + | A | + |  |
+| B | a b | + |  |
+
+------------PAGE TALK ABOUT------------
+الصفحة تشرح تحويل التعبير الرياضي من الصيغة الوسطية Infix إلى الصيغة اللاحقة Postfix باستخدام المكدس Stack.  
+يوجد مثال أول محلول خطوة بخطوة داخل جدول يوضح الرمز الحالي، ناتج الـ postfix، ومحتوى المكدس بعد كل خطوة.  
+كما تعرض مثالًا ثانيًا يبدأ بنفس الفكرة لكن الجدول فيه غير مكتمل.  
+العناصر البصرية عبارة عن صفحة محاضرة أكاديمية منظمة تحتوي عناوين، جداول، وخط أفقي في أعلى الصفحة دون صور أخرى.
+
+
+================================================================================
+PAGE 4 - page_0004.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+ITGS 220  
+Dr. Amna Ali A Mohamed                                                                 Fall 2025
+
+----------------------------------------------------------------
+
+| * | a b | + * | |
+|---|-----|-----|---|
+| C | a b c | + * | |
+| + | a b c * + | + | |
+| ( | a b c * + | + ( | |
+| D | a b c * + d | + ( | |
+| * | a b c * + d | + ( * | |
+| E | a b c * + d e | + ( * | |
+| + | a b c * + d e * | + ( + | |
+| F | a b c * + d e * f | + ( + | |
+| ) | a b c * + d e * f + | + | |
+| * | a b c * + d e * f + | + * | |
+| G | a b c * + d e * f + g | + * | |
+| End of string | a b c * + d e * f + g * + | The input is now empty. Pop the output symbols from the stack until it is empty. |
+
+Example 3:
+
+Convert the following infix expression A + B * C − D / E * H into its equivalent postfix expression.
+
+| SYMBOL | POSTFIX STRING | STACK | REMARKS |
+|--------|----------------|-------|---------|
+| A | A | | |
+| + | A | + | |
+| B | A B | + | |
+| * | A B | + * | |
+| C | A B C | + * | |
+| - | A B C * + | - | |
+| D | A B C * + D | - | |
+| / | A B C * + D | - / | |
+| E | A B C * + D E | - / | |
+| * | A B C * + D E / | - * | |
+| H | A B C * + D E / H | - * | |
+| End of string | A B C * + D E / H * - | The input is now empty. Pop the output symbols from the stack until it is empty. |
+
+Example 4:
+
+Convert the following infix expression A + (B * C − (D / E ↑ F) * G) * H into its equivalent postfix expression.
+
+| SYMBOL | POSTFIX STRING | STACK | REMARKS |
+|--------|----------------|-------|---------|
+| A | A | | |
+| + | A | + | |
+
+------------PAGE TALK ABOUT------------
+الصفحة تشرح تحويل التعبيرات الحسابية من الصيغة الوسطية (Infix) إلى الصيغة اللاحقة (Postfix) باستخدام المكدس (Stack).  
+تحتوي على جداول توضح خطوة بخطوة كيف يتغير كل من الـ Postfix String والـ Stack عند قراءة كل رمز من التعبير.  
+يوجد مثال مكتمل بعنوان Example 3 للتعبير: A + B * C − D / E * H، مع النتيجة النهائية بصيغة Postfix.  
+كما تعرض بداية Example 4 للتعبير: A + (B * C − (D / E ↑ F) * G) * H، لكن الجدول الظاهر له غير مكتمل في هذه الصفحة.
+
+
+================================================================================
+PAGE 5 - page_0005.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+ITGS 220  
+Dr. Amna Ali A Mohamed                                                         Fall 2025
+
+(         A                     + (  
+B         A B                   + (  
+*         A B                   + ( *  
+C         A B C                 + ( *  
+-         A B C *               + ( -  
+(         A B C *               + ( - (  
+D         A B C * D             + ( - (  
+/         A B C * D             + ( - ( /  
+E         A B C * D E           + ( - ( /  
+↑         A B C * D E           + ( - ( / ↑  
+F         A B C * D E F         + ( - ( / ↑  
+)         A B C * D E F ↑ /     + ( -  
+*         A B C * D E F ↑ /     + ( - *  
+G         A B C * D E F ↑ / G   + ( - *  
+)         A B C * D E F ↑ / G * -   +  
+*         A B C * D E F ↑ / G * -   + *  
+H         A B C * D E F ↑ / G * - H + *  
+End of  
+string    A B C * D E F ↑ / G * - H * +    The input is now empty. Pop the output  
+symbols from the stack until it is empty.
+
+1.4.2  Program to convert an infix to postfix expression:
+
+#include <stdio.h>  
+#include <stdlib.h>  
+#include <ctype.h>  
+#include <string.h>
+
+#define MAX_SIZE 100
+
+// Function prototypes  
+void push(char stack[], int *top, char item);  
+char pop(char stack[], int *top);  
+int precedence(char operator);  
+void infixToPostfix(char infix[], char postfix[]);
+
+int main() {  
+    char infix[MAX_SIZE], postfix[MAX_SIZE];
+
+    printf("Enter infix expression: ");  
+    fgets(infix, MAX_SIZE, stdin);  
+    infix[strlen(infix)-1] = '\0'; // Remove newline character
+
+    infixToPostfix(infix, postfix);  
+    printf("Postfix expression: %s\n", postfix);
+
+    return 0;  
+}
+
+// Push operation for stack  
+void push(char stack[], int *top, char item) {  
+    if (*top >= MAX_SIZE - 1) {  
+        printf("Stack Overflow\n");  
+        exit(1);
+
+5
+
+------------PAGE TALK ABOUT------------
+الصفحة تشرح تحويل التعبير من Infix إلى Postfix باستخدام المكدس (Stack).  
+يوجد جدول تتبّع يوضح خطوة بخطوة كيف يتم قراءة الرموز، وبناء ناتج الـ postfix، وتحديث محتوى الـ stack حتى نهاية السلسلة.  
+كما تحتوي الصفحة على بداية برنامج بلغة C لتنفيذ هذا التحويل، مع تضمين المكتبات، تعريف MAX_SIZE، وتصريحات الدوال والدالة main.  
+الجزء السفلي يعرض بداية دالة push الخاصة بالمكدس، بينما العنصر البصري الأساسي هو الجدول الذي يشرح سير الخوارزمية عمليًا.
+
+
+================================================================================
+PAGE 6 - page_0006.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+ITGS 220
+Dr. Amna Ali A Mohamed                                                                 Fall 2025
+
+}
+
+stack[++(*top)] = item;
+}
+
+// Pop operation for stack
+char pop(char stack[], int *top) {
+    if (*top < 0) {
+        printf("Stack Underflow\n");
+        exit(1);
+    }
+    return stack[(*top)--];
+}
+
+// Get precedence of operators
+int precedence(char operator) {
+    switch(operator) {
+        case '^':
+            return 4;
+        case '*':
+        case '/':
+            return 3;
+        case '+':
+        case '-':
+            return 2;
+        default:
+            return 0;
+    }
+}
+
+// Convert infix to postfix
+void infixToPostfix(char infix[], char postfix[]) {
+    char stack[MAX_SIZE];
+    int top = -1;
+    int i = 0, j = 0;
+    char item, x;
+
+    push(stack, &top, '(');
+    strcat(infix, ")");
+
+    for (item = infix[i]; item != '\0'; item = infix[++i]) {
+        if (item == '(') {
+            push(stack, &top, item);
+        }
+        else if (isalnum(item)) {
+            postfix[j++] = item;
+        }
+        else if (item == ')') {
+            while ((x = pop(stack, &top)) != '(') {
+                postfix[j++] = x;
+            }
+        }
+        else {
+            while (precedence(stack[top]) >= precedence(item)) {
+                postfix[j++] = pop(stack, &top);
+            }
+            push(stack, &top, item);
+        }
+    }
+
+    postfix[j] = '\0';
+
+6
+
+------------PAGE TALK ABOUT------------
+الصفحة تشرح جزءًا من برنامج بلغة C لتحويل التعبير من Infix إلى Postfix باستخدام المكدس (Stack).  
+تتضمن دوال أساسية مثل pop لإزالة عنصر من المكدس، وprecedence لتحديد أولوية العمليات الحسابية.  
+كما تعرض دالة infixToPostfix التي تمر على رموز التعبير وتتعامل مع الأقواس والعوامل والمعاملات وفق خوارزمية التحويل.  
+بصريًا، الصفحة عبارة عن ملاحظات/شريحة أكاديمية تحتوي على رأس الصفحة باسم المقرر والدكتورة والفصل الدراسي ورقم الصفحة 6.
+
+
+================================================================================
+PAGE 7 - page_0007.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+ITGS 220  
+Dr. Amna Ali A Mohamed                                                         Fall 2025
+
+}
+
+**1.4.3  Conversion from infix to prefix:**
+
+The precedence rules for converting an expression from infix to prefix are identical. The only change from postfix conversion is that traverse the expression from right to left and the operator is placed before the operands rather than after them. **The prefix form of a complex expression is not the mirror image of the postfix form.**
+
+**Example 1:**
+
+Convert the infix expression A + B - C into prefix expression.
+
+| SYMBOL | PREFIX STRING | STACK | REMARKS |
+|--------|---------------|-------|---------|
+| C | C |  |  |
+| - | C | - |  |
+| B | B C | - |  |
+| + | B C | - + |  |
+| A | A B C | - + |  |
+| End of string | - + A B C |  | The input is now empty. Pop the output symbols from the stack until it is empty. |
+
+**Example 2:**
+
+Convert the infix expression (A + B) * (C - D) into prefix expression.
+
+| SYMBOL | PREFIX STRING | STACK | REMARKS |
+|--------|---------------|-------|---------|
+| ) |  | ) |  |
+| D | D | ) |  |
+| - | D | ) - |  |
+| C | C D | ) - |  |
+| ( | - C D |  |  |
+| * | - C D | * |  |
+| ) | - C D | * ) |  |
+| B | B - C D | * ) |  |
+| + | B - C D | * ) + |  |
+| A | A B - C D | * ) + |  |
+| ( | + A B - C D | * |  |
+| End of string | * + A B - C D |  | The input is now empty. Pop the output symbols from the stack until it is empty. |
+
+7
+
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن تحويل التعبيرات الرياضية من الصيغة الوسطية Infix إلى الصيغة السابقة Prefix باستخدام قواعد الأولوية نفسها المستخدمة في التحويل إلى Postfix.  
+توضح أن الفرق الأساسي هو قراءة التعبير من اليمين إلى اليسار، ووضع العامل قبل المعاملات.  
+تحتوي الصفحة على مثالين محلولين خطوة بخطوة داخل جداول: الأول للتعبير A + B - C، والثاني للتعبير (A + B) * (C - D).  
+العناصر البصرية الأساسية هي جداول بأعمدة: الرمز، سلسلة الـ Prefix، المكدس Stack، والملاحظات، مع تتبع تغيّر القيم في كل خطوة.
+
+
+================================================================================
+PAGE 8 - page_0008.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+ITGS 220  
+Dr. Amna Ali A Mohamed                                                                  Fall 2025
+
+Example 3:
+
+Convert the infix expression A ↑ B * C − D + E / F / (G + H) into prefix expression.
+
+| SYMBOL | PREFIX STRING | STACK | REMARKS |
+|---|---|---|---|
+| ) |  | ) |  |
+| H | H | ) |  |
+| + | H | ) + |  |
+| G | G H | ) + |  |
+| ( | + G H |  |  |
+| / | + G H | / |  |
+| F | F + G H | / |  |
+| / | F + G H | / / |  |
+| E | E F + G H | / / |  |
+| + | / / E F + G H | + |  |
+| D | D / / E F + G H | + |  |
+| - | D / / E F + G H | + - |  |
+| C | C D / / E F + G H | + - |  |
+| * | C D / / E F + G H | + - * |  |
+| B | B C D / / E F + G H | + - * |  |
+| ↑ | B C D / / E F + G H | + - * ↑ |  |
+| A | A B C D / / E F + G H | + - * ↑ |  |
+| End of string | + - * ↑ A B C D / / E F + G H | The input is now empty. Pop the output symbols from the stack until it is empty. |  |
+
+1.4.4  Program to convert an infix to prefix expression:
+
+#include <stdio.h>  
+#include <string.h>  
+#include <ctype.h>  
+#include <stdlib.h>
+
+#define MAX 100
+
+// Function prototypes  
+void push(char item);  
+char pop();  
+int isOperator(char ch);  
+int precedence(char ch);  
+void reverseString(char* str);  
+void infixToPrefix(char* infix, char* prefix);
+
+// Global stack variables  
+char stack[MAX];  
+int top = -1;
+
+int main() {  
+    char infix[MAX], prefix[MAX];  
+    printf("Enter infix expression: ");  
+
+8
+
+------------PAGE TALK ABOUT------------
+الصفحة تشرح مثالًا لتحويل تعبير رياضي من الصيغة الوسطية Infix إلى الصيغة السابقة Prefix باستخدام المكدس Stack.  
+يوجد جدول يوضح خطوة بخطوة كيف تتم معالجة الرموز، وما الذي يُضاف إلى الـ prefix string وما الذي يُخزن في الـ stack.  
+المثال المستخدم هو: A ↑ B * C − D + E / F / (G + H)، والنتيجة النهائية الظاهرة هي: + - * ↑ A B C D / / E F + G H.  
+كما تعرض الصفحة بداية برنامج بلغة C لتنفيذ التحويل، ويتضمن المكتبات المطلوبة، تعريف MAX، وتصريحات الدوال والمتغيرات العامة.
+
+
+================================================================================
+PAGE 9 - page_0009.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+ITGS 220  
+Dr. Amna Ali A Mohamed                                                     Fall 2025
+
+fgets(infix, MAX, stdin);
+
+infix[strlen(infix)-1] = '\0'; // Remove newline character
+
+infixToPrefix(infix, prefix);
+printf("Prefix expression: %s\n", prefix);
+
+return 0;
+}
+
+void push(char item) {
+    if (top >= MAX-1) {
+        printf("Stack Overflow\n");
+        return;
+    }
+    stack[++top] = item;
+}
+
+char pop() {
+    if (top < 0) {
+        printf("Stack Underflow\n");
+        return '\0';
+    }
+    return stack[top--];
+}
+
+int isOperator(char ch) {
+    return (ch == '+' || ch == '-' || ch == '*' || ch == '/' || ch == '^');
+}
+
+int precedence(char ch) {
+    switch(ch) {
+        case '^': return 4;
+        case '*':
+        case '/': return 3;
+        case '+':
+        case '-': return 2;
+        default: return 0;
+    }
+}
+
+void reverseString(char* str) {
+    int n = strlen(str);
+    for (int i = 0; i < n/2; i++) {
+        char temp = str[i];
+        str[i] = str[n-i-1];
+        str[n-i-1] = temp;
+    }
+}
+
+void infixToPrefix(char* infix, char* prefix) {
+    char tempInfix[MAX], tempPrefix[MAX];
+    int i = 0, j = 0;
+
+    // Step 1: Reverse the infix expression
+    strcpy(tempInfix, infix);
+    reverseString(tempInfix);
+
+    // Step 2: Replace '(' with ')' and vice versa
+    for (i = 0; tempInfix[i] != '\0'; i++) {
+
+9
+
+------------PAGE TALK ABOUT------------
+الصفحة تعرض جزءًا من كود بلغة C لتحويل التعبير من Infix إلى Prefix باستخدام المكدس Stack.  
+تشرح الدوال الأساسية مثل push و pop، وفحص ما إذا كان الرمز عاملًا رياضيًا، وتحديد أولوية العمليات مثل ^ و * و / و + و -.  
+كما تحتوي على دالة لعكس النص reverseString وبداية دالة infixToPrefix التي تبدأ بعكس التعبير ثم تبديل الأقواس.  
+بصريًا، الصفحة عبارة عن ورقة محاضرة أكاديمية فيها عنوان المقرر واسم الدكتورة والفصل الدراسي ورقم الصفحة 9، ولا توجد صور أو مخططات.
+
+
+================================================================================
+PAGE 10 - page_0010.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+ITGS 220
+Dr. Amna Ali A Mohamed
+
+Fall 2025
+
+if (tempInfix[i] == '(') tempInfix[i] = ')';
+else if (tempInfix[i] == ')') tempInfix[i] = '(';
+}
+
+// Step 3: Convert to postfix with modified operator handling
+push('(');
+strcat(tempInfix, ")");
+
+i = 0;
+j = 0;
+char item = tempInfix[i];
+
+while (item != '\0') {
+    if (item == '(') {
+        push(item);
+    }
+    else if (isalnum(item)) {
+        tempPrefix[j++] = item;
+    }
+    else if (isOperator(item)) {
+        while (top >= 0 && stack[top] != '(' &&
+               precedence(stack[top]) > precedence(item)) {
+            tempPrefix[j++] = pop();
+        }
+        push(item);
+    }
+    else if (item == ')') {
+        while (stack[top] != '(') {
+            tempPrefix[j++] = pop();
+        }
+        pop(); // Remove '(' from stack
+    }
+    i++;
+    item = tempInfix[i];
+}
+
+tempPrefix[j] = '\0';
+
+// Step 4: Reverse the postfix expression to get prefix
+strcpy(prefix, tempPrefix);
+reverseString(prefix);
+}
+
+10
+
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن جزء من كود بلغة C لتحويل التعبير من infix إلى prefix باستخدام المكدس (stack).  
+توضح الخطوات تبديل الأقواس أولاً، ثم تحويل التعبير إلى postfix بطريقة معدلة تعتمد على أولوية العمليات.  
+بعد ذلك يتم تخزين الناتج في tempPrefix ثم عكسه للحصول على prefix النهائي.  
+العناصر البصرية في الصفحة عبارة عن تنسيق محاضرة جامعية يتضمن اسم المقرر والمدرسة والفصل الدراسي ورقم الصفحة فقط، ولا توجد صور أو مخططات.
+
+
+================================================================================
+PAGE 11 - page_0011.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+ITGS 220  
+Dr. Amna Ali A Mohamed                                                         Fall 2025
+
+**1.4.5  Conversion from postfix to infix:**
+
+Procedure to convert postfix expression to infix expression is as follows:
+
+1. Scan the postfix expression from left to right.
+
+2. If the scanned symbol is an operand, then push it onto the stack.
+
+3. If the scanned symbol is an operator, pop two symbols from the stack and create it as a string by placing the operator in between the operands and push it onto the stack.
+
+4. Repeat steps 2 and 3 till the end of the expression.
+
+**Example:**
+
+Convert the following postfix expression A B C * D E F ^ / G * - H * + into its equivalent infix expression.
+
+**Symbol**                     **Stack**                             **Remarks**
+
+A                              A                                     Push A
+
+B                              A   B                                 Push B
+
+C                              A   B   C                             Push C
+
+*                              A   (B*C)                             Pop two operands and place the operator in between the operands and push the string.
+
+D                              A   (B*C)   D                         Push D
+
+E                              A   (B*C)   D   E                     Push E
+
+F                              A   (B*C)   D   E   F                 Push F
+
+^                              A   (B*C)   D   (E^F)                 Pop two operands and place the operator in between the operands and push the string.
+
+/
+
+A   (B*C)   (D/(E^F))          Pop two operands and place the operator in between the operands and push the string.
+
+G                              A   (B*C)   (D/(E^F))   G             Push G
+
+*                              A   (B*C)   ((D/(E^F))*G)             Pop two operands and place the operator in between the operands and push the string.
+
+-                              A   ((B*C) – ((D/(E^F))*G))           Pop two operands and place the operator in between the operands and push the string.
+
+H                              A   ((B*C) – ((D/(E^F))*G))   H       Push H
+
+*                              A   (((B*C) – ((D/(E^F))*G)) * H)     Pop two operands and place the operator in between the operands and push the string.
+
++                              (A + (((B*C) – ((D/(E^F))*G)) * H))   Pop two operands and place the operator in between the operands and push the string.
+
+End of  
+string                         The input is now empty. The string formed is infix.
+
+11
+
+------------PAGE TALK ABOUT------------
+الصفحة تشرح طريقة تحويل التعبير من **Postfix** إلى **Infix** باستخدام **المكدس (Stack)**.  
+تذكر الخطوات الأساسية: قراءة الرموز من اليسار لليمين، دفع المعاملات إلى المكدس، وعند ظهور عامل يتم سحب معاملين وتكوين تعبير infix ثم إعادته للمكدس.  
+يوجد مثال تفصيلي للتعبير: **A B C * D E F ^ / G * - H * +** مع جدول يوضح في كل خطوة الرمز المقروء، حالة المكدس، والملاحظة.  
+العنصر البصري الأساسي هو **جدول تتبعي** يبين تطور محتوى المكدس حتى الوصول إلى التعبير النهائي: **(A + (((B*C) – ((D/(E^F))*G)) * H))**.
+
+
+================================================================================
+PAGE 12 - page_0012.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+ITGS 220  
+Dr. Amna Ali A Mohamed                                                         Fall 2025
+
+____________________________________________________________________
+
+1.4.6  Program to convert postfix to infix expression:
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
+
+#define MAX 100
+
+// Stack structure to hold strings
+typedef struct {
+    char data[MAX][MAX];
+    int top;
+} Stack;
+
+// Function prototypes
+void initStack(Stack *s);
+int isFull(Stack *s);
+int isEmpty(Stack *s);
+void push(Stack *s, char *str);
+void pop(Stack *s, char *str);
+void postfixToInfix(char *postfix, char *infix);
+
+int main() {
+    char postfix[MAX], infix[MAX];
+
+    printf("Enter postfix expression: ");
+    fgets(postfix, MAX, stdin);
+    postfix[strlen(postfix)-1] = '\0'; // Remove newline character
+
+    postfixToInfix(postfix, infix);
+    printf("Infix expression: %s\n", infix);
+
+    return 0;
+}
+
+// Initialize stack
+void initStack(Stack *s) {
+    s->top = -1;
+}
+
+// Check if stack is full
+int isFull(Stack *s) {
+    return s->top == MAX - 1;
+}
+
+// Check if stack is empty
+int isEmpty(Stack *s) {
+    return s->top == -1;
+}
+
+// Push operation
+void push(Stack *s, char *str) {
+    if (isFull(s)) {
+        printf("Stack Overflow\n");
+        return;
+    }
+    strcpy(s->data[++s->top], str);
+}
+
+12
+
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن برنامج بلغة C لتحويل التعبير من postfix إلى infix باستخدام بنية المكدس Stack.  
+تحتوي على تضمين المكتبات، وتعريف ثابت MAX، ثم تعريف struct للمكدس لتخزين سلاسل نصية.  
+كما تعرض ترويسات الدوال الأساسية مثل التهيئة، وفحص الامتلاء والفراغ، وعمليتي push و pop، ودالة التحويل postfixToInfix.  
+يوجد أيضًا جزء من الدالة main لقراءة التعبير من المستخدم وطباعة الناتج، مع بداية تنفيذ دوال المكدس.
+
+
+================================================================================
+PAGE 13 - page_0013.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+ITGS 220  
+Dr. Amna Ali A Mohamed                                                 Fall 2025
+
+// Pop operation  
+void pop(Stack *s, char *str) {  
+    if (isEmpty(s)) {  
+        printf("Stack Underflow\n");  
+        str[0] = '\0';  
+        return;  
+    }  
+    strcpy(str, s->data[s->top--]);  
+}
+
+// Function to convert postfix to infix  
+void postfixToInfix(char *postfix, char *infix) {  
+    Stack s;  
+    initStack(&s);  
+    char temp[MAX], op1[MAX], op2[MAX];
+
+    for (int i = 0; postfix[i] != '\0'; i++) {  
+        char ch = postfix[i];
+
+        // If operand, push to stack  
+        if (isalnum(ch)) {  
+            temp[0] = ch;  
+            temp[1] = '\0';  
+            push(&s, temp);  
+        }  
+        // If operator, pop two operands and combine with operator  
+        else {  
+            pop(&s, op2);  
+            pop(&s, op1);
+
+            // Format the expression with parentheses  
+            sprintf(temp, "(%s%c%s)", op1, ch, op2);  
+            push(&s, temp);  
+        }  
+    }
+
+    // The final infix expression is at the top of stack  
+    pop(&s, infix);  
+}
+
+1.4.7  Conversion from prefix to infix:
+
+Procedure to convert prefix expression to infix expression is as follows:
+
+1.  Scan the prefix expression from right to left (reverse order).
+
+2.  If the scanned symbol is an operand, then push it onto the stack.
+
+3.  If the scanned symbol is an operator, pop two symbols from the stack and create  
+    it as a string by placing the operator in between the operands and push it onto  
+    the stack.
+
+4.  Repeat steps 2 and 3 till the end of the expression.
+
+Example:
+
+Convert the following prefix expression + A * - * B C * / D ^ E F G H into its equivalent  
+infix expression.
+
+13
+
+------------PAGE TALK ABOUT------------
+الصفحة تشرح تحويل التعابير باستخدام المكدس (Stack)، وتعرض كود بلغة C لعملية `pop` ودالة تحويل التعبير من postfix إلى infix.  
+بعد ذلك تبدأ فقرة جديدة بعنوان **Conversion from prefix to infix** وتوضح خطوات التحويل من prefix إلى infix خطوة بخطوة.  
+كما تحتوي الصفحة على مثال لتعبير prefix مطلوب تحويله إلى infix.  
+بصريًا، الصفحة عبارة عن ملاحظات/شريحة دراسية نصية فقط بدون صور أو مخططات، مع عنوان المقرر واسم الدكتورة والفصل الدراسي ورقم الصفحة.
+
+
+================================================================================
+PAGE 14 - page_0014.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+ITGS 220  
+Dr. Amna Ali A Mohamed                                                         Fall 2025
+
+Symbol                     Stack                                         Remarks
+
+H                          H                                             Push H
+
+G                          H  G                                          Push G
+
+F                          H  G  F                                       Push F
+
+E                          H  G  F  E                                    Push E
+
+^                          H  G  (E^F)                                   Pop two operands and place the operator
+                                                                          in between the operands and push the
+                                                                          string.
+
+D                          H  G  (E^F)  D                                Push D
+
+/                          H  G  (D/(E^F))                               Pop two operands and place the operator
+                                                                          in between the operands and push the
+                                                                          string.
+
+*                          H  ((D/(E^F))*G)                              Pop two operands and place the operator
+                                                                          in between the operands and push the
+                                                                          string.
+
+C                          H  ((D/(E^F))*G)  C                           Push C
+
+B                          H  ((D/(E^F))*G)  C  B                        Push B
+
+*                          H  ((D/(E^F))*G)  (B*C)                       Pop two operands and place the operator
+                                                                          in front the operands and push the
+                                                                          string.
+
+-                          H  ((B*C)-((D/(E^F))*G))                      Pop two operands and place the operator
+                                                                          in front the operands and push the
+
+14
+
+------------PAGE TALK ABOUT------------
+الصفحة تشرح استخدام المكدس (Stack) لمعالجة تعبير رياضي رمزي خطوة بخطوة.  
+يوجد جدول بثلاثة أعمدة: الرمز، حالة المكدس، والملاحظات، ويبين متى يتم دفع العناصر مثل H وG وF وE إلى المكدس.  
+كما يوضح كيف يتم سحب معاملين عند ظهور عامل مثل ^ أو / أو * أو - ثم تكوين تعبير جديد مثل (E^F) و(D/(E^F)).  
+بصريًا، توجد رسومات صناديق تمثل خلايا المكدس في كل خطوة، مع عرض محتوى المكدس بعد كل عملية.
+
+
+================================================================================
+PAGE 15 - page_0015.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+ITGS 220  
+Dr. Amna Ali A Mohamed                                                          Fall 2025
+
+string.
+
+*  
+(((B*C)-((D)/(E^F))*G))*H)
+
+Pop two operands and place the operator  
+in front the operands and push the  
+string.
+
+A  
+(((B*C)-((D)/(E^F))*G))*H)    A
+
+Push A
+
++  
+(A+((((B*C)-((D)/(E^F))*G))*H))
+
+Pop two operands and place the operator  
+in front the operands and push the  
+string.
+
+End of  
+string
+
+The input is now empty. The string formed is infix.
+
+1.4.8  Program to convert prefix to infix expression:
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
+
+#define MAX 100
+
+// Stack structure to hold strings
+typedef struct {
+    char data[MAX][MAX];
+    int top;
+} Stack;
+
+// Function prototypes
+void initStack(Stack *s);
+int isFull(Stack *s);
+int isEmpty(Stack *s);
+void push(Stack *s, char *str);
+void pop(Stack *s, char *str);
+void prefixToInfix(char *prefix, char *infix);
+void reverseString(char *str);
+
+int main() {
+    char prefix[MAX], infix[MAX];
+
+    printf("Enter prefix expression: ");
+    fgets(prefix, MAX, stdin);
+    prefix[strlen(prefix)-1] = '\0'; // Remove newline character
+
+    prefixToInfix(prefix, infix);
+    printf("Infix expression: %s\n", infix);
+
+    return 0;
+}
+
+// Initialize stack
+void initStack(Stack *s) {
+    s->top = -1;
+}
+
+// Check if stack is full
+int isFull(Stack *s) {
+    return s->top == MAX - 1;
+}
+
+15
+
+------------PAGE TALK ABOUT------------
+الصفحة تشرح تحويل التعبير من **Prefix إلى Infix** باستخدام **Stack**.  
+في الأعلى يوجد مخطط تتبّع يوضح خطوات إدخال الرموز إلى المكدس ثم عند ظهور عامل يتم سحب معاملين وتكوين تعبير infix مثل: `(A+((((B*C)-((D)/(E^F))*G))*H))`.  
+في الأسفل يوجد بداية برنامج بلغة **C** يعرّف المكدس، والدوال الأساسية مثل `push` و`pop` و`prefixToInfix`، مع جزء من `main` لقراءة التعبير وطباعة الناتج.  
+كما تظهر عناصر تنسيقية للصفحة مثل عنوان المقرر، اسم الدكتورة، الفصل الدراسي، ورقم الصفحة.
+
+
+================================================================================
+PAGE 16 - page_0016.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+ITGS 220  
+Dr. Amna Ali A Mohamed                                                         Fall 2025
+
+}
+
+// Check if stack is empty
+int isEmpty(Stack *s) {
+    return s->top == -1;
+}
+
+// Push operation
+void push(Stack *s, char *str) {
+    if (isFull(s)) {
+        printf("Stack Overflow\n");
+        return;
+    }
+    strcpy(s->data[++s->top], str);
+}
+
+// Pop operation
+void pop(Stack *s, char *str) {
+    if (isEmpty(s)) {
+        printf("Stack Underflow\n");
+        str[0] = '\0';
+        return;
+    }
+    strcpy(str, s->data[s->top--]);
+}
+
+// Reverse a string
+void reverseString(char *str) {
+    int n = strlen(str);
+    for (int i = 0; i < n/2; i++) {
+        char temp = str[i];
+        str[i] = str[n-i-1];
+        str[n-i-1] = temp;
+    }
+}
+
+// Function to convert prefix to infix
+void prefixToInfix(char *prefix, char *infix) {
+    Stack s;
+    initStack(&s);
+    char temp[MAX], op1[MAX], op2[MAX];
+
+    // Reverse the prefix expression
+    reverseString(prefix);
+
+    for (int i = 0; prefix[i] != '\0'; i++) {
+        char ch = prefix[i];
+
+        // If operand, push to stack
+        if (isalnum(ch)) {
+            temp[0] = ch;
+            temp[1] = '\0';
+            push(&s, temp);
+        }
+        // If operator, pop two operands and combine with operator
+        else {
+            pop(&s, op1);
+            pop(&s, op2);
+
+            // Format the expression with parentheses
+            sprintf(temp, "(%s%c%s)", op1, ch, op2);
+
+16
+
+------------PAGE TALK ABOUT------------
+الصفحة تعرض جزءًا من كود بلغة C يشرح استخدام المكدس (Stack) لتحويل التعبير من Prefix إلى Infix.  
+تتضمن دوال فحص الفراغ isEmpty، والإضافة push، والحذف pop، وعكس النص reverseString.  
+كما تشرح بداية دالة prefixToInfix التي تعكس التعبير ثم تمر على كل رمز؛ إذا كان operand يتم دفعه للمكدس، وإذا كان operator يتم سحب عنصرين ودمجهما داخل أقواس.  
+يوجد تنسيق أكاديمي أعلى الصفحة باسم المقرر ITGS 220 واسم الدكتورة والفصل الدراسي، مع رقم الصفحة 16 أسفل اليمين.
+
+
+================================================================================
+PAGE 17 - page_0017.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+ITGS 220  
+Dr. Amna Ali A Mohamed                                                                 Fall 2025
+
+push(&s, temp);
+    }
+}
+
+// The final infix expression is at the top of stack
+pop(&s, infix);
+}
+
+1.5    Evaluation of postfix expression:
+
+The postfix expression is evaluated easily by the use of a stack. When a number is seen,
+it is pushed onto the stack; when an operator is seen, the operator is applied to the two
+numbers that are popped from the stack and the result is pushed onto the stack. When
+an expression is given in postfix notation, there is no need to know any precedence rules;
+this is our obvious advantage.
+
+Example 1:
+
+Evaluate the postfix expression: 6 5 2 3 + 8 * + 3 + *
+
+SYMBOL    OPERAND 1    OPERAND 2    VALUE    STACK    REMARKS
+
+6                                              6
+5                                              6, 5
+2                                              6, 5, 2
+3                                              6, 5, 2, 3
++           2            3           5        6, 5, 5    The first four symbols are placed on
+                                                          the stack.
+                                                          Next a ‘+’ is read, so 3 and 2 are
+                                                          popped from the stack and their sum
+                                                          5, is pushed
+
+17
+
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن تقييم التعبير اللاحق (Postfix Expression) باستخدام المكدس Stack.  
+تشرح الفكرة: عند قراءة رقم يتم دفعه إلى المكدس، وعند قراءة عامل مثل + أو * يتم سحب آخر رقمين وإجراء العملية ثم إعادة النتيجة إلى المكدس.  
+تحتوي الصفحة على مثال عملي للتعبير: 6 5 2 3 + 8 * + 3 + * مع جدول يوضح كل خطوة.  
+يوجد أيضًا جزء صغير من كود سابق في أعلى الصفحة، بالإضافة إلى جدول منظم بأعمدة مثل الرمز، المعاملات، القيمة، المكدس، والملاحظات.
+
+
+================================================================================
+PAGE 18 - page_0018.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+ITGS 220  
+Dr. Amna Ali A Mohamed                                                          Fall 2025
+
+8    2    3    5    6, 5, 5, 8    Next 8 is pushed  
+*    5    8    40    6, 5, 40    Now a ‘*’ is seen, so 8 and 5 are  
+popped as 8 * 5 = 40 is pushed  
++    5    40    45    6, 45    Next, a ‘+’ is seen, so 40 and 5 are  
+popped and 40 + 5 = 45 is pushed  
+3    5    40    45    6, 45, 3    Now, 3 is pushed  
++    45    3    48    6, 48    Next, ‘+’ pops 3 and 45 and pushes  
+45 + 3 = 48 is pushed  
+*    6    48    288    288    Finally, a ‘*’ is seen and 48 and 6  
+are popped, the result 6 * 48 =  
+288 is pushed
+
+Example 2:
+
+Evaluate the following postfix expression: 6 2 3 + - 3 8 2 / + * 2 ↑ 3 +
+
+SYMBOL    OPERAND 1    OPERAND 2    VALUE    STACK  
+6                                             6  
+2                                             6, 2  
+3                                             6, 2, 3  
++         2             3            5        6, 5  
+-         6             5            1        1  
+3         6             5            1        1, 3  
+8         6             5            1        1, 3, 8  
+2         6             5            1        1, 3, 8, 2  
+/         8             2            4        1, 3, 4  
++         3             4            7        1, 7  
+*         1             7            7        7  
+2         1             7            7        7, 2  
+↑         7             2            49       49  
+3         7             2            49       49, 3  
++         49            3            52       52
+
+1.5.1  Program to evaluate a postfix expression:
+
+#include <stdio.h>  
+#include <stdlib.h>  
+#include <ctype.h>  
+#include <math.h>  
+#include <string.h>
+
+18
+
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن **تقييم التعبير postfix باستخدام المكدس (Stack)** خطوة بخطوة.  
+تحتوي على مثال محلول يوضح كيف يتم دفع الأرقام إلى المكدس ثم تنفيذ العمليات الحسابية عند ظهور الرموز مثل `+` و `*` و `/` و `↑`.  
+يوجد جدول رئيسي في Example 2 يبين الأعمدة: الرمز، المعامل الأول، المعامل الثاني، القيمة، وحالة المكدس بعد كل خطوة حتى الوصول إلى الناتج النهائي **52**.  
+كما تبدأ الصفحة قسمًا جديدًا بعنوان **Program to evaluate a postfix expression** وتعرض ترويسات مكتبات لغة C اللازمة لكتابة البرنامج.
+
+
+================================================================================
+PAGE 19 - page_0019.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+ITGS 220  
+Dr. Amna Ali A Mohamed                                                         Fall 2025
+
+____________________________________________________________
+____
+
+#define MAX_SIZE 100
+
+// Stack implementation
+double stack[MAX_SIZE];
+int top = -1;
+
+// Function prototypes
+void push(double num);
+double pop();
+int isEmpty();
+int isOperator(char ch);
+double evaluatePostfix(char* expression);
+
+int main() {
+    char expression[MAX_SIZE];
+
+    printf("Enter postfix expression (numbers and operators separated by spaces):\n");
+    printf("Example: 5 3 2 * + 4 -\n");
+    fgets(expression, MAX_SIZE, stdin);
+
+    // Remove newline character if present
+    if (expression[strlen(expression)-1] == '\n') {
+        expression[strlen(expression)-1] = '\0';
+    }
+
+    double result = evaluatePostfix(expression);
+    printf("Result: %.2f\n", result);
+
+    return 0;
+}
+
+// Push a number onto the stack
+void push(double num) {
+    if (top >= MAX_SIZE - 1) {
+        printf("Stack overflow!\n");
+        exit(1);
+    }
+    stack[++top] = num;
+}
+
+// Pop a number from the stack
+double pop() {
+    if (top < 0) {
+        printf("Stack underflow!\n");
+        exit(1);
+    }
+    return stack[top--];
+}
+
+// Check if stack is empty
+int isEmpty() {
+    return top == -1;
+}
+
+19
+
+------------PAGE TALK ABOUT------------
+الصفحة تعرض جزءًا من كود بلغة C لتقييم التعبير postfix باستخدام بنية البيانات Stack.  
+تتضمن تعريف حجم المكدس، والمصفوفة المستخدمة لتخزين القيم، والمتغير top لتتبع أعلى عنصر.  
+كما تحتوي على prototypes للدوال، ودالة main لقراءة التعبير من المستخدم ثم حساب النتيجة وطباعتها.  
+ويظهر أيضًا تنفيذ الدوال الأساسية للمكدس مثل push و pop و isEmpty مع معالجة حالتي overflow و underflow.
+
+
+================================================================================
+PAGE 20 - page_0020.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+ITGS 220  
+Dr. Amna Ali A Mohamed                                                          Fall 2025
+
+____________________________________________________________________________
+____
+
+// Check if character is an operator
+int isOperator(char ch) {
+    return ch == '+' || ch == '-' || ch == '*' || ch == '/' || ch == '^';
+}
+
+// Evaluate postfix expression
+double evaluatePostfix(char* expression) {
+    char* token = strtok(expression, " ");
+
+    while (token != NULL) {
+        if (isdigit(token[0]) || (token[0] == '-' && isdigit(token[1]))) {
+            // It's a number (including negative numbers)
+            double num = atof(token);
+            push(num);
+        } else if (isOperator(token[0])) {
+            // It's an operator
+            double operand2 = pop();
+            double operand1 = pop();
+            double result;
+
+            switch (token[0]) {
+                case '+':
+                    result = operand1 + operand2;
+                    break;
+                case '-':
+                    result = operand1 - operand2;
+                    break;
+                case '*':
+                    result = operand1 * operand2;
+                    break;
+                case '/':
+                    if (operand2 == 0) {
+                        printf("Error: Division by zero\n");
+                        exit(1);
+                    }
+                    result = operand1 / operand2;
+                    break;
+                case '^':
+                    result = pow(operand1, operand2);
+                    break;
+                default:
+                    printf("Error: Unknown operator '%c'\n", token[0]);
+                    exit(1);
+            }
+            push(result);
+        } else {
+            printf("Error: Invalid token '%s'\n", token);
+            exit(1);
+        }
+
+        token = strtok(NULL, " ");
+    }
+
+    if (top != 0) {
+
+20
+
+------------PAGE TALK ABOUT------------
+الصفحة تعرض جزءًا من كود بلغة C لتقييم التعبير اللاحق Postfix Expression باستخدام المكدس Stack.  
+يوجد دالة isOperator للتحقق هل الحرف عامل حسابي مثل + و- و* و/ و^.  
+ثم دالة evaluatePostfix تقرأ الرموز token واحدًا واحدًا، وتتعامل مع الأرقام السالبة والعمليات الحسابية المختلفة.  
+كما تتضمن معالجة أخطاء مثل القسمة على صفر، أو وجود عامل غير معروف، أو رمز غير صالح.  
+العناصر البصرية عبارة عن صفحة محاضرة أكاديمية فيها عنوان المقرر واسم الدكتورة والفصل الدراسي ورقم الصفحة فقط، بدون صور أو مخططات.
+
+
+================================================================================
+PAGE 21 - page_0021.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+ITGS 220
+Dr. Amna Ali A Mohamed                                                                 Fall 2025
+
+____________________________________________________________
+____
+
+        printf("Error: Invalid expression format\n");
+        exit(1);
+    }
+
+    return pop();
+
+}
+
+21
+
+------------PAGE TALK ABOUT------------
+توضح الصفحة جزءًا من كود بلغة C لمعالجة الأخطاء في تنسيق التعبير.
+يظهر فيها طباعة رسالة خطأ: "Invalid expression format" ثم إنهاء البرنامج باستخدام `exit(1)`.
+بعد ذلك يعيد البرنامج قيمة من المكدس باستخدام `return pop();`.
+بصريًا، الصفحة تحتوي على ترويسة المقرر واسم الدكتورة والفصل الدراسي، مع رقم الصفحة 21 أسفل اليمين.
+
