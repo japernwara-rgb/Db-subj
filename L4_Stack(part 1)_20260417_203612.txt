@@ -1,0 +1,546 @@
+================================================================================
+SUBJECT: L4_Stack(part 1)_20260417_203612
+TOTAL PAGES: 7
+EXTRACTED ON: 2026-04-17 19:54:19
+================================================================================
+
+
+================================================================================
+PAGE 1 - page_0001.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+ITGS 220  
+Dr. Amna Ali A Mohamed                                                          Fall 2025
+
+Stack
+
+1.  STACK:
+
+1.1 Introduction to Stacks  
+A stack is a linear data structure that follows the Last-In-First-Out (LIFO) principle.  
+The last element added to the stack will be the first one to be removed.  
+Stacks are sometimes known as LIFO (last in, first out) lists.
+
+Key Characteristics:  
+•    Ordered collection of elements  
+•    Two main operations:  push (add) and pop (remove)  
+•    Access is restricted to the top element only  
+•    Fixed size when implemented using arrays
+
+Ways to implement Stack  
+1.  Implement stack using Array  
+2.  Implement stack using LinkedList
+
+1.2 Operations on Stack and How to Implement:  
+The fundamental operations we'll implement:  
+1.  push() - Add an element to the top of the stack  
+2.  pop() - Remove the top element from the stack  
+3.  peek() - View the top element without removing it  
+4.  isEmpty() - Check if stack is empty  
+5.  isFull() - Check if stack is full  
+6.  display() - Display all elements in the stack
+
+Push 1  
+Push 2  
+Push 3  
+Pop 3  
+3  
+2  
+1  
+Stack  
+1  
+Stack  
+2  
+1  
+Stack  
+Pop 1  
+Pop 2  
+peek 2  
+2  
+1  
+Stack  
+1  
+Stack  
+Stack  
+Stack Operations
+
+“Push” is the term used to insert an element into a stack. “Pop” is the term used to delete an element from the stack.
+
+1
+
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن بنية البيانات Stack ومبدأ عملها LIFO، حيث آخر عنصر يدخل هو أول عنصر يخرج.  
+توضح الخصائص الأساسية للـ Stack مثل أن الوصول يكون فقط إلى العنصر العلوي، وأهم العمليات مثل push و pop و peek و isEmpty و isFull و display.  
+كما تذكر طريقتين لتنفيذ الـ Stack: باستخدام Array أو LinkedList.  
+يوجد مخطط بصري يشرح تسلسل العمليات على المكدس: إدخال العناصر 1 ثم 2 ثم 3، ثم حذف العناصر من الأعلى، مع مثال على peek لإظهار العنصر العلوي دون حذفه.
+
+
+================================================================================
+PAGE 2 - page_0002.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+All insertions and deletions take place at the same end, so the last element added to the stack will be the first element removed from the stack. When a stack is created, the stack base remains fixed while the stack top changes as elements are added and removed. The most accessible element is the top and the least accessible element is the bottom of the stack.
+
+1.3    Array Implementation
+
+Let us consider a stack with 6 elements capacity. This is called as the size of the stack. The number of elements to be added should not exceed the maximum size of the stack. If we attempt to add new element beyond the maximum size, we will encounter a stack overflow condition. Similarly, you cannot remove elements beyond the base of the stack. If such is the case, we will reach a stack underflow condition.
+
+When an element is added to a stack, the operation is performed by push(). Figure 1 shows the creation of a stack and addition of elements using push().
+
+Top=-1  
+Empty  
+Stack
+
+4  
+3  
+2  
+1  
+0
+
+Top  
+Insert  
+11
+
+11
+
+4  
+3  
+2  
+1  
+0
+
+Top  
+Insert  
+22
+
+22  
+11
+
+4  
+3  
+2  
+1  
+0
+
+Top  
+Insert  
+33
+
+33  
+22  
+11
+
+4  
+3  
+2  
+1  
+0
+
+Figure 1. Push operations on stack
+
+When an element is taken off from the stack, the operation is performed by pop(). Figure 2 shows a stack initially with three elements and shows the deletion of elements using pop().
+
+TOP  
+Initial  
+Stack
+
+33  
+22  
+11
+
+4  
+3  
+2  
+1  
+0
+
+TOP  
+POP 33
+
+22  
+11
+
+4  
+3  
+2  
+1  
+0
+
+TOP  
+POP 22
+
+11
+
+4  
+3  
+2  
+1  
+0
+
+TOP
+
+4  
+3  
+2  
+1  
+0
+
+Figure 2. Pop operations on stack
+
+2
+
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن تنفيذ بنية البيانات Stack باستخدام المصفوفة، وتشرح مبدأ LIFO حيث آخر عنصر يدخل هو أول عنصر يخرج.  
+كما توضح مفهومي stack overflow عند محاولة الإضافة بعد السعة القصوى، وstack underflow عند الحذف من مكدس فارغ.  
+يوجد شكلان توضيحيان: الأول يبين عمليات push بإدخال 11 ثم 22 ثم 33 مع تحرك المؤشر Top، والثاني يبين عمليات pop بإزالة 33 ثم 22 ثم الوصول إلى مكدس فارغ.  
+الرسومات تعرض خلايا المكدس رأسياً مع الفهارس من 0 إلى 4 وموقع المؤشر Top في كل خطوة.
+
+
+================================================================================
+PAGE 3 - page_0003.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+- **Structure Definition**
+
+  #define MAX 10  // Maximum size of stack
+
+  struct Stack {
+
+    int items[MAX];  // Array to store stack elements
+
+    int top;         // Index of top element
+
+  };
+
+- **Initialization**
+
+  void initialize(struct Stack *s) {
+
+    s->top = -1;  // -1 indicates empty stack
+
+  }
+
+- **Checking Stack Status**
+
+  int isEmpty(struct Stack *s) {
+
+    return (s->top == -1);
+
+  }
+
+  int isFull(struct Stack *s) {
+
+    return (s->top == MAX - 1);
+
+  }
+
+- **Push Operation**
+
+  void push(struct Stack *s, int value) {
+
+    if (isFull(s)) {
+
+      printf("Stack Overflow! Cannot push %d\n", value);
+
+    } else {
+
+      s->top++;
+
+      s->items[s->top] = value;
+
+      printf("%d pushed to stack\n", value);
+
+    }
+
+  }
+
+- **Pop Operation**
+
+  int pop(struct Stack *s) {
+
+    if (isEmpty(s)) {
+
+      printf("Stack Underflow! Cannot pop\n");
+
+      return -1;  // Error value
+
+    } else {
+
+      int value = s->items[s->top];
+
+3
+
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن تنفيذ بنية البيانات Stack باستخدام لغة C من خلال مصفوفة ثابتة الحجم.
+تشرح تعريف الهيكل struct Stack، وتهيئة المكدس، ثم دوال التحقق هل المكدس فارغ أو ممتلئ.
+كما تعرض عملية push لإضافة عنصر مع معالجة حالة overflow، وعملية pop لإزالة عنصر مع معالجة underflow.
+الصفحة عبارة عن نص برمجي منظم بعناوين فرعية ونقاط، ولا تحتوي على صور أو مخططات، فقط رقم الصفحة 3 في الأسفل.
+
+
+================================================================================
+PAGE 4 - page_0004.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+s->top--;
+return value;
+}
+}
+
+- **Peek Operation**
+
+&nbsp;&nbsp;&nbsp;&nbsp;int peek(struct Stack *s) {
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (isEmpty(s)) {
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;printf("Stack is empty\n");
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return -1;
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} else {
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return s->items[s->top];
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+
+&nbsp;&nbsp;&nbsp;&nbsp;}
+
+- **Display Operation**
+
+&nbsp;&nbsp;&nbsp;&nbsp;void display(struct Stack *s) {
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (isEmpty(s)) {
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;printf("Stack is empty\n");
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} else {
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;printf("Stack elements:\n");
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for (int i = s->top; i >= 0; i--) {
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;printf("%d\n", s->items[i]);
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+
+&nbsp;&nbsp;&nbsp;&nbsp;}
+
+**Key Points to Remember**
+
+1. **Stack Pointer (top):**
+   1. Initialized to -1 (empty stack)
+   2. Points to the current top element
+   3. Incremented before push, decremented after pop
+
+2. **Stack Overflow:**
+   1. Occurs when trying to push to a full stack (top == MAX-1)
+   2. Prevented by checking isFull() before push
+
+3. **Stack Underflow:**
+
+4
+
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن عمليات المكدس (Stack) في لغة C، وخصوصًا عمليتي **peek** و**display** مع جزء ظاهر من نهاية دالة **pop**.  
+توضح دالة **peek** كيفية إرجاع العنصر الموجود أعلى المكدس مع التحقق أولًا إذا كان المكدس فارغًا.  
+كما تشرح دالة **display** طريقة عرض جميع عناصر المكدس من الأعلى إلى الأسفل باستخدام حلقة `for`.  
+وفي الأسفل توجد نقاط مهمة تلخص مفهوم المؤشر `top`، وحالتي **Stack Overflow** و**Stack Underflow**.  
+لا توجد صور أو مخططات، فقط نصوص تعليمية وكود برمجي منسق على شكل نقاط وعناوين.
+
+
+================================================================================
+PAGE 5 - page_0005.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+1.  Occurs when trying to pop from an empty stack (top == -1)
+
+2.  Prevented by checking isEmpty() before pop
+
+
+1.4    Source code for stack operations, using array:
+
+#include <stdio.h>
+#define MAX 10
+
+struct Stack {
+    int items[MAX];
+    int top;
+};
+
+// Function prototypes
+void initialize(struct Stack *s);
+int isEmpty(struct Stack *s);
+int isFull(struct Stack *s);
+void push(struct Stack *s, int value);
+int pop(struct Stack *s);
+int peek(struct Stack *s);
+void display(struct Stack *s);
+
+int main() {
+    struct Stack myStack;
+    initialize(&myStack);
+    int choice, value;
+
+    while (1) {
+        printf("\nStack Operations:\n");
+        printf("1. Push\n");
+        printf("2. Pop\n");
+        printf("3. Peek\n");
+        printf("4. Display\n");
+        printf("5. Exit\n");
+        printf("Enter your choice: ");
+        scanf("%d", &choice);
+
+        switch (choice) {
+            case 1:
+                printf("Enter value to push: ");
+                scanf("%d", &value);
+                push(&myStack, value);
+                break;
+            case 2:
+                value = pop(&myStack);
+                if (value != -1) {
+                    printf("Popped value: %d\n", value);
+                }
+                break;
+            case 3:
+                value = peek(&myStack);
+                if (value != -1) {
+                    printf("Top element: %d\n", value);
+                }
+
+                break;
+            case
+
+5
+
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن بنية البيانات Stack باستخدام المصفوفة في لغة C، مع توضيح حالة underflow عند محاولة تنفيذ pop على مكدس فارغ عندما تكون قيمة top = -1.  
+كما تذكر أن تجنب هذه المشكلة يكون عبر التحقق من isEmpty() قبل تنفيذ pop.  
+تحتوي الصفحة على كود مصدر يعرّف struct Stack ويعرض دوال أساسية مثل initialize وpush وpop وpeek وdisplay.  
+يوجد أيضًا جزء من برنامج main يعرض قائمة تفاعلية للمستخدم لتنفيذ عمليات المكدس مثل الإضافة والحذف وعرض العنصر العلوي.
+
+
+================================================================================
+PAGE 6 - page_0006.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+}
+    break;
+case 4:
+    display(&myStack);
+    break;
+case 5:
+    return 0;
+default:
+    printf("Invalid choice\n");
+    }
+}
+}
+
+    return 0;
+}
+
+void initialize(struct Stack *s) {
+    s->top = -1;  // -1 indicates empty stack
+}
+
+int isEmpty(struct Stack *s) {
+    return (s->top == -1);
+}
+
+int isFull(struct Stack *s) {
+    return (s->top == MAX - 1);
+}
+
+void push(struct Stack *s, int value) {
+    if (isFull(s)) {
+        printf("Stack Overflow! Cannot push %d\n", value);
+    } else {
+        s->top++;
+        s->items[s->top] = value;
+        printf("%d pushed to stack\n", value);
+    }
+}
+
+int pop(struct Stack *s) {
+    if (isEmpty(s)) {
+        printf("Stack Underflow! Cannot pop\n");
+        return -1;  // Error value
+    } else {
+        int value = s->items[s->top];
+        s->top--;
+        return value;
+    }
+}
+
+int peek(struct Stack *s) {
+    if (isEmpty(s)) {
+        printf("Stack is empty\n");
+        return -1;
+    } else {
+        return s->items[s->top];
+    }
+}
+
+void display(struct Stack *s) {
+
+6
+
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن جزء من برنامج بلغة C لتنفيذ بنية البيانات Stack باستخدام المصفوفة.
+توضح دوال أساسية مثل initialize و isEmpty و isFull و push و pop و peek، مع جزء من قائمة خيارات باستخدام switch-case.
+كما تعرض معالجة حالتي overflow و underflow عند الإضافة أو الحذف من المكدس.
+لا توجد صور أو مخططات، فقط كود برمجي منسق ورقم الصفحة 6 في الأسفل.
+
+
+================================================================================
+PAGE 7 - page_0007.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+if (isEmpty(s)) {
+    printf("Stack is empty\n");
+} else {
+    printf("Stack elements:\n");
+    for (int i = s->top; i >= 0; i--) {
+        printf("%d\n", s->items[i]);
+    }
+}
+}
+
+1.5     Applications of Stacks
+
+Stacks are widely used in computer science for solving various problems. Some key applications include:
+
+•    Stack is used by compilers to check for balancing of parentheses, brackets and braces.
+•    Stack is used to evaluate a postfix expression.
+•    Stack is used to convert an infix expression into postfix/prefix form.
+•    In recursion, all intermediate arguments and return values are stored on the processor’s stack.
+•    During a function call the return address and arguments are pushed onto a stack and on return they are popped off.
+
+Expression Evaluation:
+    o    Stacks are used to evaluate arithmetic expressions written in infix, prefix,
+         or postfix notation.
+    o    Infix Notation: Operators are placed between operands (e.g., a + b).
+    o    Postfix Notation: Operators follow operands (e.g., a b +).
+    o    Prefix Notation: Operators precede operands (e.g., + a b).
+2.  Infix to Postfix/Prefix Conversion:
+    o    Stacks are used to convert infix expressions to postfix or prefix notation,
+         which are easier for computers to evaluate.
+
+7
+
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن تطبيقات بنية البيانات Stack في علوم الحاسوب، مثل فحص توازن الأقواس، تقييم التعبيرات، وتحويل الصيغ بين infix وpostfix وprefix.  
+كما تشرح دور الـ Stack في الاستدعاء التعاودي recursion واستدعاء الدوال، حيث تُخزن العناوين والوسائط مؤقتًا ثم تُزال عند العودة.  
+يوجد في أعلى الصفحة مقطع كود بلغة C لعرض عناصر الـ Stack أو طباعة رسالة إذا كان فارغًا.  
+الصفحة نصية بالكامل تقريبًا ولا تحتوي على صور أو مخططات، فقط عناوين ونقاط تعداد ورقم الصفحة في الأسفل.
+
