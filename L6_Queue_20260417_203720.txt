@@ -1,0 +1,789 @@
+================================================================================
+SUBJECT: L6_Queue_20260417_203720
+TOTAL PAGES: 11
+EXTRACTED ON: 2026-04-17 19:59:23
+================================================================================
+
+
+================================================================================
+PAGE 1 - page_0001.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+ITGS 220  
+Dr. Amna Ali A Mohamed                                                         Fall 2025
+
+Queue
+
+A queue is another special kind of list, where items are inserted at one end called the  
+rear and deleted at the other end called the front. Another name for a queue is a “FIFO”  
+or “First-in-first-out” list.
+
+The operations for a queue are analogues to those for a stack, the difference is that the  
+insertions go at the end of the list, rather than the beginning. We are using the following  
+operations on queues:
+
+•        enqueue: which inserts an element at the end of the queue.  
+•        dequeue: which deletes an element at the start of the queue.
+
+1.  Representation of Queue:
+
+Let us consider a queue, which can hold maximum of five elements. Initially the queue  
+is empty.
+
+0     1     2     3     4
+
+Queue Empty  
+FRONT = REAR = 0
+
+F R
+
+Now, insert 11 to the queue. Then queue status will be:
+
+0     1     2     3     4
+
+11
+
+REAR = REAR + 1 = 1  
+FRONT = 0
+
+F     R
+
+Next, insert 22 to the queue. Then the queue status is:
+
+0     1     2     3     4
+
+11     22
+
+REAR = REAR + 1 = 2  
+FRONT = 0
+
+F     R
+
+Again insert another element 33 to the queue. The status of the queue is:
+
+0     1     2     3     4
+
+11     22     33
+
+REAR = REAR + 1 = 3  
+FRONT = 0
+
+F     R
+
+1
+
+------------PAGE TALK ABOUT------------
+الصفحة تشرح بنية البيانات Queue وكيف تعمل بمبدأ FIFO أي أول داخل أول خارج.  
+توضح عمليتي enqueue للإدخال من الخلف rear وdequeue للحذف من الأمام front.  
+يوجد تمثيل بصري لطابور سعته 5 خانات مرقمة من 0 إلى 4، مع تتبع موقعي FRONT وREAR.  
+كما تعرض أمثلة متتابعة لإدخال العناصر 11 ثم 22 ثم 33، مع تحديث قيمة REAR وبقاء FRONT عند 0.
+
+
+================================================================================
+PAGE 2 - page_0002.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+ITGS 220  
+Dr. Amna Ali A Mohamed                                                         Fall 2025
+
+Now, delete an element. The element deleted is the element at the front of the queue.  
+So the status of the queue is:
+
+0   1   2   3   4  
+22   33
+
+F             R
+
+REAR = 3  
+FRONT = FRONT + 1 = 1
+
+Again, delete an element. The element to be deleted is always pointed to by the FRONT  
+pointer. So, 22 is deleted. The queue status is as follows:
+
+0   1   2   3   4  
+33
+
+F             R
+
+REAR = 3  
+FRONT = FRONT + 1 = 2
+
+Now, insert new elements 44 and 55 into the queue. The queue status is:
+
+0   1   2   3   4  
+33   44   55
+
+F                     R
+
+REAR = 5  
+FRONT = 2
+
+Next insert another element, say 66 to the queue. We cannot insert 66 to the queue as  
+the rear crossed the maximum size of the queue (i.e., 5). There will be queue full signal.  
+The queue status is as follows:
+
+0   1   2   3   4  
+33   44   55
+
+F                     R
+
+REAR = 5  
+FRONT = 2
+
+Now it is not possible to insert an element 66 even though there are two vacant positions  
+in the linear queue. To over come this problem the elements of the queue are to be  
+shifted towards the beginning of the queue so that it creates vacant position at the rear  
+end. Then the FRONT and REAR are to be adjusted properly. The element 66 can be  
+inserted at the rear end. After this operation, the queue status is as follows:
+
+0   1   2   3   4  
+33   44   55   66
+
+F                 R
+
+REAR = 4  
+FRONT = 0
+
+This difficulty can overcome if we treat queue position with index 0 as a position that  
+comes after position with index 4 i.e., we treat the queue as a circular queue.
+
+2
+
+------------PAGE TALK ABOUT------------
+الصفحة تشرح عمليات الحذف والإدخال في **الـ linear queue** باستخدام مؤشري **FRONT** و **REAR**.  
+توضح بالرسوم كيف يتم حذف العناصر من المقدمة، ثم إدخال عناصر جديدة حتى يصل **REAR** إلى الحد الأقصى وتظهر مشكلة الامتلاء رغم وجود فراغات في البداية.  
+كما تعرض حلاً مؤقتًا وهو **إزاحة العناصر نحو البداية** ثم تعديل FRONT و REAR لإدخال العنصر 66.  
+وفي النهاية تمهّد لفكرة **الـ circular queue** باعتبار أن الموقع 0 يأتي بعد الموقع 4 لتجنب هذه المشكلة.
+
+
+================================================================================
+PAGE 3 - page_0003.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+ITGS 220  
+Dr. Amna Ali A Mohamed                                                          Fall 2025
+
+1.2.    Source code for Queue operations using array:
+
+In order to create a queue we require a one dimensional array Q(1:n) and two variables
+front and rear. The conventions we shall adopt for these two variables are that front is
+always 1 less than the actual front of the queue and rear always points to the last element
+in the queue. Thus, front = rear if and only if there are no elements in the queue. The
+initial condition then is front = rear = 0. The various queue operations to perform
+creation, deletion and display the elements in a queue are as follows:
+
+1.        insertQ(): inserts an element at the end of queue Q.
+2.        deleteQ(): deletes the first element of Q.
+3.        displayQ(): displays the elements in the queue.
+
+#include <stdio.h>
+#include <stdlib.h>
+
+#define MAX_SIZE 6
+
+int queue[MAX_SIZE];
+int front = 0;
+int rear = 0;
+
+// Function prototypes
+void displayMenu();
+void enqueue();
+void dequeue();
+void displayQueue();
+
+int main() {
+    int choice;
+
+    do {
+
+        // screen clearing
+        system("cls");
+
+        displayMenu();
+        printf("Enter your choice: ");
+        scanf("%d", &choice);
+
+        switch(choice) {
+            case 1:
+                enqueue();
+                break;
+            case 2:
+                dequeue();
+                break;
+            case 3:
+                displayQueue();
+                break;
+            case 4:
+                printf("\nExiting program...\n");
+                exit(0);
+            default:
+                printf("\nInvalid choice! Please try again.\n");
+        }
+
+        printf("\nPress Enter to continue...");
+        while(getchar() != '\n'); // Clear input buffer
+        getchar(); // Wait for Enter key
+
+    } while(1);
+
+3
+
+------------PAGE TALK ABOUT------------
+الصفحة تشرح مفهوم تنفيذ بنية البيانات Queue باستخدام مصفوفة أحادية البعد في لغة C.  
+توضح دور المتغيرين front و rear، وأن الحالة الابتدائية تكون front = rear = 0، مع شرح عمليات الإدخال والحذف والعرض.  
+كما تعرض بداية الشيفرة المصدرية، وتشمل تعريف المصفوفة والثوابت والمتغيرات العامة وتصريحات الدوال.  
+يوجد أيضًا جزء من الدالة main يحتوي على قائمة خيارات للمستخدم لتنفيذ enqueue و dequeue و displayQueue أو الخروج من البرنامج.
+
+
+================================================================================
+PAGE 4 - page_0004.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+ITGS 220  
+Dr. Amna Ali A Mohamed                                                         Fall 2025
+
+────────────────────────────────────────────────────────
+
+        return 0;
+    }
+    
+    void displayMenu() {
+        printf("\n===== Queue Operations =====\n");
+        printf("1. Enqueue (Add element)\n");
+        printf("2. Dequeue (Remove element)\n");
+        printf("3. Display Queue\n");
+        printf("4. Exit\n");
+    }
+    
+    void enqueue() {
+        if(rear == MAX_SIZE) {
+            printf("\nQueue is full! Cannot enqueue.\n");
+            return;
+        }
+    
+        int data;
+        printf("\nEnter data to enqueue: ");
+        scanf("%d", &data);
+    
+        queue[rear] = data;
+        rear++;
+        printf("\n%d has been enqueued.\n", data);
+    }
+    
+    void dequeue() {
+        if(front == rear) {
+            printf("\nQueue is empty! Cannot dequeue.\n");
+            return;
+        }
+    
+        printf("\n%d has been dequeued.\n", queue[front]);
+        front++;
+    
+        // Reset queue if empty
+        if(front == rear) {
+            front = rear = 0;
+        }
+    }
+    
+    void displayQueue() {
+        if(front == rear) {
+            printf("\nQueue is empty!\n");
+            return;
+        }
+    
+        printf("\nCurrent Queue: ");
+        for(int i = front; i < rear; i++) {
+            printf("%d ", queue[i]);
+        }
+        printf("\n");
+    }
+
+1.3.    Applications of Queue:
+
+1.      It is used to schedule the jobs to be processed by the CPU.
+
+2.      When multiple users send print jobs to a printer, each printing job is kept in
+        the printing queue. Then the printer prints those jobs according to first in first
+        out (FIFO) basis.
+
+3.      Breadth first search uses a queue data structure to find an element from a
+        graph.
+
+4
+
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن بنية البيانات Queue في لغة C، وتعرض دوال أساسية مثل عرض القائمة، الإضافة إلى الطابور enqueue، الحذف dequeue، وعرض عناصر الطابور.  
+يوضح الكود كيفية التحقق من امتلاء الطابور أو فراغه، مع إعادة ضبط المؤشرين front و rear عند تفريغ الطابور.  
+كما تعرض الصفحة تطبيقات الـ Queue مثل جدولة مهام المعالج CPU، وطوابير الطباعة، وخوارزمية البحث بعرض الشجرة أو الرسم BFS.  
+العناصر البصرية الموجودة هي ترويسة المقرر ITGS 220 واسم الدكتورة والفصل الدراسي ورقم الصفحة فقط، ولا توجد صور أو مخططات.
+
+
+================================================================================
+PAGE 5 - page_0005.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+ITGS 220  
+Dr. Amna Ali A Mohamed                                                         Fall 2025
+
+1.4.    Circular Queue:
+
+A more efficient queue representation is obtained by regarding the array Q[MAX] as circular. Any number of items could be placed on the queue. This implementation of a queue is called a circular queue because it uses its storage array as if it were a circle instead of a linear list.
+
+There are two problems associated with linear queue. They are:
+
+•        Time consuming: linear time to be spent in shifting the elements to the beginning of the queue.
+
+•        Signaling queue full: even if the queue is having vacant position.
+
+For example, let us consider a linear queue status as follows:
+
+0     1     2     3     4
+
+33     44     55
+
+REAR = 5  
+FRONT = 2
+
+F                                 R
+
+Next insert another element, say 66 to the queue. We cannot insert 66 to the queue as the rear crossed the maximum size of the queue (i.e., 5). There will be queue full signal. The queue status is as follows:
+
+0     1     2     3     4
+
+33     44     55
+
+REAR = 5  
+FRONT = 2
+
+F                                 R
+
+This difficulty can be overcome if we treat queue position with index zero as a position that comes after position with index four then we treat the queue as a circular queue.
+
+In circular queue if we reach the end for inserting elements to it, it is possible to insert new elements if the slots at the beginning of the circular queue are empty.
+
+5
+
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن مفهوم **الطابور الدائري (Circular Queue)** كحل أكثر كفاءة من الطابور الخطي.  
+توضح مشكلتين في الطابور الخطي: الحاجة إلى تحريك العناصر مما يستهلك وقتًا، وظهور حالة الامتلاء رغم وجود أماكن فارغة في بداية المصفوفة.  
+يوجد شكلان يوضحان مصفوفة بحجم 5 وخاناتها مرقمة من 0 إلى 4، والعناصر الموجودة هي 33 و44 و55، مع FRONT = 2 وREAR = 5.  
+الرسوم تبين أن الإدخال يفشل في الطابور الخطي عند الوصول للنهاية، بينما في الطابور الدائري يمكن الرجوع للبداية واستغلال الخانات الفارغة.
+
+
+================================================================================
+PAGE 6 - page_0006.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+ITGS 220  
+Dr. Amna Ali A Mohamed                                                 Fall 2025
+
+1.5.    Representation of Circular Queue:
+
+Let us consider a circular queue, which can hold maximum (MAX) of six elements.  
+Initially the queue is empty.
+
+F R
+
+5     0  
+4     1  
+3     2
+
+Queue Empty  
+MAX = 6  
+FRONT = REAR = 0  
+COUNT = 0
+
+Circular Queue
+
+Now, insert 11 to the circular queue. Then circular queue status will be:
+
+F
+
+5     0  
+4     1  
+3     2
+
+11
+
+▲ | R
+
+FRONT = 0  
+REAR = (REAR + 1) % 6 = 1  
+COUNT = 1
+
+Circular Queue
+
+Insert new elements 22, 33, 44 and 55 into the circular queue. The circular queue status is:
+
+R             F
+
+5     0  
+4     1  
+3     2
+
+11  
+22  
+33  
+44  
+55
+
+FRONT = 0  
+REAR = (REAR + 1) % 6 = 5  
+COUNT = 5
+
+Circular Queue
+
+6
+
+------------PAGE TALK ABOUT------------
+تشرح الصفحة تمثيل **الطابور الدائري (Circular Queue)** بسعة قصوى **6 عناصر**، مع توضيح حالته في البداية وهو فارغ.  
+تحتوي على رسومات دائرية مقسمة إلى المواقع **0 إلى 5** وتُظهر موضعي **FRONT** و **REAR** بالأسهم.  
+ثم تعرض مثال إدخال العنصر **11** وكيف تتغير القيم إلى **FRONT = 0** و **REAR = 1** و **COUNT = 1**.  
+بعد ذلك تضيف العناصر **22، 33، 44، 55** وتوضح في الرسم أماكنها داخل الطابور، مع الحالة النهائية **COUNT = 5** و **REAR = 5**.
+
+
+================================================================================
+PAGE 7 - page_0007.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+ITGS 220  
+Dr. Amna Ali A Mohamed                                                 Fall 2025
+
+Now, delete an element. The element deleted is the element at the front of the circular  
+queue. So, 11 is deleted. The circular queue status is as follows:
+
+R  
+5         0  
+4         1  
+3         2
+
+22  
+33  
+44  
+55
+
+F
+
+FRONT = (FRONT + 1) % 6 = 1  
+REAR = 5  
+COUNT = COUNT - 1 = 4
+
+Circular Queue
+
+Again, delete an element. The element to be deleted is always pointed to by the FRONT  
+pointer. So, 22 is deleted. The circular queue status is as follows:
+
+R  
+5         0  
+4         1  
+3         2
+
+33  
+44  
+55
+
+F
+
+FRONT = (FRONT + 1) % 6 = 2  
+REAR = 5  
+COUNT = COUNT - 1 = 3
+
+Circular Queue
+
+Again, insert another element 66 to the circular queue. The status of the circular queue  
+is:
+
+R  
+5         0  
+4         1  
+3         2
+
+66  
+33  
+44  
+55
+
+F
+
+FRONT = 2  
+REAR = (REAR + 1) % 6 = 0  
+COUNT = COUNT + 1 = 4
+
+Circular Queue
+
+Now, insert new elements 77 and 88 into the circular queue. The circular queue status  
+is:
+
+7
+
+------------PAGE TALK ABOUT------------
+الصفحة تشرح عمليات الحذف والإدخال في **الطابور الدائري (Circular Queue)** خطوة بخطوة.  
+توضح أولًا حذف العنصر الأمامي 11 ثم تحديث المؤشرات بحيث يصبح `FRONT = 1` و`COUNT = 4`، ثم حذف 22 ليصبح `FRONT = 2` و`COUNT = 3`.  
+بعد ذلك تشرح إدخال العنصر 66 في نهاية الطابور مع التفاف المؤشر الخلفي، فيصبح `REAR = 0` و`COUNT = 4`.  
+تتضمن الصفحة ثلاثة رسومات دائرية تمثل مواقع الخانات من 0 إلى 5، مع أسهم توضح موضعي `F` و`R` والعناصر الموجودة مثل 33 و44 و55 و66 داخل الطابور.
+
+
+================================================================================
+PAGE 8 - page_0008.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+ITGS 220  
+Dr. Amna Ali A Mohamed                                                          Fall 2025
+
+5             0  
+66            77  
+4     55             88     1  
+44            33  
+3             2
+
+R  
+F
+
+FRONT = 2, REAR = 2  
+REAR = REAR % 6 = 2  
+COUNT = 6
+
+Circular Q u e u e
+
+Now, if we insert an element to the circular queue, as COUNT = MAX we cannot add
+the element to circular queue. So, the circular queue is full.
+
+1.6.    Source code for Circular Queue operations, using array:
+
+#include <stdio.h>
+#include <stdlib.h>  // For system()  clearScreen
+#define MAX 6
+
+// Global variables
+int CQ[MAX];
+int front = 0;
+int rear = 0;
+int count = 0;
+
+// Function prototypes
+
+int menu();
+void insertCQ();
+void deleteCQ();
+void displayCQ();
+
+int main() {
+    int ch;
+    do {
+        system("cls");
+        ch = menu();
+
+        switch(ch) {
+            case 1:
+                insertCQ();
+                break;
+            case 2:
+                deleteCQ();
+                break;
+            case 3:
+                displayCQ();
+                break;
+            case 4:
+                return 0;
+            default:
+                printf("\n Invalid Choice ");
+        }
+
+        printf("\nPress any key to continue...");
+        getchar();  // Clear input buffer
+        getchar();  // Wait for key press
+
+    } while(1);
+}
+
+8
+
+------------PAGE TALK ABOUT------------
+الصفحة تشرح بنية **الـ Circular Queue** باستخدام مصفوفة بحجم **MAX = 6**، وتوضح حالة الامتلاء عندما يصبح **COUNT = 6** فلا يمكن إدخال عنصر جديد.  
+يوجد رسم دائري مقسم إلى 6 خانات مرقمة من 0 إلى 5، وتحتوي القيم: **77, 88, 33, 44, 55, 66**، مع توضيح أن **FRONT = 2** و **REAR = 2** بعد الالتفاف.  
+كما تعرض الصفحة بداية كود لغة **C** لتنفيذ عمليات الطابور الدائري: **insert**, **delete**, **display**، مع تعريف المتغيرات العامة والدالة **main** وقائمة الخيارات.  
+الرسم يوضح فكرة الالتفاف في الطابور الدائري وأن المؤشر الخلفي يعود للبداية باستخدام العملية **REAR % 6**.
+
+
+================================================================================
+PAGE 9 - page_0009.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+ITGS 220  
+Dr. Amna Ali A Mohamed                                                          Fall 2025
+
+________________________________________________________________________________
+
+int menu() {
+    int ch;
+    printf("\n \t Circular Queue Operations using ARRAY..");
+    printf("\n ----------------*******\n");
+    printf("\n 1. Insert ");
+    printf("\n 2. Delete ");
+    printf("\n 3. Display");
+    printf("\n 4. Quit ");
+    printf("\n Enter Your Choice: ");
+    scanf("%d", &ch);
+    return ch;
+}
+
+void insertCQ() {
+    if(count == MAX) {
+        printf("\n Circular Queue is Full");
+    }
+    else {
+        int data;
+        printf("\n Enter data: ");
+        scanf("%d", &data);
+        CQ[rear] = data;
+        rear = (rear + 1) % MAX;
+        count++;
+        printf("\n Data Inserted in the Circular Queue ");
+    }
+}
+
+void deleteCQ() {
+    if(count == 0) {
+        printf("\n\nCircular Queue is Empty..");
+    }
+    else {
+        printf("\n Deleted element from Circular Queue is %d ", CQ[front]);
+        front = (front + 1) % MAX;
+        count--;
+    }
+}
+
+void displayCQ() {
+    int i, j;
+    if(count == 0) {
+        printf("\n\n\t Circular Queue is Empty ");
+    }
+    else {
+        printf("\n Elements in Circular Queue are: ");
+        j = count;
+        for(i = front; j != 0; j--) {
+            printf("%d\t", CQ[i]);
+            i = (i + 1) % MAX;
+        }
+    }
+}
+
+9
+
+------------PAGE TALK ABOUT------------
+الصفحة تعرض كود بلغة C لتنفيذ عمليات **الطابور الدائري (Circular Queue)** باستخدام **مصفوفة**.  
+تتضمن دالة قائمة `menu()` تعرض الخيارات: الإدخال، الحذف، العرض، والخروج.  
+كما تحتوي على دوال `insertCQ()` و`deleteCQ()` و`displayCQ()` لإدارة عناصر الطابور مع استخدام `front` و`rear` و`count` و`MAX`.  
+لا توجد صور أو مخططات، فقط تنسيق صفحة محاضرة مع عنوان المقرر واسم الدكتورة والفصل الدراسي ورقم الصفحة.
+
+
+================================================================================
+PAGE 10 - page_0010.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+ITGS 220  
+Dr. Amna Ali A Mohamed                                                 Fall 2025
+
+Questions
+
+1.     Is it possible to have two designs for the same data structure that provide the  
+        same functionality but are implemented differently?
+
+2.     What is the difference between the logical representation of a data structure and  
+        the physical representation?
+
+3.     Transform the following infix expressions to reverse polish notation (prefix):  
+        a) A ↑ B * C − D + E / F / (G +H)  
+        b) ((A + B) * C − (D − E)) ↑ (F + G)  
+        c) A − B / (C * D ↑E)  
+        d) (a + b ↑ c ↑ d) * (e + f / d))  
+        f) 3 − 6 * 7 + 2 / 4 * 5 − 8  
+        g) (A − B) / ((D + E) * F)  
+        h) ((A + B) / D) ↑ ((E − F) * G)
+
+4.     Evaluate the following postfix expressions:  
+        a) P₁: 5, 3, +, 2, *, 6, 9, 7, -, /, -  
+        b) P₂: 3, 5, +, 6, 4, -, *, 4, 1, -, 2, ↑, +  
+        c) P₃ : 3, 1, +, 2, ↑, 7, 4, -, 2, *, +, 5,-
+
+5.     Consider the usual algorithm to convert an infix expression to a postfix expression.  
+        Suppose that you have read 10 input characters during a conversion and that the  
+        stack now contains these symbols:
+
+                    +  
+                    (  
+                    *  
+
+        bottom
+
+        Now, suppose that you read and process the 11th symbol of the input. Draw the  
+        stack for the case where the 11th symbol is:  
+        A. A number:  
+        B. A left parenthesis:  
+        C. A right parenthesis:  
+        D. A minus sign:  
+        E. A division sign:
+
+10
+
+------------PAGE TALK ABOUT------------
+الصفحة تحتوي على أسئلة لمادة هياكل البيانات/التعابير الرياضية في مقرر ITGS 220 لفصل Fall 2025.  
+تركّز الأسئلة على مفاهيم تصميم هياكل البيانات، والفرق بين التمثيل المنطقي والفيزيائي، وتحويل التعابير بين infix وprefix/postfix وتقييم postfix.  
+يوجد أيضًا سؤال عن خوارزمية تحويل infix إلى postfix باستخدام المكدس (stack).  
+العنصر البصري الوحيد هو رسم بسيط لمكدس يوضّح أن محتوياته الحالية من الأعلى إلى الأسفل: + ثم ( ثم * مع كلمة bottom بجانب القاع.
+
+
+================================================================================
+PAGE 11 - page_0011.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+ITGS 220  
+Dr. Amna Ali A Mohamed                                                 Fall 2025
+
+6.    Write a program using stack for parenthesis matching. Explain what modifications
+      would be needed to make the parenthesis matching algorithm check expressions
+      with different kinds of parentheses such as (), [] and {}'s.
+
+7.    Evaluate the following prefix expressions:
+      a) + * 2 + / 14 2 5 1
+      b) - * 6 3 - 4 1
+      c) + + 2 6 + - 13 2 4
+
+8.    Convert the following infix expressions to prefix notation:
+      a) ((A + 2) * (B + 4)) -1
+      b) Z - (((X + 1) * 2) - 5) / Y)
+      c) (((c * 2) + 1) / (A + B)
+      d) ((A + B) * C – (D - E)) ↑ (F + G)
+      e) A – B / (C * D ↑ E)
+
+9.    Write a “C” function to copy one stack to another assuming
+      a) The stack is implemented using array.
+
+10.  Write an algorithm to construct a fully parenthesized infix expression from its
+      postfix equivalent. Write a “C” function for your algorithm.
+
+11.  How can one convert a postfix expression to its prefix equivalent and vice-versa?
+
+12.  In a circular queue represented by an array, how can one specify the number of
+      elements in the queue in terms of “front”, “rear” and MAX-QUEUE-SIZE? Write a
+      “C” function to delete the K-th element from the “front” of a circular queue.
+
+11
+
+------------PAGE TALK ABOUT------------
+الصفحة تعرض أسئلة وتمارين من مقرر ITGS 220 لفصل Fall 2025 مع اسم الدكتورة Amna Ali A Mohamed.  
+تركّز الأسئلة على هياكل البيانات، خاصة المكدس (Stack) والطابور الدائري (Circular Queue).  
+تتضمن تمارين عن مطابقة الأقواس، تقييم وتحويل التعبيرات بين Prefix وInfix وPostfix، وكتابة دوال بلغة C.  
+لا توجد صور أو مخططات؛ الصفحة عبارة عن نص منسق أكاديمي مع ترقيم للأسئلة من 6 إلى 12 ورقم الصفحة 11.
+
