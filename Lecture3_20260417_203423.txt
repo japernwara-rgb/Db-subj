@@ -1,0 +1,1470 @@
+================================================================================
+SUBJECT: Lecture3_20260417_203423
+TOTAL PAGES: 47
+EXTRACTED ON: 2026-04-17 19:47:06
+================================================================================
+
+
+================================================================================
+PAGE 1 - page_0001.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+C & Data Structures
+
+Chapter 2: function & recursion
+
+Dr. Amna Ali A Mohamed
+
+Faculty of Information Technology
+
+------------PAGE TALK ABOUT------------
+هذه صفحة غلاف/عنوان لمحاضرة في مادة **C & Data Structures**، وتحديدًا **Chapter 2: function & recursion**.  
+توضح اسم الدكتورة **Amna Ali A Mohamed** وانتماءها إلى **Faculty of Information Technology**.  
+يوجد على يمين الصفحة رسم لشجرة بيانات/شجرة ثنائية بعُقد مرقمة مثل 60 و53 و3 وغيرها، مع أسهم توضح العلاقات بين العقد.  
+الصفحة تمهيدية وتعرض موضوع الفصل بشكل عام مع عنصر بصري مرتبط بهياكل البيانات والاستدعاء الذاتي.
+
+
+================================================================================
+PAGE 2 - page_0002.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+Introduction to Functions
+
+• What is a Function?
+  • A function is a block of code that performs a specific task.
+  • It provides modularity and reusability in programming.
+
+• Why Use Functions?
+  • Breaks down complex tasks into smaller, manageable tasks.
+  • Avoids code duplication.
+  • Improves readability and maintainability.
+
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن مقدمة في الدوال البرمجية وأهميتها في كتابة البرامج.  
+توضح أن الدالة هي جزء من الكود ينفذ مهمة محددة، وتساعد على إعادة استخدام الكود وتنظيمه.  
+كما تشرح فوائد استخدام الدوال مثل تقسيم المهام الكبيرة إلى أجزاء أصغر، تقليل تكرار الكود، وتحسين القراءة والصيانة.  
+التصميم عبارة عن شريحة عرض بسيطة تحتوي على عنوان كبير ونقاط تعداد فقط، بدون صور أو مخططات.
+
+
+================================================================================
+PAGE 3 - page_0003.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+Introduction to Functions
+
+• Defining a Function
+
+return_type function_name(parameter_list) {
+
+// Function body
+}
+
+• Example:
+
+int add(int x, int y) {
+    int z; z = x + y;
+    return z;
+}
+
+• Explanation:
+    • int is the return type.
+    • add is the function name.
+    • int x, int y are the parameters.
+    • The function returns the sum of x and y.
+
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن مقدمة إلى الدوال في البرمجة وكيفية تعريف الدالة بشكل عام باستخدام نوع الإرجاع واسم الدالة والمعاملات.  
+تعرض مثالًا عمليًا لدالة اسمها add تستقبل متغيرين من النوع int وتُرجع مجموعهما.  
+كما تشرح مكونات المثال: نوع الإرجاع، اسم الدالة، والمعاملات، مع توضيح أن الناتج هو مجموع x و y.  
+يوجد تنسيق بصري على شكل شريحة عرض تعليمية مع عنوان كبير ومربعات رمادية تحتوي على أمثلة الكود.
+
+
+================================================================================
+PAGE 4 - page_0004.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+Calling a Function
+
+Syntax:
+
+function_name(arguments);
+
+• Example:
+
+#include <stdio.h>
+
+int add(int x, int y) {
+    return x + y;
+}
+
+int main() {
+    int a = 10, b = 20, result;
+
+    result = add(a, b); // Function call
+    printf("Sum: %d\n", result);
+    return 0;
+}
+
+Explanation:
+• The add function is called with arguments a and b.
+• The result is stored in result and printed.
+
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن كيفية استدعاء الدالة في لغة C باستخدام الصيغة العامة: function_name(arguments);  
+توضح مثالًا عمليًا لدالة اسمها add تستقبل متغيرين وتعيد مجموعهما، ثم يتم استدعاؤها داخل الدالة main.  
+كما تشرح أن القيمة الناتجة من الاستدعاء تُخزن في المتغير result ثم تُطبع باستخدام printf.  
+يوجد تنسيق بصري تعليمي يتضمن عنوانًا كبيرًا، مربعًا لصيغة الاستدعاء، ومربع كود لعرض المثال البرمجي.
+
+
+================================================================================
+PAGE 5 - page_0005.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+Parameter Passing
+
+• Pass by Value:
+  • The value of the actual parameter is copied to the formal parameter.
+  • Changes to the formal parameter do not affect the actual parameter.
+
+#include <stdio.h>
+
+void increment(int x) {
+    x++;
+    printf("Inside function: %d\n", x);
+}
+int main() {
+    int a = 10;
+    increment(a); // Pass by value
+    printf("Outside function: %d\n", a);
+    return 0;
+}
+
+• Explanation:
+  • The value of a is copied to x.
+  • Changes to x do not affect a.
+
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن مفهوم تمرير المعاملات في البرمجة، وبالتحديد أسلوب **التمرير بالقيمة (Pass by Value)**.  
+توضح أن قيمة المتغير الأصلي تُنسخ إلى المتغير داخل الدالة، لذلك أي تعديل داخل الدالة لا يغيّر المتغير الأصلي.  
+يوجد مثال بلغة C لدالة `increment` تزيد قيمة `x` وتطبعها داخل الدالة، بينما تبقى قيمة `a` خارج الدالة كما هي.  
+التصميم عبارة عن شريحة عرض تعليمية تحتوي عنوانًا كبيرًا، نقاطًا توضيحية، ومربع كود مع قسم شرح على اليمين.
+
+
+================================================================================
+PAGE 6 - page_0006.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+Call by Reference
+
+• Pass by Reference:
+  • The address of the actual parameter is passed to the formal parameter.
+  • Changes to the formal parameter affect the actual parameter.
+
+• Example:
+
+```c
+#include <stdio.h>
+void increment(int *x) {
+    (*x)++;
+    printf("Inside function: %d\n", *x);
+}
+
+int main() {
+    int a = 10;
+
+    increment(&a); // Pass by reference
+    printf("Outside function: %d\n", a);
+    return 0;
+}
+```
+
+Explanation:
+• The address of a is passed to x.
+• Changes to *x affect a.
+
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن مفهوم **التمرير بالمرجع (Call/Pass by Reference)** في البرمجة بلغة C.  
+توضح أن الدالة تستقبل **عنوان المتغير** وليس نسخة من قيمته، لذلك أي تعديل داخل الدالة ينعكس على المتغير الأصلي.  
+يوجد مثال برمجي لدالة `increment` تستقبل مؤشرًا `int *x` وتزيد قيمة المتغير باستخدام `(*x)++`.  
+كما تعرض الصفحة شرحًا جانبيًا يبين أن عنوان المتغير `a` يُمرر إلى `x`، وبالتالي تتغير قيمة `a` داخل وخارج الدالة.
+
+
+================================================================================
+PAGE 7 - page_0007.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+Call by Reference
+
+Passing Arrays to Functions
+
+How to Pass Arrays?
+
+• Pass the array name (which is a pointer to the first element of the array).
+
+• The size of the array is usually passed as an additional parameter.
+
+Passing a 1D Array to a Function Syntax:
+
+return_type function_name(data_type array[], int size);
+
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن تمرير المصفوفات إلى الدوال باستخدام أسلوب **Call by Reference**.  
+توضح أن اسم المصفوفة يُمرَّر للدالة لأنه يشير إلى أول عنصر فيها، وغالبًا يتم تمرير حجم المصفوفة كمعامل إضافي.  
+كما تعرض صيغة عامة لتمرير مصفوفة أحادية البعد إلى دالة.  
+التصميم عبارة عن شريحة تعليمية بسيطة تحتوي على عنوان كبير ونقاط تعداد ومربع رمادي في الأسفل بداخله صيغة الكود.
+
+
+================================================================================
+PAGE 8 - page_0008.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+Passing a 1D Array to a Function example
+
+#include <stdio.h>
+
+void printArray(int arr[], int n) {
+    for (int i = 0; i < n; i++) {
+        printf("%d ", arr[i]); } printf("\n");
+}
+
+int main() {
+    int arr[] = {1, 2, 3, 4, 5};
+    int size = sizeof(arr) / sizeof(arr[0]);
+
+    printArray(arr, size);  // Pass array to function
+
+    return 0;
+}
+
+Explanation:
+•The array arr is passed to the function printArray.
+•The function processes each element of the array.
+
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن كيفية تمرير مصفوفة أحادية البعد 1D Array إلى دالة في لغة C.  
+يوجد مثال برمجي يوضح دالة باسم printArray تستقبل المصفوفة وحجمها ثم تطبع عناصرها باستخدام حلقة for.  
+كما يوضح البرنامج داخل الدالة main كيفية تعريف المصفوفة وحساب عدد عناصرها باستخدام sizeof ثم إرسالها إلى الدالة.  
+التصميم يحتوي على عنوان كبير، ومربع رمادي فيه الكود البرمجي، وعلى اليمين قسم شرح مختصر بنقاط.
+
+
+================================================================================
+PAGE 9 - page_0009.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+Modifying a 1D Array in a Function example
+
+#include <stdio.h>
+
+void incrementArray(int arr[], int n) {
+    for (int i = 0; i < n; i++) {
+        arr[i] += 1; // Modify each element of the array
+    }
+}
+
+int main() {
+    int arr[] = {1, 2, 3, 4, 5};
+    int size = sizeof(arr) / sizeof(arr[0]);
+
+    incrementArray(arr, size); // Pass array to function
+
+    printf("Modified Array:\n");
+    for (int i = 0; i < size; i++) {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+    return 0;
+}
+
+Explanation:
+• The function incrementArray modifies each element of the array.
+• Changes are reflected in the original array.
+
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن مثال بلغة C يوضح كيفية تعديل مصفوفة أحادية البعد داخل دالة.  
+الدالة `incrementArray` تستقبل المصفوفة وحجمها، ثم تزيد كل عنصر بمقدار 1 باستخدام حلقة `for`.  
+في `main` يتم إنشاء المصفوفة وحساب حجمها ثم تمريرها إلى الدالة، وبعد ذلك طباعة القيم المعدلة.  
+يوجد عنصر بصري عبارة عن صندوق كبير يحتوي الكود البرمجي، وعلى اليمين قسم بعنوان "Explanation" يشرح أن التعديلات تظهر مباشرة في المصفوفة الأصلية.
+
+
+================================================================================
+PAGE 10 - page_0010.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+Passing a 2D Array to a Function
+
+Syntax:
+
+return_type function_name(data_type array[][cols], int rows);
+
+#include <stdio.h>
+
+void printMatrix(int mat[][3], int rows) {
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < 3; j++) {
+            printf("%d ", mat[i][j]);
+        }
+        printf("\n");
+    }
+}
+
+int main() {
+    int mat[2][3] = {{1, 2, 3}, {4, 5, 6}};
+
+    printMatrix(mat, 2); // Pass 2D array to function
+    return 0;
+}
+
+Explanation:
+• The 2D array mat is passed to the function printMatrix.
+• The function processes each element of the 2D array.
+
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن كيفية تمرير مصفوفة ثنائية الأبعاد إلى دالة في لغة C.  
+توضح الصيغة العامة لتمرير المصفوفة، مع مثال عملي لدالة اسمها printMatrix تستقبل مصفوفة وتطبع عناصرها باستخدام حلقات تكرار متداخلة.  
+يوجد أيضًا شرح مختصر يبين أن المصفوفة mat يتم إرسالها إلى الدالة لمعالجة كل عنصر فيها.  
+التصميم بصريًا يحتوي على عنوان كبير، صندوق لصيغة الـ syntax، وصندوق كود برمجي مع قسم شرح نقطي على اليمين.
+
+
+================================================================================
+PAGE 11 - page_0011.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+Passing Arrays to Functions using pointer
+
+Why Use Pointers with Arrays?
+
+• Pointers provide direct access to memory locations, making array manipulation efficient.
+
+• Passing arrays to functions using pointers avoids copying the entire array.
+
+•Key Concepts:
+
+• Array name is a pointer to the first element of the array.
+
+• Pointer arithmetic can be used to traverse arrays.
+
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن استخدام المؤشرات (Pointers) عند تمرير المصفوفات إلى الدوال في البرمجة.  
+توضح أن المؤشرات تجعل الوصول إلى مواقع الذاكرة مباشرًا وأكثر كفاءة، كما تمنع نسخ المصفوفة كاملة عند تمريرها للدوال.  
+كما تعرض مفاهيم أساسية مثل أن اسم المصفوفة يشير إلى أول عنصر فيها، وإمكانية استخدام العمليات الحسابية على المؤشرات للتنقل بين عناصر المصفوفة.  
+التصميم عبارة عن شريحة نصية بسيطة بخلفية بيضاء وعناوين غامقة مع نقاط تعداد، بدون صور أو مخططات.
+
+
+================================================================================
+PAGE 12 - page_0012.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+Passing Arrays to Functions using pointer
+
+Syntax:
+
+return_type function_name(data_type *array, int size);
+
+Example:
+
+#include <stdio.h>
+
+void printArray(int *arr, int n) {
+    for (int i = 0; i < n; i++) {
+        printf("%d ", *(arr + i)); // Access array elements using pointer arithmetic
+    }
+    printf("\n");
+}
+
+int main() {
+    int arr[] = {1, 2, 3, 4, 5};
+    int size = sizeof(arr) / sizeof(arr[0]);
+    printArray(arr, size); // Pass array using pointer
+    return 0;
+}
+
+Explanation:
+• The array arr is passed as a pointer to the function printArray.
+• Pointer arithmetic (*(arr + i)) is used to access array elements.
+
+------------PAGE TALK ABOUT------------
+الصفحة تشرح كيفية تمرير المصفوفات إلى الدوال في لغة C باستخدام المؤشرات (pointers).  
+تحتوي على صيغة عامة لتعريف دالة تستقبل مصفوفة كمؤشر مع حجمها.  
+يوجد مثال برمجي لدالة printArray تطبع عناصر المصفوفة باستخدام *(arr + i) بدل الفهرسة التقليدية.  
+بصريًا، الصفحة منظمة بعناوين واضحة مثل Syntax وExample وExplanation مع مربعات رمادية لعرض الكود والنصوص التعليمية.
+
+
+================================================================================
+PAGE 13 - page_0013.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+Passing Structures to Functions
+
+• How to Pass Structures?
+
+    Pass by value (a copy of the structure is passed).
+
+    Pass by reference (a pointer to the structure is passed).
+
+• Passing a Structure by Value
+
+        Syntax:
+
+        return_type function_name(struct structure_name variable);
+
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن كيفية تمرير الـ structures إلى الدوال في البرمجة.
+توضح طريقتين أساسيتين: التمرير بالقيمة حيث يتم إرسال نسخة من الـ structure، والتمرير بالمرجع حيث يتم إرسال مؤشر إليها.
+كما تركز الصفحة على التمرير بالقيمة وتعرض الصيغة العامة لكتابة دالة تستقبل structure كوسيط.
+يوجد عنصر بصري عبارة عن مربع رمادي يحتوي على سطر الصياغة البرمجية مع تمييز لوني للنص.
+
+
+================================================================================
+PAGE 14 - page_0014.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+Passing Structures to Functions
+
+Passing a Structure by Value example:
+
+```c
+#include <stdio.h>
+struct Student {
+    char name[50];
+    int rollNo;
+    float marks;
+};
+
+void printStudent(struct Student s) {
+    printf("Name: %s\n", s.name);
+    printf("Roll No: %d\n", s.rollNo);
+    printf("Marks: %.2f\n", s.marks);
+}
+
+int main() {
+    struct Student student1 = {"John Doe", 101, 95.5};
+    printStudent(student1); // Pass by value
+    return 0;
+}
+```
+
+Explanation:
+• A copy of the structure student1 is passed to the function printStudent.
+• Changes to the structure inside the function do not affect the original structure.
+
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن تمرير الـ structure إلى الدوال في لغة C بطريقة pass by value.  
+توضح المثال باستخدام struct Student يحتوي على الاسم ورقم الجلوس والدرجات، ثم يتم إرساله إلى الدالة printStudent لعرض البيانات.  
+الفكرة الأساسية هي أن الدالة تستقبل نسخة من الـ structure وليس الأصل، لذلك أي تعديل داخل الدالة لا يؤثر على المتغير الأصلي.  
+يوجد عنصر بصري رئيسي عبارة عن صندوق كود على اليسار، وعلى اليمين قسم شرح مختصر بنقاط يوضح الفكرة.
+
+
+================================================================================
+PAGE 15 - page_0015.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+Passing Structures to Functions
+
+Passing a Structure by Reference
+
+Syntax:
+
+return_type function_name(struct structure_name *variable);
+
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن كيفية تمرير الـ structure إلى الدوال في لغة C باستخدام المرجع (by reference).
+توضح الصياغة العامة لتعريف دالة تستقبل مؤشرًا إلى structure بدلًا من تمرير نسخة كاملة منه.
+هذا الأسلوب يفيد في تقليل النسخ وتحسين الأداء، كما يسمح للدالة بتعديل بيانات الـ structure الأصلية.
+يوجد عنصر بصري بسيط عبارة عن صندوق رمادي يحتوي سطر الصياغة البرمجية مع تمييز لوني لأجزاء الكود.
+
+
+================================================================================
+PAGE 16 - page_0016.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+Passing Structures to Functions
+
+Passing a Structure by Reference example
+
+#include <stdio.h>
+
+struct Student {
+    char name[50];
+    int rollNo;
+    float marks;
+};
+
+void updateMarks(struct Student *s) {
+    s->marks += 10; // Modify the structure using a pointer
+}
+
+int main() {
+    struct Student student1 = {"John Doe", 101, 95.5};
+    updateMarks(&student1); // Pass by reference
+    printf("Updated Marks: %.2f\n", student1.marks);
+    return 0;
+}
+
+Explanation:
+• The address of the structure student1 is passed to the function updateMarks.
+• Changes to the structure inside the function affect the original structure.
+
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن تمرير الـ structure إلى الدوال في لغة C باستخدام المرجع عبر المؤشر.  
+يوضح المثال بنية Student التي تحتوي على الاسم والرقم والدرجات، ثم دالة updateMarks تستقبل مؤشرًا إلى البنية وتزيد marks بمقدار 10.  
+كما يبين في الدالة main إنشاء كائن student1 وتمرير عنوانه للدالة باستخدام &student1، لذلك يتم تعديل القيمة الأصلية مباشرة.  
+بصريًا، الصفحة عبارة عن شريحة تعليمية فيها عنوان كبير بالأعلى، ومربع كود على اليسار، ونص شرح نقطي على اليمين.
+
+
+================================================================================
+PAGE 17 - page_0017.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+Passing Structures to Functions
+
+Passing an Array of Structures to Functions
+
+Why Pass an Array of Structures?
+
+• To process multiple records of structured data within a function.
+
+• Useful for operations like sorting, searching, or updating.
+
+How to Pass an Array of Structures?
+
+• Pass the array name (which is a pointer to the first element of the array).
+
+Syntax:
+
+return_type function_name(struct structure_name array[], int size);
+
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن كيفية تمرير المصفوفات من الهياكل (Structures) إلى الدوال في البرمجة، ولماذا نستخدم ذلك عند التعامل مع عدة سجلات بيانات.
+توضح الفوائد مثل تنفيذ عمليات الفرز والبحث والتحديث داخل الدالة بسهولة.
+كما تشرح أن اسم المصفوفة يُمرَّر إلى الدالة لأنه يشير إلى أول عنصر فيها.
+يوجد عنصر بصري بسيط عبارة عن مربع رمادي في الأسفل يحتوي على صيغة الكود الخاصة بتمرير مصفوفة من الهياكل إلى الدالة.
+
+
+================================================================================
+PAGE 18 - page_0018.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+Passing an Array of Structures to Functions example:
+
+#include <stdio.h>
+struct Student {
+    char name[50];
+    int rollNo;
+    float marks;
+};
+void printStudents(struct Student students[], int n) {
+    for (int i = 0; i < n; i++) {
+        printf("Student %d:\n", i + 1);
+        printf("Name: %s\n", students[i].name);
+        printf("Roll No: %d\n", students[i].rollNo);
+        printf("Marks: %.2f\n", students[i].marks);
+    }
+}
+
+int main() {
+    struct Student students[3] = {
+        {"Alice", 101, 95.5},
+        {"Bob", 102, 88.0},
+        {"Charlie", 103, 92.5} };
+    printStudents(students, 3); // Pass array of structures
+    return 0;
+}
+
+Explanation:
+• The array students is passed to the function printStudents.
+• The function processes each element of the array.
+
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن كيفية تمرير مصفوفة من الهياكل (Array of Structures) إلى دالة في لغة C.  
+توضح مثالًا باستخدام هيكل Student يحتوي على الاسم ورقم الجلوس والدرجات، ثم تمرير مصفوفة من الطلاب إلى الدالة printStudents.  
+الدالة تستخدم حلقة for لاستعراض كل عنصر في المصفوفة وطباعة بياناته.  
+يوجد تنسيق بصري بسيط: عنوان كبير بالأعلى، كود برمجي على اليسار، وقسم شرح مختصر بنقاط على اليمين.
+
+
+================================================================================
+PAGE 19 - page_0019.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+Modifying an Array of Structures in a
+Function example:
+
+Explanation:
+
+• The function updateMarks modifies
+
+  the marks of each student in the array.
+
+• Changes are reflected in the original array.
+
+#include <stdio.h>
+struct Student {
+    char name[50];
+    int rollNo;
+    float marks;
+};
+
+void updateMarks(struct Student students[], int n) {
+    for (int i = 0; i < n; i++) {
+        students[i].marks += 10; // Update marks for each student
+    }
+}
+int main() {
+    struct Student students[3] = {
+        {"Alice", 101, 95.5},
+        {"Bob", 102, 88.0},
+        {"Charlie", 103, 92.5}
+    };
+    updateMarks(students, 3); // Pass array of structures
+    printf("Updated Marks:\n");
+    for (int i = 0; i < 3; i++) {
+        printf("Name: %s, Marks: %.2f\n", students[i].name, students[i].marks);
+    }
+    return 0;
+}
+
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن مثال بلغة C يوضح كيفية تعديل مصفوفة من الهياكل (structures) داخل دالة.  
+تُعرّف الصفحة هيكل Student يحتوي على الاسم ورقم الطالب والدرجات، ثم تستخدم الدالة updateMarks لإضافة 10 درجات لكل طالب.  
+كما توضّح أن التعديلات داخل الدالة تنعكس مباشرة على المصفوفة الأصلية لأن المصفوفة تُمرَّر للدالة.  
+التصميم يحتوي على عنوان وشرح نقطي في الجهة اليسرى، وكود برمجي ملوّن ومنسق في الجهة اليمنى.
+
+
+================================================================================
+PAGE 20 - page_0020.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+Introduction to Recursion
+
+How Recursion Works (Stack Mechanism)
+
+Recursion and the Call Stack:
+    Each recursive call creates a new stack frame.
+    The stack grows until the base case is reached.
+    Once the base case is reached, the stack unwinds, and results are returned.
+
+Example: Factorial of 3
+
+#include <stdio.h>
+
+int factorial(int n) {
+    if (n == 0) return 1; // Base case
+    return n * factorial(n - 1); // Recursive case
+}
+
+int main()
+{
+    int n = 3;
+    printf("Factorial of %d is %d\n", n, factorial(n));
+    return 0;
+}
+
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن مقدمة في مفهوم الاستدعاء الذاتي (Recursion) وآلية عمله باستخدام مكدس الاستدعاءات (Call Stack).
+توضح أن كل استدعاء ذاتي ينشئ إطارًا جديدًا في المكدس، ويستمر التراكم حتى الوصول إلى الحالة الأساسية.
+بعد الوصول إلى الحالة الأساسية يبدأ المكدس في التفكك وتُعاد النتائج تدريجيًا.
+يوجد مثال برمجي بلغة C لحساب !3 باستخدام دالة factorial، مع تمييز الحالة الأساسية والحالة التكرارية داخل صندوق كود بصري.
+
+
+================================================================================
+PAGE 21 - page_0021.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+Factorial (N!)
+
+• N! = (N-1)! * N    [for N > 1]
+
+• 1! = 1
+
+• 3!
+    = 2! * 3
+    = (1! * 2) * 3
+    = 1 * 2 * 3
+
+• Recursive design:
+    • Decomposition: (N-1)!
+    • Composition: * N
+    • Base case: 1!
+
+------------PAGE TALK ABOUT------------
+تشرح الصفحة مفهوم المضروب (Factorial) ويرمز له بـ N!، وتعرض تعريفه العودي: ‏N! = (N-1)! × N عندما يكون N > 1، مع الحالة الأساسية 1! = 1.  
+كما تقدم مثالًا على حساب 3! خطوة بخطوة حتى الوصول إلى 1 × 2 × 3.  
+وتوضح فكرة التصميم العودي عبر ثلاثة عناصر: التفكيك إلى (N-1)!، ثم التركيب بضرب الناتج في N، وأخيرًا الحالة الأساسية 1!.  
+بصريًا، الصفحة عبارة عن شريحة تعليمية بسيطة تحتوي على عنوان كبير ونقاط تعداد، مع تمييز بعض الأجزاء بالألوان لإبراز عناصر العودية.
+
+
+================================================================================
+PAGE 22 - page_0022.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+Factorial example
+
+#include <stdio.h>
+int factorial(int n) {
+    if (n == 0) return 1; // Base case
+    return n * factorial(n - 1); // Recursive case
+}
+
+int main()
+{
+    int n = 5;
+    printf("Factorial of %d is %d\n", n, factorial(n));
+    return 0;
+}
+
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن مثال برمجي لحساب العاملية (Factorial) باستخدام لغة C.
+يوضح الكود مفهوم الاستدعاء الذاتي Recursion من خلال حالتين: الحالة الأساسية عندما n == 0، والحالة التكرارية بإرجاع n * factorial(n - 1).
+كما يحتوي على دالة main لتجربة المثال عند n = 5 وطباعة الناتج.
+بصريًا، الصفحة عبارة عن شريحة تعليمية بعنوان كبير في الأعلى، وبداخلها مربع رمادي فاتح يحتوي على الكود البرمجي.
+
+
+================================================================================
+PAGE 23 - page_0023.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+int factorial(int 3) {
+    if (n == 0) return 1; // Base case
+    return 3 * factorial(2); // Recursive case
+}
+
+------------PAGE TALK ABOUT------------
+الصفحة تعرض مثالًا برمجيًا لدالة factorial باستخدام مفهوم الاستدعاء الذاتي (Recursion).
+يوضح الكود حالتين: الحالة الأساسية عندما تكون القيمة 0 فيُرجع 1، والحالة التكرارية التي تستدعي الدالة مرة أخرى.
+يوجد خطأ أو تبسيط في القيم الظاهرة داخل المثال مثل int 3 و factorial(2) بدل استخدام المتغير n بشكل صحيح.
+العناصر البصرية عبارة عن مربع رمادي فاتح يحتوي على كود ملوّن بأسلوب عرض تعليمي.
+
+
+================================================================================
+PAGE 24 - page_0024.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+int factorial(int 3) {
+    if (n == 0) return 1; // Base case
+    return 3 * factorial(2); // Recursive case
+}
+
+int factorial(int 2) {
+    if (n == 0) return 1; // Base case
+    return 2 * factorial(1); // Recursive case
+}
+
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن مفهوم الاستدعاء الذاتي (Recursion) في دالة حساب المضروب factorial.  
+توضح أن الدالة تحتوي على حالة أساسية Base case عندما تكون n == 0، وحالة递归ية Recursive case تستدعي فيها الدالة نفسها بقيمة أصغر.  
+يوجد صندوقان يحتويان على مثالين للدالة عند القيم 3 و2، مع سهم منحني بينهما يوضح انتقال الاستدعاء من factorial(3) إلى factorial(2).  
+الهدف من الرسم هو شرح كيف تتدرج الاستدعاءات حتى الوصول إلى الحالة الأساسية ثم العودة بالنتيجة.
+
+
+================================================================================
+PAGE 25 - page_0025.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+int factorial(int 3) {
+    if (n == 0) return 1; // Base case
+    return 3 * factorial(2); // Recursive case
+}
+
+int factorial(int 2) {
+    if (n == 0) return 1; // Base case
+    return 2 * factorial(1); // Recursive case
+}
+
+int factorial(int 1) {
+    if (n == 0) return 1; // Base case
+    return 1 * factorial(0); // Recursive case
+}
+
+------------PAGE TALK ABOUT------------
+توضح الصفحة مفهوم الاستدعاء الذاتي (Recursion) من خلال دالة factorial.  
+تُظهر الأمثلة كيف يتم استدعاء الدالة لنفسها تدريجيًا: من 3 إلى 2 ثم إلى 1 ثم 0.  
+يوجد تمييز بين حالتين: الحالة الأساسية Base case عندما n == 0، والحالة التكرارية Recursive case.  
+كما تعرض الصورة أسهماً منحنية بين مربعات الكود لتوضيح تسلسل انتقال الاستدعاءات بين كل خطوة.
+
+
+================================================================================
+PAGE 26 - page_0026.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+int factorial(int 3) {
+    if (n == 0) return 1; // Base case
+    return 3 * factorial(2); // Recursive case
+}
+
+int factorial(int 2) {
+    if (n == 0) return 1; // Base case
+    return 2 * factorial(1); // Recursive case
+}
+
+int factorial(int 1) {
+    if (n == 0) return 1; // Base case
+    return 2 * factorial(1); // Recursive case
+}
+
+int factorial(int 0) {
+    if (n == 0) return 1; // Base case
+    return n * factorial(n - 1); // Recursive case
+}
+
+------------PAGE TALK ABOUT------------
+توضح الصفحة مفهوم الاستدعاء الذاتي Recursion من خلال دالة factorial وكيف تنتقل القيم من factorial(3) إلى factorial(0).
+يظهر في كل صندوق جزء من الكود مع حالتين: الحالة الأساسية Base case عندما n == 0، والحالة التكرارية Recursive case التي تستدعي الدالة بقيمة أصغر.
+توجد أسهم منحنية وردية بين الصناديق لتمثيل تسلسل الاستدعاءات خطوة بخطوة حتى الوصول إلى الحالة الأساسية.
+الصورة تشرح بصريًا كيف يتم تفكيك حساب المضروب تدريجيًا عبر عدة استدعاءات متتالية.
+
+
+================================================================================
+PAGE 27 - page_0027.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+int factorial(int 3) {
+    if (n == 0) return 1; // Base case
+    return 3 * factorial(2); // Recursive case
+}
+
+int factorial(int 2) {
+    if (n == 0) return 1; // Base case
+    return 2 * factorial(1); // Recursive case
+}
+
+int factorial(int 1) {
+    if (n == 0) return 1; // Base case
+    return 1 * factorial(0); // Recursive case
+}
+
+int factorial(int 0) {
+    if (n == 0) return 1; // Base case
+    return n * factorial(n - 1); // Recursive case
+}
+
+------------PAGE TALK ABOUT------------
+تشرح الصفحة مفهوم الاستدعاء الذاتي (Recursion) من خلال دالة حساب المضروب factorial بدءًا من 3 ثم 2 ثم 1 حتى 0.  
+توضح أن كل استدعاء ينفذ الحالة التكرارية Recursive case، بينما عند الوصول إلى n == 0 يتم تنفيذ الحالة الأساسية Base case وإرجاع 1.  
+يوجد مخطط بصري على شكل صناديق كود متدرجة يبين تسلسل الاستدعاءات، مع سهم وردي منحني يشير إلى الانتقال نحو الحالة الأساسية عند factorial(0).  
+الهدف من الرسم هو توضيح كيف تتوقف الدالة العودية عند الشرط الأساسي ثم تبدأ القيم في الرجوع للحساب النهائي.
+
+
+================================================================================
+PAGE 28 - page_0028.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+int factorial(int 3) {
+    if (n == 0) return 1; // Base case
+    return 3 * factorial(2); // Recursive case
+}
+
+int factorial(int 2) {
+    if (n == 0) return 1; // Base case
+    return 2 * factorial(1); // Recursive case
+}
+
+int factorial(int 1) {
+    if (n == 0) return 1; // Base case
+    return 1 * 1; // Recursive case
+}
+
+int factorial(int 0) {
+    if (n == 0) return 1; // Base case
+    return n * factorial(n - 1); // Recursive case
+}
+
+------------PAGE TALK ABOUT------------
+توضح الصفحة فكرة الاستدعاء الذاتي Recursion من خلال مثال دالة factorial بدءًا من 3 ثم 2 ثم 1 ثم 0.  
+تُظهر أن كل استدعاء ينتظر نتيجة الاستدعاء التالي حتى الوصول إلى الحالة الأساسية Base case عند n == 0 حيث تُرجع الدالة 1.  
+بعدها يتم الرجوع للخلف لحساب القيم تدريجيًا مثل 1 × 1 ثم 2 × factorial(1) ثم 3 × factorial(2).  
+يوجد مخطط بصري على شكل صناديق كود متدرجة مع سهم وردي يربط بين factorial(1) و factorial(0) لتوضيح مسار التنفيذ.
+
+
+================================================================================
+PAGE 29 - page_0029.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+int factorial(int 3) {
+    if (n == 0) return 1; // Base case
+    return 3 * factorial(2); // Recursive case
+}
+
+int factorial(int 2) {
+    if (n == 0) return 1; // Base case
+    return 2 * factorial(1); // Recursive case
+}
+
+int factorial(int 1) {
+    if (n == 0) return 1; // Base case
+    return 1; // Recursive case
+}
+
+int factorial(int 0) {
+    if (n == 0) return 1; // Base case
+    return n * factorial(n - 1); // Recursive case
+}
+
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن شرح العودية (Recursion) من خلال دالة حساب المضروب factorial.  
+تُظهر كيف يتم استدعاء الدالة تدريجيًا من factorial(3) إلى factorial(2) ثم factorial(1) حتى الوصول إلى factorial(0).  
+كما توضّح الفرق بين الحالة الأساسية Base case وهي `if (n == 0) return 1;` والحالة العودية Recursive case.  
+يوجد مخطط بصري على شكل صناديق كود متتابعة مع سهم وردي يربط الاستدعاءات ويوضح الوصول إلى الحالة الأساسية ثم الرجوع بالنتيجة.
+
+
+================================================================================
+PAGE 30 - page_0030.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+int factorial(int 3) {
+    if (n == 0) return 1; // Base case
+    return 3 * factorial(2); // Recursive case
+}
+
+int factorial(int 2) {
+    if (n == 0) return 1; // Base case
+    return 2 * factorial(1); // Recursive case
+}
+
+int factorial(int 1) {
+    if (n == 0) return 1; // Base case
+    return 1; // Recursive case
+}
+
+------------PAGE TALK ABOUT------------
+توضح الصفحة مفهوم الاستدعاء الذاتي (Recursion) من خلال مثال دالة factorial.  
+تُظهر المربعات الثلاثة تتبع تنفيذ الدالة للقيم 3 ثم 2 ثم 1، مع وجود حالة أساسية وحالة تكرارية.  
+الأسهم الوردية بين المربعات تبيّن انتقال الاستدعاءات بين الدوال بشكل متسلسل.  
+الفكرة العامة هي شرح كيف تُحسب factorial خطوة بخطوة حتى الوصول إلى القيمة النهائية.
+
+
+================================================================================
+PAGE 31 - page_0031.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+int factorial(int 3) {
+    if (n == 0) return 1; // Base case
+    return 3 * factorial(2); // Recursive case
+}
+
+int factorial(int 2) {
+    if (n == 0) return 1; // Base case
+    return 2 * 1 // Recursive case
+}
+
+int factorial(int 1) {
+    if (n == 0) return 1; // Base case
+    return 1; // Recursive case
+}
+
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن شرح مفهوم الاستدعاء الذاتي (Recursion) باستخدام دالة factorial.  
+تُظهر الأمثلة كيف يتم حساب !3 عبر استدعاء factorial(2) ثم factorial(1) حتى الوصول إلى الحالة الأساسية.  
+هناك أسهم منحنية باللون الوردي تربط بين مربعات الشيفرة لتوضيح تسلسل الاستدعاءات وعودة القيم.  
+الرقم 1 باللون الأحمر يبرز القيمة المعادة في المراحل الأخيرة من التنفيذ.
+
+
+================================================================================
+PAGE 32 - page_0032.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+int factorial(int 3) {
+    if (n == 0) return 1; // Base case
+    return 3 * factorial(2); // Recursive case
+}
+
+int factorial(int 2) {
+    if (n == 0) return 1; // Base case
+    return 2 // Recursive case
+}
+
+int factorial(int 1) {
+    if (n == 0) return 1; // Base case
+    return 1; // Recursive case
+}
+
+------------PAGE TALK ABOUT------------
+توضح الصفحة فكرة الاستدعاء الذاتي (Recursion) في دالة factorial من خلال تتبع القيم 3 ثم 2 ثم 1.  
+يوجد ثلاث كتل كود تمثل مراحل مختلفة من استدعاء الدالة، مع تمييز حالة الأساس وحالة الاستدعاء التكراري.  
+الأسهم الوردية المنحنية بين الكتل تشرح انتقال التنفيذ من استدعاء إلى آخر بشكل بصري.  
+الهدف من الرسم هو تبسيط كيفية نزول الدالة تدريجيًا حتى تصل إلى الحالة الأساسية ثم تعود بالنتائج.
+
+
+================================================================================
+PAGE 33 - page_0033.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+int factorial(int 3) {
+    if (n == 0) return 1; // Base case
+    return 3 * 2; // Recursive case
+
+int factorial(int 2) {
+    if (n == 0) return 1; // Base case
+    return 2 // Recursive case
+}
+
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن شرح مفهوم الاستدعاء الذاتي (Recursion) في دالة factorial.  
+تُظهر مربعات كود تمثل استدعاء الدالة عند القيمتين 3 و2 مع توضيح حالة الأساس وحالة التكرار.  
+يوجد سهم وردي كبير يربط بين المربعين ليوضح انتقال التنفيذ من factorial(3) إلى factorial(2).  
+الهدف البصري هو بيان كيف تستدعي الدالة نفسها تدريجيًا حتى تصل إلى حالة الأساس.
+
+
+================================================================================
+PAGE 34 - page_0034.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+int factorial(int 3) {
+    if (n == 0) return 1; // Base case
+    return 6; // Recursive case
+}
+
+------------PAGE TALK ABOUT------------
+الصفحة تعرض مثالًا برمجيًا لدالة factorial مكتوبة بلغة شبيهة بـ C/C++ لشرح مفهوم الاستدعاء الذاتي (Recursion).  
+يوجد توضيح لحالة الأساس `Base case` عندما تكون قيمة `n` صفرًا، وحالة الاستدعاء التكراري `Recursive case`.  
+تظهر بعض الأجزاء مميزة بالألوان، مثل الرقم 3 في تعريف الدالة والرقم 6 في جملة الإرجاع باللون الأحمر.  
+الخلفية بسيطة جدًا وتحتوي فقط على مربع فاتح بداخله الكود دون أي رسوم أو مخططات إضافية.
+
+
+================================================================================
+PAGE 35 - page_0035.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+Fibonacci Numbers
+
+• The Nᵗʰ Fibonacci number is the sum of the previous two Fibonacci numbers
+
+• 0, 1, 1, 2, 3, 5, 8, 13, ...
+
+• Recursive Design:
+  • Decomposition & Composition
+    • fibonacci(n) = fibonacci(n-1) + fibonacci(n-2)
+  • Base case:
+    • fibonacci(1) = 0
+    • fibonacci(2) = 1
+
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن متتالية فيبوناتشي وكيفية حساب الحد النوني فيها باعتباره مجموع الحدين السابقين.  
+توضح أمثلة لأول أعداد المتتالية مثل: 0، 1، 1، 2، 3، 5، 8، 13.  
+كما تشرح التصميم التكراري (Recursive Design) من خلال العلاقة: fibonacci(n) = fibonacci(n-1) + fibonacci(n-2).  
+وتعرض حالتي الأساس لبدء الاستدعاء التكراري: fibonacci(1)=0 و fibonacci(2)=1.
+
+
+================================================================================
+PAGE 36 - page_0036.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+Fibonacci Numbers
+
+Fibonacci Sequence Definition
+
+The Fibonacci sequence is defined as:
+• fib(0) = 0
+• fib(1) = 1
+• fib(n) = fib(n-1) + fib(n-2) for n > 1
+
+For n = 4, the expected Fibonacci number is 3 (since the sequence is: 0, 1, 1, 2, 3).
+
+#include <stdio.h>
+    int fibonacci(int n) {
+        if (n <= 1) return n; // Base case
+        return fibonacci(n - 1) + fibonacci(n - 2); // Binary recursive call
+    }
+
+    int main() {
+        int n = 4;
+        printf("Fibonacci number at position %d is %d\n", n, fibonacci(n));
+        return 0;
+    }
+
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن متتالية فيبوناتشي وتعريفها الرياضي باستخدام القيم الأساسية fib(0)=0 و fib(1)=1، ثم العلاقة التكرارية لباقي الحدود.  
+كما تعرض مثالًا عند n = 4 حيث تكون النتيجة 3، مع توضيح تسلسل الأعداد: 0، 1، 1، 2، 3.  
+يوجد في الجهة اليمنى مربع بصري يحتوي على كود بلغة C يطبق دالة fibonacci بطريقة الاستدعاء الذاتي recursion.  
+التصميم بسيط تعليمي، بعنوان كبير في الأعلى ونصوص شرح على اليسار وكود برمجي منسق على اليمين.
+
+
+================================================================================
+PAGE 37 - page_0037.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+Fibonacci Numbers
+
+Recursive Execution Tree for fibonacci(4)
+
+1.Initial Call: fibonacci(4)
+•Since 4 > 1, it calls fibonacci(3) + fibonacci(2).
+
+2.First Subtree: fibonacci(3)
+
+•3 > 1 → Calls fibonacci(2) + fibonacci(1).
+•fibonacci(2) → Calls fibonacci(1) + fibonacci(0).
+    •fibonacci(1) → Returns 1 (base case).
+    •fibonacci(0) → Returns 0 (base case).
+    •Result: 1 + 0 = 1.
+•fibonacci(1) → Returns 1.
+•Result: 1 (from fib(2)) + 1 (from fib(1)) = 2.
+
+3.Second Subtree: fibonacci(2)
+•2 > 1 → Calls fibonacci(1) + fibonacci(0).
+
+    •fibonacci(1) → Returns 1.
+    •fibonacci(0) → Returns 0.
+    •Result: 1 + 0 = 1.
+
+4.Final Sum:
+•fibonacci(4) = fibonacci(3) + fibonacci(2) = 2 + 1 = 3.
+
+#include <stdio.h>
+int fibonacci(int n) {
+    if (n <= 1) return n; // Base case
+    return fibonacci(n - 1) + fibonacci(n - 2); // Binary recursive call
+}
+
+int main() {
+    int n = 4;
+    printf("Fibonacci number at position %d is %d\n", n, fibonacci(n));
+    return 0;
+}
+
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن شرح أعداد فيبوناتشي باستخدام الاستدعاء الذاتي recursion لحساب fibonacci(4).  
+توضح خطوات التنفيذ على شكل شجرة استدعاء: تبدأ من fibonacci(4)، ثم تتفرع إلى fibonacci(3) و fibonacci(2)، مع الوصول إلى حالتي الأساس fibonacci(1) و fibonacci(0).  
+كما تعرض كود بلغة C يعرّف دالة fibonacci ويطبع الناتج عند n = 4.  
+بصريًا، الصفحة مقسومة إلى قسمين: اليسار للشرح النصي المتسلسل، واليمين لعرض الكود البرمجي بألوان فاتحة.
+
+
+================================================================================
+PAGE 38 - page_0038.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+Fibonacci Numbers
+
+#include <stdio.h>
+
+    int fibonacci(int n) {
+        if (n <= 1) return n; // Base case
+        return fibonacci(n - 1) + fibonacci(n - 2); // Binary recursive call
+    }
+
+    int main() {
+        int n = 4;
+        printf("Fibonacci number at position %d is %d\n", n, fibonacci(n));
+        return 0;
+    }
+
+Visualization of Recursive Calls
+
+fib(4)
+= fib(3) + fib(2)
+= [fib(2) + fib(1)] + [fib(1) + fib(0)]
+= [ (fib(1) + fib(0)) + 1 ] + [1 + 0]
+= [ (1 + 0) + 1 ] + 1
+= 2 + 1
+= 3
+
+------------PAGE TALK ABOUT------------
+الصفحة تشرح أرقام فيبوناتشي باستخدام البرمجة التكرارية الاستدعائية (Recursion) بلغة C.  
+تحتوي على دالة `fibonacci(n)` مع حالة أساسية عندما يكون `n <= 1`، ثم تستدعي نفسها مرتين لحساب `fibonacci(n-1)` و`fibonacci(n-2)`.  
+يوجد مثال في `main` حيث `n = 4` ويتم طباعة الناتج، والنتيجة النهائية هي `3`.  
+كما تعرض الصفحة تصورًا نصيًا لتسلسل الاستدعاءات التكرارية لـ `fib(4)` خطوة بخطوة حتى الوصول إلى القيم الأساسية `fib(1)` و`fib(0)`.
+
+
+================================================================================
+PAGE 39 - page_0039.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+Types of Recursion
+
+• Linear Recursion:
+  • The function makes a single call to itself.
+  • Example: Factorial calculation.
+
+• Tail Recursion:
+  • The recursive call is the last operation in the function.
+  • Example: GCD calculation.
+
+• Binary Recursion:
+  • The function makes two recursive calls.
+  • Example: Fibonacci sequence.
+
+• Mutual Recursion:
+  • Two or more functions call each other.
+  • Example: Determining if a number is even or odd.
+
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن أنواع الاستدعاء الذاتي (Recursion) في البرمجة.  
+توضح أربعة أنواع رئيسية: الاستدعاء الخطي، والذّيلي، والثنائي، والمتبادل، مع تعريف مختصر لكل نوع.  
+كما تعرض أمثلة تطبيقية مثل حساب المضروب، القاسم المشترك الأكبر، ومتتالية فيبوناتشي، وتحديد الزوجي أو الفردي.  
+العنصر البصري عبارة عن شريحة تعليمية بسيطة بخلفية بيضاء ونصوص كبيرة وعناوين نقطية دون صور أو مخططات.
+
+
+================================================================================
+PAGE 40 - page_0040.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+Stack Overheads in Recursion
+
+What are Stack Overheads?
+
+• Each recursive call consumes stack space.
+• Excessive recursion can lead to stack overflow.
+
+Example:
+
+#include <stdio.h>
+
+void recursiveFunction(int n) {
+    if (n == 0)
+        return;
+    printf("Depth: %d\n", n);
+    recursiveFunction(n - 1);
+}
+
+int main() {
+    recursiveFunction(5);
+    return 0;
+}
+
+Explanation:
+
+• Each call to recursiveFunction adds a new stack frame.
+• The stack grows with each recursive call.
+
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن الحمل الزائد على المكدس عند استخدام الاستدعاء الذاتي (Recursion)، وأن كل استدعاء جديد يستهلك مساحة من الذاكرة.
+توضح أن التكرار العميق أو المفرط قد يؤدي إلى حدوث Stack Overflow.
+يوجد مثال برمجي بلغة C لدالة recursiveFunction تستدعي نفسها حتى تصل إلى n == 0.
+كما تعرض الصفحة شرحًا جانبيًا يبين أن كل استدعاء يضيف stack frame جديدًا، مع تصميم تعليمي بسيط يحتوي على عنوان كبير وكود داخل صندوق فاتح اللون.
+
+
+================================================================================
+PAGE 41 - page_0041.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+Key Points to Remember
+
+1. Functions provide modularity and reusability.
+
+2. Parameters can be passed by value or by reference.
+
+3. Recursion is a powerful technique but can lead to stack overheads.
+
+4. Tail recursion can be optimized by the compiler.
+
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن أهم النقاط التي يجب تذكرها في البرمجة، خاصة ما يتعلق بالدوال وتمرير المعاملات والاستدعاء الذاتي.
+توضح أن الدوال تساعد على تنظيم الكود وإعادة استخدامه، وأن المعاملات يمكن تمريرها بالقيمة أو بالمرجع.
+كما تشير إلى أن recursion تقنية قوية لكنها قد تسبب استهلاكًا إضافيًا للـ stack.
+وتذكر أيضًا أن tail recursion قد يتم تحسينه بواسطة المترجم.
+التصميم بصريًا بسيط جدًا: عنوان كبير في الأعلى مع قائمة مرقمة على خلفية بيضاء دون صور أو مخططات.
+
+
+================================================================================
+PAGE 42 - page_0042.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+Exercises
+
+1. Write a recursive function to calculate the sum of digits of a number.
+2. Write a program to GCD Calculation Using Recursion
+3. Write a recursive function to calculate the power of a number.
+4. Write two mutually recursive functions to determine if a number is a multiple of 3 or 5
+
+------------PAGE TALK ABOUT------------
+الصفحة تعرض شريحة بعنوان "Exercises" تحتوي على أربعة تمارين عن الاستدعاء الذاتي (Recursion).
+التمارين تشمل: حساب مجموع أرقام عدد، إيجاد القاسم المشترك الأكبر GCD باستخدام recursion، وحساب قوة عدد.
+كما تتضمن تمرينًا عن الدوال ذات الاستدعاء المتبادل لتحديد ما إذا كان العدد من مضاعفات 3 أو 5.
+التصميم بسيط جدًا: خلفية بيضاء، عنوان كبير في الأعلى، وقائمة مرقمة بدون صور أو مخططات.
+
+
+================================================================================
+PAGE 43 - page_0043.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+Solutions
+
+------------PAGE TALK ABOUT------------
+هذه الصفحة عبارة عن شريحة عنوان بسيطة تشير إلى قسم **الحلول**.
+لا تحتوي على أي شرح إضافي أو معادلات أو عناصر تعليمية أخرى.
+الخلفية بيضاء بالكامل، وفي المنتصف كلمة **Solutions** بخط أسود واضح.
+لا توجد صور أو مخططات أو رسوم بيانية في الصفحة.
+
+
+================================================================================
+PAGE 44 - page_0044.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+Sum of Digits
+
+#include <stdio.h>
+
+int sumOfDigits(int n) {
+    if (n == 0) return 0;  // Base case
+    return (n % 10) + sumOfDigits(n / 10);  // Linear recursive call
+}
+
+int main() {
+    int n = 12345;
+    printf("Sum of digits of %d is %d\n", n, sumOfDigits(n));
+    return 0;
+}
+
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن برنامج بلغة C لحساب مجموع أرقام عدد صحيح باستخدام الاستدعاء الذاتي (Recursion).
+توضح الدالة `sumOfDigits` حالة التوقف عندما تصبح القيمة 0، ثم تجمع آخر رقم `n % 10` مع ناتج استدعاء الدالة على `n / 10`.
+يوجد أيضًا مثال في `main` يستخدم العدد 12345 ويطبع مجموع أرقامه.
+العنصر البصري عبارة عن صفحة بسيطة تحتوي على عنوان "Sum of Digits" وكود برمجي فقط دون صور أو مخططات.
+
+
+================================================================================
+PAGE 45 - page_0045.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+Recursive Function for GCD
+
+#include <stdio.h>
+
+int gcd(int a, int b) {
+    if (b == 0) return a;  // Base case
+    return gcd(b, a % b);  // Recursive call
+}
+
+int main() {
+    int a = 56, b = 98;
+    printf("GCD of %d and %d is %d\n", a, b, gcd(a, b));
+    return 0;
+}
+
+Step-by-Step Execution
+
+• Input: a = 56, b = 98
+
+• Step 1: gcd(56, 98)
+  • b ≠ 0, so call gcd(98, 56 % 98) → gcd(98, 56)
+
+• Step 2: gcd(98, 56)
+  • b ≠ 0, so call gcd(56, 98 % 56) → gcd(56, 42)
+
+• Step 3: gcd(56, 42)
+  • b ≠ 0, so call gcd(42, 56 % 42) → gcd(42, 14)
+
+• Step 4: gcd(42, 14)
+  • b ≠ 0, so call gcd(14, 42 % 14) → gcd(14, 0)
+
+• Step 5: gcd(14, 0)
+  • b == 0, so return 14 (base case).
+
+• Final Result: 14
+
+------------PAGE TALK ABOUT------------
+تشرح الصفحة دالة递归 في لغة C لإيجاد القاسم المشترك الأكبر (GCD) باستخدام خوارزمية إقليدس.  
+تحتوي على كود كامل فيه دالة `gcd` مع حالة أساسية عندما `b == 0`، ثم استدعاء递归 باستخدام `gcd(b, a % b)`.  
+كما تعرض تنفيذًا خطوة بخطوة للمدخلين 56 و98 حتى الوصول إلى الناتج النهائي 14.  
+التصميم مقسوم بصريًا إلى قسمين: الكود البرمجي على اليسار، وشرح التتبع المرحلي بالنقاط على اليمين.
+
+
+================================================================================
+PAGE 46 - page_0046.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+Power Calculation
+
+#include <stdio.h>
+
+int power(int x, int n) {
+    if (n == 0) return 1;  // Base case
+    return x * power(x, n - 1);  // Binary recursive call
+}
+
+int main() {
+    int x = 2, n = 5;
+    printf("%d^%d is %d\n", x, n, power(x, n));
+    return 0;
+}
+
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن برنامج بلغة C لحساب القوة \(x^n\) باستخدام الاستدعاء الذاتي (Recursion).
+توضح الدالة `power` حالة الأساس عندما تكون `n == 0` فترجع 1، ثم تستدعي نفسها لتقليل قيمة `n` تدريجيًا.
+في الدالة `main` تم استخدام القيم `x = 2` و `n = 5` ثم طباعة الناتج.
+العنصر البصري الوحيد هو عنوان "Power Calculation" مع تنسيق نصي بسيط لعرض الكود بدون أي صور أو مخططات.
+
+
+================================================================================
+PAGE 47 - page_0047.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+#include <stdio.h>
+int isMultipleOf3(int n);
+int isMultipleOf5(int n);
+int isMultipleOf3(int n) {
+    if (n == 0) return 1;  // Base case
+    if (n < 0) return 0;
+    return isMultipleOf5(n - 3);  // Mutual recursive call
+}
+int isMultipleOf5(int n) {
+    if (n == 0) return 1;  // Base case
+    if (n < 0) return 0;
+    return isMultipleOf3(n - 5);  // Mutual recursive call
+}
+int main() {
+    int n = 15;
+    if (isMultipleOf3(n)) {
+        printf("%d is a multiple of 3\n", n);
+    } else if (isMultipleOf5(n)) {
+        printf("%d is a multiple of 5\n", n);
+    } else {
+        printf("%d is not a multiple of 3 or 5\n", n);
+    }
+
+    return 0;
+}
+
+Multiple of 3 or 5
+
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن برنامج بلغة C للتحقق مما إذا كان العدد من مضاعفات 3 أو 5 باستخدام الاستدعاء التعاودي المتبادل بين دالتين.
+توضح الدالتان isMultipleOf3 و isMultipleOf5 حالات التوقف عندما يصبح العدد 0 أو أقل من 0، ثم تستدعي كل دالة الأخرى بعد طرح 3 أو 5.
+في الدالة main يتم اختبار العدد 15 وطباعة ما إذا كان من مضاعفات 3 أو 5 أو ليس كذلك.
+يوجد عنصر بصري بسيط على يمين الصفحة عبارة عن عنوان نصي: "Multiple of 3 or 5" بدون مخططات أو صور إضافية.
+
