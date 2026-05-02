@@ -1,0 +1,998 @@
+================================================================================
+SUBJECT: ضياف2
+TOTAL PAGES: 31
+EXTRACTED ON: 2026-05-02 20:26:14
+================================================================================
+
+
+================================================================================
+PAGE 1 - page_0001.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+ITWT321
+
+Object-Oriented Design for
+Internet Applications
+
+مبادئ متقدمة في التصميم الشيئي
+
+Lecture 2:  Advanced Object-Oriented Principles
+
+إعداد: د. عبد الناصر ضياف
+------------PAGE TALK ABOUT------------
+هذه صفحة غلاف لمحاضرة جامعية في مقرر ITWT321 بعنوان تصميم كائني التوجه لتطبيقات الإنترنت.  
+توضح أن هذه هي المحاضرة الثانية وموضوعها المبادئ المتقدمة في البرمجة أو التصميم الشيئي.  
+تتضمن الصفحة عنوانًا رئيسيًا كبيرًا بالإنجليزية، مع ترجمة أو وصف بالعربية أسفله، واسم المُعد في الأسفل.  
+يوجد تصميم بصري بسيط بخلفية بيضاء وشريط زخرفي أزرق مائل في الجزء السفلي من الصفحة.
+
+
+================================================================================
+PAGE 2 - page_0002.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+Why This Matters  
+Beyond Basic OOP: The Challenges Are Greater on the Web
+
+▸ Internet systems are long-lived  
+◦ The code you write today may be maintained for a decade.  
+◦ Poor design choices now will compound into massive maintenance costs and technical debt over time.
+
+▸ Design impacts scalability & maintenance  
+◦ A system with tightly coupled components cannot be scaled horizontally.  
+◦ A change in one area will cause a cascade of failures elsewhere.
+
+▸ OOP basics are not enough  
+◦ Knowing how to write a class is just the beginning.  
+◦ Building robust, distributed systems requires applying OOP principles with discipline and a deep understanding of their implications in a networked environment
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن أهمية التصميم البرمجي الجيد في أنظمة الويب، وأن التحديات فيها أكبر من مجرد تعلم أساسيات البرمجة كائنية التوجه.  
+توضح أن أنظمة الإنترنت تعيش لفترات طويلة، لذلك أي قرار تصميمي سيئ اليوم قد يتحول لاحقًا إلى تكلفة صيانة عالية ودين تقني كبير.  
+كما تشرح أن التصميم يؤثر مباشرة على قابلية التوسع والصيانة، خاصة عند وجود مكونات مترابطة بشدة تؤدي إلى صعوبة التوسع وحدوث أعطال متسلسلة.  
+بصريًا، الصفحة عبارة عن شريحة عرض تعليمية بنصوص نقطية وعناوين كبيرة، مع عناصر تصميم زرقاء مائلة في أسفل اليسار دون وجود مخططات أو صور توضيحية أخرى.
+
+
+================================================================================
+PAGE 3 - page_0003.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+From OOP to Real Systems  
+The Shift from Local to Distributed
+
+• Objects cross network boundaries  
+  ◦ In a traditional desktop application, objects live in a single memory space.  
+  ◦ In a web application, a User object created by a service on Server A may need to be used by a component on Server B.
+
+• Serialization is required  
+  ◦ To traverse the network, objects must be converted into a portable format (like JSON, XML, or Protocol Buffers).  
+  ◦ This process is called serialization (and deserialization).
+
+• Used across services  
+  ◦ A single "object" might be represented as a local Java object in one service, a JSON payload in transit, and a different local object in another service.  
+  ◦ This disconnection between conceptual object and concrete representation introduces new design challenges.
+
+Serialization  
+{  
+  "1d = 10,  
+  "name = "Alice")  
+}  
+JSON
+
+Network
+
+Deserialization  
+1d = 10  
+name = "Atice'  
+Java Object
+
+Java Object  
+(Service A)
+
+Java Object  
+(Service B)
+------------PAGE TALK ABOUT------------
+تشرح الصفحة الانتقال من البرمجة الكائنية المحلية (OOP) إلى الأنظمة الموزعة، حيث لم تعد الكائنات تعيش داخل ذاكرة واحدة بل تنتقل بين خدمات وخوادم مختلفة.  
+توضح أن نقل الكائنات عبر الشبكة يتطلب تحويلها إلى صيغة قابلة للنقل مثل JSON أو XML، وهذه العملية تسمى Serialization ثم Deserialization عند الاستقبال.  
+كما تبيّن أن نفس الكائن قد يظهر كـ Java Object في خدمة، ثم كـ JSON أثناء الإرسال، ثم يعود ككائن محلي في خدمة أخرى، مما يسبب تحديات تصميمية.  
+يوجد مخطط أسفل الصفحة يوضح التدفق: Java Object في Service A ← Serialization إلى JSON ← المرور عبر Network ← Deserialization ← Java Object في Service B.
+
+
+================================================================================
+PAGE 4 - page_0004.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+Learning Objectives  
+What You Will Master Today
+
+▸ Understand deeper OOP principles:  
+  ◦ Go beyond textbook definitions to understand their practical application and pitfalls in web systems.
+
+▸ Apply composition-based design:  
+  ◦ Learn how to build flexible, extensible systems by favoring "has-a" relationships over rigid "is-a" hierarchies.
+
+▸ Design for distributed systems:  
+  ◦ Recognize and mitigate the challenges of network latency, coupling, and failure when objects collaborate across service boundaries.
+
+▸ Use immutability effectively:  
+  ◦ Understand how immutable objects and value objects can simplify concurrency, caching, and overall system predictability.
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن الأهداف التعليمية لدرس يركز على مفاهيم البرمجة كائنية التوجه بشكل أعمق.  
+توضح أهمية استخدام التصميم القائم على التركيب بدلًا من الوراثة الصارمة لبناء أنظمة أكثر مرونة.  
+كما تشرح ضرورة مراعاة تحديات الأنظمة الموزعة مثل التأخير والاعتمادية بين الخدمات.  
+وتؤكد أيضًا على دور الكائنات غير القابلة للتغيير في تحسين التزامن والتخزين المؤقت واستقرار النظام.  
+بصريًا، الصفحة عبارة عن شريحة عرض بخلفية بيضاء مع عناوين كبيرة ونقاط تعداد زرقاء وزخرفة هندسية زرقاء في الأسفل.
+
+
+================================================================================
+PAGE 5 - page_0005.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+Encapsulation vs. Information Hiding  
+The Cornerstone of Maintainable Code
+
+• Encapsulation = Structure.  
+  ◦ This is the mechanism: bundling data (fields) and the methods that operate on that data within a single class.
+
+• Information Hiding = Principle.  
+  ◦ This is the strategy: designing your class's public interface to reveal what an object does, while concealing how it does it.  
+  ◦ This reduces complexity and prevents external code from becoming dependent on internal implementation details.
+
+• Key Difference:  
+  ◦ Encapsulation is how you achieve information hiding.  
+  ◦ You can have encapsulation without information hiding (e.g., public getters/setters for every field), but the goal is to hide information.
+
+Example:  
+  ◦ A BankAccount class encapsulates the balance field.  
+  ◦ Information hiding ensures that the balance can only be changed through deposit() and withdraw() methods, which can enforce rules like preventing overdrafts.
+------------PAGE TALK ABOUT------------
+تشرح الصفحة الفرق بين **Encapsulation** و**Information Hiding** في البرمجة الكائنية.  
+توضح أن التغليف هو آلية تنظيم تجمع البيانات والعمليات داخل صنف واحد، بينما إخفاء المعلومات هو مبدأ يحدد ما يظهر للمستخدم وما يُخفى من تفاصيل التنفيذ.  
+كما تبيّن أن التغليف وسيلة لتحقيق إخفاء المعلومات، لكن قد يوجد تغليف بدون إخفاء فعلي إذا كانت كل الحقول مكشوفة عبر getters/setters.  
+يوجد مثال عن **BankAccount** حيث يتم حماية **balance** بحيث لا يتغير إلا عبر الدالتين **deposit()** و**withdraw()**.  
+التصميم بصريًا عبارة عن شريحة عرض تعليمية بنقاط تعداد وعنوان كبير، مع زخرفة مثلثية زرقاء في أسفل اليسار.
+
+
+================================================================================
+PAGE 6 - page_0006.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+Bad Example - No Information Hiding  
+What Not to Do: Data Container Only
+
+Problem:
+◦ Public fields or public getters/setters for every field expose internal state and logic.
+◦ There is no protection, validation, or behavior attached to the data.
+
+Consequence:
+◦ Any other class (like a Controller) can manipulate the object's state directly, potentially violating business rules.
+◦ This leads to code duplication and a fragile system where business logic is scattered everywhere.
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن مثال سيئ في البرمجة الكائنية وهو غياب مبدأ إخفاء المعلومات، حيث تكون الفئة مجرد حاوية بيانات فقط.  
+توضح أن جعل الحقول أو الـ getters/setters عامة بالكامل يكشف الحالة الداخلية ويمنع وجود حماية أو تحقق من صحة البيانات.  
+كما تشرح أن هذا يسمح لأي فئة أخرى بالتعديل المباشر على الكائن، مما قد يخرق قواعد العمل ويؤدي إلى تكرار الكود.  
+بصريًا، الصفحة عبارة عن شريحة عرض نصية بخلفية بيضاء مع عناوين كبيرة ونقاط تعداد، ويوجد تصميم زخرفي أزرق مائل في أسفل اليسار.
+
+
+================================================================================
+PAGE 7 - page_0007.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+Bad Example - Data Container Only continued  
+Java Code Example:
+
+// Bad Design: No information hiding
+
+public class User {
+
+    public String email;
+
+    public String password;
+
+    public boolean isActive;
+
+    // ... no methods, just data
+
+}
+
+// Somewhere in a Controller
+
+User user = userRepository.findById(1);
+user.email = "newemail@example.com"; // Direct modification, no validation!
+user.password = "123"; // No password strength check
+user.isActive = false; // What does "inactive" even mean?
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن مثال سيئ في تصميم الكائنات في Java، حيث يتم استخدام الكلاس كحاوية بيانات فقط بدون إخفاء للمعلومات.  
+تعرض شريحة كود لكلاس `User` يحتوي على حقول عامة يمكن تعديلها مباشرة من أي مكان في البرنامج.  
+توضح المشكلة من خلال تعديل البريد الإلكتروني وكلمة المرور وحالة التفعيل داخل الـ Controller بدون أي تحقق أو قواعد عمل.  
+بصريًا، الصفحة عبارة عن شريحة عرض تعليمية بخلفية فاتحة، عنوان كبير بالأعلى، ومربع كود في الوسط مع تلوين نحوي للنص.
+
+
+================================================================================
+PAGE 8 - page_0008.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+Better Example: A Well-Designed
+Domain Object
+
+Solution:
+◦ Make fields private and provide controlled access via public methods.
+◦ The object protects its own invariants and encapsulates business logic.
+
+Benefits:
+◦ Business rules are enforced in one place.
+◦ The User object is in charge of its own state.
+◦ Controllers and services interact with a clear, behavior-focused interface.
+
+Java Code Example:
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن مثال أفضل لتصميم كائن المجال (Domain Object) بشكل جيد في البرمجة الكينونية.  
+توضح أن الحقول يجب أن تكون private مع إتاحة الوصول إليها عبر public methods فقط، حتى يحمي الكائن حالته الداخلية وقواعد العمل الخاصة به.  
+كما تذكر الفوائد مثل توحيد تطبيق قواعد العمل في مكان واحد، وجعل الكائن مسؤولًا عن حالته، وتسهيل تعامل الخدمات والمتحكمات معه عبر واجهة واضحة.  
+بصريًا، الصفحة عبارة عن شريحة عرض بخلفية بيضاء وعنوان كبير في الأعلى مع نقاط تعداد، ويوجد تصميم زخرفي أزرق مائل في أسفل اليسار.
+
+
+================================================================================
+PAGE 9 - page_0009.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+A Well-Designed Domain Object continued
+Java Code Example:
+
+// Good Design: Encapsulation with Information Hiding
+public class User {
+
+    private String email;
+    private String passwordHash; // We don't even expose the raw password
+    private AccountStatus status;
+
+    public void changeEmail(String newEmail) {
+        if (!isValidEmail(newEmail)) {
+            throw new IllegalArgumentException("Invalid email format");
+        }
+        this.email = newEmail;
+        // Could also trigger a domain event "EmailChangedEvent"
+    }
+
+    public void activate() {
+        if (this.status == AccountStatus.SUSPENDED) {
+            throw new IllegalStateException("Cannot activate a suspended account");
+        }
+        this.status = AccountStatus.ACTIVE;
+    }
+
+    private boolean isValidEmail(String email) { /* validation logic */ }
+    // Getters only for necessary data
+    public String getEmail() { return email; }
+    public AccountStatus getStatus() { return status; }
+}
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن مثال بلغة Java لكائن نطاق (Domain Object) مصمم بشكل جيد، مع التركيز على مبدأ التغليف وإخفاء المعلومات.  
+توضح الشيفرة كيف تكون الخصائص مثل البريد الإلكتروني وكلمة المرور المرمزة والحالة خاصة (private)، ولا يتم تعديلها إلا عبر دوال تتحقق من القواعد.  
+يوجد مثالان: تغيير البريد الإلكتروني بعد التحقق من صحته، وتفعيل الحساب مع منع التفعيل إذا كانت الحالة معلقة.  
+العنصر البصري الأساسي هو شريحة عرض تعليمية تحتوي عنوانًا كبيرًا في الأعلى ومربعًا فاتحًا بداخله كود Java منسق بالألوان لشرح الفكرة.
+
+
+================================================================================
+PAGE 10 - page_0010.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+Composition over Inheritance  
+Building Flexible Web Systems
+
+▸ **Problem with Deep Inheritance:**
+◦ Creates rigid, fragile hierarchies.  
+◦ A change in a base class can ripple down and break all derived classes.  
+◦ In web systems, serialization frameworks (like Jackson) can unintentionally expose the entire inheritance chain, leading to unintended API coupling and versioning nightmares.
+
+▸ **The Principle:**
+◦ "Favor composition over inheritance." Assemble complex objects from smaller, focused ones.  
+◦ This creates a "has-a" relationship instead of an "is-a" relationship.
+
+▸ **Illustration:**
+◦ A *Bird* class inheriting from *Animal* is simple.  
+◦ But what if you need a *Penguin* (which doesn't fly) or a *Duck* (which flies and swims)?  
+◦ Inheritance leads to a messy situation.  
+◦ Composition solves this by composing the *Bird* with a *FlyingBehavior* and a *SwimmingBehavior* object.
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن مبدأ برمجي مهم وهو تفضيل **التركيب (Composition)** على **الوراثة (Inheritance)** عند بناء الأنظمة المرنة، خاصة في تطبيقات الويب.  
+توضح أن الوراثة العميقة تسبب هياكل جامدة وهشة، وأي تعديل في الفئة الأساسية قد يؤثر على جميع الفئات المشتقة.  
+كما تشير إلى أن بعض أطر التسلسل مثل Jackson قد تكشف سلسلة الوراثة كاملة مما يسبب ترابطًا غير مرغوب فيه ومشكلات في الإصدارات.  
+يوجد مثال توضيحي عن فئة **Bird**، حيث يكون استخدام التركيب أفضل عبر إضافة سلوكيات مثل **FlyingBehavior** و **SwimmingBehavior** بدل الاعتماد على شجرة وراثة معقدة.
+
+
+================================================================================
+PAGE 11 - page_0011.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+Inheritance Problem – A Web-Specific Example  
+The Fragility of Deep Hierarchies in APIs
+
+Scenario:
+◦ You have a BaseUser class with fields id, name, email. AdminUser extends BaseUser and adds permissions.  
+◦ SuperAdminUser extends AdminUser and adds canDeleteSystem.
+
+The Problem with JSON Serialization:
+◦ If you return a SuperAdminUser from your REST API, Jackson will serialize all fields from SuperAdminUser, AdminUser, and BaseUser.  
+◦ This tightly couples your API to your entire internal class hierarchy.  
+◦ If you later decide to flatten AdminUser into BaseUser, your API contract changes, breaking clients.
+
+SuperAdminUser  
+AdminUser  
+BaseUser
+
+{
+"userName": "admin",
+"role": "admin",
+"permissions": "manage_users",
+"accessLevel": "super"
+}
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن مشكلة استخدام الوراثة العميقة في تصميم نماذج الـ API، خاصة عند تحويل الكائنات إلى JSON.  
+توضح أن إرجاع كائن مثل SuperAdminUser يجعل Jackson يرسل كل الحقول الموروثة من BaseUser و AdminUser و SuperAdminUser، مما يربط الـ API بالبنية الداخلية للكلاسات.  
+هذا يؤدي إلى هشاشة في العقد البرمجي، لأن أي تعديل لاحق في التسلسل الهرمي قد يكسر توافق العملاء.  
+يوجد رسم هرمي مكوّن من BaseUser ثم AdminUser ثم SuperAdminUser، مع سهم نحو مثال JSON عليه علامة X حمراء للدلالة على أن هذا الأسلوب غير مفضل.
+
+
+================================================================================
+PAGE 12 - page_0012.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+Better Design – Composition with Role Strategy  
+A More Flexible and API-Friendly Approach
+
+▸ Solution:
+
+◦ Use composition.  
+◦ A User class no longer inherits its permissions.  
+◦ Instead, it is composed with a Role object.  
+◦ The Role object encapsulates the specific behavior.
+
+▸ API Benefit:
+
+◦ Your REST API now returns a clean User DTO with a roleType field (e.g., "ADMIN", "SUPER_ADMIN").  
+◦ The internal complexity of how AdminRole and SuperAdminRole work is hidden behind a clean interface.
+
+Java Code Example:
+
+// The Role interface
+
+public interface Role {
+    Set<Permission> getPermissions();
+    boolean canPerform(String action);
+}
+------------PAGE TALK ABOUT------------
+تشرح الصفحة تصميماً أفضل لإدارة الصلاحيات باستخدام مبدأ التركيب (Composition) مع كائن Role بدلاً من الوراثة داخل User.  
+الفكرة أن المستخدم لا يرث الصلاحيات مباشرة، بل يحتوي على Role يحدد السلوك والصلاحيات بشكل مرن.  
+كما توضح فائدة ذلك في الـ API، حيث يتم إرجاع User DTO بسيط يحتوي على roleType فقط مع إخفاء التعقيد الداخلي.  
+يوجد أيضاً مثال كود Java يعرض واجهة Role التي تحتوي على دوال getPermissions و canPerform.
+
+
+================================================================================
+PAGE 13 - page_0013.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+Better Design – Composition with Role Strategy
+A More Flexible and API-Friendly Approach
+
+public class User {
+    private final String id;
+    private final String email;
+    private final Role role; // Composition! User HAS-A Role
+
+    public User(String id, String email, Role role) {
+        this.id = id;
+        this.email = email;
+        this.role = role;
+    }
+
+    public boolean hasPermission(String action) {
+        return role.canPerform(action);
+    }
+    // Getters...
+}
+
+// Role implementation
+public class AdminRole implements Role {
+    @Override
+    public boolean canPerform(String action) {
+        return true; // Admin can do everything
+    }
+    // ...
+}
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن تصميم برمجي أفضل باستخدام مبدأ التركيب (Composition) مع استراتيجية الأدوار (Role Strategy) بدل ربط الصلاحيات مباشرة داخل فئة المستخدم.  
+يوضح المثال أن `User` يحتوي على كائن `Role`، وعند التحقق من الصلاحية يتم تفويض العملية إلى `role.canPerform(action)`.  
+كما تعرض الصفحة مثالًا على `AdminRole` الذي يطبّق الواجهة `Role` ويمنح جميع الصلاحيات.  
+بصريًا، الصفحة عبارة عن شريحة تعليمية تحتوي عنوانًا كبيرًا في الأعلى وكود Java منسق بألوان مختلفة داخل مساحة فاتحة الخلفية.
+
+
+================================================================================
+PAGE 14 - page_0014.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+Advantages of Composition in Web Systems  
+Why Composition Wins
+
+▸ **Flexibility:**
+  ◦ You can change an object's behavior at runtime by swapping out the composed object  
+    (e.g., change a User's Role from Student to Alumni).
+
+▸ **Testability:**
+  ◦ You can easily test the User class in isolation by faking the Role interface.  
+  ◦ No need to set up a complex inheritance hierarchy.
+
+▸ **Avoids Hierarchy Explosion:**
+  ◦ When new requirements arise (e.g., ModeratorRole, GuestRole), you just create a  
+    new Role implementation.  
+  ◦ You don't have to refactor a whole inheritance tree.
+
+▸ **Cleaner APIs:**
+  ◦ Your DTOs remain simple and decoupled from your internal domain model's inheritance  
+    structure.
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن مزايا استخدام **التركيب (Composition)** في أنظمة الويب بدلًا من **الوراثة (Inheritance)**.  
+توضح أن التركيب يمنح مرونة أكبر، حيث يمكن تغيير سلوك الكائن أثناء التشغيل عبر تبديل المكوّن الداخلي مثل تغيير دور المستخدم.  
+كما تبرز سهولة الاختبار، لأن الكلاسات يمكن اختبارها بشكل مستقل دون الحاجة إلى بناء شجرة وراثة معقدة.  
+وتشرح أيضًا أن التركيب يمنع تضخم التسلسل الهرمي للكلاسات، ويساعد على إنشاء واجهات API وDTOs أبسط وأكثر فصلًا عن البنية الداخلية.
+
+
+================================================================================
+PAGE 15 - page_0015.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+Object Collaboration in Distributed Systems  
+The Problem of Network Latency
+
+• Local Collaboration:  
+  ◦ Calling a method on an object in the same JVM is a near-instantaneous, cheap, and reliable operation.
+
+• Distributed Collaboration:  
+  ◦ In a layered web architecture, objects (or services) live on different machines.  
+  ◦ Collaboration happens via network calls over HTTP, RPC, RMI, etc.
+
+• The Consequences:  
+  ◦ Latency:  
+    • A network call is 100-1000x slower than an in-memory call.  
+    • A chain of just a few remote calls can make a request take seconds.  
+  ◦ Coupling:  
+    • A service that calls three other services is tightly coupled to their availability and performance.  
+    • If one of those services fails, the entire operation fails.
+
+Web Client  
+Call 1  
+-100ms  
+OrderService  
+Call 2  
+-100ms  
+PaymentService  
+Call 3  
+-100ms  
+FraudService
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن الفرق بين التعاون المحلي بين الكائنات داخل نفس الـ JVM والتعاون الموزع بين خدمات موجودة على أجهزة مختلفة.  
+توضح أن الاستدعاءات عبر الشبكة مثل HTTP وRPC أبطأ بكثير من الاستدعاءات داخل الذاكرة، وقد يؤدي تسلسل عدة استدعاءات إلى زيادة زمن الاستجابة بشكل ملحوظ.  
+كما تشرح مشكلة الترابط الشديد بين الخدمات، حيث يعتمد نجاح العملية على توفر وأداء كل خدمة يتم استدعاؤها.  
+يوجد مخطط في الأسفل يوضح تسلسلاً من Web Client إلى OrderService ثم PaymentService ثم FraudService، مع زمن تقريبي 100ms لكل استدعاء، لإبراز كيف تتراكم الـ latency عبر الخدمات.
+
+
+================================================================================
+PAGE 16 - page_0016.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+Designing for Distributed Collaboration  
+Reducing the Impact of Distribution
+
+▸ **Coarse-Grained Interfaces:**
+  ◦ Design service APIs to do more work per call.  
+  ◦ Instead of `getUser()` and then `getOrders(userId)`, provide  
+    `getUserProfileWithOrders(userId)`.
+
+▸ **Data Transfer Objects (DTOs):**
+  ◦ Use DTOs to aggregate data from multiple sources into a single network payload,  
+    reducing the number of round trips.
+
+▸ **Asynchronous Communication:**
+  ◦ For non-critical operations (e.g., sending a confirmation email), use message queues.  
+  ◦ The `OrderService` publishes an `OrderPlacedEvent` and doesn't wait for the  
+    `EmailService` to process it.  
+  ◦ This decouples the services.
+
+▸ **Java Code Example (Coarse-Grained Service):**
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن تصميم الأنظمة الموزعة بطريقة تقلل تأثير التوزيع بين الخدمات.  
+توضح أهمية الواجهات كبيرة الحبيبات لتقليل عدد الاستدعاءات، واستخدام DTOs لتجميع البيانات في حمولة واحدة.  
+كما تشرح الاتصال غير المتزامن عبر الرسائل لفصل الخدمات وتحسين الأداء.  
+بصريًا، الصفحة عبارة عن شريحة عرض تعليمية تحتوي على عنوان كبير ونقاط تعداد، مع زخرفة مثلثية زرقاء في الأسفل والجانب.
+
+
+================================================================================
+PAGE 17 - page_0017.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+Designing for Distributed Collaboration
+Reducing the Impact of Distribution
+
+▸ Java Code Example (Coarse-Grained Service):
+
+// Instead of two calls...
+User user = userService.getUser(userId);
+List<Order> orders = orderService.getOrdersByUser(userId);
+
+// ...make one call to an aggregator service
+UserProfileDTO profile = userProfileService.getUserProfile(userId);
+
+public class UserProfileDTO {
+    private UserInfo user; // DTO for user details
+    private List<OrderSummary> recentOrders; // DTO for order summaries
+    // Getters/Setters...
+}
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن تصميم الأنظمة الموزعة بطريقة تقلل أثر التوزيع بين الخدمات.  
+توضح الفكرة من خلال مثال Java حيث يتم استبدال استدعاءين منفصلين لخدمتين مختلفتين باستدعاء واحد لخدمة مجمِّعة.  
+الهدف هو استخدام خدمة coarse-grained أو aggregator لإرجاع كائن DTO يحتوي بيانات المستخدم وملخص الطلبات معًا.  
+بصريًا، الصفحة عبارة عن شريحة عرض تعليمية تحتوي عنوانًا كبيرًا في الأعلى ومربع كود برمجي منسق في الوسط مع تمييز لوني لعناصر Java.
+
+
+================================================================================
+PAGE 18 - page_0018.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+Serialization Issues and Domain Model Exposure  
+When Internal Details Become Public Contract
+
+▸ Problem:
+
+◦ A naive approach to building a REST API is to return your JPA entity or domain object directly.
+
+◦ When this object is serialized to JSON, its entire structure is exposed, including fields you may not want to share (e.g. passwordHash, internalFlags).
+
+▸ Consequence:
+
+◦ This creates a tight coupling between your internal domain model and your external API.
+
+◦ Any change to your domain object (like renaming a field for refactoring) becomes a breaking change for API clients.
+
+▸ Java Code Example (Bad - Exposing Internal Entity):
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن مشكلة شائعة في تصميم REST API وهي إرجاع كيان JPA أو كائن الدومين مباشرة للمستخدم.  
+هذا يؤدي عند تحويله إلى JSON إلى كشف كل الحقول الداخلية حتى الحساسة مثل passwordHash و internalFlags.  
+كما توضح النتيجة وهي حدوث ترابط قوي بين النموذج الداخلي وواجهة الـ API، بحيث أي تعديل داخلي قد يكسر العملاء.  
+بصريًا، الصفحة عبارة عن شريحة عرض تعليمية تحتوي عنوانًا رئيسيًا كبيرًا، عنوانًا فرعيًا، ونقاطًا تعدادّية مع تصميم بسيط وخلفية بيضاء وزخرفة زرقاء في الأسفل.
+
+
+================================================================================
+PAGE 19 - page_0019.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+Serialization Issues and Domain Model Exposure  
+When Internal Details Become Public Contract
+
+▸ Java Code Example (Bad - Exposing Internal Entity):
+
+@RestController
+
+public class UserController {
+
+    @GetMapping("/users/{id}")
+
+    public User getUser(@PathVariable Long id) { // Returning the JPA entity!
+
+        return userRepository.findById(id).orElseThrow();
+    }
+}
+
+// The JSON response includes *all* fields of the User entity, including internal ones.
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن مشكلة في تطبيقات Java/Spring عند إرجاع كيان قاعدة البيانات `User` مباشرة من الـ API، مما يؤدي إلى كشف تفاصيل داخلية في استجابة JSON.  
+الفكرة الأساسية أن النموذج الداخلي للتطبيق يصبح جزءًا من العقد العام للواجهة البرمجية، وهذا تصميم سيئ.  
+يوجد مثال كود داخل شريحة عرض يوضح `UserController` مع `@GetMapping("/users/{id}")` يعيد الكيان مباشرة من `userRepository`.  
+بصريًا، الصفحة عبارة عن شريحة تعليمية بعنوان كبير، وتحتها صندوق يحتوي على مثال كود Java مع تعليق يوضح أن جميع الحقول، حتى الداخلية، ستظهر في الاستجابة.
+
+
+================================================================================
+PAGE 20 - page_0020.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+Solution – Data Transfer Objects (DTOs)
+Protecting Your Domain Model with DTOs
+
+Solution:
+◦ Never return your domain entities directly from an API.
+◦ Instead, create a separate, dedicated class called a Data Transfer Object (DTO).
+
+Purpose of DTOs:
+◦ Protect Domain Model:
+  • Hide sensitive or internal fields.
+
+◦ Optimize Data Transfer:
+  • Shape the data exactly as the client needs it, including aggregated data from multiple sources.
+
+◦ Support API Versioning:
+  • You can have different DTO versions (e.g., UserV1DTO, UserV2DTO) without changing your core domain logic.
+
+Java Code Example (Good - Using a DTO):
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن استخدام كائنات نقل البيانات (DTOs) كحل لحماية نموذج الدومين عند بناء الـ API.  
+توضح أنه لا يجب إرجاع الـ domain entities مباشرة، بل إنشاء كلاس مخصص لنقل البيانات فقط.  
+كما تشرح فوائد DTOs مثل إخفاء الحقول الحساسة، تحسين شكل البيانات المرسلة للعميل، ودعم إصدار نسخ مختلفة من الـ API.  
+بصريًا، الصفحة عبارة عن شريحة عرض تعليمية تحتوي على عنوان كبير ونقاط تعداد فرعية، مع تصميم بسيط وخلفية بيضاء وزخرفة زرقاء في الأسفل.
+
+
+================================================================================
+PAGE 21 - page_0021.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+Solution – Data Transfer Objects (DTOs)
+Protecting Your Domain Model with DTOs
+
+▸ Java Code Example (Good - Using a DTO):
+
+// The DTO
+public class UserResponseDTO {
+    private Long id;
+    private String email;
+    private String fullName;
+    // No passwordHash, no internal flags
+    // Getters/Setters...
+}
+
+@RestController
+public class UserController {
+    @GetMapping("/users/{id}")
+    public UserResponseDTO getUser(@PathVariable Long id) {
+        User user = userRepository.findById(id).orElseThrow();
+        return mapToDTO(user); // map internal entity to DTO
+    }
+
+    private UserResponseDTO mapToDTO(User user) {
+        UserResponseDTO dto = new UserResponseDTO();
+        dto.setId(user.getId());
+        dto.setEmail(user.getEmail());
+        dto.setFullName(user.getFirstName() + " " + user.getLastName());
+        return dto;
+    }
+}
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن استخدام كائنات نقل البيانات DTOs لحماية نموذج المجال في تطبيقات Java وعدم إرجاع الكيان الداخلي مباشرة من الـ API.  
+توضح مثالًا جيدًا فيه إنشاء `UserResponseDTO` يحتوي فقط على البيانات المسموح بعرضها مثل `id` و`email` و`fullName`.  
+كما تعرض `Controller` يقوم بجلب المستخدم ثم تحويله من `User` الداخلي إلى DTO عبر دالة `mapToDTO`.  
+العنصر البصري الأساسي هو شريحة عرض تعليمية تحتوي عنوانًا كبيرًا ونصًا برمجيًا منسقًا بألوان مختلفة لتمييز كلمات Java والتعليقات.
+
+
+================================================================================
+PAGE 22 - page_0022.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+Immutability – A Pillar of Reliable Web Systems  
+Objects that Never Change
+
+Definition:
+◦ An object is immutable if its state cannot be changed after it is created.
+◦ All its fields are final and set in the constructor.
+
+Why it's crucial for internet applications:
+◦ Thread-Safety:
+• Web servers handle many concurrent requests.
+• Immutable objects can be shared freely across threads without any risk of race conditions or data corruption.
+
+◦ Predictability and Simplicity:
+• An object's state is always consistent.
+• You never have to wonder if another part of the system has modified it.
+
+◦ Caching:
+• Immutable objects can be safely cached and reused, improving performance.
+
+Java Code Example (Immutable Class):
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن مفهوم "عدم القابلية للتغيير" في البرمجة، أي أن الكائن لا يمكن تعديل حالته بعد إنشائه.  
+توضح أهميته في تطبيقات الويب من حيث الأمان بين الخيوط، والثبات وسهولة التنبؤ، وإمكانية التخزين المؤقت بأمان.  
+تشير أيضًا إلى أن جميع الحقول يجب أن تكون نهائية وتُضبط داخل المُنشئ.  
+بصريًا، الصفحة عبارة عن شريحة عرض تعليمية بخلفية بيضاء وعناوين كبيرة مع نقاط تعداد، ويوجد عنصر زخرفي أزرق مائل في أسفل اليسار.
+
+
+================================================================================
+PAGE 23 - page_0023.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+Immutability – A Pillar of Reliable Web Systems  
+Objects that Never Change
+
+Java Code Example (Immutable Class):
+
+```java
+public final class Point { // Class is final to prevent extension
+    private final int x; // Fields are final
+    private final int y;
+
+    public Point(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
+
+    public int getX() { return x; }
+    public int getY() { return y; }
+
+    // No setter methods!
+    // For "modification", we return a new instance
+    public Point translate(int dx, int dy) {
+        return new Point(this.x + dx, this.y + dy);
+    }
+}
+```
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن مفهوم **Immutability** في البرمجة، أي الكائنات التي لا تتغير بعد إنشائها، وتوضح أنه من أساسيات بناء أنظمة ويب موثوقة.  
+تستخدم الصفحة مثالًا بلغة Java لفئة اسمها `Point`، حيث تم جعل الكلاس `final` والحقول `final` لمنع التعديل.  
+كما توضّح أنه لا توجد دوال `setter`، وأي “تعديل” يتم عبر إنشاء كائن جديد باستخدام الدالة `translate`.  
+بصريًا، الصفحة عبارة عن شريحة عرض تعليمية تحتوي عنوانًا كبيرًا في الأعلى، ونقطة تعداد على اليسار، ومربعًا فاتح الخلفية يعرض كود Java ملوّنًا بتنسيق برمجي.
+
+
+================================================================================
+PAGE 24 - page_0024.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+Value Objects  
+Defining Objects by Their Attributes
+
+Definition:
+◦ A Value Object is an immutable object whose equality is based on the values of its fields, not on a unique identifier.
+◦ It has no conceptual identity.
+
+Common Examples in Web Systems:
+◦ Money: Amount and currency.
+◦ EmailAddress: The email string, with built-in validation.
+◦ DateRange: A start and end date.
+◦ Address: Street, city, postal code.
+
+Java Code Example (Value Object):
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن مفهوم Value Objects في تصميم البرمجيات، وهي كائنات غير قابلة للتغيير وتُعرّف من خلال قيم خصائصها وليس عبر معرّف فريد.  
+توضح أن هذا النوع من الكائنات لا يملك هوية مفاهيمية مستقلة، بل تُقاس المساواة فيه بحسب محتوى الحقول.  
+كما تعرض أمثلة شائعة في أنظمة الويب مثل المال، البريد الإلكتروني، نطاق التاريخ، والعنوان.  
+بصريًا، الصفحة عبارة عن شريحة عرض تعليمية بخلفية بيضاء وعناوين كبيرة مع نقاط تعداد زرقاء وزخرفة هندسية زرقاء في أسفل اليسار.
+
+
+================================================================================
+PAGE 25 - page_0025.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+Value Objects  
+Defining Objects by Their Attributes
+
+Java Code Example (Value Object):
+
+```java
+public final class EmailAddress {
+    private final String value;
+
+    public EmailAddress(String value) {
+        if (value == null || !value.contains("@")) {
+            throw new IllegalArgumentException("Invalid email address");
+        }
+        this.value = value;
+    }
+
+    public String getValue() { return value; }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        EmailAddress that = (EmailAddress) o;
+        return Objects.equals(value, that.value);
+    }
+
+    @Override
+    public int hashCode() { return Objects.hash(value); }
+}
+```
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن مفهوم Value Objects في البرمجة، أي الكائنات التي تُعرَّف من خلال قيمها وخصائصها وليس من خلال هويتها.  
+توضح ذلك عبر مثال بلغة Java لفئة اسمها `EmailAddress` تحتوي على قيمة واحدة وتم التحقق من صحتها داخل المُنشئ.  
+كما تعرض الصفحة كيفية إعادة تعريف الدالتين `equals` و`hashCode` بحيث تتم المقارنة بين الكائنات بناءً على قيمة البريد الإلكتروني.  
+بصريًا، الصفحة عبارة عن شريحة تعليمية تحتوي على عنوان كبير في الأعلى، ونقطة تعداد جانبية، ومربع كبير يعرض كود Java بتنسيق لوني.
+
+
+================================================================================
+PAGE 26 - page_0026.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+Value Objects vs. Entities  
+Distinguishing Identity in Your Domain Model
+
+▸ Entities (e.g., User, Order):
+◦ Have a distinct identity that persists through time.
+◦ They are often mutable.
+◦ Two User objects with the same id are the same entity, even if their names are different.
+
+▸ Value Objects (e.g., Money, Address):
+◦ Have no conceptual identity.
+◦ They are immutable.
+◦ Two Money objects with the same amount and currency are considered equal and interchangeable.
+
+Key Insight:
+▸ Correctly distinguishing between Entities and Value Objects is a cornerstone of Domain-Driven Design.
+▸ It leads to more expressive, maintainable, and bug-free domain models for web applications.
+
+Illustration:
+▸ A table comparing Entities and Value Objects, as in the previous response.
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن الفرق بين الـ Entities والـ Value Objects في تصميم النماذج ضمن Domain-Driven Design.  
+توضح أن الـ Entity لها هوية ثابتة عبر الزمن ويمكن أن تتغير حالتها، بينما الـ Value Object لا تملك هوية مستقلة وتُقارن بقيمتها وتكون غير قابلة للتغيير.  
+تقدم أمثلة مثل User وOrder كـ Entities، وMoney وAddress كـ Value Objects.  
+بصريًا، الصفحة عبارة عن شريحة عرض تعليمية تحتوي على عنوان كبير ونقاط تعداد منظمة، مع تصميم بسيط وخلفية فاتحة وزخرفة زرقاء مائلة في الأسفل.
+
+
+================================================================================
+PAGE 27 - page_0027.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+Case Study – Course Registration System  
+(Initial Bad Design)
+
+Identifying Design Flaws in a Common Scenario
+
+Scenario:
+• A system to manage course registration, with Student, Course, and Enrollment.
+
+Initial (Bad) Design Problems:
+1. Inheritance Misuse: UndergraduateStudent and GraduateStudent inherit from Student, leading to duplication and rigid behavior for enrollment rules.
+2. Mutable Objects: The Student object has setters for everything. It's passed around the system and can be modified anywhere, making it hard to track state.
+3. Tight Coupling: The RegistrationService directly calls methods on Student, Course, and Enrollment, creating a highly coupled and hard-to-test component.
+
+Identifying Design Flaws in a Common Scenario
+
+Student
+
+UndergraduateStudent  
+Graduate Student
+
+Student  
+Course  
+RegistrationService  
+Course  
+Enrollment
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن دراسة حالة لنظام تسجيل المقررات مع عرض تصميم أولي سيئ للنظام.  
+توضح ثلاثة عيوب رئيسية: سوء استخدام الوراثة، قابلية الكائنات للتعديل من أي مكان، والاقتران الشديد بين المكونات.  
+يوجد مخططان في الأسفل: الأول يبين أن UndergraduateStudent وGraduateStudent يرثان من Student، والثاني يوضح أن RegistrationService مرتبط مباشرة بـ Student وCourse وEnrollment.  
+الهدف من الصفحة هو تعليم كيفية اكتشاف مشاكل التصميم البرمجي في سيناريو شائع.
+
+
+================================================================================
+PAGE 28 - page_0028.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+Case Study – Improved Design  
+Applying Today’s Principles for a Better System
+
+Improved Design Solutions:
+
+1. Composition over Inheritance:
+   • Remove the UndergraduateStudent and GraduateStudent classes.
+   • Instead, give Student a StudentType value object (e.g., UNDERGRAD, GRAD).
+   • The enrollment logic can then be encapsulated in a EnrollmentEligibilityService that uses the StudentType.
+
+2. Immutability & Value Objects:
+   • Make Student, Course, and Enrollment immutable where possible.
+   • Use value objects for StudentId, CourseId, and EnrollmentId.
+   • Introduce an EnrollmentRequest DTO that is immutable.
+
+3. Encapsulation & Loose Coupling:
+   • The RegistrationService now orchestrates the process by interacting with smaller, focused, and interface-based services (EnrollmentEligibilityService, EnrollmentRepository), each with clear responsibilities.
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن تحسين تصميم نظام تسجيل الطلاب باستخدام مبادئ تصميم برمجي حديثة.  
+توضح أهمية تفضيل التركيب على الوراثة، وذلك عبر إزالة الأصناف الفرعية للطلاب واستبدالها بنوع طالب ككائن قيمة.  
+كما تركز على جعل الكيانات غير قابلة للتغيير واستخدام Value Objects وDTOs لتحسين الأمان والوضوح.  
+وتشرح أيضًا تقليل الترابط عبر جعل RegistrationService ينسق العمل مع خدمات أصغر ومتخصصة.  
+بصريًا، الصفحة عبارة عن شريحة عرض نصية بتنسيق أكاديمي مع عناوين كبيرة ونقاط تعداد وخلفية بسيطة مع شكل زخرفي أزرق في الأسفل.
+
+
+================================================================================
+PAGE 29 - page_0029.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+Case Study – Improved Design  
+Applying Today’s Principles for a Better System
+
+Applying Today’s Principles for a Better System
+
+«interfacep  
+EnrollmentEligibilityService  
++istligibleforfinrollment(Stiident; Course): boolean
+
+«interfoceol  
+EnrolimentRepository  
++soveEnrollment(Enrollment)  
++findEnrollmentByld(tnrolinentid): Eniolinent
+
+RegistrationService
+
+Student  
+-studentfid: Studentid  
+-studentType: Studentiype
+
+Course  
+-courseId: Studentid  
+-courseNamestring
+
+Enroliment  
+-enrolimentid: Errollmentid  
+-course: Course
+
+Enrollment  
+-enrollmentid: Enrollmentid  
+-course: Course
+
+EnrollmentRequest  
+-studentid: Studentid  
+counseId: CourseId  
+-status: String
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن دراسة حالة لتصميم نظام تسجيل/التحاق محسّن باستخدام مبادئ تصميم حديثة.  
+يوجد مخطط شبيه بـ UML يوضح أن RegistrationService هو المكوّن المركزي ويتعامل مع خدمات الواجهة مثل EnrollmentEligibilityService ومستودع البيانات EnrollmentRepository.  
+كما يعرض الكيانات الأساسية في النظام مثل Student وCourse وEnrollment وEnrollmentRequest مع خصائص كل كيان.  
+الأسهم والعلاقات في المخطط توضّح الاعتماد بين الخدمات والكيانات وكيفية تنظيم النظام بشكل أفضل وأكثر وضوحًا.
+
+
+================================================================================
+PAGE 30 - page_0030.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+Discussion
+
+▸ When to use inheritance?
+▸ Why immutability?
+▸ Where should logic live?
+------------PAGE TALK ABOUT------------
+تتحدث الشريحة عن نقاط نقاش في تصميم البرمجيات ومبادئ البرمجة الكائنية.  
+تركز على ثلاثة أسئلة أساسية: متى نستخدم الوراثة، لماذا نلجأ إلى عدم القابلية للتغيير، وأين يجب أن يوضع منطق البرنامج.  
+التصميم بصريًا بسيط جدًا: عنوان كبير في الأعلى، وثلاث نقاط تعداد على اليسار مع خلفية بيضاء.  
+يوجد عنصر زخرفي أزرق مائل في أسفل الشريحة دون وجود مخططات أو صور توضيحية أخرى.
+
+
+================================================================================
+PAGE 31 - page_0031.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+Summary
+
+▸ Encapsulation vs information hiding
+▸ Composition > inheritance
+▸ Distributed design matters
+▸ Immutability improves reliability
+------------PAGE TALK ABOUT------------
+هذه الصفحة عبارة عن شريحة تلخيصية تعرض أهم مبادئ في تصميم البرمجيات والكائنات.
+توضح الفرق بين التغليف وإخفاء المعلومات، وتؤكد أن التركيب أفضل من الوراثة في كثير من الحالات.
+كما تشير إلى أهمية التصميم الموزع، وأن عدم قابلية التغيير (Immutability) يزيد من الاعتمادية.
+بصريًا، الشريحة بسيطة بخلفية بيضاء مع عنوان كبير في الأعلى ونقاط تعداد زرقاء، ويوجد عنصر زخرفي أزرق مائل في أسفل اليسار.
+
