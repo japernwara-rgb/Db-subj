@@ -1,0 +1,1797 @@
+================================================================================
+SUBJECT: ضياف3
+TOTAL PAGES: 46
+EXTRACTED ON: 2026-05-02 20:43:11
+================================================================================
+
+
+================================================================================
+PAGE 1 - page_0001.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+ITWT321
+
+Object-Oriented Design for
+Internet Applications
+
+Lecture 3:
+SOLID Principles in Java-based Web Systems
+
+SOLID
+
+إعداد: د. عبدالعناصر ضياف
+------------PAGE TALK ABOUT------------
+هذه صفحة غلاف لمحاضرة من مقرر **ITWT321** بعنوان **Object-Oriented Design for Internet Applications**.  
+توضح أن هذه هي **المحاضرة الثالثة** وموضوعها **مبادئ SOLID في أنظمة الويب المعتمدة على Java**.  
+يوجد في أسفل الصفحة عنصر بصري على شكل مكعبات ملوّنة تحمل حروف كلمة **SOLID** مع رموز تقنية مثل الترس والقفل والسحابة.  
+كما يظهر تصميم بخلفية بيضاء مع خط أفقي أزرق، وفي الأسفل اسم المُعد: **د. عبدالعناصر ضياف**.
+
+
+================================================================================
+PAGE 2 - page_0002.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+Agenda
+
+This lecture topics:
+
+◦ Why SOLID? The Problem with Messy Code
+
+◦ Single Responsibility Principle (SRP)
+
+◦ Open/Closed Principle (OCP)
+
+◦ Liskov Substitution Principle (LSP)
+
+◦ Interface Segregation Principle (ISP)
+
+◦ Dependency Inversion Principle (DIP)
+
+◦ Common SOLID Violations in Web Applications
+
+◦ Practical Lab Preview
+------------PAGE TALK ABOUT------------
+توضح هذه الصفحة أجندة المحاضرة، وتركّز على مبادئ SOLID في تصميم البرمجيات ولماذا تُستخدم لمعالجة مشكلة الكود الفوضوي.  
+تسرد المبادئ الخمسة: المسؤولية الواحدة، الفتح/الإغلاق، الاستبدال ليسكوف، فصل الواجهات، وعكس الاعتماديات.  
+كما تشير إلى مناقشة الأخطاء الشائعة في تطبيق هذه المبادئ داخل تطبيقات الويب، مع عرض تمهيدي لجزء عملي.  
+بصريًا، الصفحة عبارة عن شريحة عرض بسيطة بعنوان كبير في الأعلى، مع خط أفقي أزرق وقائمة نقطية، إضافة إلى زخرفة هندسية زرقاء في الزاوية السفلية اليسرى.
+
+
+================================================================================
+PAGE 3 - page_0003.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+Recap from Lecture 2  
+What We Learned Last Lecture
+
+Encapsulation vs. Information Hiding:
+◦ Protect internal state, expose only what's necessary
+
+Composition over Inheritance:
+◦ Build flexible systems using "has-a" instead of "is-a"
+
+Immutability & Value Objects:
+◦ Create thread-safe, predictable objects using record
+
+Distributed Collaboration:
+◦ Design coarse-grained interfaces and use DTOs
+
+Connection to This Lecture:
+◦ SOLID principles build directly on these foundations to create maintainable, extensible web systems.
+
+Encapsulation  
+Composition  
+Immutability  
+Distribution
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن مراجعة سريعة لما تم تعلمه في المحاضرة السابقة، وتشمل مفاهيم أساسية في التصميم البرمجي مثل التغليف وإخفاء المعلومات، وتفضيل التركيب على الوراثة، وعدم القابلية للتغيير، والتعاون في الأنظمة الموزعة.  
+كما توضح أن هذه المفاهيم تمثل الأساس الذي تُبنى عليه مبادئ SOLID في هذه المحاضرة.  
+توجد في أسفل الصفحة عناصر بصرية رمزية: قفل مع ترس للتغليف، مكعب أحجية للتركيب، مكعب ثلجي لعدم التغيير، وسحابة للشبكات أو التوزيع.
+
+
+================================================================================
+PAGE 4 - page_0004.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+Why SOLID? The Problem with Messy Code  
+What Happens When Design Fails
+
+Symptoms of Poor Design in Web Applications:
+• A small change breaks many unrelated parts of the system  
+• Adding a new feature requires modifying existing, working code  
+• Classes are hundreds of lines long and impossible to understand  
+• Testing is painful because everything is connected to everything else  
+• The team is afraid to touch old code
+
+The Cost:
+• Slow development  
+• Frequent bugs  
+• High maintenance cost  
+• Developer frustration
+
+SOLID is a set of five principles that prevent these problems.
+
+BUG  
+CRASH  
+DELAY  
+SOLID
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن سبب أهمية مبادئ SOLID في البرمجة، وتوضح مشاكل التصميم السيئ في تطبيقات الويب مثل ترابط الأجزاء بشكل مفرط، صعوبة التعديل، وكبر حجم الكلاسات وصعوبة اختبارها.  
+كما تعرض النتائج السلبية لذلك مثل بطء التطوير، كثرة الأخطاء، ارتفاع تكلفة الصيانة، وإحباط المطورين.  
+يوجد عنصران بصريان: الأول برج متداعٍ من قطع خشبية مكتوب عليه BUG وCRASH وDELAY لتمثيل هشاشة الكود السيئ، والثاني مكعبات مرتبة عموديًا تكوّن كلمة SOLID للدلالة على الاستقرار والتنظيم.
+
+
+================================================================================
+PAGE 5 - page_0005.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+Introduction to SOLID
+
+SOLID is a set of five design principles aimed at improving:
+  • Maintainability – Easy to fix and update
+  • Flexibility – Easy to add new features
+  • Scalability – Can grow without breaking
+
+Widely used in enterprise Java and web systems
+  • Spring Boot, Jakarta EE, and most professional frameworks are built around these principles.
+
+Helps avoid:
+  • Rigid code (hard to change)
+  • Fragile code (small changes cause big breaks)
+  • Untestable designs (cannot write unit tests)
+
+Origin: Introduced by Robert C. Martin (early 2000s).
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن مقدمة لمبادئ SOLID في تصميم البرمجيات، وتوضح أنها خمسة مبادئ تساعد على تحسين قابلية الصيانة والمرونة وقابلية التوسع.  
+كما تشير إلى أن هذه المبادئ مستخدمة بشكل واسع في أنظمة Java المؤسسية وتطبيقات الويب مثل Spring Boot وJakarta EE.  
+وتوضح أيضًا أن اتباع SOLID يساعد على تجنب الكود الجامد والهش والتصاميم غير القابلة للاختبار.  
+بصريًا، الصفحة عبارة عن شريحة عرض بسيطة بعنوان كبير في الأعلى، مع نقاط تعداد باللون الأزرق وخط أفقي زخرفي، إضافة إلى شكل هندسي أزرق في أسفل اليسار.
+
+
+================================================================================
+PAGE 6 - page_0006.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+The SOLID Principles Overview  
+The Five Pillars of Object-Oriented Design
+
+GOOD DESIGN
+
+Principle | Full Name | Core Idea
+S | Single Responsibility | One class, one job
+O | Open/Closed | Open for extension, closed for modification
+L | Liskov Substitution | Subtypes must be substitutable for their base types
+I | Interface Segregation | Many small, focused interfaces are better than one large one
+D | Dependency Inversion | Depend on abstractions, not concrete implementations
+
+SOLID
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن مبادئ SOLID الخمسة في التصميم الكائني التوجه، وتعرض الاسم الكامل لكل مبدأ مع فكرته الأساسية باختصار.  
+الهدف من الصفحة هو توضيح كيف تقود هذه المبادئ إلى “تصميم جيد” للبرمجيات.  
+يوجد عنصر بصري رئيسي على شكل معبد بخمسة أعمدة تمثل الحروف S O L I D، وفوقها عبارة “GOOD DESIGN” للدلالة على أن هذه المبادئ هي أعمدة التصميم الجيد.  
+كما تحتوي الصفحة على جدول منظم يربط كل حرف من SOLID باسمه الكامل ومفهومه الأساسي.
+
+
+================================================================================
+PAGE 7 - page_0007.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+Single Responsibility Principle (SRP)
+A Class Should Have One, and Only One, Reason to Change
+
+Definition:
+◦ Every class should have a single, well-defined responsibility.
+◦ If a class has multiple responsibilities, changing one responsibility can break others.
+
+Why it matters in web systems:
+◦ Easier to understand and modify
+◦ Easier to test (test each responsibility separately)
+◦ Reduces coupling between different concerns
+
+Signs ofViolation:
+◦ A class has many import statements from different domains
+◦ The class name is vague (e.g., UserManager, OrderHandler)
+◦ The class contains methods that don't relate to each other
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن مبدأ المسؤولية الواحدة (SRP) من مبادئ SOLID، والذي ينص على أن كل Class يجب أن يكون له سبب واحد فقط للتغيير.  
+توضح أن وجود أكثر من مسؤولية داخل نفس الكلاس قد يؤدي إلى كسر أجزاء أخرى عند تعديل جزء واحد.  
+كما تشرح أهمية ذلك في أنظمة الويب من حيث سهولة الفهم، التعديل، الاختبار، وتقليل الترابط بين المهام المختلفة.  
+تتضمن الصفحة صورًا لأدوات متعددة مثل سكين الجيش السويسري ومجموعة أدوات منفصلة، كتشبيه بصري يوضح الفرق بين الكلاس متعدد المهام والكلاس ذي المسؤولية المحددة.
+
+
+================================================================================
+PAGE 8 - page_0008.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+SRP – Bad Example (Violation) ❌
+The “Blob Class” – A User Service That Does Everything
+
+package com.example.baddesign;
+
+import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
+import javax.mail.*;
+import javax.persistence.*;
+
+@Service
+public class UserService {
+
+    // Responsibility 1: User data management
+    @Autowired private UserRepository userRepository;
+
+    public User saveUser(User user) {
+        return userRepository.save(user);
+    }
+
+    // Responsibility 2: Email sending
+    public void sendWelcomeEmail(User user) {
+        // SMTP configuration and email sending logic
+        System.out.println("Sending email to " + user.getEmail());
+    }
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن مثال سيئ لمبدأ المسؤولية الواحدة (SRP)، حيث تم جمع عدة مهام داخل فئة واحدة اسمها UserService.  
+توضح أن هذه الفئة أصبحت “Blob Class” لأنها تدير بيانات المستخدم وترسل البريد الإلكتروني معًا، وهذا يعد انتهاكًا للتصميم الجيد.  
+يوجد في الأعلى عنوان كبير مع علامة X حمراء للدلالة على أن المثال خاطئ.  
+كما يظهر مقطع كود Java/Spring داخل صندوق أبيض يبرز تعدد المسؤوليات داخل نفس الكلاس.
+
+
+================================================================================
+PAGE 9 - page_0009.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+SRP - Bad Example (Violation) ✗
+The “Blob Class” - A User Service That Does Everything
+
+// Responsibility 3: Logging/Auditing
+public void logUserAction(User user, String action) {
+    // Write to log file or database
+    System.out.println("LOG: " + user.getEmail() + " performed " + action);
+}
+
+// Responsibility 4: External API calls
+public void syncWithExternalSystem(User user) {
+    RestTemplate restTemplate = new RestTemplate();
+    restTemplate.postForObject("https://external-api.com/users", user, String.class);
+}
+
+// Responsibility 5: Validation rules
+public boolean validateUser(User user) {
+    return user.getEmail() != null && user.getEmail().contains("@");
+}
+}
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن مثال سيّئ لمبدأ المسؤولية الواحدة (SRP)، حيث تم عرض “Blob Class” أو خدمة مستخدم تقوم بعدة مهام مختلفة داخل نفس الكلاس.  
+الكود يوضح مسؤوليات متعددة مثل التسجيل والمراجعة (Logging/Auditing)، واستدعاء API خارجي، والتحقق من صحة بيانات المستخدم.  
+الفكرة الأساسية أن جمع هذه الوظائف في كلاس واحد يُعد انتهاكًا لـ SRP لأنه يجعل الصيانة والاختبار والتطوير أصعب.  
+بصريًا، الصفحة تحتوي على عنوان كبير في الأعلى مع علامة X للدلالة على أنه مثال خاطئ، وأسفلها صندوق أبيض كبير يعرض مقاطع كود Java ملوّنة.
+
+
+================================================================================
+PAGE 10 - page_0010.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+SRP – Bad Example (Violation) ✗  
+The “Blob Class” – A User Service That Does Everything
+
+Problems:
+◦ 5 different responsibilities in one class  
+◦ Changing email logic could break user saving  
+◦ Testing requires simulating email, REST, database, and logging  
+◦ The class will grow forever as new features are added
+
+Database  
+Email Server  
+Log File  
+UserService  
+External API  
+Validation Rules
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن مثال سيئ لمبدأ المسؤولية الواحدة (SRP)، حيث توجد فئة اسمها UserService تقوم بكل شيء بدل أن يكون لكل جزء مسؤولية مستقلة.  
+توضح المشاكل الناتجة مثل صعوبة الاختبار، وزيادة الترابط، واحتمال أن يؤثر تعديل جزء مثل البريد الإلكتروني على حفظ المستخدم.  
+يوجد مخطط في الأسفل يبين UserService في المنتصف متصلاً بعدة مكونات: قاعدة البيانات، خادم البريد، ملف السجل، واجهة API خارجية، وقواعد التحقق.  
+الفكرة الأساسية أن هذا التصميم يؤدي إلى “Blob Class” تكبر باستمرار وتصبح صعبة الصيانة والتطوير.
+
+
+================================================================================
+PAGE 11 - page_0011.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+SRP – Good Example (Refactored) ✅
+Separate Classes for Separate Responsibilities
+
+// Responsibility 1: User data management only
+package com.example.gooddesign;
+
+@Service
+public class UserService {
+    private final UserRepository userRepository;
+
+    public UserService(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
+
+    public User saveUser(User user) {
+        return userRepository.save(user);
+    }
+}
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن مبدأ المسؤولية الواحدة (SRP) كمثال جيد بعد إعادة الهيكلة، بحيث يتم فصل المسؤوليات في كائنات أو Classes مستقلة.  
+الكود المعروض يوضح Class باسم UserService مسؤوليته فقط إدارة بيانات المستخدم وحفظها عبر UserRepository.  
+الفكرة الأساسية هي أن كل Class يجب أن يركز على مهمة واحدة فقط لتسهيل الصيانة والاختبار والتطوير.  
+يوجد أيضًا عنصر بصري عبارة عن علامة صح خضراء في العنوان للدلالة على أن هذا التصميم صحيح ومفضل.
+
+
+================================================================================
+PAGE 12 - page_0012.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+SRP – Good Example (Refactored) ✅
+Separate Classes for Separate Responsibilities
+
+// Responsibility 2: Email sending only
+package com.example.gooddesign;
+
+@Service
+public class EmailService {
+
+    public void sendWelcomeEmail(User user) {
+        System.out.println("Sending email to " + user.getEmail());
+    }
+}
+
+// Responsibility 3: Logging only
+package com.example.gooddesign;
+
+@Service
+public class AuditService {
+
+    public void logUserAction(User user, String action) {
+        System.out.println("LOG: " + user.getEmail() + " performed " + action);
+    }
+}
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن مبدأ المسؤولية الواحدة (SRP) كمثال جيد بعد إعادة الهيكلة، حيث يتم فصل كل مسؤولية في كلاس مستقل.  
+توضح أن إرسال البريد الإلكتروني يجب أن يكون داخل `EmailService` فقط، بينما تسجيل الأنشطة يكون داخل `AuditService` فقط.  
+الهدف هو جعل التصميم أوضح وأسهل في الصيانة والاختبار والتطوير.  
+بصريًا، تحتوي الصفحة على عنوان كبير مع علامة صح خضراء، وأسفلها صندوقان للكود يعرضان مثالين منفصلين للخدمات.
+
+
+================================================================================
+PAGE 13 - page_0013.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+SRP – Good Example (Refactored) ✅  
+Separate Classes for Separate Responsibilities
+
+Benefits:
+◦ Each class has one reason to change  
+◦ Can test each service independently  
+◦ Can reuse EmailService in other parts of the application  
+◦ New features don't pollute existing classes
+
+// Responsibility 4: External integration only
+package com.example.gooddesign;
+
+@Service
+public class ExternalSyncService {
+    private final RestTemplate restTemplate;
+
+    public ExternalSyncService(RestTemplate restTemplate) {
+        this.restTemplate = restTemplate;
+    }
+
+    public void syncUser(User user) {
+        restTemplate.postForObject("https://external-api.com/users", user, String.class);
+    }
+}
+
+// Responsibility 5: Validation only (as a separate utility or value object)
+package com.example.gooddesign;
+
+@Component
+public class UserValidator {
+
+    public boolean isValid(User user) {
+        return user.getEmail() != null && user.getEmail().contains("@");
+    }
+}
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن مبدأ المسؤولية الواحدة (SRP) كمثال جيد بعد إعادة الهيكلة، حيث يتم فصل كل مسؤولية في كلاس مستقل.  
+توضح الفوائد مثل سهولة الاختبار، وإعادة الاستخدام، وتقليل تأثير إضافة ميزات جديدة على الكلاسات الحالية.  
+يوجد مقطعان برمجيان: الأول لخدمة مزامنة خارجية ExternalSyncService، والثاني للتحقق من صحة المستخدم UserValidator.  
+بصريًا، الصفحة عبارة عن شريحة عرض تعليمية بتصميم نظيف، عنوان كبير أعلى الصفحة، قائمة فوائد على اليسار، وصناديق كود منسقة على اليمين والأسفل مع علامة صح خضراء.
+
+
+================================================================================
+PAGE 14 - page_0014.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+O – Open/Closed Principle (OCP)
+
+Open for Extension, Closed for Modification
+
+Definition: Software entities (classes, modules, functions) should be open for extension but closed for modification.
+◦ You should be able to add new behavior without changing existing code.
+
+Why it matters in web systems:
+◦ New payment methods, discount rules, or notification channels can be added without touching stable code
+◦ Reduces risk of introducing bugs in working features
+◦ Encourages abstraction and polymorphism
+
+How to achieve OCP:
+◦ Use interfaces and abstract classes
+◦ Use composition (as learned in Lec.2)
+◦ Use design patterns like Strategy, Template Method, and Observer
+
+Original Outlet
+Closed for Modification
+
+Plug in Extension
+— Add Devices —
+
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن مبدأ Open/Closed Principle (OCP) من مبادئ SOLID، ومعناه أن الكيانات البرمجية يجب أن تكون مفتوحة للإضافة والتوسعة، لكن مغلقة أمام التعديل المباشر.  
+توضح أهمية ذلك في أنظمة الويب، مثل إضافة وسائل دفع أو قواعد خصم أو قنوات إشعار جديدة دون تغيير الكود المستقر.  
+كما تذكر فوائد هذا المبدأ مثل تقليل الأخطاء وتشجيع استخدام التجريد وتعدد الأشكال.  
+يوجد رسم توضيحي لمقبس كهربائي أصلي “مغلق للتعديل” مع وصلة تمديد “إضافة بالتوسعة”، لتشبيه فكرة إضافة وظائف جديدة دون تعديل الأصل.
+
+
+================================================================================
+PAGE 15 - page_0015.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+OCP – Bad Example (Violation) ❌
+
+Adding a New Discount Type Requires Modifying Existing Code
+
+package com.example.baddesign;
+
+@Service
+public class DiscountCalculator {
+
+    public double calculateDiscount(String customerType, double amount) {
+        if (customerType.equals("REGULAR")) {
+            return amount * 0.05;  // 5% discount
+        } else if (customerType.equals("VIP")) {
+            return amount * 0.15;  // 15% discount
+        } else if (customerType.equals("EMPLOYEE")) {
+            return amount * 0.25;  // 25% discount
+        }
+
+        // Adding a NEW customer type (e.g., "PREMIUM") requires modifying THIS method!
+        return 0;
+    }
+}
+
+DiscountCalculator
+
+if (REGULAR) {
+  ...
+}
+else if (VIP) {
+  ...
+}
+else if (EMPLOYEE) {
+  ...
+}
+
+Cannot enter without
+modifying the code inside
+
+PREMIUM
+
+?!
+
+Violates OCP – Not open for extension
+
+Problem: Every time a new customer type is added, the DiscountCalculator class must be modified.
+
+• This violates OCP and risks breaking existing discount logic.
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن مثال سيئ لمبدأ الانفتاح/الإغلاق (OCP)، حيث يتم حساب الخصومات باستخدام سلسلة if/else داخل كلاس DiscountCalculator.  
+الفكرة الأساسية أن إضافة نوع عميل جديد مثل PREMIUM تتطلب تعديل الكود الحالي، وهذا يعد مخالفة للمبدأ لأن الكود ليس مفتوحًا للتوسعة بل يحتاج تغييرًا مباشرًا.  
+يوجد رسم توضيحي لخزنة أو صندوق باسم DiscountCalculator عليه قفل، مع شخصية تمثل PREMIUM لا تستطيع الدخول إلا بعد تعديل ما بداخل الكود.  
+الصفحة تحذر أيضًا من أن هذا الأسلوب قد يؤدي إلى كسر المنطق الحالي للخصومات عند كل تعديل جديد.
+
+
+================================================================================
+PAGE 16 - page_0016.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+OCP – Good Example (Refactored) ✅  
+Using Strategy Pattern for Open/Closed Compliance
+
+// Step 1: Create an interface (abstraction)
+public interface DiscountStrategy {
+    double calculate(double amount);
+}
+
+// Step 2: Implement each discount as a separate class
+public class RegularDiscount implements DiscountStrategy {
+    @Override
+    public double calculate(double amount) {
+        return amount * 0.05;
+    }
+}
+
+public class VipDiscount implements DiscountStrategy {
+    @Override
+    public double calculate(double amount) {
+        return amount * 0.15;
+    }
+}
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن مثال جيد لمبدأ الانفتاح/الإغلاق (OCP) بعد إعادة الهيكلة باستخدام نمط الاستراتيجية Strategy Pattern.  
+توضح إنشاء واجهة عامة باسم DiscountStrategy تحتوي على دالة calculate، ثم تنفيذ كل نوع خصم في فئة مستقلة مثل RegularDiscount وVipDiscount.  
+الفكرة أن إضافة نوع خصم جديد لا تتطلب تعديل الكود الحالي، بل فقط إنشاء فئة جديدة تطبق نفس الواجهة.  
+بصريًا، الصفحة تعرض عنوانًا كبيرًا مع علامة صح خضراء، وأسفلها صناديق كود منفصلة مرتبة بشكل متدرج لشرح الخطوات.
+
+
+================================================================================
+PAGE 17 - page_0017.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+OCP – Good Example (Refactored) ✅  
+Using Strategy Pattern for Open/Closed Compliance
+
+```java
+public class EmployeeDiscount implements DiscountStrategy {
+    @Override
+    public double calculate(double amount) {
+        return amount * 0.25;
+    }
+}
+```
+
+```java
+// NEW discount type - just add a NEW class! No existing code changes!
+public class PremiumDiscount implements DiscountStrategy {
+    @Override
+    public double calculate(double amount) {
+        return amount * 0.20;
+    }
+}
+```
+
+```java
+// Step 3: The calculator depends on the abstraction
+@Service
+public class DiscountCalculator {
+
+    public double calculateDiscount(DiscountStrategy strategy, double amount) {
+        return strategy.calculate(amount);
+    }
+}
+```
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن مثال جيد لمبدأ الانفتاح/الإغلاق (OCP) بعد إعادة هيكلة الكود باستخدام نمط الاستراتيجية Strategy Pattern.  
+توضح أن كل نوع خصم مثل EmployeeDiscount و PremiumDiscount يتم وضعه في كلاس مستقل يطبق الواجهة DiscountStrategy.  
+كما تعرض كلاس DiscountCalculator الذي يعتمد على abstraction بدل الاعتماد على أنواع خصم محددة، مما يسمح بإضافة خصومات جديدة دون تعديل الكود الحالي.  
+بصريًا، الصفحة تحتوي على عنوان كبير مع علامة صح خضراء، وثلاثة صناديق كود مرتبة بشكل متدرج مع تظليل خفيف وخط فاصل أزرق أعلى المحتوى.
+
+
+================================================================================
+PAGE 18 - page_0018.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+OCP – Good Example (Refactored) ✅  
+Using Strategy Pattern for Open/Closed Compliance
+
+Step 4: Usage in controller
+
+@RestController  
+public class DiscountController {
+
+    private final DiscountCalculator calculator;
+
+    public DiscountController(DiscountCalculator calculator) {
+        this.calculator = calculator;
+    }
+
+    @PostMapping("/discount")
+    public double getDiscount(@RequestParam String customerType, @RequestParam double amount) {
+        DiscountStrategy strategy = switch (customerType) {
+            case "REGULAR" -> new RegularDiscount();
+            case "VIP" -> new VipDiscount();
+            case "EMPLOYEE" -> new EmployeeDiscount();
+            case "PREMIUM" -> new PremiumDiscount();  // New type works without changing calculator!
+            default -> throw new IllegalArgumentException("Unknown customer type");
+        };
+
+        return calculator.calculateDiscount(strategy, amount);
+    }
+}
+
+Benefits:
+• Closed for modification:
+  DiscountCalculator never changes
+
+• Open for extension: New discounts are added by creating new classes
+
+• Each discount logic is isolated and testable
+
+------------PAGE TALK ABOUT------------
+الصفحة تشرح مثالًا جيدًا لمبدأ Open/Closed Principle بعد إعادة هيكلة الكود باستخدام Strategy Pattern.  
+توضح كيف يستخدم `DiscountController` كائن `DiscountCalculator` مع استراتيجيات خصم مختلفة حسب نوع العميل مثل REGULAR وVIP وEMPLOYEE وPREMIUM.  
+الفكرة الأساسية أن إضافة نوع خصم جديد تتم بإنشاء كلاس جديد دون تعديل الآلة الحاسبة نفسها.  
+يوجد أيضًا صندوق جانبي بعنوان "Benefits" يلخص الفوائد: الإغلاق أمام التعديل، والانفتاح أمام التوسعة، وعزل منطق كل خصم ليسهل اختباره.
+
+
+================================================================================
+PAGE 19 - page_0019.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+L - Liskov Substitution Principle (LSP)
+
+Subtypes Must Be Substitutable for Their Base Types
+
+Definition: If class B is a subclass of class A, then you should be able to use B anywhere you use A without breaking the program.
+
+In simple terms: A child class should not change the behavior of the parent class in unexpected ways.
+
+Why it matters in web systems:
+◦ Ensures inheritance hierarchies are safe and predictable
+◦ Prevents subtle bugs when using polymorphism
+◦ Makes code easier to reason about
+
+Can Square always replace Rectangle?
+
+Width
+Height
+
+?!
+Width
+Height
+
+Not always, if you expect width and height
+to change independently!
+
+Signs of Violation:
+◦ A subclass throws an exception for a method that the parent class supports
+◦ A subclass overrides a method to do nothing (empty implementation)
+◦ A subclass changes the return type or requires different inputs
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن مبدأ ليسكوف للاستبدال (LSP) في البرمجة الكائنية، والذي ينص على أن الصنف الفرعي يجب أن يكون قابلاً للاستبدال مكان الصنف الأساسي دون كسر سلوك البرنامج.  
+توضح أن الهدف هو الحفاظ على سلوك متوقع وآمن عند استخدام الوراثة وتعدد الأشكال، خاصة في أنظمة الويب.  
+كما تعرض علامات مخالفة هذا المبدأ مثل رمي استثناءات غير متوقعة أو تغيير المدخلات والمخرجات أو جعل الدالة بلا تنفيذ فعلي.  
+يوجد رسم توضيحي يقارن بين Rectangle و Square لشرح أن المربع لا يمكنه دائماً استبدال المستطيل إذا كان العرض والارتفاع يجب أن يتغيرا بشكل مستقل.
+
+
+================================================================================
+PAGE 20 - page_0020.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+LSP – Bad Example (Violation) ❌  
+The Classic Rectangle/Square Problem
+
+// Parent class
+public class Rectangle {
+    protected int width;
+    protected int height;
+
+    public void setWidth(int width) {
+        this.width = width;
+    }
+
+    public void setHeight(int height) {
+        this.height = height;
+    }
+
+    public int getArea() {
+        return width * height;
+    }
+}
+
+// Child class - violates LSP!
+public class Square extends Rectangle {
+
+    @Override
+    public void setWidth(int width) {
+        this.width = width;
+        this.height = width;   // Square must keep width = height
+    }
+
+    @Override
+    public void setHeight(int height) {
+        this.width = height;   // Changing height also changes width!
+        this.height = height;
+    }
+}
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن مثال سيّئ لمبدأ الاستبدال ليسكوف (LSP) باستخدام مشكلة المستطيل والمربع.  
+توضح أن جعل `Square` يرث من `Rectangle` يسبب خرقًا للسلوك المتوقع، لأن تغيير العرض أو الارتفاع في المربع يغيّر البعدين معًا.  
+يوجد في الصفحة صندوقان للكود: الأيسر يعرض كلاس `Rectangle` الأساسي، والأيمن يعرض كلاس `Square` مع إعادة تعريف الدوال بشكل يسبب المخالفة.  
+بصريًا، يظهر عنوان كبير في الأعلى مع علامة X حمراء للدلالة على أن هذا تصميم خاطئ، مع خط أفقي فاصل وصناديق كود مستديرة الحواف.
+
+
+================================================================================
+PAGE 21 - page_0021.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+LSP – Bad Example (Violation) ❌  
+The Classic Rectangle/Square Problem
+
+Problem in a Web Context:
+
+```java
+// Some service method expecting a Rectangle
+public void resizeRectangle(Rectangle rect) {
+    rect.setWidth(5);
+    rect.setHeight(10);
+    // Expecting area = 50
+    System.out.println("Area: " + rect.getArea());
+}
+```
+
+Width = 5  
+Height = 10  
+Area = 50
+
+Width = 10  
+Height = 10  
+Area = 100
+
+Same operations...  
+Unexpected Behavior!
+
+```java
+// This works fine
+resizeRectangle(new Rectangle());  // Area: 50 ✅
+
+// This breaks expectations!
+resizeRectangle(new Square());     // Area: 100 ❌ (because setHeight also changed width)
+```
+
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن مثال سيئ يوضح انتهاك مبدأ الاستبدال ليسكوف (LSP) باستخدام المشكلة الكلاسيكية بين Rectangle و Square.  
+الفكرة أن الدالة تتوقع كائن Rectangle بحيث يمكن تغيير العرض والارتفاع بشكل مستقل، ثم تتوقع أن تكون المساحة 50.  
+لكن عند تمرير Square، فإن تغيير الارتفاع يغيّر العرض أيضًا، فتتحول المساحة إلى 100 ويظهر سلوك غير متوقع.  
+يوجد رسمان توضيحيان: الأول مستطيل بعرض 5 وارتفاع 10 ومساحة 50، والثاني مربع بعد نفس العمليات بعرض 10 وارتفاع 10 ومساحة 100 مع سهم بينهما.
+
+
+================================================================================
+PAGE 22 - page_0022.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+LSP - Web-Specific Violation Example ❌  
+A Real Web Scenario - File Upload Handlers
+
+// Parent class
+
+public abstract class FileUploadHandler {
+    public abstract void upload(File file);
+    public abstract String getUploadUrl();
+}
+
+// Child class for Local storage
+
+public class LocalFileUploadHandler extends FileUploadHandler {
+    @Override
+    public void upload(File file) {
+        // Save to Local disk
+        Files.copy(file.toPath(), Paths.get("/uploads/" + file.getName()));
+    }
+
+    @Override
+    public String getUploadUrl() {
+        return "http://localhost:8080/uploads/" + file.getName();
+    }
+}
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن مثال على انتهاك مبدأ الاستبدال ليسكوف (LSP) في تطبيقات الويب، وتحديدًا في معالجات رفع الملفات.  
+توضح وجود صنف أب مجرد باسم `FileUploadHandler` يفرض دالتين: رفع الملف وإرجاع رابط الوصول إليه.  
+ثم تعرض صنفًا فرعيًا للتخزين المحلي `LocalFileUploadHandler` يقوم بحفظ الملف على القرص المحلي وإنشاء رابط محلي له.  
+بصريًا، الصفحة عبارة عن شريحة عرض تحتوي عنوانًا كبيرًا مع علامة X حمراء للدلالة على أن التصميم أو المثال فيه مشكلة، مع صندوقين للكود يوضحان الصنف الأب والصنف الابن.
+
+
+================================================================================
+PAGE 23 - page_0023.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+LSP - Web-Specific Violation Example ❌  
+A Real Web Scenario - File Upload Handlers
+
+```java
+// Child class for cloud storage - VIOLATES LSP
+public class CloudFileUploadHandler extends FileUploadHandler {
+
+    @Override
+    public void upload(File file) {
+        // Upload to cloud works fine
+        cloudStorage.upload(file);
+    }
+
+    @Override
+    public String getUploadUrl() {
+        // PROBLEM: Cloud uploads need authentication token!
+        // The parent class didn't require this
+        throw new UnsupportedOperationException("Cannot generate URL without authentication");
+    }
+
+}
+```
+
+**The Problem:** Code that uses  
+*FileUploadHandler* polymorphically will break  
+when it encounters *CloudFileUploadHandler*  
+because *getUploadUrl()* throws an exception.
+
+```java
+// This service expects all handlers to work the same way
+public void processUpload(FileUploadHandler handler, File file) {
+    handler.upload(file);
+    String url = handler.getUploadUrl();  // BOOM! Exception for cloud handler
+    sendEmail(url);
+}
+```
+------------PAGE TALK ABOUT------------
+الصفحة تشرح مثالًا على انتهاك مبدأ الاستبدال ليسكوف (LSP) في تطبيق ويب خاص برفع الملفات.  
+توضح أن الصنف `CloudFileUploadHandler` يرث من `FileUploadHandler` لكنه يغيّر السلوك المتوقع لأن `getUploadUrl()` ترمي استثناء بدل أن تعمل كالمتوقع.  
+يوجد صندوق توضيحي على اليمين يشرح المشكلة نصيًا، وأسفل الصفحة مثال خدمة تستقبل أي `FileUploadHandler` ثم تنهار عند استخدام المعالج السحابي.  
+بصريًا، الصفحة عبارة عن شريحة تعليمية فيها عنوان كبير، علامة X حمراء للدلالة على الخطأ، ومربعات كود منسقة مع تمييز لسطور المشكلة.
+
+
+================================================================================
+PAGE 24 - page_0024.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+LSP – Good Example (Following LSP) ✅  
+Redesigning to Follow LSP
+
+Solution 1:  
+Separate interfaces for  
+different capabilities
+
+```java
+// Basic upload capability
+public interface Uploadable {
+    void upload(File file);
+}
+```
+
+```java
+// URL generation capability (not all handlers have this)
+public interface UrlGeneratable {
+    String getUploadUrl();
+}
+```
+
+```java
+// Local handler implements both
+public class LocalFileUploadHandler implements Uploadable, UrlGeneratable {
+    private File currentFile;
+
+    @Override
+    public void upload(File file) {
+        this.currentFile = file;
+        Files.copy(file.toPath(), Paths.get("/uploads/" + file.getName()));
+    }
+
+    @Override
+    public String getUploadUrl() {
+        return "http://localhost:8080/uploads/" + currentFile.getName();
+    }
+}
+```
+
+```java
+// Cloud handler only implements Uploadable
+public class CloudFileUploadHandler implements Uploadable {
+    @Override
+    public void upload(File file) {
+        cloudStorage.upload(file); // No URL generation - that's fine!
+    }
+}
+```
+------------PAGE TALK ABOUT------------
+تشرح الصفحة مثالًا جيدًا لتطبيق مبدأ الاستبدال ليسكوف (LSP) عبر إعادة تصميم النظام بحيث تُفصل الواجهات حسب القدرات.  
+بدلًا من فرض جميع الوظائف على كل الأصناف، تم إنشاء واجهتين: واحدة للرفع Uploadable وأخرى لتوليد الرابط UrlGeneratable.  
+المعالج المحلي LocalFileUploadHandler يطبق الواجهتين لأنه يدعم الرفع وتوليد الرابط، بينما المعالج السحابي CloudFileUploadHandler يطبق فقط الرفع.  
+بصريًا، تحتوي الصفحة على عنوان كبير مع علامة صح خضراء، وصناديق كود منفصلة توضح الواجهات والأصناف مع تنسيق برمجي وألوان مختلفة.
+
+
+================================================================================
+PAGE 25 - page_0025.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+LSP - Good Example (Following LSP) ✅  
+Redesigning to Follow LSP
+
+Solution 2: Provide a reasonable default
+
+```java
+public class CloudFileUploadHandler extends FileUploadHandler {
+
+    private String authToken;
+
+    @Override
+    public void upload(File file) {
+        cloudStorage.upload(file, authToken);
+    }
+
+    @Override
+    public String getUploadUrl() {
+        // Instead of throwing exception, return a meaningful message
+        return "URL available only after authentication. Use /download/" + file.getId();
+    }
+}
+```
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن مثال جيد لتطبيق مبدأ الاستبدال ليسكوف (LSP) عبر إعادة تصميم الكود بحيث لا تكسر الفئة الفرعية سلوك الفئة الأساسية.  
+توضح الفكرة من خلال `CloudFileUploadHandler` الذي يوفّر سلوكًا افتراضيًا معقولًا بدل رمي استثناء عند استدعاء `getUploadUrl()`.  
+الصفحة تعرض شريحة تعليمية تحتوي على عنوان رئيسي، عنوان فرعي، وخط فاصل أفقي، مع علامة صح خضراء للدلالة على أن التصميم صحيح.  
+يوجد مقطع كود Java ملوّن يشرح كيف يتم رفع الملف باستخدام `authToken` وإرجاع رسالة مفيدة للمستخدم عند الحاجة للمصادقة.
+
+
+================================================================================
+PAGE 26 - page_0026.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+I – Interface Segregation Principle (ISP)
+
+Many Small, Focused Interfaces are Better Than One Large One
+
+Definition: No client should be forced to depend on methods it does not use.
+
+In simple terms: Don't create "fat" interfaces that force implementing classes to provide empty or fake implementations for methods they don't need.
+
+Why it matters in web systems:
+◦ REST API controllers should only depend on the methods they actually call
+◦ Reduces coupling between different parts of the system
+◦ Makes code easier to understand and test
+
+Signs of Violation:
+◦ An interface with many methods (e.g., 10+ methods)
+◦ Implementing classes have empty method bodies
+(@Override public void doSomething() {})
+◦ Implementing classes throw
+UnsupportedOperationException
+
+Have to eat everything...
+...even if you only want mushrooms!
+
+Instead, separate plates!
+
+Pick what you like!
+------------PAGE TALK ABOUT------------
+الصفحة تشرح مبدأ **Interface Segregation Principle (ISP)** من مبادئ SOLID، والذي ينص على أنه لا يجب إجبار أي عميل أو كلاس على الاعتماد على دوال لا يحتاجها.  
+توضح أن الأفضل هو تقسيم الواجهات الكبيرة إلى واجهات صغيرة ومتخصصة، مما يقلل الترابط بين أجزاء النظام ويسهّل الفهم والاختبار.  
+كما تعرض علامات مخالفة هذا المبدأ مثل وجود واجهة ضخمة، أو كتابة دوال فارغة، أو رمي `UnsupportedOperationException`.  
+يوجد رسم توضيحي باستخدام البيتزا: بدل أخذ بيتزا كاملة بكل المكونات، يتم تقسيمها إلى قطع/أطباق منفصلة ليختار كل شخص ما يناسبه فقط.
+
+
+================================================================================
+PAGE 27 - page_0027.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+ISP - Bad Example (Violation) ❌
+
+A "Fat" Interface for User Management
+
+A huge interface that tries to do everything
+
+public interface UserService {
+
+    // Basic CRUD
+    User createUser(User user);
+    User getUser(Long id);
+    User updateUser(Long id, User user);
+    void deleteUser(Long id);
+
+    // Authentication
+    User login(String email, String password);
+    void logout(String sessionId);
+    boolean isAuthenticated(String sessionId);
+
+    // Password management
+    void changePassword(Long userId, String oldPassword, String newPassword);
+    void resetPassword(String email);
+
+    // Admin functions
+    List<User> getAllUsers();
+    void blockUser(Long userId);
+    void unblockUser(Long userId);
+    void assignRole(Long userId, String role);
+
+    // Notifications
+    void sendNewsletter(String message);
+    void sendUserNotification(Long userId, String message);
+
+}
+
+The Problem: Every implementing class
+must implement ALL methods, even if
+irrelevant. ➔➔➔
+------------PAGE TALK ABOUT------------
+تشرح الصفحة مثالًا سيئًا لمبدأ فصل الواجهات (ISP) من مبادئ SOLID، حيث تم إنشاء واجهة ضخمة اسمها UserService تجمع مهام كثيرة غير مترابطة.  
+الواجهة تشمل CRUD، والمصادقة، وإدارة كلمات المرور، ووظائف الإدارة، والإشعارات كلها في مكان واحد.  
+الفكرة الأساسية أن هذا يعد انتهاكًا لـ ISP لأن أي class يطبق هذه الواجهة سيُجبر على تنفيذ جميع الدوال حتى غير اللازمة له.  
+بصريًا، الصفحة تعرض عنوانًا كبيرًا مع علامة X حمراء، ومربع كود منسق، وصندوق ملاحظة يبرز المشكلة في أسفل اليمين.
+
+
+================================================================================
+PAGE 28 - page_0028.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+ISP - Bad Example (Violation) ❌
+A "Fat" Interface for User Management
+
+// A simple read-only user service for public profiles
+public class PublicUserProfileService implements UserService {
+
+    @Override
+    public User getUser(Long id) {
+        return userRepository.findById(id);
+    }
+
+    // All these methods are forced but make no sense for a read-only service!
+    @Override
+    public User createUser(User user) { throw new UnsupportedOperationException(); }
+    @Override
+    public User updateUser(Long id, User user) { throw new UnsupportedOperationException(); }
+    @Override
+    public void deleteUser(Long id) { throw new UnsupportedOperationException(); }
+    @Override
+    public User login(String email, String password) { throw new UnsupportedOperationException(); }
+
+    // ... many more empty or throwing methods
+}
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن مثال سيّئ لمبدأ فصل الواجهات (ISP) في تصميم البرمجيات، حيث توجد واجهة كبيرة جدًا تحتوي على وظائف لا تحتاجها كل الخدمات.  
+المثال يوضح خدمة لقراءة ملفات المستخدمين العامة فقط، لكنها مجبرة على تنفيذ دوال مثل الإنشاء والتحديث والحذف وتسجيل الدخول.  
+لذلك يتم رمي `UnsupportedOperationException` في هذه الدوال، وهذا يدل على أن الواجهة “Fat Interface” غير مناسبة.  
+بصريًا، الصفحة تعرض عنوانًا كبيرًا مع علامة X حمراء، وأسفلها صندوق يحتوي على كود Java منسق يوضح المشكلة.
+
+
+================================================================================
+PAGE 29 - page_0029.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+ISP – Good Example (Refactored) ✅  
+Segregated Interfaces for Different Concerns
+
+// Interface 1: Basic read operations  
+public interface UserReader {  
+    User getUser(Long id);  
+    List<User> searchUsers(String keyword);  
+}
+
+// Interface 2: Write operations  
+public interface UserWriter {  
+    User createUser(User user);  
+    User updateUser(Long id, User user);  
+    void deleteUser(Long id);  
+}
+
+// Interface 3: Authentication operations  
+public interface UserAuthenticator {  
+    User login(String email, String password);  
+    void logout(String sessionId);  
+    boolean isAuthenticated(String sessionId);  
+}
+
+// Interface 4: Admin operations  
+public interface UserAdmin {  
+    List<User> getAllUsers();  
+    void blockUser(Long userId);  
+    void unblockUser(Long userId);  
+    void assignRole(Long userId, String role);  
+}
+
+// Interface 5: Password operations  
+public interface UserPasswordManager {  
+    void changePassword(Long userId, String oldPassword, String newPassword);  
+    void resetPassword(String email);  
+}
+
+Now classes only implement what they need ➔ ➔ ➔
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن مبدأ **ISP (Interface Segregation Principle)** من مبادئ SOLID، وتعرض مثالًا جيدًا بعد إعادة الهيكلة.  
+بدلًا من واجهة واحدة كبيرة، تم تقسيم الوظائف إلى واجهات صغيرة حسب المسؤولية: القراءة، الكتابة، التوثيق، الإدارة، وكلمات المرور.  
+الفكرة الأساسية هي أن كل كلاس يطبّق فقط الواجهة التي يحتاجها، مما يقلل الاعتماد غير الضروري ويحسن التصميم.  
+بصريًا، الصفحة تحتوي على خمس صناديق كود منفصلة مرتبة بشكل واضح، مع علامة صح خضراء في الأعلى للدلالة على أن هذا هو التصميم الصحيح.
+
+
+================================================================================
+PAGE 30 - page_0030.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+ISP – Good Example (Refactored) ✅
+
+Segregated Interfaces for Different Concerns
+
+// Public profile service - only needs read capability
+@Service
+public class PublicUserProfileService implements UserReader {
+
+    @Override
+    public User getUser(Long id) {
+        return userRepository.findById(id);
+    }
+
+    @Override
+    public List<User> searchUsers(String keyword) {
+        return userRepository.findByNameContaining(keyword);
+    }
+}
+
+// Admin service - needs read, write, admin, and password capabilities
+@Service
+public class AdminUserService implements UserReader, UserWriter, UserAdmin, UserPasswordManager {
+    // Implements all methods - that's fine because it needs them all!
+}
+
+// Authentication controller - only needs authentication
+@RestController
+public class AuthController {
+
+    private final UserAuthenticator authenticator;  // Depends ONLY on what it needs
+
+    public AuthController(UserAuthenticator authenticator) {
+        this.authenticator = authenticator;
+    }
+
+    @PostMapping("/login")
+    public String login(@RequestBody LoginRequest request) {
+        User user = authenticator.login(request.getEmail(), request.getPassword());
+        return "Logged in as " + user.getEmail();
+    }
+}
+
+Benefits:
+▸ Controllers depend only on the methods they actually use
+▸ No more empty or throwing methods
+▸ Easier to test (smaller interfaces = fewer methods to mock)
+
+------------PAGE TALK ABOUT------------
+الصفحة تشرح مبدأ ISP من مبادئ SOLID بشكل صحيح بعد إعادة الهيكلة، حيث يتم تقسيم الواجهات إلى واجهات صغيرة حسب المسؤولية.  
+توضح أمثلة برمجية لخدمة الملف العام التي تحتاج القراءة فقط، وخدمة المدير التي تحتاج عدة صلاحيات، وكنترولر تسجيل الدخول الذي يعتمد فقط على واجهة المصادقة.  
+الفكرة الأساسية هي أن كل كلاس يعتمد فقط على ما يحتاجه فعلاً، بدل واجهة كبيرة تحتوي دوال غير مستخدمة.  
+يوجد أيضًا صندوق فوائد يبرز أن هذا الأسلوب يقلل الدوال الفارغة، ويسهّل الاختبار، ويجعل الاعتماديات أوضح.
+
+
+================================================================================
+PAGE 31 - page_0031.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+D - Dependency Inversion Principle (DIP)
+
+Depend on Abstractions, Not Concrete Implementations
+
+Definition:
+◦ High-level modules should not depend on low-level modules.
+◦ Both should depend on abstractions (interfaces).
+◦ Abstractions should not depend on details.
+◦ Details should depend on abstractions.
+
+Plug doesn’t care if...
+Both depend on the standard interface
+
+In simple terms: Your business logic (high-level) should not know about specific database drivers, email providers, or payment gateways (low-level).
+◦ Instead, both should depend on interfaces.
+
+Why it matters in web systems:
+◦ Allows swapping databases (MySQL → PostgreSQL) without changing business logic
+◦ Enables testing with fake implementations
+◦ Supports dependency injection (Spring’s core mechanism)
+
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن مبدأ عكس الاعتماد (DIP) من مبادئ SOLID، والذي ينص على أن الوحدات عالية المستوى لا يجب أن تعتمد على الوحدات منخفضة المستوى، بل يجب أن يعتمد الطرفان على التجريدات مثل الواجهات.  
+توضح أن منطق الأعمال لا ينبغي أن يعرف تفاصيل التنفيذ مثل نوع قاعدة البيانات أو مزود البريد أو بوابة الدفع.  
+كما تشرح فوائد ذلك في أنظمة الويب مثل سهولة استبدال MySQL بـ PostgreSQL، وتحسين الاختبار باستخدام بدائل وهمية، ودعم Dependency Injection.  
+يوجد رسم توضيحي لمقبس كهربائي ومشترك كهربائي يبين أن القابس لا يهتم بالتفاصيل، بل يعتمد على واجهة قياسية مشتركة.
+
+
+================================================================================
+PAGE 32 - page_0032.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+DIP – Bad Example (Violation) ❌
+
+High-Level Service Directly Depends on Low-Level Details
+
+// Low-level module: MySQL database
+
+@Service
+
+public class MySqlUserRepository {
+
+    public void save(User user) {
+        System.out.println("Saving user to MySQL: " + user.getEmail());
+    }
+
+    public User findById(Long id) {
+        System.out.println("Finding user in MySQL with id: " + id);
+        return new User();  // dummy
+    }
+}
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن مثال سيّئ لمبدأ عكس الاعتماد (DIP)، حيث تعتمد الخدمة عالية المستوى مباشرة على تفاصيل منخفضة المستوى مثل MySQL.  
+الكود المعروض يوضح فئة `MySqlUserRepository` تحتوي على دوال `save` و `findById` مرتبطة مباشرة بقاعدة بيانات MySQL.  
+هذا يُعد انتهاكًا للمبدأ لأن التغيير في نوع قاعدة البيانات أو طريقة التخزين سيؤثر على الطبقات العليا.  
+بصريًا، توجد علامة X حمراء في العنوان للتأكيد أن هذا تصميم خاطئ، مع صندوق كود كبير في منتصف الصفحة وخط فاصل أزرق أعلى المحتوى.
+
+
+================================================================================
+PAGE 33 - page_0033.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+DIP - Bad Example (Violation) ❌  
+High-Level Service Directly Depends on Low-Level Details
+
+```java
+/// High-Level business Logic - DEPENDS DIRECTLY ON MySQL!
+
+@Service
+public class RegistrationService {
+
+    private final MySqlUserRepository userRepository;   // Concrete class!
+    private final SmtpEmailService emailService;        // Concrete class!
+
+    public RegistrationService(MySqlUserRepository userRepository, SmtpEmailService emailService) {
+        this.userRepository = userRepository;
+        this.emailService = emailService;
+    }
+
+    public void register(User user) {
+
+        // Business Logic
+        if (user.getEmail() == null) {
+            throw new IllegalArgumentException("Email required");
+        }
+
+        userRepository.save(user);      // Tightly coupled to MySQL
+        emailService.sendWelcome(user); // Tightly coupled to SMTP
+    }
+}
+```
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن مثال سيئ لمبدأ عكس الاعتماد (DIP) في تصميم البرمجيات.  
+توضح أن خدمة عالية المستوى مثل `RegistrationService` تعتمد مباشرة على تفاصيل منخفضة المستوى مثل `MySqlUserRepository` و`SmtpEmailService` بدل الاعتماد على واجهات مجردة.  
+هذا يؤدي إلى ترابط شديد (Tight Coupling) ويجعل الكود أقل مرونة وأصعب في الاختبار أو التغيير.  
+يوجد عنصر بصري في الأعلى بعنوان كبير مع علامة ❌ للتأكيد أن هذا المثال يمثل انتهاكًا للمبدأ.
+
+
+================================================================================
+PAGE 34 - page_0034.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+DIP – Bad Example (Violation) ❌  
+High-Level Service Directly Depends on Low-Level Details
+
+Problems:
+◦ Cannot switch from MySQL to PostgreSQL without changing *RegistrationService*  
+◦ Cannot test without a real database and real email server  
+◦ Violates DIP - high-level logic depends on low-level details
+
+High-Level Logc
+
+MySQL
+
+PostgreSQL
+
+If the database changes...
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن مثال سيئ لمبدأ عكس الاعتماد (DIP)، حيث تعتمد الخدمة عالية المستوى مباشرة على تفاصيل منخفضة المستوى مثل قاعدة البيانات.  
+توضح المشاكل الناتجة مثل صعوبة تبديل MySQL إلى PostgreSQL بدون تعديل `RegistrationService`، وصعوبة الاختبار بدون قاعدة بيانات وخادم بريد حقيقيين.  
+يوجد رسم يوضح مبنى يمثل المنطق عالي المستوى فوق MySQL، وعند تغيّر قاعدة البيانات إلى PostgreSQL ينهار المبنى، للدلالة على هشاشة التصميم.
+
+
+================================================================================
+PAGE 35 - page_0035.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+DIP – Good Example (Refactored) ✅  
+Depending on Abstractions (Interfaces)
+
+```java
+// Step 1: Create abstractions (interfaces)
+public interface UserRepository {
+
+    void save(User user);
+
+    User findById(Long id);
+}
+
+public interface EmailSender {
+
+    void sendWelcome(User user);
+
+    void sendPasswordReset(User user);
+}
+```
+
+```java
+// Step 2: Low-level modules implement the abstractions
+@Repository
+public class MySqlUserRepository implements UserRepository {
+
+    @Override
+    public void save(User user) {
+        System.out.println("Saving user to MySQL: " + user.getEmail());
+    }
+
+    @Override
+    public User findById(Long id) {
+        System.out.println("Finding user in MySQL with id: " + id);
+        return new User();
+    }
+}
+```
+
+```java
+@Repository
+public class PostgreSqlUserRepository implements UserRepository {
+
+    @Override
+    public void save(User user) {
+        System.out.println("Saving user to PostgreSQL: " + user.getEmail());
+    }
+
+    @Override
+    public User findById(Long id) {
+        System.out.println("Finding user in PostgreSQL with id: " + id);
+        return new User();
+    }
+}
+```
+------------PAGE TALK ABOUT------------
+الصفحة تشرح مثالًا جيدًا لمبدأ عكس الاعتماد (DIP)، حيث يكون الاعتماد على الواجهات (Interfaces) بدلًا من الاعتماد المباشر على التفاصيل التنفيذية.  
+تُظهر أولًا إنشاء تجريدات مثل `UserRepository` و `EmailSender`، ثم توضح كيف تقوم الطبقات منخفضة المستوى بتنفيذ هذه الواجهات.  
+يوجد مثالان لتنفيذ `UserRepository`: واحد لـ MySQL وآخر لـ PostgreSQL، ما يوضح سهولة تبديل قاعدة البيانات دون تغيير الكود الأعلى.  
+بصريًا، الصفحة تحتوي على عنوان كبير مع علامة صح خضراء، وثلاثة صناديق كود منفصلة بتصميم عرض تقديمي لشرح الخطوات.
+
+
+================================================================================
+PAGE 36 - page_0036.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+DIP – Good Example (Refactored) ✅  
+Depending on Abstractions (Interfaces)
+
+@Service
+
+public class SmtpEmailSender implements EmailSender {
+
+    @Override
+    public void sendWelcome(User user) {
+        System.out.println("Sending welcome email via SMTP to: " + user.getEmail());
+    }
+
+    @Override
+    public void sendPasswordReset(User user) {
+        System.out.println("Sending password reset via SMTP to: " + user.getEmail());
+    }
+}
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن مثال جيد لمبدأ عكس الاعتماد (DIP) بعد إعادة الهيكلة، حيث يعتمد الكود على التجريدات مثل الواجهات بدل الاعتماد على تنفيذات مباشرة.  
+يوضح المثال فئة `SmtpEmailSender` التي تطبق الواجهة `EmailSender` لإرسال رسائل الترحيب وإعادة تعيين كلمة المرور عبر SMTP.  
+بصريًا، تحتوي الصفحة على عنوان كبير مع علامة صح خضراء للدلالة على أن هذا التصميم صحيح، وأسفلها صندوق كود منسق يعرض المثال البرمجي.
+
+
+================================================================================
+PAGE 37 - page_0037.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+DIP – Good Example (Refactored) ✅  
+Depending on Abstractions (Interfaces)
+
+// Step 3: High-Level module depends on ABSTRACTIONS, not concrete classes
+
+@Service  
+public class RegistrationService {
+
+    private final UserRepository userRepository;    // Interface!
+    private final EmailSender emailSender;          // Interface!
+
+    // Constructor injection (Spring will provide the concrete implementations)
+    public RegistrationService(UserRepository userRepository, EmailSender emailSender) {
+        this.userRepository = userRepository;
+        this.emailSender = emailSender;
+    }
+
+    public void register(User user) {
+        if (user.getEmail() == null) {
+            throw new IllegalArgumentException("Email required");
+        }
+
+        userRepository.save(user);      // Works with ANY UserRepository implementation
+        emailSender.sendWelcome(user);  // Works with ANY EmailSender implementation
+    }
+}
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن مثال جيد لمبدأ عكس الاعتماد (DIP) بعد إعادة الهيكلة، حيث تعتمد الطبقة العليا على الواجهات (Interfaces) بدلًا من الأصناف الملموسة.  
+يوضح الكود خدمة RegistrationService التي تستخدم UserRepository و EmailSender كواجهات مع حقن عبر المُنشئ باستخدام Spring.  
+الفكرة الأساسية هي تقليل الترابط بين المكونات وجعل الكود أكثر مرونة وقابلية للاختبار والاستبدال.  
+بصريًا، تحتوي الصفحة على عنوان كبير مع علامة صح خضراء، وأسفلها صندوق كود منسق يبرز التعليقات والأسطر المهمة بألوان مختلفة.
+
+
+================================================================================
+PAGE 38 - page_0038.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+DIP – Good Example (Refactored) ✅  
+Depending on Abstractions (Interfaces)
+
+Benefits:
+◦ Can switch from MySQL to PostgreSQL by changing only the configuration (not RegistrationService)
+◦ Easy to test with fake implementations (no real database or email needed)
+◦ Follows DIP - high-level and low-level both depend on interfaces
+
+High-Level Logic  
+Standard Interface
+
+MySQL  
+PostgreSQL  
+ORACLE  
+SQLServer
+
+If the database changes...
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن مبدأ عكس الاعتماد (DIP) بشكل صحيح بعد إعادة هيكلة الكود، بحيث يعتمد النظام على الواجهات (Interfaces) بدل الاعتماد المباشر على قواعد بيانات محددة.  
+توضح الفوائد مثل سهولة تبديل قاعدة البيانات من MySQL إلى PostgreSQL عبر تعديل الإعدادات فقط، وسهولة الاختبار باستخدام تطبيقات وهمية.  
+يوجد رسم يبين منطق المستوى العالي فوق “واجهة قياسية” تتصل بعدة قواعد بيانات مثل MySQL وPostgreSQL وOracle وSQLServer.  
+الفكرة الأساسية أن التغيير في قاعدة البيانات لا يؤثر على منطق الأعمال طالما أن الجميع يعتمد على نفس الواجهة.
+
+
+================================================================================
+PAGE 39 - page_0039.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+Common SOLID Violations in Real Web Applications
+
+What to Look For in Your Code
+
+Code Review
+☒ Single Responsibility
+☒ Open/Closed
+☒ Liskov Substitution
+☒ Interface Segregation
+☒ Dependency Inversion
+
+S.O.L.I.D
+☒ Liskov
+☒ Interface
+☒ Dever
+
+| Violation | Common Sign | How to Fix |
+|---|---|---|
+| SRP | A Controller with database calls, email sending, and business logic | Extract email to EmailService, database to Repository |
+| OCP | A long if-else or switch statement adding new features | Use Strategy pattern with interfaces |
+| LSP | A subclass method throws UnsupportedOperationException | Redesign interface hierarchy (ISP) |
+| ISP | An interface with 10+ methods that many classes partially implement | Split into smaller, focused interfaces |
+| DIP | Service classes import MySqlRepository directly | Create UserRepository interface |
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن أشهر انتهاكات مبادئ SOLID في تطبيقات الويب الحقيقية، مع توضيح العلامات التي تساعدك على اكتشافها داخل الكود وكيفية إصلاحها.  
+يوجد جدول بثلاثة أعمدة: نوع الانتهاك، العلامة الشائعة، وطريقة الإصلاح، ويغطي SRP وOCP وLSP وISP وDIP.  
+توضح الأمثلة مشاكل مثل وجود Controller يقوم بعدة مهام، أو استخدام if-else طويل، أو واجهات كبيرة جدًا، أو الاعتماد المباشر على Repository محدد.  
+يوجد أيضًا رسم صغير في الأعلى لورقة “Code Review” مع عدسة مكبرة تشير إلى مبادئ SOLID كعنصر بصري داعم لموضوع المراجعة البرمجية.
+
+
+================================================================================
+PAGE 40 - page_0040.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+Putting It All Together – A SOLID REST API Example
+
+Complete Example: Order Processing System
+
+// 1. SRP - Each class has one job
+// 2. OCP - New payment methods can be added without changing existing code
+// 3. LSP - ALL payment strategies are interchangeable
+// 4. ISP - Small, focused interfaces
+// 5. DIP - High-Level OrderService depends on abstractions
+
+// ---------- ABSTRACTS (Interfaces) ----------
+
+public interface PaymentStrategy {
+    PaymentResult process(double amount);
+}
+
+public interface OrderRepository {
+    Order save(Order order);
+    Order findById(Long id);
+}
+
+public interface NotificationSender {
+    void sendConfirmation(Order order);
+}
+
+Controller
+Service
+Interfaces
+Database
+Email
+Payment
+
+Clean Architecture
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن مثال كامل لبناء REST API لمعالجة الطلبات باستخدام مبادئ SOLID.  
+توضح كيف يتم تطبيق المبادئ الخمسة عبر واجهات مجردة مثل PaymentStrategy وOrderRepository وNotificationSender لتقليل الترابط وزيادة قابلية التوسع.  
+يوجد مخطط معماري يبين التسلسل: Controller ثم Service ثم Interfaces، وبعدها الاتصال بمكونات خارجية مثل Database وEmail وPayment.  
+الهدف من الصفحة هو شرح مفهوم Clean Architecture وأن الخدمات العليا تعتمد على abstractions بدل الاعتماد المباشر على التفاصيل التنفيذية.
+
+
+================================================================================
+PAGE 41 - page_0041.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+/ ---------- CONCRETE IMPLEMENTATIONS ----------
+
+@Service
+
+public class CreditCardPayment implements PaymentStrategy {
+
+    @Override
+    public PaymentResult process(double amount) {
+        System.out.println("Processing credit card payment: $" + amount);
+        return new PaymentResult(true, "CC-" + System.currentTimeMillis());
+    }
+}
+
+@Service
+
+public class PayPalPayment implements PaymentStrategy {
+
+    @Override
+    public PaymentResult process(double amount) {
+        System.out.println("Processing PayPal payment: $" + amount);
+        return new PaymentResult(true, "PP-" + System.currentTimeMillis());
+    }
+}
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن تطبيقات فعلية لنمط التصميم Strategy في Java لمعالجة وسائل دفع مختلفة.  
+تُظهر فئتين: `CreditCardPayment` و`PayPalPayment`، وكلتاهما تطبقان الواجهة `PaymentStrategy` وتنفذان الدالة `process(double amount)`.  
+كل تنفيذ يطبع رسالة توضح نوع الدفع والمبلغ، ثم يعيد كائن `PaymentResult` يحتوي على نجاح العملية ومعرّف فريد مبني على الوقت الحالي.  
+بصريًا، الصفحة عبارة عن لقطة شاشة لكود برمجي داخل صندوق أبيض بحواف مستديرة مع عنوان علوي يشير إلى "CONCRETE IMPLEMENTATIONS".
+
+
+================================================================================
+PAGE 42 - page_0042.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+@Repository
+
+public class JpaOrderRepository implements OrderRepository {
+
+    @Override
+    public Order save(Order order) {
+        System.out.println("Saving order to database: " + order.getId());
+        return order;
+    }
+
+    @Override
+    public Order findById(Long id) {
+        System.out.println("Finding order in database: " + id);
+        return new Order(id);
+    }
+}
+
+@Service
+
+public class EmailNotificationSender implements NotificationSender {
+
+    @Override
+    public void sendConfirmation(Order order) {
+        System.out.println("Sending email confirmation for order: " + order.getId());
+    }
+}
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن مثال برمجي بلغة Java باستخدام Spring، حيث يتم تعريف مكوّنين: Repository و Service.  
+الجزء الأول يوضح `JpaOrderRepository` المسؤول عن حفظ الطلبات والبحث عنها في قاعدة البيانات.  
+الجزء الثاني يوضح `EmailNotificationSender` المسؤول عن إرسال رسالة تأكيد عبر البريد الإلكتروني للطلب.  
+بصريًا، الصفحة تحتوي على صندوقين كبيرين بتصميم عرض تقديمي، مع تلوين نحوي للكود وخلفية بيضاء وزخرفة زرقاء في الأسفل.
+
+
+================================================================================
+PAGE 43 - page_0043.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+// ---------- HIGH-LEVEL BUSINESS LOGIC ----------
+
+@Service
+
+public class OrderService {
+
+    private final OrderRepository orderRepository;
+    private final NotificationSender notificationSender;
+
+    public OrderService(OrderRepository orderRepository, NotificationSender notificationSender) {
+        this.orderRepository = orderRepository;
+        this.notificationSender = notificationSender;
+    }
+
+    public Order placeOrder(Order order, PaymentStrategy paymentStrategy) {
+        // Process payment
+        PaymentResult result = paymentStrategy.process(order.getTotalAmount());
+
+        if (!result.isSuccess()) {
+            throw new RuntimeException("Payment failed");
+        }
+
+        order.setPaymentId(result.getTransactionId());
+        order.setStatus(OrderStatus.CONFIRMED);
+
+        // Save to database
+        Order savedOrder = orderRepository.save(order);
+
+        // Send notification
+        notificationSender.sendConfirmation(savedOrder);
+
+        return savedOrder;
+    }
+}
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن كود Java يمثل منطق الأعمال عالي المستوى لخدمة معالجة الطلبات داخل `OrderService`.
+يوضح كيف يتم حقن الاعتماديات مثل `OrderRepository` و`NotificationSender` عبر المُنشئ.
+كما يشرح تسلسل تنفيذ عملية `placeOrder`: معالجة الدفع، التحقق من النجاح، تحديث حالة الطلب، حفظه في قاعدة البيانات، ثم إرسال إشعار تأكيد.
+العنصر البصري الوحيد هو لقطة شاشة من محرر أكواد مع تلوين نحوي يبرز الكلمات المفتاحية والتعليقات وأسماء الأصناف والطرق.
+
+
+================================================================================
+PAGE 44 - page_0044.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+// ----------- CONTROLLER -----------
+
+@RestController
+@RequestMapping("/orders")
+public class OrderController {
+
+    private final OrderService orderService;
+
+    private final Map<String, PaymentStrategy> paymentStrategies;
+
+    public OrderController(OrderService orderService, List<PaymentStrategy> strategies) {
+        this.orderService = orderService;
+        // Spring injects all PaymentStrategy beans
+        this.paymentStrategies = strategies.stream()
+            .collect(Collectors.toMap(s -> s.getClass().getSimpleName(), s -> s));
+    }
+
+    @PostMapping
+    public Order createOrder(@RequestBody OrderRequest request) {
+        Order order = new Order(request.getAmount());
+        PaymentStrategy strategy = paymentStrategies.get(request.getPaymentMethod());
+
+        if (strategy == null) {
+            throw new IllegalArgumentException("Unknown payment method");
+        }
+
+        return orderService.placeOrder(order, strategy);
+    }
+}
+------------PAGE TALK ABOUT------------
+توضح الصفحة كود Java ضمن Spring Boot لطبقة الـ Controller الخاصة بالطلبات.
+يوجد `OrderController` يستقبل طلبات POST على المسار `/orders` لإنشاء طلب جديد.
+يعتمد الكود على حقن جميع `PaymentStrategy` وتحويلها إلى `Map` لاختيار طريقة الدفع المناسبة حسب اسمها.
+إذا كانت طريقة الدفع غير معروفة يتم رمي `IllegalArgumentException`، ثم يتم استدعاء `orderService.placeOrder` لإتمام الطلب.
+الصورة عبارة عن لقطة شاشة لكود برمجي منسق بالألوان بدون مخططات أو رسوم إضافية.
+
+
+================================================================================
+PAGE 45 - page_0045.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+Practical Lab Preview
+
+Refactoring Java Classes to Comply with SOLID Principles
+
+Task:
+◦ You will be given a messy Spring Boot application with multiple SOLID violations.
+◦ Your job is to refactor it.
+
+Starting Code (Violations included):
+◦ A UserController that also contains business logic and database access (SRP violation)
+◦ A DiscountService with a long if-else chain for different customer types (OCP violation)
+◦ A fat interface UserOperations with 15 methods (ISP violation)
+◦ A RegistrationService that directly creates MySqlConnection objects (DIP violation)
+
+Your Tasks:
+
+Step | Principle | Action
+1 | SRP | Extract business logic from controller into a service class
+2 | OCP | Replace if-else discount logic with Strategy pattern
+3 | LSP | Split the fat interface into smaller, focused interfaces
+4 | ISP | Create interfaces and inject dependencies instead of direct instantiation
+5 | IDP | Identify and fix any LSP violations in the inheritance hierarchy
+
+Bonus: Write a unit test that uses fake (in-memory) implementations of the new interfaces.
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن معاينة لمعمل عملي يطلب إعادة هيكلة تطبيق Spring Boot غير منظم ليتوافق مع مبادئ SOLID.  
+توضح أمثلة على المخالفات الموجودة مثل خلط منطق الأعمال داخل الـ Controller، واستخدام if-else طويلة، وواجهة ضخمة، وإنشاء اتصالات قاعدة البيانات مباشرة.  
+كما تعرض جدولًا بخطوات العمل المطلوبة، حيث يربط كل مبدأ بالإجراء المناسب لإصلاحه.  
+يوجد تصميم بصري بسيط يتضمن عنوانًا كبيرًا في الأعلى، نقاطًا تعدادّية، وجدولًا ملونًا بالأزرق يوضح الخطوات والمبادئ والإجراءات، مع ملاحظة إضافية عن كتابة اختبار وحدات.
+
+
+================================================================================
+PAGE 46 - page_0046.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+Summary
+
+SOLID Principles - Key Takeaways
+
+Clean, Maintainable,
+Testable Code
+
+S   O   L   I   D
+
+Single
+Responsibility
+
+Opery
+Closed
+
+Liskev
+Subetitution
+
+Interfare
+Segregation
+
+Dependency
+Inversion
+
+Principle | One Sentence Summary | Web Example
+
+S | One class, one job | Separate UserController, UserService, UserRepository, EmailService
+
+O | Add features without changing existing code | New discount type = new class, not new if statement
+
+L | Subclasses must behave like their parents | A Square should work anywhere a Rectangle works
+
+I | Many small interfaces, not one big one | UserReader, UserWriter, UserAuthenticator instead of UserService
+
+D | Depend on interfaces, not concrete classes | RegistrationService depends on UserRepository interface, not MySqlUserRepository
+------------PAGE TALK ABOUT------------
+الصفحة تلخص مبادئ SOLID في البرمجة مع شرح مختصر لكل مبدأ ومثال من تطبيقات الويب.  
+توضح أن الهدف من هذه المبادئ هو كتابة كود نظيف، قابل للصيانة، وسهل الاختبار.  
+يوجد جدول بثلاثة أعمدة: اسم المبدأ، ملخص بجملة واحدة، ومثال عملي لكل مبدأ.  
+كما تحتوي على رسم بصري في الأعلى على شكل خمسة أعمدة ملوّنة تمثل الحروف S O L I D وكل عمود يشير إلى مبدأ من المبادئ.
+
