@@ -1,0 +1,1148 @@
+================================================================================
+SUBJECT: Introduction To Computer Graphics 0102_20260517_190800
+TOTAL PAGES: 29
+EXTRACTED ON: 2026-05-17 18:11:46
+================================================================================
+
+
+================================================================================
+PAGE 1 - page_0001.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+2021-02-10
+
+Introduction To Computer
+Graphics
+
+By Ahmad Elhoni
+
+1
+
+Chapter One
+
+• What is Computer Graphics
+• History of computer graphics
+• Graphics Areas
+• Major Applications
+• Graphics APIs
+• Common Terms
+• Summary
+
+2
+
+1
+------------PAGE TALK ABOUT------------
+توضح الصفحة بداية عرض تقديمي بعنوان "Introduction To Computer Graphics" من إعداد Ahmad Elhoni.  
+كما تعرض شريحة "Chapter One" التي تلخص موضوعات الفصل الأول مثل تعريف الرسوميات الحاسوبية، تاريخها، مجالاتها، تطبيقاتها، وواجهات البرمجة الخاصة بها.  
+العناصر البصرية بسيطة جدًا وتتكون من شريحتين داخل إطار مستطيل لكل شريحة مع تصميم أبيض نظيف.  
+يوجد تاريخ في أعلى الصفحة، وأرقام للشرائح في الأسفل.
+
+
+================================================================================
+PAGE 2 - page_0002.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+2021-02-10
+
+What is Computer Graphics
+
+• Computer graphics is the art* of drawing pictures on computer screens with the help of computers.
+• Graphics is all around us or even more!
+• From captured images to fantasy games.
+• Everyone uses computer graphics: children, students, engineers and scientists ... etc.
+• There are no limits for computer graphics.
+• Almost everything on computers that is not text or sound.
+
+3
+
+History of computer graphics
+
+• Pre-1950s (CRT)
+
+Anode
+Deflecting coils
+Control Grid
+Heater
+Cathode
+Electron beam
+Focusing coil
+Fluorescent screen
+
+4
+
+2
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن مقدمة في الرسوميات الحاسوبية، وتعريفها بأنها فن رسم الصور على شاشات الحاسوب باستخدام الكمبيوتر.  
+كما توضح أن الرسوميات موجودة في كل مكان وتُستخدم من الصور الملتقطة إلى ألعاب الخيال، ويستفيد منها جميع الفئات مثل الطلاب والمهندسين والعلماء.  
+الجزء الثاني يعرض لمحة تاريخية عن الرسوميات الحاسوبية قبل الخمسينيات باستخدام تقنية CRT.  
+يوجد رسم تخطيطي لأنبوب أشعة المهبط يوضح مكوناته مثل الكاثود، الأنود، ملفّات الانحراف، ملفّات التركيز، حزمة الإلكترونات، والشاشة الفلورية.
+
+
+================================================================================
+PAGE 3 - page_0003.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+2021-02-10
+
+History of computer graphics-cont.
+
+• 1950s (SAGE Sector Control
+Room)
+
+5
+
+History of computer graphics-cont.
+
+• 1960s (Spacewar! running on
+the Computer History
+Museum's PDP-1)
+
+6
+
+3
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن استمرار تاريخ الرسوميات الحاسوبية عبر مرحلتين زمنيتين مهمتين.  
+الجزء الأول يشير إلى خمسينيات القرن العشرين مع نظام **SAGE** وغرفة التحكم القطاعية، مع صورة لغرفة مراقبة كبيرة تعرض مسارات أو إشارات على شاشة ضخمة.  
+الجزء الثاني يتناول ستينيات القرن العشرين مع لعبة **Spacewar!** التي تعمل على جهاز **PDP-1**، وتظهر صورة لشاشة حاسوب قديم تعرض رسومات اللعبة.  
+الصفحة تحتوي على شريحتين من عرض تقديمي، مع أرقام الشرائح وتاريخ في أعلى الصفحة.
+
+
+================================================================================
+PAGE 4 - page_0004.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+2021-02-10
+
+History of computer graphics-cont.
+
+• 1960s (Pong arcade version)
+
+7
+
+History of computer graphics-cont.
+
+• 1970s (The Utah teapot by
+Martin Newell and its static
+renders became emblematic of
+CGI development.)
+
+8
+
+4
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن تاريخ الرسوميات الحاسوبية عبر مرحلتين زمنيتين.  
+في الجزء العلوي يظهر مثال من الستينيات وهو لعبة Pong بنسختها arcade، مع صورة شاشة سوداء فيها مضارب وخط منقط في المنتصف.  
+في الجزء السفلي يظهر مثال من السبعينيات وهو Utah teapot، ويُذكر أنه أصبح رمزًا مهمًا في تطور الرسوميات الحاسوبية وـ CGI.  
+توجد صورتان توضيحيتان: الأولى للعبة بسيطة ثنائية الأبعاد، والثانية لإبريق ثلاثي الأبعاد مع إضاءة وظلال.
+
+
+================================================================================
+PAGE 5 - page_0005.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+2021-02-10
+
+History of computer graphics-cont.
+
+• 1980s (Donkey Kong was one of the video games that helped to popularize computer graphics to a mass audience.
+
+History of computer graphics-cont.
+
+• 1990s (Sony launched PlayStation)
+
+9
+
+10
+
+5
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن استكمال تاريخ الرسوميات الحاسوبية عبر مرحلتين: الثمانينيات والتسعينيات.  
+في الثمانينيات، تشير إلى أن لعبة Donkey Kong ساعدت في نشر الرسوميات الحاسوبية بين الجمهور الواسع.  
+وفي التسعينيات، تذكر إطلاق Sony لجهاز PlayStation كحدث مهم في تطور الرسوميات والألعاب.  
+تتضمن الصفحة صورتين: خزانة لعبة أركيد Donkey Kong في الجزء العلوي، وشعار PlayStation الكبير في الجزء السفلي.
+
+
+================================================================================
+PAGE 6 - page_0006.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+2021-02-10
+
+History of computer graphics-cont.
+
+• 2000s (A screenshot from the videogame
+Killing Floor, built in Unreal Engine 2.
+Personal computers and console video
+games took a great graphical leap
+forward, becoming able to display
+graphics in real time computing that had
+previously only been possible pre-
+rendered and/or on business-level
+hardware.)
+
+11
+
+History of computer graphics-cont.
+
+• 2010s (A diamond plate texture
+rendered close-up using physically
+based rendering principles –
+increasingly an active area of
+research for computer. )
+
+12
+
+6
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن استمرار تاريخ الرسوميات الحاسوبية، مع التركيز على تطورها في عقدي 2000s و2010s.  
+في جزء 2000s، توضّح كيف حققت ألعاب الحاسوب وأجهزة الألعاب قفزة كبيرة في الرسوميات الزمنية الحقيقية، مع صورة من لعبة Killing Floor المبنية على Unreal Engine 2.  
+في جزء 2010s، تعرض تطور تقنيات الإظهار الواقعي باستخدام مبادئ physically based rendering، مع صورة مقرّبة لسطح معدني ذي نسيج بارز.  
+الصفحة تحتوي على شريحتين من عرض تقديمي، مع تاريخ أعلى الصفحة وأرقام الشرائح في الأسفل.
+
+
+================================================================================
+PAGE 7 - page_0007.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+2021-02-10
+
+History of computer graphics-cont.
+
+• 2020s (the future of CG!)
+
+13
+
+Graphics Areas
+
+• Modeling deals with the mathematical specification of shape and appearance properties in a way that can be stored on the computer.
+
+14
+
+7
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن استكمال تاريخ الرسوميات الحاسوبية، وتشير إلى أن عقد 2020s يمثل مستقبل الـ CG.  
+تظهر صورة لأجهزة ألعاب حديثة مثل PlayStation وXbox كأمثلة على تطور قدرات الرسوميات.  
+كما تعرض جزءًا بعنوان "Graphics Areas" يشرح أن النمذجة (Modeling) تهتم بالوصف الرياضي للشكل وخصائص المظهر لتخزينها داخل الحاسوب.  
+يوجد أيضًا نموذج شبكي ثلاثي الأبعاد لكوب، يوضح كيف تُمثَّل الأجسام هندسيًا في الرسوميات الحاسوبية.
+
+
+================================================================================
+PAGE 8 - page_0008.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+2021-02-10
+
+Graphics Areas-cont.
+
+• **Rendering** is a term inherited from art and deals with the creation of shaded images from 3D computer models.
+
+15
+
+Graphics Areas-cont.
+
+• **Animation** uses modeling and rendering but adds the key issue of movement over time.
+
+16
+
+8
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن مجالين من مجالات الرسوميات الحاسوبية: **التصيير (Rendering)** و**التحريك (Animation)**.  
+التصيير يعني إنتاج صور مظللة وواقعية من نماذج ثلاثية الأبعاد، ويظهر ذلك في صورة كوب ثلاثي الأبعاد مع إضاءة وظلال.  
+أما التحريك فيعتمد على النمذجة والتصيير، لكنه يضيف عنصر الحركة مع الزمن.  
+وتوضح الصورة الثانية شخصيات/نماذج رقمية في مراحل مختلفة من الحركة لشرح فكرة الأنيميشن.
+
+
+================================================================================
+PAGE 9 - page_0009.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+2021-02-10
+
+Other Areas
+
+• User interaction  
+• Virtual reality  
+• Visualization  
+• Image processing  
+• 3D scanning  
+• Computational photography
+
+17
+
+Major Applications
+
+• Video games
+
+18
+
+9
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن مجالات أخرى وتطبيقات رئيسية مرتبطة بالحوسبة الرسومية أو التقنيات البصرية.  
+في الجزء العلوي توجد قائمة تشمل: تفاعل المستخدم، الواقع الافتراضي، التصور، معالجة الصور، المسح ثلاثي الأبعاد، والتصوير الحاسوبي.  
+تظهر بجانبها صورة لعين مع نمط بكسلات/شبكة لونية، ما يرمز إلى معالجة الصور والرؤية الرقمية.  
+في الجزء السفلي عنوان "التطبيقات الرئيسية" مع مثال واحد هو ألعاب الفيديو، وتوجد صورة لشخص يرتدي نظارة واقع افتراضي ويمسك بذراع تحكم.
+
+
+================================================================================
+PAGE 10 - page_0010.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+2021-02-10
+
+Major Applications-cont.
+
+• Cartoons
+
+19
+
+Major Applications-cont.
+
+• Visual Effects
+
+20
+
+10
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن تطبيقات رئيسية للرسوم الحاسوبية أو معالجة الصور، مع استكمال أمثلة الاستخدام.  
+الجزء الأول يوضح استخدام هذه التقنيات في **الرسوم الكرتونية**، مع صورة تُظهر مراحل تصميم/تحويل شخصية كرتونية من رسم تخطيطي إلى الشكل النهائي.  
+الجزء الثاني يوضح استخدامها في **المؤثرات البصرية**، مع مثال لمشهد سينمائي قبل وبعد إضافة الخلفية والمؤثرات باستخدام الشاشة الخضراء.  
+الصور تبرز كيف تُستخدم التقنيات الرقمية في الإنتاج الفني والسينمائي.
+
+
+================================================================================
+PAGE 11 - page_0011.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+2021-02-10
+
+Major Applications-cont.
+
+• Animated films
+
+21
+
+Major Applications-cont.
+
+• CAD/CAM
+
+22
+
+11
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن أمثلة من **التطبيقات الرئيسية**، وتعرض شريحتين متتاليتين بعنوان "Major Applications-cont."  
+الأولى تشير إلى استخدام التقنية في **الأفلام المتحركة**، مع صورة لشخصية الروبوت WALL·E كمثال على الرسوم/التحريك الحاسوبي.  
+الثانية تعرض استخدامًا آخر هو **CAD/CAM**، مع صورة لجهاز أو نموذج هندسي/صناعي ثلاثي الأبعاد يرمز للتصميم والتصنيع بمساعدة الحاسوب.  
+توجد أيضًا أرقام الشرائح (21 و22) وتاريخ أعلى الصفحة، ما يدل أنها صفحة من عرض تقديمي.
+
+
+================================================================================
+PAGE 12 - page_0012.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+2021-02-10
+
+Major Applications-cont.
+
+• Simulation
+
+23
+
+Major Applications-cont.
+
+• Medical imaging
+
+24
+
+12
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن بعض التطبيقات الرئيسية، وتحديدًا **المحاكاة** و**التصوير الطبي**.  
+تظهر في الجزء العلوي صورة قمرة قيادة طائرة، ما يشير إلى استخدام المحاكاة في تدريب الطيارين واختبار الأنظمة.  
+وفي الجزء السفلي تظهر صور أشعة للدماغ، ما يوضح استخدام تقنيات الحاسوب في التصوير الطبي وتحليل الحالات المرضية.  
+الصفحة عبارة عن شريحتين من عرض تقديمي بعنوان “Major Applications-cont.” مع أمثلة بصرية لكل تطبيق.
+
+
+================================================================================
+PAGE 13 - page_0013.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+2021-02-10
+
+Major Applications-cont.
+
+• Information visualization
+
+25
+
+Graphics APIs
+
+• CG requires knowing about
+  specific hardware, file formats,
+  and usually a graphics API.
+
+• Vulkan
+• Metal
+• WebGPU
+• OpenGL
+• DirectX 12.x
+• DirectX 11.x
+
+GPU
+
+Driver
+API: DX, OGL
+
+Time
+
+Game
+Engine
+
+26
+
+13
+------------PAGE TALK ABOUT------------
+الصفحة تتحدث عن تطبيقات رئيسية في الرسوميات الحاسوبية، وتحديدًا عرض المعلومات بصريًا ثم الانتقال إلى واجهات برمجة الرسوميات Graphics APIs.  
+في الجزء العلوي يوجد مخطط بياني متعدد الخطوط والمساحات المظللة يوضح مثالًا على Information visualization.  
+في الجزء السفلي تشرح الشريحة أن الرسوميات الحاسوبية تحتاج معرفة بالعتاد، وصيغ الملفات، وواجهة رسومية مثل Vulkan وMetal وWebGPU وOpenGL وDirectX.  
+كما يوجد رسم تخطيطي زمني يوضح العلاقة بين Game Engine وDriver API وGPU عبر الزمن باستخدام كتل ملوّنة وأسهم.
+
+
+================================================================================
+PAGE 14 - page_0014.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+2021-02-10
+
+Common Terms
+
+• **Pixel**: Picture Element.  
+• **Voxel**: Volume Element.  
+• **GPU**: Graphics Processing Unit.  
+• **API**: Application Programming Interface  
+• **CAD**: Computer Aided Design  
+• **CAM**: Computer Aided Manufacturing  
+• **VR**: Virtual Realty  
+• **AR**: Augmented Realty  
+• **CGI**: Computer-generated imagery
+
+27
+
+Common Terms-cont.
+
+• **VGA**: Video Graphics Array  
+• **SVGA**: Super Video Graphics Array  
+• **HDR**: High dynamic range  
+• **Texel**: Texture Element  
+• **HDMI**: High-Definition Multimedia Interface  
+• **DVI**: Digital Visual Interface  
+• **LCD**: Liquid Crystal Display  
+• **LED**: Light Emitting Diodes  
+• **OLED**: Organic Light Emitting Diodes
+
+28
+
+14
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن مجموعة من المصطلحات الأساسية الشائعة في مجال الرسوميات الحاسوبية والعرض الرقمي.  
+تسرد الشرائح اختصارات وتعريفات مثل Pixel وVoxel وGPU وAPI وCAD وVR وAR وCGI، ثم تكمل بمصطلحات العرض مثل VGA وHDR وHDMI وLCD وOLED.  
+يوجد في الصورة شريحتان نصيتان داخل إطارين مستطيلين بدون صور أو مخططات بيانية.  
+كما يظهر تاريخ في أعلى الصفحة، وأرقام للشرائح في الأسفل، مع سهم أزرق صغير أسفل الشريحة الثانية يشير إلى الاستمرار.
+
+
+================================================================================
+PAGE 15 - page_0015.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+2021-02-10
+
+Famous 3D packages
+
+• 3ds Max  
+• Maya  
+• Houdini  
+• Blender  
+• Cinema 4D  
+• Softimage  
+• SketchUp  
+
+29
+
+Summary
+
+• Computer Graphics is around us all  
+• Any thing can be done using proper CG tools and techniques  
+• Computer graphics has evolved rapidly  
+• We have studied the main areas of computer graphics  
+• Computer graphics involve many applications  
+• There are many 3D Graphics APIs and packages.  
+
+30
+
+15
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن أشهر حزم وبرامج التصميم ثلاثي الأبعاد مثل 3ds Max وMaya وBlender وغيرها.  
+كما تعرض ملخصًا عامًا لموضوع الرسوميات الحاسوبية، موضحًا أنها موجودة في حياتنا اليومية وتطورت بسرعة ولها تطبيقات كثيرة.  
+توجد صورة لشخص يعمل على محطة حاسوب بشاشتين يعرض عليهما برنامج تصميم ونمذجة ثلاثية الأبعاد.  
+الصفحة تبدو كجزء من خاتمة أو مراجعة نهائية لمحاضرة عن Computer Graphics.
+
+
+================================================================================
+PAGE 16 - page_0016.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+2021-02-10
+
+Chapter Two
+
+• Sets and Mappings  
+• Solving Quadratic Equations  
+• Trigonometry  
+• Vectors  
+• Curves and Surfaces  
+• Linear Interpolation  
+• Summary
+
+31
+
+Sets and Mappings
+
+• Mappings, also called functions,  
+• Like a function in programs a map takes an argument and return an object of a particular type.  
+• In a program we say “type”; in math we would identify the set.  
+• When we have an object that is a member of a set, we use the ∈ symbol. For example,
+
+a ∈ S
+
+32
+
+16
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن بداية الفصل الثاني وعرض موضوعاته الرئيسية مثل المجموعات والدوال، المعادلات التربيعية، المثلثات، المتجهات، المنحنيات والأسطح، والاستيفاء الخطي.  
+ثم تبدأ بشرح قسم "Sets and Mappings" حيث توضح أن الـ mappings هي نفسها الدوال، وتشبه دوال البرمجة التي تأخذ مُدخلًا وتُرجع عنصرًا من نوع محدد.  
+كما تشرح الفرق بين مفهوم "type" في البرمجة و"set" في الرياضيات، وتعرض رمز الانتماء ∈ مع المثال: a ∈ S.  
+بصريًا، الصفحة تحتوي على شريحتين داخل إطارين مستطيلين بسيطين مع عناوين كبيرة ونقاط تعداد، ولا توجد صور أو مخططات أخرى.
+
+
+================================================================================
+PAGE 17 - page_0017.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+2021-02-10
+
+Sets and Mappings-cont.
+
+• Given **A** and **B** sets, we can create a third set by  
+**A × B**  
+is composed of all possible ordered pairs **(a, b)**  
+where **a ∈ A** and **b ∈ B**
+
+• Common sets of interest include  
+ • **ℝ** - real numbers  
+ • **ℝ²** - ordered pairs in the real 2D plane;  
+ • **ℝ⁺** - nonnegative real numbers (includes zero);  
+ • **ℝⁿ** - points in n-dimensional Cartesian space;  
+ • **ℤ** - integers;
+
+33
+
+Sets and Mappings-cont.
+
+• A function called **f** that takes a real number  
+input and maps it to an integer
+
+**f : ℝ ↦ ℤ**
+
+• The point **f(a)** is called the image of **a,**  
+• A **bijection** **f** and the inverse function **f⁻¹**.  
+ Note that **f⁻¹** is also a bijection.
+
+[Diagram text:]
+**f : d→D**  
+Set d  
+a  
+c  
+e  
+Q  
+M  
+R  
+Set D
+
+**f⁻¹ : D→d**  
+Set d  
+a  
+c  
+e  
+Q  
+M  
+R  
+Set D
+
+34
+
+17
+------------PAGE TALK ABOUT------------
+الصفحة تشرح مفاهيم من نظرية المجموعات والدوال. تعرض أولاً حاصل الضرب الديكارتي \(A \times B\) باعتباره جميع الأزواج المرتبة \((a,b)\) حيث \(a \in A\) و\(b \in B\)، ثم تذكر مجموعات شائعة مثل \(\mathbb{R}\)، \(\mathbb{R}^2\)، \(\mathbb{R}^+\)، \(\mathbb{R}^n\)، و\(\mathbb{Z}\).  
+في الجزء الثاني تشرح الدالة \(f : \mathbb{R} \mapsto \mathbb{Z}\) ومعنى صورة العنصر \(f(a)\)، ثم تقدم مفهوم التقابل الواحد لواحد وعلى \(bijection\) والدالة العكسية \(f^{-1}\).  
+يوجد رسمان تخطيطيان يوضحان الربط بين عناصر مجموعتين: الأول يبين الدالة من Set d إلى Set D، والثاني يبين الدالة العكسية من Set D إلى Set d مع أسهم بين العناصر.
+
+
+================================================================================
+PAGE 18 - page_0018.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+2021-02-10
+
+Solving Quadratic Equations
+
+• A quadratic equation has the form
+
+\(Ax^2 + Bx + C = 0\)
+
+• The solution are one of the following
+
+\[
+x = \frac{-B \pm \sqrt{B^2 - 4AC}}{2A}
+\]
+
+y  
+x  
+2 roots
+
+y  
+x  
+1 root
+
+y  
+x  
+0 roots
+
+35
+
+Trigonometry history
+
+• **Trigonometry** is a branch of mathematics that studies relationships between side lengths and angles of triangles.
+
+• The field emerged in the Hellenistic world during the 3rd century BC from applications of geometry to astronomical studies.
+
+• **Hipparchus** “the father of trigonometry”.
+
+36
+
+18
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن موضوعين رياضيين: حل المعادلات التربيعية وتاريخ علم المثلثات.  
+في الجزء الأول تُعرض الصيغة العامة للمعادلة التربيعية \(Ax^2 + Bx + C = 0\) مع القانون العام للحل، ويوجد رسم لثلاثة منحنيات قطع مكافئ يوضح حالات وجود جذور: جذران، جذر واحد، أو بدون جذور.  
+في الجزء الثاني يُعرَّف علم المثلثات بأنه دراسة العلاقات بين أضلاع المثلثات وزواياها، مع لمحة تاريخية عن نشأته في العصر الهلنستي.  
+كما تظهر صورة جانبية لشخصية هيبارخوس، المذكور بأنه “أبو علم المثلثات”.
+
+
+================================================================================
+PAGE 19 - page_0019.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+2021-02-10
+
+Angles
+
+• An angle is the length of the arc of the unit
+circle that is “cut” by the two directions.
+
+degrees = 180/π radians;
+
+radians = π/180 degrees.
+
+φ
+
+2π−φ
+
+37
+
+Trigonometric Functions
+
+• Pythagorean theorem:
+
+a² + o² = h²
+
+• Mathematical prof
+
+2ao + h² = (a + o)²
+
+a
+
+o
+
+o
+
+a
+
+o
+
+a
+
+h
+
+h
+
+h
+
+h
+
+φ
+
+38
+
+19
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن مفهوم الزوايا وقياسها بالراديان والدرجات، مع توضيح علاقة التحويل بينهما.  
+يوجد شكل لدائرة يبيّن زاوية φ والزاوية المكملة حول الدائرة 2π−φ.  
+كما تعرض بداية موضوع الدوال المثلثية عبر تذكير بنظرية فيثاغورس: a² + o² = h².  
+ويظهر رسم هندسي لمربع/شكل داخلي مائل داخل مربع أكبر لتقديم برهان رياضي يؤدي إلى العلاقة 2ao + h² = (a + o)².
+
+
+================================================================================
+PAGE 20 - page_0020.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+2021-02-10
+
+Trigonometry
+
+• We define sine and cosine of φ, as
+  well as the other ratio-based
+  trigonometric expressions:
+
+sin φ ≡ o/h;
+csc φ ≡ h/o;
+cos φ ≡ a/h;
+sec φ ≡ h/a;
+tan φ ≡ o/a;
+cot φ ≡ a/o.
+
+39
+
+Vectors
+
+• A vector describes a length and a direction.
+• It can be usefully represented by an arrow.
+• Two vectors are equal if they have the same
+  length and direction even if we think of
+  them as being located in different places
+• The zero vector is the vector of zero length.
+  The direction of the zero vector is
+  undefined.
+
+40
+
+20
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن موضوعين أساسيين: حساب المثلثات والمتجهات.  
+في الجزء الأول تُعرَّف النسب المثلثية بالنسبة للزاوية φ مثل sin وcos وtan ومقلوباتها باستخدام الأضلاع: المقابل o، المجاور a، والوتر h.  
+في الجزء الثاني تشرح أن المتجه كمية لها مقدار واتجاه، ويمكن تمثيلها بسهم، وأن متجهين يكونان متساويين إذا كان لهما نفس الطول والاتجاه.  
+كما تذكر المتجه الصفري وأن طوله يساوي صفرًا واتجاهه غير معرّف.  
+يوجد رسم بسيط داخل مربع يُظهر سهمين مائلين في نفس الاتجاه لتوضيح فكرة تساوي المتجهات رغم اختلاف موضعهما.
+
+
+================================================================================
+PAGE 21 - page_0021.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+2021-02-10
+
+Vector Operations
+
+• Two vectors are added according to the  
+  **parallelogram** rule.  
+  \(a + b = b + a\)
+
+• You can visualize vector subtraction with a  
+  parallelogram  
+  \(a + (b - a) = b\)
+
+• Vectors can be multiplied.
+
+a  
+b  
+a + b  
+a  
+b
+
+b  
+a  
+b - a
+
+41
+
+Dot Product
+
+• The **dot** product of a and b is denoted a · b and is often called the  
+  **scalar** product
+
+\(a \cdot b = \Vert a \Vert \Vert b \Vert \cos \phi\)
+
+φ  
+a  
+b
+
+42
+
+21
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن أساسيات العمليات على المتجهات، مثل جمع المتجهات باستخدام قاعدة متوازي الأضلاع، وطرحها بطريقة بصرية مشابهة.  
+كما تشير إلى أن المتجهات يمكن أيضًا أن تُضرب، ثم تنتقل لشرح الضرب النقطي (Dot Product) أو الضرب القياسي.  
+توضح المعادلة أن \(a \cdot b\) يساوي حاصل ضرب طولي المتجهين في جيب تمام الزاوية بينهما.  
+تتضمن الصفحة رسومات لمتوازي أضلاع توضح جمع وطرح المتجهات، ورسمًا آخر لمتجهين \(a\) و\(b\) بينهما الزاوية \(\phi\).
+
+
+================================================================================
+PAGE 22 - page_0022.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+2021-02-10
+
+Cross Product
+
+• The cross product returns a 3D vector that is perpendicular to the two arguments of the cross product.
+
+‖a × b‖ = ‖a‖‖b‖ sin ϕ
+
+a × b
+b
+ϕ
+a
+
+43
+
+Curves and Surfaces
+
+• Objects are not flat all the time and we need to draw curves many times to draw an object
+• A curve is an infinitely large set of points. Each point has two neighbors except endpoints.
+• Curves can be broadly classified into three categories –
+  • explicit,
+  • implicit, and
+  • parametric curves
+
+44
+
+22
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن موضوعين: الضرب الاتجاهي (Cross Product) والمنحنيات والأسطح.  
+في الجزء الأول، توضح أن ناتج الضرب الاتجاهي هو متجه ثلاثي الأبعاد عمودي على المتجهين الأصليين، مع عرض العلاقة ‖a × b‖ = ‖a‖‖b‖ sin ϕ.  
+يوجد رسم يبين المتجهين a و b والزاوية ϕ بينهما، ومتجه الناتج a × b عموديًا على المستوى الذي يحتويهما.  
+في الجزء الثاني، تشرح أن الأجسام ليست مسطحة دائمًا، لذلك نستخدم المنحنيات في تمثيلها، وتعرّف المنحنى كمجموعة كبيرة جدًا من النقاط.  
+كما تصنف المنحنيات إلى ثلاثة أنواع: explicit و implicit و parametric curves.
+
+
+================================================================================
+PAGE 23 - page_0023.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+2021-02-10
+
+Curves and Surfaces-cont.
+
+• Implicit Curves  
+  • Implicit curve representations define the set of points on a curve by employing a procedure that can test to see if a point in on the curve.  
+  • Usually, an implicit curve is defined by an implicit function of the form
+
+f(x,y) = 0
+
+45
+
+Curves and Surfaces-cont.
+
+• Explicit Curves  
+  • A mathematical function can be plotted as a curve. Such a function is the explicit representation of the curve.
+
+y = f(x)
+
+• The explicit representation is not general, since it cannot represent vertical lines and is also single-valued. For each value of x, only a single value of y is normally computed by the function.
+
+46
+
+23
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن تمثيل المنحنيات في الرياضيات والحاسوب بطريقتين: التمثيل الضمني والتمثيل الصريح.  
+التمثيل الضمني يعرّف المنحنى باستخدام معادلة من الشكل f(x,y)=0 لاختبار ما إذا كانت النقطة تقع على المنحنى.  
+أما التمثيل الصريح فيكتب المنحنى على صورة y=f(x)، لكنه محدود لأنه لا يمثل الخطوط الرأسية ويعطي قيمة y واحدة فقط لكل x.  
+بصريًا، الصفحة تحتوي على شريحتين عرض بعنوان "Curves and Surfaces-cont." داخل إطارات مستطيلة، مع التاريخ أعلى اليمين وأرقام الصفحات أسفل الشرائح.
+
+
+================================================================================
+PAGE 24 - page_0024.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+2021-02-10
+
+Curves and Surfaces-cont.
+
+• Explicit Curves  
+ • A mathematical function can be plotted as a curve. Such a function is the explicit representation of the curve.
+
+\[
+y = f(x)
+\]
+
+• The explicit representation is not general, since it cannot represent vertical lines and is also single-valued. For each value of x, only a single value of y is normally computed by the function.
+
+47
+
+Curves and Surfaces-cont.
+
+• Parametric Curves  
+ • Curves having parametric form are called parametric curves. The explicit and implicit curve representations can be used only when the function is known. In practice the parametric curves are used. A two-dimensional parametric curve has the following form –
+
+\[
+P(t) = f(t), g(t)
+\]
+
+or
+
+\[
+P(t) = x(t), y(t)
+\]
+
+48
+
+24
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن تمثيل المنحنيات في الرياضيات بطريقتين: التمثيل الصريح والتمثيل البارامتري.  
+توضح أن التمثيل الصريح يكون على صورة \( y = f(x) \)، لكنه محدود لأنه لا يمثل الخطوط الرأسية ويعطي قيمة واحدة فقط لـ \( y \) لكل \( x \).  
+كما تعرض التمثيل البارامتري للمنحنيات بصيغة \( P(t) = (x(t), y(t)) \) أو \( (f(t), g(t)) \)، وتبين أنه أكثر استخدامًا عمليًا.  
+يوجد عنصر بصري صغير بجانب معادلات المنحنيات البارامترية يشبه محاور إحداثية مع تدريجات عند \( \pi/2 \)، \( \pi \)، \( 3\pi/2 \)، و \( 2\pi \).
+
+
+================================================================================
+PAGE 25 - page_0025.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+2021-02-10
+
+Curves and Surfaces-cont.
+
+• A spline, or the more modern term flexible curve, consists of a long strip fixed in position at a number of points whose tension creates a smooth curve passing through those points, for the purpose of transferring that curve to another material.
+
+• Examples:
+  • Bezier Curves
+  • B-spline or basis spline
+  • Non-uniform rational basis spline (NURBS)
+
+49
+
+Curves and Surfaces-cont.
+
+• Bezier Curves
+  • Bezier curve is discovered by the French engineer Pierre Bézier. These curves can be generated under the control of other points.
+  • Approximate tangents by using control points are used to generate curve. The Bezier curve can be represented mathematically as –
+
+\[
+\sum_{k=0}^{n} P_i B_i^n(t)
+\]
+
+where \( B_i^n(t) \) is Bernstein polynomial...
+
+50
+
+25
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن المنحنيات والسطوح، وخصوصًا مفهوم الـ spline كمنحنى مرن يمر عبر نقاط محددة لتكوين شكل ناعم.  
+كما تعرض أمثلة لأنواع المنحنيات مثل Bezier Curves وB-spline وNURBS.  
+في الجزء السفلي تشرح منحنيات بيزييه، وأنها تعتمد على نقاط تحكم لتوليد المنحنى، مع تمثيل رياضي باستخدام كثيرات حدود برنشتاين.  
+توجد رسمة توضيحية في الأعلى لشريط مرن مُثبت لتشكيل منحنى، وفي الأسفل مخطط يوضح نقاط تحكم \(P_0, P_1, P_2, P_3, P_4\) ومسار منحنى بيزييه الناتج عنها.
+
+
+================================================================================
+PAGE 26 - page_0026.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+2021-02-10
+
+Curves and Surfaces-cont.
+
+• In mathematics, a surface is a generalization of
+a plane, which is not necessarily flat – that is,
+the curvature is not necessarily zero. This is
+analogous to a curve generalizing a straight line.
+• The mathematical concept of a surface is an
+idealization of what is meant by surface in
+science, computer graphics, and common
+language.
+
+Control
+Polygon
+
+Control Point
+
+51
+
+Curves and Surfaces-cont.
+
+• If we defining three-variate function in a
+polynomial, the surface is an algebraic surface
+• For example, the unit sphere is an algebraic
+surface, as it may be defined by the implicit
+equation
+
+x² + y² + z² − 1 = 0
+
+or in parametric form
+
+x = cos(u) cos(v)
+y = sin(u) cos(v)
+z = sin(v).
+
+r
+
+52
+
+26
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن مفهوم الأسطح في الرياضيات باعتبارها تعميمًا للمستوى، بحيث لا يلزم أن تكون مسطحة وقد تمتلك انحناء.  
+كما تشرح أن السطح الجبري ينتج من دالة متعددة المتغيرات، مع تقديم الكرة الوحدة كمثال بصيغتها الضمنية والبارامترية.  
+يوجد شكل علوي لسطح منحني شبكي يوضح نقاط التحكم ومضلع التحكم المستخدمين في النمذجة الحاسوبية.  
+وفي الأسفل يظهر رسم ثلاثي الأبعاد لكرة زرقاء مع نصف قطر r لتوضيح مثال السطح الكروي.
+
+
+================================================================================
+PAGE 27 - page_0027.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+2021-02-10
+
+Linear interpolation
+
+• **Interpolation:** The computation of points or values between ones that are known or tabulated using the surrounding points or values
+
+• In mathematics, **linear interpolation** is a method of **curve fitting** using **linear polynomials** to construct new data points within the range of a discrete set of known data points.
+
+y₁  
+y₀  
+x₀  
+x₁  
+(x,y)
+
+53
+
+Linear interpolation-cont.
+
+• If the two known points are given by the coordinates \((x_0, y_0)\) and \((x_1, y_1)\), the linear interpolant is the straight line between these points.
+
+• For a value \(x\) in the interval \((x_0, x_1)\) the value \(y\) along the straight line is given from the equation of slopes
+
+\[
+\frac{y-y_0}{x-x_0}=\frac{y_1-y_0}{x_1-x_0},
+\]
+
+54
+
+27
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن مفهوم **الاستيفاء الخطي**، أي إيجاد قيمة أو نقطة مجهولة بين نقطتين معلومتين.  
+توضح أن الاستيفاء الخطي يعتمد على رسم **خط مستقيم** بين النقطتين \((x_0,y_0)\) و\((x_1,y_1)\)، ثم حساب القيمة \(y\) لأي \(x\) بينهما باستخدام معادلة الميل.  
+يوجد شكل بياني في الشريحة الأولى يبيّن نقطتين معلومتين وخطًا أزرق بينهما ونقطة وسطية \((x,y)\).  
+وفي الشريحة الثانية يوجد رسم يوضح بصريًا العلاقة بين المسافات الأفقية والرأسية على الخط المستقيم وكيفية اشتقاق معادلة الاستيفاء من تساوي الميل.
+
+
+================================================================================
+PAGE 28 - page_0028.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+2021-02-10
+
+Linear interpolation-cont.
+
+• Linear interpolation on a set of data points \((x_0, y_0), (x_1, y_1), ..., (x_n, y_n)\) is defined as the concatenation of linear interpolants between each pair of data points.
+
+1
+0
+-1
+1
+2
+3
+4
+5
+
+In[3]:=
+plot these points (0,0), (1,0.8), (2,0.9), (3,0.1), (4,-0.7), (5,-0.9), (6,-0.3)
+
+Input interpretation:
+plot    {{0, 0}, {1, 0.8}, {2, 0.9}, {3, 0.1}, {4, -0.7}, {5, -0.9}, {6, -0.3}}
+
+Plot:
+1.0
+0.5
+-0.5
+-1.0
+
+WolframAlpha
+
+55
+
+Summary
+
+• A set is unordered collection of objects of the same type, with the rule for determining if a given object(element) is in the set.
+• A quadratic equation with real or complex coefficients has two solutions, called roots. These two solutions may or may not be distinct, and they may or may not be real
+• Trigonometry (from Greek trigōnon, "triangle" and metron, "measure") is a branch of mathematics that studies relationships between side lengths and angles of triangles.
+• The history of vector analysis is particularly interesting. It was largely invented by Grassman in the mid-1800s
+
+56
+
+28
+------------PAGE TALK ABOUT------------
+الصفحة تعرض شريحتين من عرض رياضيات. الأولى تشرح **الاستيفاء الخطي** بأنه ربط نقاط البيانات بخطوط مستقيمة بين كل نقطتين متتاليتين.  
+يوجد رسم بياني بنقاط حمراء وخط أزرق مكسّر يمر عبر النقاط، مع لقطة صغيرة من WolframAlpha تعرض نفس التمثيل.  
+الشريحة الثانية هي **ملخص** لموضوعات سابقة: تعريف المجموعة، المعادلة التربيعية وجذورها، تعريف حساب المثلثات، ولمحة تاريخية عن تحليل المتجهات وGrassman.  
+كما تظهر أرقام الصفحات داخل الشرائح (55 و56) ورقم الصفحة العامة 28 مع التاريخ أعلى الصفحة.
+
+
+================================================================================
+PAGE 29 - page_0029.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+2021-02-10
+
+Summary-cont.
+
+• A curve is an infinitely large set of points. Each point has two neighbors except endpoints. Curves can be broadly classified into three categories – explicit, implicit, and parametric curves.
+
+• Surfaces are one way of representing objects. The other ways are wireframe (lines and curves) and solids. Point clouds are also sometimes used as temporary ways to represent an object
+
+• Linear interpolation (LERP) is often used to approximate a value of some function \( f \) using two known values of that function at other points.
+
+57
+
+29
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن ملخص لمفاهيم هندسية وتمثيل الأشكال في الرسوميات أو النمذجة.  
+توضح معنى المنحنى وأنواعه الرئيسية: الصريح، الضمني، والبارامتري.  
+كما تشرح طرق تمثيل الأجسام مثل الأسطح، والهيكل السلكي، والمجسمات، مع ذكر سحب النقاط كتمثيل مؤقت.  
+وتعرض أيضًا مفهوم الاستيفاء الخطي (LERP) لتقدير قيمة دالة \( f \) بين قيمتين معلومتين.  
+الصفحة عبارة عن شريحة نصية فقط داخل إطار مستطيل، بدون صور أو مخططات.
+
