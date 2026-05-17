@@ -1,0 +1,921 @@
+================================================================================
+SUBJECT: Introduction To Computer Graphics 0304 (1)_20260517_191729
+TOTAL PAGES: 15
+EXTRACTED ON: 2026-05-17 18:23:47
+================================================================================
+
+
+================================================================================
+PAGE 1 - page_0001.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+2021-03-09
+
+Chapter three
+
+• Raster Images  
+• Raster Devices  
+• Images, Pixel and Geometry  
+• RGB Color  
+• Alpha Compositing  
+• Image Storage  
+• Summary
+
+58
+
+Raster Images
+
+• Raster graphic or bitmap image is a dot matrix data structure that represents a generally rectangular grid of pixels, viewable via a bitmapped display (monitor), paper, or other display medium.
+
+• There are other ways of describing images besides using arrays of pixels. A vector image is described by storing descriptions of shapes—areas of color bounded by lines or curves—with no reference to any particular pixel grid.
+
+R 93%   R 35%   R 90%  
+G 93%   G 35%   G 90%  
+B 93%   B 16%   B 0%
+
+7x Magnification
+
+Vector
+
+Ice Cream
+
+Bitmap
+
+59
+------------PAGE TALK ABOUT------------
+الصفحة تعرض بداية الفصل الثالث وموضوعاته، مثل الصور النقطية، أجهزة الراستر، الألوان RGB، والـ Alpha Compositing وتخزين الصور.  
+ثم تشرح شريحة “Raster Images” أن الصورة النقطية أو Bitmap تتكون من شبكة مستطيلة من البكسلات لعرض الصور على الشاشة أو الورق.  
+كما تقارن بين الصور النقطية والصور المتجهية Vector، حيث تعتمد المتجهية على وصف الأشكال والخطوط بدل شبكة بكسلات.  
+توجد رسومات توضيحية لوجه مبتسم مكبر لإظهار البكسلات وقيم RGB، وصورة زجاجة تُظهر الفرق بين وضوح Vector وتشوش Bitmap عند التكبير.
+
+
+================================================================================
+PAGE 2 - page_0002.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+2021-03-09
+
+Raster Devices
+
+• A few familiar raster devices can be categorized into a simple hierarchy:
+
+  • Output
+    – Display
+      * Transmissive: liquid crystal display (LCD)
+      * Emissive: light-emitting diode (LED) display
+    – Hardcopy
+      * Binary: ink-jet printer
+      * Continuous tone: dye sublimation printer
+
+  • Input
+    – 2D array sensor: digital camera
+    – 1D array sensor: flatbed scanner
+
+60
+
+Raster Devices-cont.
+
+• Displays
+  • Current displays, including televisions and
+    digital cinematic projectors as well as displays
+    and projectors for computers, are nearly
+    universally based on fixed arrays of pixels. They
+    can be separated into :
+    • emissive displays, which use pixels that On Off On +
+      – Anode Cathodes LEDs. The operation of a light-
+      emitting diode (LED) display. directly emit
+      controllable amounts of light, and
+    • transmissive displays, in which the pixels
+      themselves don’t emit light but instead vary the
+      amount of light that they allow to pass through
+      them.
+
+LED
+Positive (+) terminal
+Negative (-) terminal
+
+LCD Cross Section
+Backlight
+Protective Glass
+Liquid Crystal
+Horizontal and Vertical Filters
+RGB Filter
+
+61
+
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن أجهزة الـ Raster وتصنيفها إلى أجهزة إخراج وأجهزة إدخال.  
+توضح أمثلة للإخراج مثل الشاشات والطابعات، مع التفريق بين شاشات LED الانبعاثية وشاشات LCD النفاذة، وكذلك أنواع الطباعة مثل ink-jet وdye sublimation.  
+كما تعرض أمثلة للإدخال مثل الكاميرا الرقمية والماسح الضوئي المسطح.  
+توجد رسومات توضيحية: واحدة تبين تركيب LED مع الطرف الموجب والسالب، وأخرى تبين مقطعًا في شاشة LCD يوضح طبقات مثل الإضاءة الخلفية، الزجاج الواقي، البلورات السائلة، المرشحات، ومرشح RGB.
+
+
+================================================================================
+PAGE 3 - page_0003.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+2021-03-09
+
+Raster Devices-cont.
+
+• Hardcopy Devices  
+  • In printing, pigments are distributed on paper or another medium so that when light reflects from the paper it forms the desired image. Printers are raster devices like displays, but many printers can only print binary images—pigment is either deposited or not at each grid position. An examples:  
+    • An ink-jet printer is an example of a device that forms a raster image by scanning. An ink-jet print head contains liquid ink carrying pigment. Paper Inkjet head Ink droplet. The operation of an ink-jet printer. which can be sprayed in very small drops under electronic control.  
+    • Thermal dye printer is an example of a continuous tone printing process, meaning that varying amounts of dye can be deposited at each pixel—it is not all-or-nothing like an ink-jet printer. A donor ribbon containing colored dye is pressed between the paper, or dye receiver, and a print head containing a linear array of heating elements, one for each column of pixels in the image.
+
+Ink droplet  
+Inkjet head  
+Paper
+
+Donor ribbon  
+Linear array thermal print head  
+Dye receiver
+
+62
+
+Raster Devices-cont.
+
+• Input Devices  
+  • Raster images have to come from somewhere, and any image that wasn’t computed by some algorithm has to have been measured by some raster input device, most often a camera or scanner.  
+    • A digital camera is an example of a 2D array input device. The image sensor Lens Image sensor Scene. The operation of a digital camera. in a camera is a semiconductor device with a grid of light-sensitive pixels. Two common types of arrays are known as CCDs (charge-coupled devices) and CMOS (complimentary metal–oxide–semiconductor) image sensors.
+
+Scene  
+Lens  
+Image sensor
+
+G B G B G B G  
+R G R G R G R  
+G B G B G B G  
+R G R G R G R  
+G B G B G B G  
+R G R G R G R
+
+63
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن أجهزة الراستر، وتركز على نوعين: أجهزة الإخراج الورقي وأجهزة الإدخال.  
+تشرح في الإخراج الطابعات مثل الطابعة النافثة للحبر والطابعة الحرارية الصبغية، وكيف تُكوَّن الصورة على الورق كنقاط أو بدرجات لونية مستمرة.  
+كما تشرح في الإدخال الكاميرا الرقمية باعتبارها جهاز إدخال شبكي ثنائي الأبعاد يعتمد على حساس صورة مكوّن من بكسلات حساسة للضوء، مع ذكر CCD وCMOS.  
+توجد رسومات توضيحية لآلية عمل الطابعة النافثة للحبر، والطابعة الحرارية، ومخطط يوضح مرور المشهد عبر العدسة إلى حساس الصورة، بالإضافة إلى شبكة ألوان RGB تمثل ترتيب مرشحات الألوان على الحساس.
+
+
+================================================================================
+PAGE 4 - page_0004.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+2021-03-09
+
+Raster Devices-cont.
+
+• Input Devices-cont.  
+ • A **flatbed scanner** also measures red, green, and blue values for each of a grid of pixels, but like a thermal dye transfer printer it uses a 1D array that sweeps across the page being scanned, making many measurements per second.
+
+Lens  
+Array detector  
+R
+
+64
+
+Images, Pixels, and Geometry
+
+• In the physical world, images are functions defined over two-dimensional areas—almost always **rectangles**. So we can abstract an image as a function
+
+\[
+I(x, y): R \to V,
+\]
+
+where \(R \subset \mathbb{R}^2\) is a rectangular area and \(V\) is the set of possible pixel values.  
+• The simplest case is an idealized grayscale image where each point in the rectangle has just a brightness (no color), and we can say \(V = \mathbb{R}\) (the nonnegative reals).  
+• An idealized color image, with **red**, **green**, and **blue** values at each pixel, has \(V = (\mathbb{R}^+)^3\)
+
+65
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن أجهزة الإدخال النقطية، وبالتحديد الماسح الضوئي المسطح (flatbed scanner) وكيف يقيس قيم الأحمر والأخضر والأزرق لكل بكسل باستخدام مصفوفة خطية تتحرك عبر الصفحة.  
+كما تشرح مفهوم الصورة رياضيًا باعتبارها دالة \(I(x,y)\) معرفة على منطقة مستطيلة في المستوى، وتُرجع قيم البكسلات.  
+توضح أيضًا الفرق بين الصورة الرمادية حيث القيمة تمثل السطوع فقط، والصورة الملونة التي تحتوي على ثلاث قنوات: الأحمر والأخضر والأزرق.  
+يوجد رسم تخطيطي يبين ورقة عليها حرف R، وعدسة، وكاشف خطي (Array detector) مع سهم يوضح حركة المسح عبر الصفحة.
+
+
+================================================================================
+PAGE 5 - page_0005.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+2021-03-09
+
+Images, Pixels, and Geometry-cont.
+
+• A pixel from a camera or scanner is a
+measurement of the average color of the
+image over some small area around the
+pixel.
+
+• A display pixel, with its red, green, and blue
+subpixels, is designed so that the average
+color of the image over the face of the pixel
+is controlled by the corresponding pixel
+value in the raster image.
+
+y
+
+(0,2)                         y = 2.5
+(3,2)
+
+(0,1)
+
+x
+(0,0)   (1,0)   (2,0)   (3,0)
+
+y = -0.5
+x = -0.5
+x = 3.5
+
+66
+
+Images, Pixels, and Geometry-cont.
+
+• The values of pixels in terms of real
+numbers, representing intensity (possibly
+separately for red, green, and blue).
+
+• Images should be arrays of floating-point
+numbers, with either one (for grayscale, or
+black and white, images) or three (for RGB
+color images)
+
+• 32-bit floating point numbers stored per
+pixel. This format is sometimes used, when
+its precision and range of values are
+needed, but images have a lot of pixels and
+memory and bandwidth for storing and
+transmitting images are invariably scarce.
+
+67
+------------PAGE TALK ABOUT------------
+الصفحة تشرح مفهوم البكسل في الصور الرقمية وكيف يمثل متوسط اللون في مساحة صغيرة من الصورة، سواء عند الالتقاط بالكاميرا أو العرض على الشاشة.  
+توضح أيضًا أن بكسل الشاشة يتكون من مكونات فرعية: الأحمر والأخضر والأزرق (RGB)، وأن قيمة البكسل تتحكم في اللون الظاهر.  
+يوجد رسم شبكي يبين مواقع البكسلات على مستوى إحداثي وحدود كل خلية، مع نقاط معنونة مثل (0,0) و(3,2).  
+وفي الجزء السفلي تشرح أن الصور تمثل كمصفوفات من أعداد حقيقية أو floating-point، إما قناة واحدة للرمادي أو ثلاث قنوات للألوان، مع أمثلة صور توضح القنوات اللونية المختلفة.
+
+
+================================================================================
+PAGE 6 - page_0006.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+2021-03-09
+
+Gamma correction
+
+• **Gamma correction**, or often simply gamma, is a nonlinear operation used to encode and decode luminance or tristimulus values in video or still image systems.
+
+• Gamma correction is, in the simplest cases, defined by the following power-law expression
+
+Gamma correction-cont.
+
+• Which rectangle is darker and which is lighter?
+
+69
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن مفهوم **تصحيح جاما (Gamma correction)** في معالجة الصور والفيديو، وأنه عملية غير خطية تُستخدم لتمثيل السطوع بشكل مناسب.  
+يوجد في الأعلى رسم يوضح منحنيات جاما المختلفة مع ثلاث صور لطائرة تُظهر كيف يتغير مظهر الصورة حسب قيمة الجاما.  
+في الجزء السفلي يوجد تدرج رمادي من الأسود إلى الأبيض مع مستطيلين رماديين متماثلين ظاهريًا لاختبار إدراك السطوع.  
+الفكرة الأساسية هي أن الجاما تؤثر على عرض الإضاءة والتباين، كما توضح كيف يمكن للخلفية أن تغيّر إحساسنا بدرجة اللون.
+
+
+================================================================================
+PAGE 7 - page_0007.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+2021-03-09
+
+RGB Color
+
+• Most computer graphics images are defined
+in terms of red-green-blue (RGB) color. RGB
+color is a simple space that allows
+straightforward conversion to the more
+familiar additive mixing that happens in
+displays. the controls for most computer
+screens.
+
+• In grade school you probably learned that
+the primaries are red, yellow, and blue, and
+that, e.g., yellow + blue = green. This is
+subtractive color mixing, which is
+fundamentally different from
+
+Cyan
+Blue
+Green
+White
+Magenta
+Yellow
+Red
+Additive color
+
+Cyan
+Green
+Yellow
+Black
+Blue
+Magenta
+Red
+Subtractive color
+
+70
+
+RGB Color-cont.
+
+• The RGB color cube in 3D and its faces unfolded. Any RGB color is a
+point in the cube.
+
+b
+(1,0,1)
+(0,1,1)
+(1,1,1)
+(1,1,0)
+r
+g
+
+(0,1,1)
+(0,1,1)
+(1,1,1)
+g
+b
+(0,0,0)
+r
+(1,1,0)
+(0,1,1)
+(1,0,1)
+b
+(1,0,1)
+
+71
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن نموذج الألوان RGB المستخدم في الرسوميات الحاسوبية والشاشات، وتوضح أنه يعتمد على المزج الإضافي للضوء الأحمر والأخضر والأزرق.  
+كما تقارن بين المزج الإضافي والمزج الطرحي الذي يُستخدم في الألوان التقليدية، مع أمثلة بصرية لدوائر متداخلة تُظهر نواتج المزج مثل الأبيض والأسود.  
+في الجزء الثاني تعرض الصفحة مكعب RGB ثلاثي الأبعاد، حيث يمثل كل لون نقطة داخل المكعب بحسب قيم r و g و b.  
+وتوجد أيضًا رسمة لوجوه المكعب بعد فردها، مع إحداثيات مثل (0,0,0) و(1,1,1) لتوضيح مواقع الألوان الأساسية والمركبة.
+
+
+================================================================================
+PAGE 8 - page_0008.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+2021-03-09
+
+Alpha Compositing
+
+• Often we would like to only partially overwrite the contents of a pixel.
+  A common example of this occurs in compositing, where we have a
+  background and want to insert a foreground image over it.
+
+• For opaque pixels in the foreground, we just replace the background
+  pixel. For entirely transparent foreground pixels, we do not change
+  the background pixel. For partially transparent pixels, some care
+  must be taken:
+
+c = αc_f + (1 − α)c_b
+
+72
+
+Alpha Compositing-cont.
+
+• An example of compositing using the previous Equation . The
+  foreground image is in effect cropped by the α channel before being
+  put on top of the background image. The resulting composite is
+  shown on the bottom.
+
+Background RGB
+Foreground RGB
+α channel
+
+73
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن مفهوم الدمج باستخدام قناة الشفافية Alpha Compositing، حيث يتم تركيب صورة أمامية فوق صورة خلفية مع التحكم بدرجة الشفافية.  
+توضح أن البكسل المعتم يستبدل الخلفية بالكامل، والشفاف تمامًا لا يغيّر شيئًا، أما الشفافية الجزئية فتُحسب بالمعادلة: c = αc_f + (1 − α)c_b.  
+يوجد مثال بصري يبيّن صورة خلفية تحتوي حرف A، وصورة أمامية مربعة برتقالية، وقناة ألفا على شكل قناع مثلثي أبيض على خلفية سوداء.  
+وفي الأسفل تظهر النتيجة النهائية بعد قصّ الصورة الأمامية بقناة ألفا ثم وضعها فوق الخلفية.
+
+
+================================================================================
+PAGE 9 - page_0009.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+2021-03-09
+
+Image Storage
+
+• Most RGB image formats use
+eight bits for each of the red,
+green, and blue channels. This
+results in approximately three
+megabytes of raw information
+for a single million-pixel image.
+• To reduce the storage
+requirement, most image
+formats allow for some kind of
+compression. At a high level,
+such compression is either
+lossless or lossy.
+
+Lossless    Lossy
+
+74
+
+Image Storage-cont.
+
+• Popular image Storage formats include:
+  • jpeg. This lossy format compresses image blocks based on thresholds in the
+    human visual system. This format works well for natural images.
+  • tiff. This format is most commonly used to hold binary images or losslessly
+    compressed 8- or 16-bit RGB although many other options exist.
+  • ppm. This very simple lossless, uncompressed format is most often used for
+    8-bit RGB images although many options exist.
+  • png. This is a set of lossless formats with a good set of open source
+    management tools.
+  • svg. Scalable vector graphics for store vectors data
+
+75
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن تخزين الصور الرقمية، وتوضح أن معظم صور RGB تستخدم 8 بت لكل قناة لونية: الأحمر والأخضر والأزرق، مما يجعل الصورة ذات المليون بكسل تحتاج تقريبًا 3 ميجابايت من البيانات الخام.  
+كما تشرح أن تقليل حجم التخزين يتم عبر الضغط، والذي ينقسم إلى نوعين: ضغط بدون فقدان (lossless) وضغط مع فقدان (lossy).  
+وتعرض الصفحة أمثلة لصيغ الصور الشائعة مثل JPEG وTIFF وPPM وPNG وSVG مع توضيح استخدام كل صيغة باختصار.  
+يوجد أيضًا عنصر بصري يقارن بين صورتين لبركان وصاعقة، إحداهما بعنوان "Lossless" والأخرى "Lossy" لإظهار الفرق البصري بين نوعي الضغط.
+
+
+================================================================================
+PAGE 10 - page_0010.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+2021-03-09
+
+Summary
+
+• Raster Images are based on each color pixel while vector are based on
+  math equations.
+• Raster Devices are into two main categories: Output and Input.
+• Images are set of pixel arrays.
+• Most computer graphics images are defined in terms of red-green-
+  blue (RGB) color.
+• Alpha Compositing is about most important piece of information
+  needed to blend a foreground object over a background object.
+• Image Storage can differ form one extention to another depending on
+  size and compression.
+
+76
+
+Chapter four
+
+• Transformation Matrices
+• 2D Linear Transformations
+• Scaling
+• Shearing
+• Rotation
+• Reflection
+• 3D Linear Transformations
+• Summary
+
+77
+------------PAGE TALK ABOUT------------
+تحتوي الصفحة على شريحتين من عرض تعليمي في الرسوميات الحاسوبية.  
+الشريحة الأولى تلخص مفاهيم الفصل السابق مثل الفرق بين الصور النقطية والمتجهة، أجهزة الإدخال والإخراج، البكسلات، ألوان RGB، المزج باستخدام Alpha، وتخزين الصور.  
+الشريحة الثانية تعرض عنوان الفصل الرابع وموضوعاته، وتركز على مصفوفات التحويل والتحويلات الخطية الثنائية والثلاثية الأبعاد مثل التكبير، القص، الدوران، والانعكاس.  
+يوجد إطار مستطيل بسيط لكل شريحة مع أرقام الصفحات 76 و77، كما يظهر تاريخ 2021-03-09 أعلى الصفحة.
+
+
+================================================================================
+PAGE 11 - page_0011.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+2021-03-09
+
+Transformation Matrices
+
+• Geometric transformations like
+rotation, translation, scaling, and
+projection can be accomplished with
+matrix multiplication, and the
+transformation matrices used to do
+this are the subject of this chapter.
+
+No change
+\[
+\begin{bmatrix}
+1 & 0 & 0\\
+0 & 1 & 0\\
+0 & 0 & 1
+\end{bmatrix}
+\]
+
+Translate
+\[
+\begin{bmatrix}
+1 & 0 & X\\
+0 & 1 & Y\\
+0 & 0 & 1
+\end{bmatrix}
+\]
+
+Scale about origin
+\[
+\begin{bmatrix}
+W & 0 & 0\\
+0 & H & 0\\
+0 & 0 & 1
+\end{bmatrix}
+\]
+
+Rotate about origin
+\[
+\begin{bmatrix}
+\cos \theta & \sin \theta & 0\\
+-\sin \theta & \cos \theta & 0\\
+0 & 0 & 1
+\end{bmatrix}
+\]
+
+Shear in x direction
+\[
+\begin{bmatrix}
+1 & \tan \phi & 0\\
+0 & 1 & 0\\
+0 & 0 & 1
+\end{bmatrix}
+\]
+
+Shear in y direction
+\[
+\begin{bmatrix}
+1 & 0 & 0\\
+\tan \psi & 1 & 0\\
+0 & 0 & 1
+\end{bmatrix}
+\]
+
+Reflect about origin
+\[
+\begin{bmatrix}
+-1 & 0 & 0\\
+0 & -1 & 0\\
+0 & 0 & 1
+\end{bmatrix}
+\]
+
+Reflect about x-axis
+\[
+\begin{bmatrix}
+1 & 0 & 0\\
+0 & -1 & 0\\
+0 & 0 & 1
+\end{bmatrix}
+\]
+
+Reflect about y-axis
+\[
+\begin{bmatrix}
+-1 & 0 & 0\\
+0 & 1 & 0\\
+0 & 0 & 1
+\end{bmatrix}
+\]
+
+78
+
+2D Linear Transformations
+
+• We can use a \(2 \times 2\) matrix to change, or transform, a 2D vector:
+
+\[
+\begin{bmatrix}
+a_{11} & a_{12}\\
+a_{21} & a_{22}
+\end{bmatrix}
+\begin{bmatrix}
+x\\
+y
+\end{bmatrix}
+=
+\begin{bmatrix}
+a_{11}x + a_{12}y\\
+a_{21}x + a_{22}y
+\end{bmatrix}.
+\]
+
+• By this simple formula we can achieve a variety of useful
+transformations, depending on what we put in the entries of the
+matrix, as will be discussed in the following sections.
+
+79
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن مصفوفات التحويل وكيف تُستخدم في الهندسة لتطبيق عمليات مثل الدوران، الإزاحة، التحجيم، القص، والانعكاس باستخدام ضرب المصفوفات.  
+الجزء الثاني يشرح التحويلات الخطية الثنائية الأبعاد، حيث تُستخدم مصفوفة \(2 \times 2\) لتحويل متجه \((x,y)\) إلى متجه جديد.  
+توجد رسومات صغيرة على يمين الشريحة الأولى توضح بصريًا تأثير كل نوع من التحويل على شكل حرف F على المستوى الإحداثي.  
+كما تعرض الشريحة الأولى أمثلة لمصفوفات \(3 \times 3\) للتحويلات المتجانسة، بينما تعرض الشريحة الثانية الصيغة العامة لضرب مصفوفة في متجه.
+
+
+================================================================================
+PAGE 12 - page_0012.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+2021-03-09
+
+Scaling
+
+• The most basic transform is a scale along the coordinate axes. This
+transform can change length and possibly direction:
+
+\[
+\mathrm{scale}(s_x, s_y)=
+\begin{bmatrix}
+s_x & 0\\
+0 & s_y
+\end{bmatrix}.
+\]
+
+y
+x
+
+\[
+\begin{bmatrix}
+0.5 & 0\\
+0 & 0.5
+\end{bmatrix}
+\]
+
+y
+x
+
+80
+
+Shearing
+
+• A shear is something that pushes things sideways. The horizontal and
+vertical shear matrices are
+
+\[
+\mathrm{shear}\text{-}x(1)=
+\begin{bmatrix}
+1 & 1\\
+0 & 1
+\end{bmatrix}.
+\]
+
+y
+x
+
+\[
+\begin{bmatrix}
+1 & 1\\
+0 & 1
+\end{bmatrix}
+\]
+
+y
+x
+
+81
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن نوعين من التحويلات الهندسية الخطية: التحجيم (Scaling) والقصّ (Shearing).  
+في جزء التحجيم، توضّح الشريحة أن الشكل يمكن تكبيره أو تصغيره على محوري \(x\) و\(y\) باستخدام مصفوفة قطرية، مع مثال لمصفوفة \(\begin{bmatrix}0.5&0\\0&0.5\end{bmatrix}\) التي تصغّر شكل الساعة إلى النصف.  
+في جزء القصّ، تشرح الشريحة أن القصّ يدفع الشكل جانبياً، وتعرض مصفوفة القص الأفقي \(\begin{bmatrix}1&1\\0&1\end{bmatrix}\).  
+الرسومات تُظهر ساعة مربعة قبل وبعد التحويل: الأولى تصبح أصغر في التحجيم، والثانية تتحول إلى شكل مائل يشبه متوازي الأضلاع في القصّ.
+
+
+================================================================================
+PAGE 13 - page_0013.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+2021-03-09
+
+Rotation
+
+• Suppose we want to rotate a vector a by an angle ϕ counterclockwise
+  to get vector b
+
+\[
+\text{rotate}(\phi)=
+\begin{bmatrix}
+\cos\phi & -\sin\phi\\
+\sin\phi & \cos\phi
+\end{bmatrix}
+\]
+
+(0,1)
+
+y
+
+x
+
+(0,1)
+
+(.707,.707)
+
+(-.707,.707)
+
+\[
+\begin{bmatrix}
+.707 & -.707\\
+.707 & .707
+\end{bmatrix}
+\]
+
+x
+
+82
+
+Reflection
+
+• We can reflect a vector across either of the coordinate axes by using
+  a scale with one negative scale factor
+
+\[
+\text{reflect-x}=
+\begin{bmatrix}
+1 & 0\\
+0 & -1
+\end{bmatrix}.
+\]
+
+y
+
+x
+
+\[
+\begin{bmatrix}
+-1 & 0\\
+0 & 1
+\end{bmatrix}
+\]
+
+y
+
+x
+
+83
+------------PAGE TALK ABOUT------------
+تشرح الصفحة تحويلين هندسيين في الجبر الخطي: الدوران والانعكاس باستخدام المصفوفات.  
+في الجزء الأول تعرض مصفوفة دوران بزاوية \(\phi\) عكس عقارب الساعة، مع مثال بصري لساعة مربعة تم تدويرها لتصبح مائلة، وإظهار إحداثيات مثل \((0,1)\) و\((.707,.707)\).  
+في الجزء الثاني تشرح الانعكاس حول المحاور باستخدام مصفوفة تحتوي على عامل قياس سالب واحد، مع رسم لساعة تنعكس أفقيًا فتظهر معكوسة.  
+الرسومات توضح محوري \(x\) و\(y\) قبل وبعد التحويل، مع أسهم تبين الانتقال من الشكل الأصلي إلى الشكل الناتج.
+
+
+================================================================================
+PAGE 14 - page_0014.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+2021-03-09
+
+Multiple Transformation
+
+• It is common for graphics programs to apply more than one transformation to an object.
+
+• For example, we might want to first apply a scale S, and then a rotation R.
+
+y
+x
+
+\[
+\begin{bmatrix}
+1.0 & 0 \\
+0 & 0.5
+\end{bmatrix}
+\]
+
+y
+x
+
+\[
+\begin{bmatrix}
+.707 & -.353 \\
+.707 & .353
+\end{bmatrix}
+\]
+
+y
+x
+
+\[
+\begin{bmatrix}
+.707 & -.707 \\
+.707 & .707
+\end{bmatrix}
+\]
+
+84
+
+3D Linear Transformation
+
+• The linear 3D transforms are an extension of the 2D transforms. For example, a scale along Cartesian axes is
+
+\[
+\text{scale}(s_x, s_y, s_z)=
+\begin{bmatrix}
+s_x & 0 & 0 \\
+0 & s_y & 0 \\
+0 & 0 & s_z
+\end{bmatrix}.
+\]
+
+85
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن التحويلات الهندسية في الرسوميات، وبالتحديد تطبيق أكثر من تحويل على نفس الشكل مثل التحجيم ثم الدوران.  
+يوضح الشكل العلوي مثالًا لساعة يتم أولًا تغيير أبعادها بمصفوفة تحجيم ثم تدويرها، مع عرض المصفوفات الناتجة لكل خطوة.  
+كما تعرض الصفحة الثانية امتداد هذه الفكرة إلى الفضاء ثلاثي الأبعاد، حيث يتم تمثيل التحجيم على المحاور \(x,y,z\) بمصفوفة قطرية \(3\times3\).  
+الرسومات المرافقة تبين محاور إحداثية وسهام انتقال بين الأشكال لتوضيح أثر كل تحويل بصريًا.
+
+
+================================================================================
+PAGE 15 - page_0015.png
+================================================================================
+
+------------TEXT EXTRACTED------------
+2021-03-09
+
+Summery
+
+• In linear algebra, linear transformations can be represented by
+matrices.
+
+• The matrix associated with a stretch by a factor k along the x-axis is
+given by  \(\begin{bmatrix} k & 0 \\ 0 & 1 \end{bmatrix}\)
+
+• For rotation by an angle θ clockwise about the origin the functional
+form is
+
+\[
+\begin{bmatrix}
+x' \\
+y'
+\end{bmatrix}
+=
+\begin{bmatrix}
+\cos \theta & \sin \theta \\
+-\sin \theta & \cos \theta
+\end{bmatrix}
+\begin{bmatrix}
+x \\
+y
+\end{bmatrix}
+\]
+
+86
+
+Summery-cont.
+
+• Shearing (visually similar to slanting)
+
+\[
+\begin{bmatrix}
+x' \\
+y'
+\end{bmatrix}
+=
+\begin{bmatrix}
+1 & k \\
+0 & 1
+\end{bmatrix}
+\begin{bmatrix}
+x \\
+y
+\end{bmatrix}
+\]
+
+• Reflection in x-axis and y-axis
+
+\[
+\text{reflect-y} =
+\begin{bmatrix}
+-1 & 0 \\
+0 & 1
+\end{bmatrix}
+,\quad
+\text{reflect-x} =
+\begin{bmatrix}
+1 & 0 \\
+0 & -1
+\end{bmatrix}
+.
+\]
+
+• 3D Transformation is an extension to 2D matrix.
+
+87
+------------PAGE TALK ABOUT------------
+تتحدث الصفحة عن ملخص لتحويلات خطية في الجبر الخطي وتمثيلها باستخدام المصفوفات.  
+توضح أمثلة أساسية مثل التمدد على محور \(x\)، والدوران بزاوية \(\theta\) حول الأصل، والقص (Shearing)، والانعكاس حول المحورين \(x\) و\(y\).  
+كما تشير إلى أن تحويلات الأبعاد الثلاثية هي امتداد طبيعي لتحويلات البعدين.  
+العناصر البصرية عبارة عن شريحتين عرض بسيطتين تحتويان نقاطًا تعدادّية ومعادلات مصفوفية فقط، بدون صور أو رسوم بيانية.
+
